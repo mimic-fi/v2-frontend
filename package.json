@@ -1,0 +1,28 @@
+{
+  "name": "@mimic-fi/v2-frontend",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "lint": "eslint .",
+    "build": "echo 'No build script for now'",
+    "start": "echo 'No start script for now'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.9.0",
+    "eslint-config-react-app": "^7.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
