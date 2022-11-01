@@ -1,22 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { H1, BodyL, Container } from '../styles/texts'
-import usePrimitiveExecutions from '../hooks/usePrimitiveExecutions'
 
 const Hero = () => {
-  const primitiveExecutions = usePrimitiveExecutions()
-  console.log(primitiveExecutions.data)
-  let itemsToRender
-  if (primitiveExecutions && primitiveExecutions.data) {
-    itemsToRender = primitiveExecutions.data.map(item => {
-      return (
-        <div key={item.id}>
-          <h2>{item.type}</h2> <p>excecuted at: {item.executedAt}</p>
-        </div>
-      )
-    })
-  }
-
   return (
     <HeroSection>
       <Container>
@@ -25,7 +11,6 @@ const Hero = () => {
           Our platform helps you grow your business by transforming manual work
           into automated actions.
         </BodyL>
-        {itemsToRender}
       </Container>
     </HeroSection>
   )
@@ -41,7 +26,7 @@ const HeroSection = styled.section`
     min-height: 650px;
     padding: 60px 0 0 0;
   }
-  h2{
+  h2 {
     color: violet;
   }
 `

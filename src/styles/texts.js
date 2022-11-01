@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+export const MEDIUM = 800
+
 export const H1 = styled.h1`
   font-family: 'GTWalsheimPro';
   font-style: normal;
