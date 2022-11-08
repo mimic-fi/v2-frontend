@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container } from '../styles/texts'
 import Page from '../components/Page'
+import Hero from '../sections/Hero'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
 const Primitives = () => {
@@ -20,7 +21,7 @@ const Primitives = () => {
     }, {})
 
     console.log('g', grouped)
-    
+
     itemsToRender = data.map(item => {
       return (
         <div key={item.id}>
@@ -34,6 +35,7 @@ const Primitives = () => {
 
   return (
     <Page>
+      <Hero />
       <PrimitivesSection>
         <Container>
           <h1>primitives section</h1>

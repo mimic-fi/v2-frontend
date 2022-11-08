@@ -11,8 +11,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/primitives" element={<Hero />} />
+        <Route path="/" element={<SmartVaults />} />
         <Route path="/smart-vaults" element={<SmartVaults />} />
         <Route path="/smart-vaults/:id" element={<Primitives />} />
       </Routes>

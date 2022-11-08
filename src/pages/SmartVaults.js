@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import Page from '../components/Page'
 import { Container } from '../styles/texts'
 import useSmartVaults from '../hooks/useSmartVaults'
 
@@ -21,9 +22,11 @@ const SmartVaults = () => {
   }
 
   return (
-    <SmartVaultsSection>
-      <Container>{itemsToRender}</Container>
-    </SmartVaultsSection>
+    <Page>
+      <SmartVaultsSection>
+        <Container>{itemsToRender}</Container>
+      </SmartVaultsSection>
+    </Page>
   )
 }
 

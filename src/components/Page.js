@@ -4,7 +4,6 @@ import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import { GU } from '../styles/texts'
 
-
 const NAVBAR_HEIGHT = 80
 const MENU_WIDTH = 109
 
@@ -17,7 +16,7 @@ const Page = ({ children }) => {
           <NavbarContainer>
             <Navbar />
           </NavbarContainer>
-          {children}
+          <SectionContainer>{children}</SectionContainer>
         </PageContainer>
       </Container>
     </Wrapper>
@@ -30,7 +29,6 @@ const Wrapper = styled.section`
   position: relative;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
 `
 
 const Container = styled.div`
@@ -52,11 +50,18 @@ const NavbarContainer = styled.div`
   box-shadow: 0px 4px 24px rgba(31, 32, 33, 0.24);
 `
 const PageContainer = styled.div`
+  background: #252627;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+`
+
+const SectionContainer = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
   background: #252627;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - ${NAVBAR_HEIGHT}px);
 `
 
 export default Page
