@@ -3,12 +3,13 @@ import styled from 'styled-components'
 import { H1, BodyL, Container } from '../styles/texts'
 import Page from '../components/Page'
 
+
 const Hero = () => {
   return (
     <Page>
-    <HeroSection>
-      app home
-    </HeroSection>
+      <HeroSection>
+        app home
+      </HeroSection>
     </Page>
   )
 }

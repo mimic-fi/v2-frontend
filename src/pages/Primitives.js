@@ -1,48 +1,58 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container } from '../styles/texts'
+import Page from '../components/Page'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
 const Primitives = () => {
   //todo: add loader
   //todo: get value from url
   const smartVault = useSmartVaultWithPrimitives(
-    '0xd4e8ef46dd296395ff8801d8a4e542ad108e9716'
+    '0xdedea106184907836ccd2e8f1a1dba0365e2c0d5'
   )
 
   let itemsToRender
-  if (smartVault && smartVault.data && smartVault.data.wallet) {
-    itemsToRender = smartVault.data.wallet.primitiveExecutions.map(item => {
+  if (smartVault && smartVault.data && smartVault.data.smartVault) {
+    let data = smartVault.data.smartVault.primitiveExecutions
+    let grouped = data.reduce(function(rv, x) {
+      ;(rv[x['transaction']] = rv[x['transaction']] || []).push(x)
+      return rv
+    }, {})
+
+    console.log('g', grouped)
+    
+    itemsToRender = data.map(item => {
       return (
         <div key={item.id}>
-          <h2>{item.type}: {item.id}</h2>
+          <h2>
+            {item.type}: {item.id}
+          </h2>
         </div>
       )
     })
   }
 
   return (
-    <PrimitivesSection>
-      <Container>
-        <h1>primitives section</h1>
-        {itemsToRender}
-      </Container>
-    </PrimitivesSection>
+    <Page>
+      <PrimitivesSection>
+        <Container>
+          <h1>primitives section</h1>
+          {itemsToRender}
+        </Container>
+      </PrimitivesSection>
+    </Page>
   )
 }
 
 const PrimitivesSection = styled.section`
   background: #121418;
   height: auto;
-  min-height: 1700px;
   padding-top: 80px;
   color: white;
-  @media only screen and (max-width: 700px) {
-    min-height: 650px;
-    padding: 60px 0 0 0;
-  }
   h2 {
     color: violet;
+    max-width: 80%;
+    word-wrap: break-word;
   }
 `
 

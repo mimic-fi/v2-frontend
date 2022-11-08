@@ -12,11 +12,8 @@ const fetchSmartVaults = async () => {
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-goerli',
     gql`
       {
-        wallets {
+        smartVaults {
           id
-          vault {
-            id
-          }
         }
       }
     `

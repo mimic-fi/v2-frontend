@@ -16,44 +16,21 @@ const fetchSmartVault = async id => {
   let smartVault = await request(
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-goerli',
     gql`
-      {
-        wallet(id: ${'"'+ id.toLowerCase() + '"'}) {
+    {
+        smartVault(id: ${'"' + id.toLowerCase() + '"'}) {
           id
           primitiveExecutions {
             id
             type
-            tokenIn {
-              id
-              name
-              symbol
-              decimals
-            }
-            amountIn
-            tokenOut {
-              id
-              name
-              symbol
-              decimals
-            }
-            amountOut
             executedAt
             transaction
-            fee {
-              pct
-              token {
-                id
-                name
-                symbol
-                decimals
-              }
-              amount
-              feeCollector
-            }
+
           }
         }
       }
     `
   )
+  console.log('s', smartVault)
   return smartVault
 }
 

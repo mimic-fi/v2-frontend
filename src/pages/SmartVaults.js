@@ -8,8 +8,8 @@ const SmartVaults = () => {
   //todo: add loader
   const smartVaults = useSmartVaults()
   let itemsToRender
-  if (smartVaults && smartVaults.data && smartVaults.data.wallets) {
-    itemsToRender = smartVaults.data.wallets.map(item => {
+  if (smartVaults && smartVaults.data && smartVaults.data.smartVaults) {
+    itemsToRender = smartVaults.data.smartVaults.map(item => {
       return (
         <div key={item.id}>
           <Link to={'/smart-vaults/' + item.id}>
