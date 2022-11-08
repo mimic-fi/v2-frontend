@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
-import { GU } from '../styles/texts'
 
 const NAVBAR_HEIGHT = 80
 const MENU_WIDTH = 109

@@ -2,7 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container } from '../styles/texts'
 import Page from '../components/Page'
+import Table from '../components/Table/Table'
+import TableRow from '../components/Table/TableRow'
+import TableHeader from '../components/Table/TableHeader'
+import TableCell from '../components/Table/TableCell'
 import Hero from '../sections/Hero'
+import { Hm } from '../styles/texts'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
 const Primitives = () => {
@@ -24,11 +29,10 @@ const Primitives = () => {
 
     itemsToRender = data.map(item => {
       return (
-        <div key={item.id}>
-          <h2>
-            {item.type}: {item.id}
-          </h2>
-        </div>
+        <TableRow key={item.id}>
+          <TableCell>{item.type}</TableCell>
+          <TableCell>{item.executedAt}</TableCell>
+        </TableRow>
       )
     })
   }
@@ -38,8 +42,18 @@ const Primitives = () => {
       <Hero />
       <PrimitivesSection>
         <Container>
-          <h1>primitives section</h1>
-          {itemsToRender}
+          <Hm>Latest actions</Hm>
+          <Table
+            header={
+              <TableRow>
+                <TableHeader title="Type" />
+                <TableHeader title="Date" />
+              </TableRow>
+            }
+          >
+            {itemsToRender}
+          </Table>
+
         </Container>
       </PrimitivesSection>
     </Page>
@@ -47,15 +61,9 @@ const Primitives = () => {
 }
 
 const PrimitivesSection = styled.section`
-  background: #121418;
   height: auto;
-  padding-top: 80px;
+  padding: 80px 0;
   color: white;
-  h2 {
-    color: violet;
-    max-width: 80%;
-    word-wrap: break-word;
-  }
 `
 
 export default Primitives
