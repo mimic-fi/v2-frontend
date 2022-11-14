@@ -8,6 +8,7 @@ import useSmartVaults from '../hooks/useSmartVaults'
 const SmartVaults = () => {
   //todo: add loader
   const smartVaults = useSmartVaults()
+  console.log(smartVaults)
   let itemsToRender
   if (smartVaults && smartVaults.data && smartVaults.data.smartVaults) {
     itemsToRender = smartVaults.data.smartVaults.map(item => {

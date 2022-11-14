@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Hl, Hxxs, BodyL, BodyS, Container } from '../styles/texts'
-import Page from '../components/Page'
+import { Hl, Hxxs, BodyL, BodyS } from '../styles/texts'
 import check from '../assets/check.svg'
 import list from '../assets/list.svg'
 import lock from '../assets/lock.svg'
@@ -13,25 +12,25 @@ const Hero = () => {
       <BodyL>Hello diver!</BodyL>
       <Hl>Funds withdrawn and sent to wallet ✓</Hl>
       <BodyL>
-        2 days ago <a>See receipt</a>
+        2 days ago <span className="link">See receipt</span>
       </BodyL>
       <Box>
         <Item>
-          <img src={lock} />
+          <img alt="" src={lock} />
           <div>
             <Hxxs>$465000.00</Hxxs>
             <BodyS>Total assets managed</BodyS>
           </div>
         </Item>
         <Item>
-          <img src={check} />
+          <img alt="" src={check} />
           <div>
             <Hxxs>Active</Hxxs>
             <BodyS>See Vault’s history</BodyS>
           </div>
         </Item>
         <Item>
-          <img src={list} />
+          <img alt="" src={list} />
           <div>
             <Hxxs>Collect funds</Hxxs>
             <BodyS>Next scheduled action</BodyS>
@@ -50,7 +49,7 @@ const Box = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1000px;
+  max-width: 1060px;
   height: 150px;
 `
 const Item = styled.div`
@@ -75,9 +74,10 @@ const HeroSection = styled.section`
   padding: 150px 80px 80px 80px;
   color: white;
   text-align: center;
-  a {
+  a, span.link {
     color: #a996ff;
     font-family: 'GTWalsheimProBold';
+    padding-left: 7px;
   }
   h2 {
     max-width: 600px;

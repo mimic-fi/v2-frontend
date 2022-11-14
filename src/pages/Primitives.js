@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container } from '../styles/texts'
+import { useParams } from 'react-router-dom'
+import moment from 'moment'
 import Page from '../components/Page'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
@@ -12,10 +14,12 @@ import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
 const Primitives = () => {
   //todo: add loader
-  //todo: get value from url
+  const params = useParams()
   const smartVault = useSmartVaultWithPrimitives(
-    '0xdedea106184907836ccd2e8f1a1dba0365e2c0d5'
+    params.id
   )
+
+  console.log(smartVault)
 
   let itemsToRender
   if (smartVault && smartVault.data && smartVault.data.smartVault) {
@@ -31,7 +35,11 @@ const Primitives = () => {
       return (
         <TableRow key={item.id}>
           <TableCell>{item.type}</TableCell>
-          <TableCell>{item.executedAt}</TableCell>
+          <TableCell>
+            {item.executedAt
+              ? moment.unix(item.executedAt).format('MMM Do, h:mm')
+              : '-'}
+          </TableCell>
         </TableRow>
       )
     })
@@ -53,7 +61,6 @@ const Primitives = () => {
           >
             {itemsToRender}
           </Table>
-
         </Container>
       </PrimitivesSection>
     </Page>
