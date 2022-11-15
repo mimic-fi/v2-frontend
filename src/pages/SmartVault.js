@@ -11,15 +11,15 @@ import TableCell from '../components/Table/TableCell'
 import Hero from '../sections/Hero'
 import { Hm } from '../styles/texts'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
+import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 
 const Primitives = () => {
   //todo: add loader
   const params = useParams()
-  const smartVault = useSmartVaultWithPrimitives(
-    params.id
-  )
+  const smartVault = useSmartVaultWithPrimitives(params.id)
 
-  console.log(smartVault)
+  const metadata = useSmartVaultMetadata('0xD4E8Ef46Dd296395fF8801D8A4E542Ad108E9716')
+  console.log('metadata', metadata)
 
   let itemsToRender
   if (smartVault && smartVault.data && smartVault.data.smartVault) {

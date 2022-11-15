@@ -30,7 +30,6 @@ const fetchSmartVault = async id => {
       }
     `
   )
-  console.log('s', smartVault)
   return smartVault
 }
 
