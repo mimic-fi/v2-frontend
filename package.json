@@ -21,7 +21,21 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.9.0",
-    "eslint-config-react-app": "^7.0.1"
+    "eslint-config-react-app": "^7.0.1",
+    "vercel": "^28.4.15"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "scripts": {
     "lint": "eslint .",
