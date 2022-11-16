@@ -1,4 +1,4 @@
-import ethereumLogoUrl from 'assets/images/ethereum-logo.png'
+import ethereumLogoUrl from 'assets/ethereum-logo.svg'
 
 export const SupportedChainId = {
     MAINNET: 1,
