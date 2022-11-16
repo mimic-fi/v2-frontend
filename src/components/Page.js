@@ -5,7 +5,6 @@ import NetworkInfo from './NetworkInfo'
 import Sidebar from './Sidebar'
 
 const NAVBAR_HEIGHT = 80
-const MENU_WIDTH = 109
 
 const Page = ({ children }) => {
   return (
