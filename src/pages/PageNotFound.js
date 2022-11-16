@@ -11,7 +11,7 @@ const PageNotFound = () => {
         <Container>
           <Hl>Page not found</Hl>
           <BodyL>
-            Sorry, the page you are looking for doesn't exist or has benn moved.<br/>
+            Sorry, the page you are looking for doesn't exist or has been moved.<br/>
             Try searching for a smart vault:
           </BodyL>
           <SearchBar />
