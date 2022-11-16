@@ -6,8 +6,9 @@ env:
 
 on:
   push:
-    branches:
-      - '*'
+    branches: "*"
+  pull_request:
+    branches: "*"
 
 jobs:
   deploy:
@@ -29,3 +30,17 @@ jobs:
         run: yarn vercel build --token=${{ secrets.VERCEL_TOKEN }}
       - name: Vercel deploy
         run: yarn vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy failure
+        uses: rjstone/discord-webhook-notify@v1
+        if: failure()
+        with:
+          severity: error
+          details: Deploy failed!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Deploy cancelled
+        uses: rjstone/discord-webhook-notify@v1
+        if: cancelled()
+        with:
+          severity: warn
+          details: Deploy cancelled!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
