@@ -2,77 +2,62 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container } from '../styles/texts'
 import { useParams } from 'react-router-dom'
-import moment from 'moment'
 import Page from '../components/Page'
+import Action from '../components/Action'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
 import TableHeader from '../components/Table/TableHeader'
-import TableCell from '../components/Table/TableCell'
 import Hero from '../sections/Hero'
 import SmartVaultDetail from '../sections/SmartVaultDetail'
 import { Hm } from '../styles/texts'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
-import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 
-const Primitives = () => {
+const SmartVault = () => {
   //todo: add loader
   const params = useParams()
   const smartVault = useSmartVaultWithPrimitives(params.id)
 
-  const metadata = useSmartVaultMetadata('0xD4E8Ef46Dd296395fF8801D8A4E542Ad108E9716')
-  console.log('metadata', metadata)
-
-  let itemsToRender
+  let actions
   if (smartVault && smartVault.data && smartVault.data.smartVault) {
     let data = smartVault.data.smartVault.primitiveExecutions
     let grouped = data.reduce(function(rv, x) {
       ;(rv[x['transaction']] = rv[x['transaction']] || []).push(x)
       return rv
     }, {})
-
-    console.log('g', grouped)
-
-    itemsToRender = data.map(item => {
-      return (
-        <TableRow key={item.id}>
-          <TableCell>{item.type}</TableCell>
-          <TableCell>
-            {item.executedAt
-              ? moment.unix(item.executedAt).format('MMM Do, h:mm')
-              : '-'}
-          </TableCell>
-        </TableRow>
-      )
+    actions = Object.values(grouped).map(primitives => {
+      return <Action primitives={primitives} key={primitives.id} />
     })
   }
 
   return (
     <Page>
       <Hero />
-      <PrimitivesSection>
+      <LatestActionsSection>
         <Container>
           <Hm>Latest actions</Hm>
           <Table
             header={
               <TableRow>
-                <TableHeader title="Type" />
                 <TableHeader title="Date" />
+                <TableHeader title="Action" />
+                <TableHeader title="Excecuted by" />
+                <TableHeader title="Status" />
               </TableRow>
             }
           >
-            {itemsToRender}
+            {actions}
           </Table>
         </Container>
-      </PrimitivesSection>
+      </LatestActionsSection>
       <SmartVaultDetail />
     </Page>
   )
 }
 
-const PrimitivesSection = styled.section`
+const LatestActionsSection = styled.section`
   height: auto;
   padding: 80px 0;
   color: white;
 `
 
-export default Primitives
+export default SmartVault

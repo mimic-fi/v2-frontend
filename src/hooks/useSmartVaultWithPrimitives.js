@@ -19,12 +19,13 @@ const fetchSmartVault = async id => {
     {
         smartVault(id: ${'"' + id.toLowerCase() + '"'}) {
           id
-          primitiveExecutions {
+          primitiveExecutions(orderBy: executedAt, orderDirection: desc) {
             id
             type
             executedAt
             transaction
-
+            target
+            sender
           }
         }
       }

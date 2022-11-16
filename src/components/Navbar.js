@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 const Navbar = () => {
-  const [width, setWidth] = useState(window.innerWidth)
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth))
-  }, [])
-  const medium = 700
 
   return (
     <NavbarSection>
