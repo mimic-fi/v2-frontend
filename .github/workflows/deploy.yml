@@ -29,7 +29,13 @@ jobs:
       - name: Vercel build
         run: yarn vercel build --token=${{ secrets.VERCEL_TOKEN }}
       - name: Vercel deploy
-        run: yarn vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+        run: |
+          echo "Deploying branch ${{ github.ref }}"
+          if [ "${{ github.ref }}" = "refs/heads/master" ]; then
+            yarn vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
+          else
+            yarn vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+          fi
       - name: Deploy failure
         uses: rjstone/discord-webhook-notify@v1
         if: failure()
