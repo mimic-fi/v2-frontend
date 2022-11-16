@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
+import NetworkInfo from './NetworkInfo'
 import Sidebar from './Sidebar'
 
 const NAVBAR_HEIGHT = 80
@@ -14,6 +15,8 @@ const Page = ({ children }) => {
         <PageContainer>
           <NavbarContainer>
             <Navbar />
+            <div />
+            <NetworkInfo />
           </NavbarContainer>
           <SectionContainer>{children}</SectionContainer>
         </PageContainer>
@@ -34,7 +37,7 @@ const Container = styled.div`
   z-index: 100;
   position: relative;
   display: flex;
-  height: 100%px;
+  height: 100%;
   width: 100%;
 `
 

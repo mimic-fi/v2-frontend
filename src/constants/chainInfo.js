@@ -1,4 +1,5 @@
-import ethereumLogoUrl from 'assets/ethereum-logo.svg'
+import ethereumLogoUrl from '../assets/networkLogos/ethereum-logo.svg'
+import goerliLogoUrl from '../assets/networkLogos/goerli-logo.svg'
 
 export const SupportedChainId = {
     MAINNET: 1,
@@ -16,7 +17,7 @@ export const CHAIN_INFO = {
     [SupportedChainId.GOERLI]: {
       explorer: 'https://goerli.etherscan.io/',
       label: 'Görli',
-      logoUrl: ethereumLogoUrl,
+      logoUrl: goerliLogoUrl,
       nativeCurrency: { name: 'Görli Ether', symbol: 'görETH', decimals: 18 },
       color: '#bb437e',
     },
