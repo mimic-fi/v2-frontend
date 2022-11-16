@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import { Container } from '../styles/texts'
 import { useParams } from 'react-router-dom'
 import Page from '../components/Page'
-import Action from '../components/Action'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
 import TableHeader from '../components/Table/TableHeader'
 import Hero from '../sections/Hero'
+import Action from '../sections/Action'
 import SmartVaultDetail from '../sections/SmartVaultDetail'
 import { Hm } from '../styles/texts'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
@@ -40,6 +40,7 @@ const SmartVault = () => {
               <TableRow>
                 <TableHeader title="Date" />
                 <TableHeader title="Action" />
+                <TableHeader title="Description" />
                 <TableHeader title="Excecuted by" />
                 <TableHeader title="Status" />
               </TableRow>
