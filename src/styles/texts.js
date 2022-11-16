@@ -1,26 +1,9 @@
 import styled from 'styled-components'
 
-export const H1 = styled.h1`
-  font-family: 'GTWalsheimPro';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 72px;
-  line-height: 81px;
-  letter-spacing: 1px;
-  color: #fcfcfc;
-  margin: 30px auto;
-  max-width: 90vw;
-  @media only screen and (max-width: 700px) {
-    font-size: 40px;
-    line-height: 52px;
-  }
-  @media only screen and (min-width: 1440px) {
-    font-size: 80px;
-    line-height: 90px;
-  }
-`
+export const MEDIUM = 800
+export const GU = 8
 
-export const Hxl = styled.h2`
+export const Hxxl = styled.h2`
   font-family: 'GTWalsheimPro';
   font-style: normal;
   font-weight: 400;
@@ -40,7 +23,47 @@ export const Hxl = styled.h2`
   }
 `
 
-export const H2 = styled.h2`
+export const Hxl = styled.h1`
+  font-family: 'GTWalsheimPro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 81px;
+  letter-spacing: 1px;
+  color: #fcfcfc;
+  margin: 30px auto;
+  max-width: 90vw;
+  @media only screen and (max-width: 700px) {
+    font-size: 40px;
+    line-height: 52px;
+  }
+  @media only screen and (min-width: 1440px) {
+    font-size: 80px;
+    line-height: 90px;
+  }
+`
+export const Hl = styled.h2`
+  font-family: 'GTWalsheimPro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 57px;
+  line-height: 79px;
+  letter-spacing: 1px;
+  color: #fcfcfc;
+  margin: 30px auto;
+  max-width: 90vw;
+
+  @media only screen and (max-width: 700px) {
+    font-size: 34px;
+    line-height: 48px;
+  }
+  @media only screen and (min-width: 1440px) {
+    font-size: 64px;
+    line-height: 88px;
+  }
+`
+
+export const Hm = styled.h2`
   font-family: 'GTWalsheimPro';
   font-style: normal;
   font-weight: 400;
@@ -61,7 +84,7 @@ export const H2 = styled.h2`
   }
 `
 
-export const H3 = styled.h3`
+export const Hs = styled.h3`
   font-family: 'GTWalsheimPro';
   font-style: normal;
   font-weight: 400;
@@ -81,7 +104,7 @@ export const H3 = styled.h3`
   }
 `
 
-export const H5 = styled.h5`
+export const Hxs = styled.h5`
   font-family: 'GTWalsheimPro';
   font-style: normal;
   font-weight: 400;
@@ -97,7 +120,7 @@ export const H5 = styled.h5`
   }
 `
 
-export const H6 = styled.h6`
+export const Hxxs = styled.h6`
   font-family: 'GTWalsheimPro';
   font-style: normal;
   font-weight: 400;
