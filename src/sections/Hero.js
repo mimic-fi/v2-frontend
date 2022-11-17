@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
-import { useParams } from 'react-router-dom'
 import { Hl, Hxxs, BodyL, BodyS } from '../styles/texts'
 import check from '../assets/check.svg'
 import list from '../assets/list.svg'
