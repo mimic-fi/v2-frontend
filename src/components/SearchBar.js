@@ -9,14 +9,11 @@ function SearchBar() {
 
   const handleChange = e => {
     e.preventDefault()
-    console.log('change', searchInput)
     setSearchInput(e.target.value)
-    console.log('change after', searchInput)
   }
 
   const handleOnSubmit = e => {
     e.preventDefault()
-    console.log('change', searchInput, e)
     navigate(`/smart-vaults/${searchInput}`)
   }
 
@@ -41,7 +38,7 @@ const Search = styled.form`
   width: 30rem;
   background: #a996ff;
   border-radius: 4px;
-  margin: 30px 0;
+  margin: 30px auto;
   font-family: 'GTWalsheimPro';
   font-style: normal;
   font-weight: 400;

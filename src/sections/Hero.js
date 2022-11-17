@@ -14,9 +14,11 @@ const Hero = ({ primitive, totalValueManaged }) => {
   return (
     <HeroSection>
       <BodyL>Hello diver!</BodyL>
-      <Hl>{lastAction.data.description} ✓</Hl>
+      <Hl>
+        {lastAction && lastAction.data && lastAction.data.description + ' ✓'}
+      </Hl>
       <BodyL>
-        {primitive && moment.unix(primitive.executedAt).format('MMM Do, h:mm')}{' '}
+        {primitive && moment.unix(primitive.executedAt).format('MMM Do, h:mm')}
       </BodyL>
       <Box>
         <Item>

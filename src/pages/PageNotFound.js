@@ -29,6 +29,7 @@ const PageNotFoundSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   @media only screen and (max-width: 700px) {
     min-height: 650px;
     padding: 60px 0 0 0;
