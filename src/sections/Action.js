@@ -11,7 +11,7 @@ import useActionMetadata from '../hooks/useActionMetadata'
 const Action = ({ primitives }) => {
   const item = primitives[0]
   const metadata = useActionMetadata(item.target)
-  console.log('action', metadata)
+  
   return (
     <TableRow key={item.id}>
       <TableCell>

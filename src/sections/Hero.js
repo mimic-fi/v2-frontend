@@ -1,18 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
+import moment from 'moment'
+import { useParams } from 'react-router-dom'
 import { Hl, Hxxs, BodyL, BodyS } from '../styles/texts'
 import check from '../assets/check.svg'
 import list from '../assets/list.svg'
 import lock from '../assets/lock.svg'
+import useLastAction from '../hooks/useLastAction'
+import useActionMetadata from '../hooks/useActionMetadata'
 
-const Hero = () => {
+const Hero = ({ primitive }) => {
   //TODO: add real data. this is a mockup
+  const lastAction = useActionMetadata(primitive.target)
+
   return (
     <HeroSection>
       <BodyL>Hello diver!</BodyL>
-      <Hl>Funds withdrawn and sent to wallet ✓</Hl>
+      <Hl>{lastAction.data.description} ✓</Hl>
       <BodyL>
-        2 days ago <span className="link">See receipt</span>
+        {primitive && moment.unix(primitive.executedAt).format('MMM Do, h:mm')}{' '}
       </BodyL>
       <Box>
         <Item>
@@ -74,13 +80,14 @@ const HeroSection = styled.section`
   padding: 150px 80px 80px 80px;
   color: white;
   text-align: center;
-  a, span.link {
+  a,
+  span.link {
     color: #a996ff;
     font-family: 'GTWalsheimProBold';
     padding-left: 7px;
   }
   h2 {
-    max-width: 600px;
+    max-width: 750px;
     text-align: center;
   }
 `

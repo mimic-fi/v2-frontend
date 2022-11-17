@@ -15,6 +15,7 @@ import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 const SmartVault = () => {
   //todo: add loader
   const params = useParams()
+  let heroPrimitive = ''
   const smartVault = useSmartVaultWithPrimitives(params.id)
 
   let actions
@@ -27,11 +28,12 @@ const SmartVault = () => {
     actions = Object.values(grouped).map(primitives => {
       return <Action primitives={primitives} key={primitives.id} />
     })
+    heroPrimitive = Object.values(grouped)[0][0]
   }
 
   return (
     <Page>
-      <Hero />
+      {heroPrimitive && <Hero primitive={heroPrimitive}/>}
       <LatestActionsSection>
         <Container>
           <Hm>Latest actions</Hm>
