@@ -16,10 +16,12 @@ const SmartVault = () => {
   //todo: add loader
   const params = useParams()
   let heroPrimitive = ''
+  let totalValueManaged = ''
   const smartVault = useSmartVaultWithPrimitives(params.id)
-
+  console.log('SM', smartVault)
   let actions
   if (smartVault && smartVault.data && smartVault.data.smartVault) {
+    totalValueManaged = smartVault.data.smartVault.totalValueManaged
     let data = smartVault.data.smartVault.primitiveExecutions
     let grouped = data.reduce(function(rv, x) {
       ;(rv[x['transaction']] = rv[x['transaction']] || []).push(x)
@@ -33,7 +35,7 @@ const SmartVault = () => {
 
   return (
     <Page>
-      {heroPrimitive && <Hero primitive={heroPrimitive}/>}
+      {heroPrimitive && <Hero primitive={heroPrimitive} totalValueManaged={totalValueManaged}/>}
       <LatestActionsSection>
         <Container>
           <Hm>Latest actions</Hm>

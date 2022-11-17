@@ -6,10 +6,9 @@ import { Hl, Hxxs, BodyL, BodyS } from '../styles/texts'
 import check from '../assets/check.svg'
 import list from '../assets/list.svg'
 import lock from '../assets/lock.svg'
-import useLastAction from '../hooks/useLastAction'
 import useActionMetadata from '../hooks/useActionMetadata'
 
-const Hero = ({ primitive }) => {
+const Hero = ({ primitive, totalValueManaged }) => {
   //TODO: add real data. this is a mockup
   const lastAction = useActionMetadata(primitive.target)
 
@@ -24,7 +23,7 @@ const Hero = ({ primitive }) => {
         <Item>
           <img alt="" src={lock} />
           <div>
-            <Hxxs>$465000.00</Hxxs>
+            <Hxxs>${totalValueManaged}</Hxxs>
             <BodyS>Total assets managed</BodyS>
           </div>
         </Item>
