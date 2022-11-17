@@ -1,6 +1,5 @@
 import { useQuery } from 'react-query'
 import { request, gql } from 'graphql-request'
-import { THEGRAPH_URL } from '../constants/enviroment'
 
 const useSmartVaults = () => {
   return useQuery(['smartVaults'], () => fetchSmartVaults(), {
@@ -10,7 +9,7 @@ const useSmartVaults = () => {
 
 const fetchSmartVaults = async () => {
   let smartVaults = await request(
-    THEGRAPH_URL,
+    'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-goerli',
     gql`
       {
         smartVaults {

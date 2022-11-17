@@ -36,7 +36,11 @@ const Container = styled.div`
   z-index: 100;
   position: relative;
   display: flex;
+<<<<<<< HEAD
+  height: 100%px;
+=======
   height: 100%;
+>>>>>>> 9adf4c8cbe6ed1930db732bbdec7a58b56163a10
   width: 100%;
 `
 
