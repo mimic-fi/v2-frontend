@@ -9,7 +9,7 @@ import Lock from '../assets/menuIcons/Lock.js'
 const Sidebar = () => {
   return (
     <SidebarSection>
-      <Logo src={logo} />
+      <Logo src={logo} alt="" />
       <Menu>
         <div className="active">
           <Home />
