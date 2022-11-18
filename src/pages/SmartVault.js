@@ -15,10 +15,13 @@ import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 const SmartVault = () => {
   //todo: add loader
   const params = useParams()
+  let heroPrimitive = ''
+  let totalValueManaged = ''
   const smartVault = useSmartVaultWithPrimitives(params.id)
-
+  
   let actions
   if (smartVault && smartVault.data && smartVault.data.smartVault) {
+    totalValueManaged = smartVault.data.smartVault.totalValueManaged
     let data = smartVault.data.smartVault.primitiveExecutions
     let grouped = data.reduce(function(rv, x) {
       ;(rv[x['transaction']] = rv[x['transaction']] || []).push(x)
@@ -27,11 +30,12 @@ const SmartVault = () => {
     actions = Object.values(grouped).map(primitives => {
       return <Action primitives={primitives} key={primitives.id} />
     })
+    heroPrimitive = Object.values(grouped)[0][0]
   }
 
   return (
     <Page>
-      <Hero />
+      {heroPrimitive && <Hero primitive={heroPrimitive} totalValueManaged={totalValueManaged}/>}
       <LatestActionsSection>
         <Container>
           <Hm>Latest actions</Hm>

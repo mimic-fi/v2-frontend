@@ -7,13 +7,11 @@ import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 const SmartVaultDetail = () => {
   const params = useParams()
   const metadata = useSmartVaultMetadata(params.id)
-  
+
   return metadata.data ? (
     <SmartVaultDetailSection>
       <Hm>{metadata.data.title || 'Smart vault'}</Hm>
-      <BodyL>
-        {metadata.data.description || ''}
-      </BodyL>
+      <BodyL>{metadata.data.description || ''}</BodyL>
       <hr />
     </SmartVaultDetailSection>
   ) : (

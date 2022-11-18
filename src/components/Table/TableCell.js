@@ -24,7 +24,7 @@ const Td = styled.td`
 const Content = styled.div`
   display: flex;
   align-items: center;
-  justify-content: ${props => props.align === 'right' ? 'flex-end' : 'space-between'};
+  justify-content: ${props => props.align === 'right' ? 'flex-end' : 'flex-start'};
 `
 
 export default TableCell
