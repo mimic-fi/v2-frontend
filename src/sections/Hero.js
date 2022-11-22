@@ -20,29 +20,31 @@ const Hero = ({ primitive, totalValueManaged }) => {
       <BodyL>
         {primitive && moment.unix(primitive.executedAt).format('MMM Do, h:mm')}
       </BodyL>
-      <Box>
-        <Item>
-          <img alt="" src={lock} />
-          <div>
-            <Hxxs>${totalValueManaged}</Hxxs>
-            <BodyS>Total assets managed</BodyS>
-          </div>
-        </Item>
-        <Item>
-          <img alt="" src={check} />
-          <div>
-            <Hxxs>Active</Hxxs>
-            <BodyS>See Vault’s history</BodyS>
-          </div>
-        </Item>
-        <Item>
-          <img alt="" src={list} />
-          <div>
-            <Hxxs>Collect funds</Hxxs>
-            <BodyS>Next scheduled action</BodyS>
-          </div>
-        </Item>
-      </Box>
+      {totalValueManaged && (
+        <Box>
+          <Item>
+            <img alt="" src={lock} />
+            <div>
+              <Hxxs>${totalValueManaged}</Hxxs>
+              <BodyS>Total assets managed</BodyS>
+            </div>
+          </Item>
+          <Item>
+            <img alt="" src={check} />
+            <div>
+              <Hxxs>Active</Hxxs>
+              <BodyS>See Vault’s history</BodyS>
+            </div>
+          </Item>
+          <Item>
+            <img alt="" src={list} />
+            <div>
+              <Hxxs>Collect funds</Hxxs>
+              <BodyS>Next scheduled action</BodyS>
+            </div>
+          </Item>
+        </Box>
+      )}
     </HeroSection>
   )
 }
@@ -57,6 +59,11 @@ const Box = styled.div`
   justify-content: space-between;
   max-width: 1060px;
   height: 150px;
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
 `
 const Item = styled.div`
   display: flex;
@@ -66,18 +73,29 @@ const Item = styled.div`
   justify-content: center;
   text-align: left;
   gap: 21px;
+  @media only screen and (max-width: 700px) {
+    width: 70%;
+    padding: 25px 40px;
+    justify-content: space-between;
+  }
   p {
     margin: 4px 0;
   }
   &:nth-child(2) {
     border-right: solid 4px #252627;
     border-left: solid 4px #252627;
+    @media only screen and (max-width: 700px) {
+      border: 0px;
+    }
   }
 `
 
 const HeroSection = styled.section`
   height: auto;
   padding: 150px 80px 80px 80px;
+  @media only screen and (max-width: 700px) {
+    padding: 100px 20px 20px 20px;
+  }
   color: white;
   text-align: center;
   a,

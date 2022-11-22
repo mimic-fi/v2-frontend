@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Container } from '../styles/texts'
 import { useParams } from 'react-router-dom'
@@ -14,11 +14,17 @@ import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
 const SmartVault = () => {
   //todo: add loader
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth))
+  }, [])
+  const medium = 700
+  
   const params = useParams()
   let heroPrimitive = ''
   let totalValueManaged = ''
   const smartVault = useSmartVaultWithPrimitives(params.id)
-  
+
   let actions
   if (smartVault && smartVault.data && smartVault.data.smartVault) {
     totalValueManaged = smartVault.data.smartVault.totalValueManaged
@@ -35,7 +41,9 @@ const SmartVault = () => {
 
   return (
     <Page>
-      {heroPrimitive && <Hero primitive={heroPrimitive} totalValueManaged={totalValueManaged}/>}
+      {heroPrimitive && (
+        <Hero primitive={heroPrimitive} totalValueManaged={totalValueManaged} />
+      )}
       <LatestActionsSection>
         <Container>
           <Hm>Latest actions</Hm>
@@ -44,8 +52,8 @@ const SmartVault = () => {
               <TableRow>
                 <TableHeader title="Date" />
                 <TableHeader title="Action" />
-                <TableHeader title="Description" />
-                <TableHeader title="Excecuted by" />
+                {width >= medium && <TableHeader title="Description" />}
+                {width >= medium && <TableHeader title="Excecuted by" />}
                 <TableHeader title="Status" />
               </TableRow>
             }

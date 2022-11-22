@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
@@ -6,10 +6,15 @@ import Sidebar from './Sidebar'
 const NAVBAR_HEIGHT = 80
 
 const Page = ({ children }) => {
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth))
+  }, [])
+  const medium = 700
   return (
     <Wrapper>
       <Container>
-        <Sidebar />
+        {width >= medium && <Sidebar />}
         <PageContainer>
           <NavbarContainer>
             <Navbar />
@@ -33,12 +38,9 @@ const Container = styled.div`
   z-index: 100;
   position: relative;
   display: flex;
-<<<<<<< HEAD
-  height: 100%px;
-=======
-  height: 100%;
->>>>>>> 9adf4c8cbe6ed1930db732bbdec7a58b56163a10
-  width: 100%;
+  <<<<<<<headheight: 100%px;
+  =======height: 100%;
+  >>>>>>>9adf4c8cbe6ed1930db732bbdec7a58b56163a10width: 100%;
 `
 
 const NavbarContainer = styled.div`
