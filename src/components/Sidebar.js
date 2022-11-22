@@ -15,13 +15,13 @@ const Sidebar = () => {
           <Home />
         </div>
         <div>
-          <Configure fill="#fff" />
+          <Configure fill="#737373" />
         </div>
         <div>
-          <List fill="#fff" />
+          <List fill="#737373" />
         </div>
         <div>
-          <Lock fill="#fff" />
+          <Lock fill="#737373" />
         </div>
       </Menu>
     </SidebarSection>
