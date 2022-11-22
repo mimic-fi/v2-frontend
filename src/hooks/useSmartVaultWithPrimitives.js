@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query'
 import { request, gql } from 'graphql-request'
+import { THEGRAPH_URL } from '../constants/enviroment'
 
 const useSmartVaultWithPrimitives = (id = '0x') => {
   return useQuery(
@@ -14,7 +15,7 @@ const useSmartVaultWithPrimitives = (id = '0x') => {
 const fetchSmartVault = async id => {
   //TODO: put id in the query. Cause for some reason is failing
   let smartVault = await request(
-    'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-goerli',
+    THEGRAPH_URL,
     gql`
     {
         smartVault(id: ${'"' + id.toLowerCase() + '"'}) {
