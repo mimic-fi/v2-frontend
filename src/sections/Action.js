@@ -16,6 +16,7 @@ const Action = ({ primitives }) => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
   const medium = 700
+  const large = 900
 
   return (
     <TableRow key={item.id}>
@@ -31,7 +32,7 @@ const Action = ({ primitives }) => {
         />
         {metadata.data ? metadata.data.title : item.type}
       </TableCell>
-      {width >= medium && (
+      {width >= large && (
         <TableCell>{metadata.data ? metadata.data.description : ''}</TableCell>
       )}
       {width >= medium && <TableCell>{shortenAddress(item.sender)}</TableCell>}

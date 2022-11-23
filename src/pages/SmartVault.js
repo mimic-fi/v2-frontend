@@ -19,10 +19,12 @@ const SmartVault = () => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
   const medium = 700
-  
+  const large = 900
+
   const params = useParams()
   let heroPrimitive = ''
   let totalValueManaged = ''
+  let totalActions = 0
   const smartVault = useSmartVaultWithPrimitives(params.id)
 
   let actions
@@ -34,6 +36,7 @@ const SmartVault = () => {
       return rv
     }, {})
     actions = Object.values(grouped).map(primitives => {
+      totalActions += 1
       return <Action primitives={primitives} key={primitives.id} />
     })
     heroPrimitive = Object.values(grouped)[0][0]
@@ -42,7 +45,11 @@ const SmartVault = () => {
   return (
     <Page>
       {heroPrimitive && (
-        <Hero primitive={heroPrimitive} totalValueManaged={totalValueManaged} />
+        <Hero
+          primitive={heroPrimitive}
+          totalValueManaged={totalValueManaged}
+          totalActions={totalActions}
+        />
       )}
       <LatestActionsSection>
         <Container>
@@ -50,11 +57,15 @@ const SmartVault = () => {
           <Table
             header={
               <TableRow>
-                <TableHeader title="Date" />
-                <TableHeader title="Action" />
-                {width >= medium && <TableHeader title="Description" />}
-                {width >= medium && <TableHeader title="Excecuted by" />}
-                <TableHeader title="Status" />
+                <TableHeader title="Date" align="left" />
+                <TableHeader title="Action" align="left" />
+                {width >= large && (
+                  <TableHeader title="Description" align="left" />
+                )}
+                {width >= medium && (
+                  <TableHeader title="Excecuted by" align="left" />
+                )}
+                <TableHeader title="Status" align="center" />
               </TableRow>
             }
           >
@@ -69,8 +80,10 @@ const SmartVault = () => {
 
 const LatestActionsSection = styled.section`
   height: auto;
-  padding: 80px 0;
+  padding: 80px 20px;
   color: white;
+  max-width: 1100px;
+  margin: auto;
 `
 
 export default SmartVault

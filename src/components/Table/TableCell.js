@@ -1,16 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function ContentContainerDefault({ align = 'left', ...props }) {
-  return <Content {...props} />
-}
 
 function TableCell({ children, align, ...props }) {
   return (
     <Td {...props}>
-      <ContentContainerDefault align={align}>
+      <Content align={align}>
         {children}
-      </ContentContainerDefault>
+      </Content>
     </Td>
   )
 }
@@ -20,7 +17,7 @@ const Td = styled.td`
   background: #2d3034;
   text-align: ${props => props.align};
   @media only screen and (max-width: 700px) {
-    padding: 20px 5px;
+    padding: 20px 10px;
   }
 `
 

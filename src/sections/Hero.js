@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
 import { Hl, Hxxs, BodyL, BodyS } from '../styles/texts'
@@ -7,9 +7,14 @@ import list from '../assets/list.svg'
 import lock from '../assets/lock.svg'
 import useActionMetadata from '../hooks/useActionMetadata'
 
-const Hero = ({ primitive, totalValueManaged }) => {
+const Hero = ({ primitive, totalValueManaged, totalActions }) => {
   //TODO: add real data. this is a mockup
   const lastAction = useActionMetadata(primitive.target)
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth))
+  }, [])
+  const medium = 700
 
   return (
     <HeroSection>
@@ -23,26 +28,41 @@ const Hero = ({ primitive, totalValueManaged }) => {
       {totalValueManaged && (
         <Box>
           <Item>
-            <img alt="" src={lock} />
+            {width >= medium && <img alt="" src={lock} />}
             <div>
               <Hxxs>${totalValueManaged}</Hxxs>
               <BodyS>Total assets managed</BodyS>
             </div>
           </Item>
-          <Item>
-            <img alt="" src={check} />
-            <div>
-              <Hxxs>Active</Hxxs>
-              <BodyS>See Vault’s history</BodyS>
-            </div>
-          </Item>
-          <Item>
-            <img alt="" src={list} />
-            <div>
-              <Hxxs>Collect funds</Hxxs>
-              <BodyS>Next scheduled action</BodyS>
-            </div>
-          </Item>
+          {width < medium && (
+            <MobileItem>
+              <div>
+                <img alt="" src={check} />
+                <BodyS>Active</BodyS>
+              </div>
+              <div>
+                <img alt="" src={list} />
+                <BodyS>{totalActions} fulfilled actions to date</BodyS>
+              </div>
+            </MobileItem>
+          )}
+          {width >= medium && (
+            <>
+              <Item>
+                <img alt="" src={check} />
+                <div>
+                  <Hxxs>Active</Hxxs>
+                </div>
+              </Item>
+              <Item>
+                <img alt="" src={list} />
+                <div>
+                  <Hxxs>{totalActions}</Hxxs>
+                  <BodyS>fulfilled actions to date</BodyS>
+                </div>
+              </Item>
+            </>
+          )}
         </Box>
       )}
     </HeroSection>
@@ -57,18 +77,27 @@ const Box = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1060px;
+  max-width: 1081px;
   height: 150px;
-  @media only screen and (max-width: 700px) {
+  @media only screen and (min-width: 701px) and (max-width: 950px) {
     flex-direction: column;
     height: auto;
+    width: 70%;
+    margin: 150px auto;
+  }
+  @media  only screen and (max-width: 700px) {
     width: 100%;
+    flex-direction: column;
+    height: auto;
+    margin: 80px auto 0 auto;
+    justify-content: center;
   }
 `
+
 const Item = styled.div`
   display: flex;
   width: 33%;
-  padding: 46px 54px;
+  padding: 46px 40px;
   align-items: center;
   justify-content: center;
   text-align: left;
@@ -76,23 +105,52 @@ const Item = styled.div`
   @media only screen and (max-width: 700px) {
     width: 70%;
     padding: 25px 40px;
-    justify-content: space-between;
+    justify-content: center;
+    text-align: center;
+  }
+  @media only screen and (max-width: 950px) {
+    width: 70%;
+  }
+
+  &:nth-child(2) {
+    border-right: solid 4px #252627;
+    border-left: solid 4px #252627;
+    @media only screen and (max-width: 950px) {
+      border: 0px;
+      border-top: solid 4px #252627;
+      border-bottom: solid 4px #252627;
+      width: 100%;
+    }
   }
   p {
     margin: 4px 0;
   }
-  &:nth-child(2) {
-    border-right: solid 4px #252627;
-    border-left: solid 4px #252627;
-    @media only screen and (max-width: 700px) {
-      border: 0px;
-    }
+`
+
+const MobileItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 5px;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 16px;
+  box-sizing: border-box;
+  border-top: 2px solid #414141;
+  img {
+    height: 24px;
+    padding-right: 7px;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 `
 
 const HeroSection = styled.section`
   height: auto;
-  padding: 150px 80px 80px 80px;
+  padding: 150px 20px 20px 20px;
   @media only screen and (max-width: 700px) {
     padding: 100px 20px 20px 20px;
   }

@@ -20,12 +20,12 @@ const StyledTable = styled.table`
   border-radius: 8px;
 
   td {
-    border-bottom: 1px solid ${BORDER};
+    border-bottom: 2px solid ${BORDER};
   }
 
   /* First and last cell styling */
   tr:first-child td {
-    border-top: 1px solid ${BORDER};
+    border-top: 2px solid ${BORDER};
   }
 `
 

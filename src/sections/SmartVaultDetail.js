@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
-import { Hm, BodyL } from '../styles/texts'
+import { Hm, BodyL, Container } from '../styles/texts'
 import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 
 const SmartVaultDetail = () => {
@@ -10,9 +10,11 @@ const SmartVaultDetail = () => {
 
   return metadata.data ? (
     <SmartVaultDetailSection>
+    <Container>
       <Hm>{metadata.data.title || 'Smart vault'}</Hm>
       <BodyL>{metadata.data.description || ''}</BodyL>
       <hr />
+      </Container>
     </SmartVaultDetailSection>
   ) : (
     <div />
@@ -23,7 +25,8 @@ const SmartVaultDetailSection = styled.section`
   height: auto;
   max-width: 1140px;
   margin: auto;
-  padding: 150px 80px 80px 80px;
+  padding: 80px 20px;
+  max-width: 1100px;
   @media only screen and (max-width: 700px) {
     padding: 70px 20px 70px 20px;
   }
