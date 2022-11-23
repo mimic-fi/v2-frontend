@@ -134,7 +134,7 @@ const MobileItem = styled.div`
   gap: 5px;
   width: 100%;
   flex-wrap: wrap;
-  padding: 16px;
+  padding: 16px 7px;
   box-sizing: border-box;
   border-top: 2px solid #414141;
   img {

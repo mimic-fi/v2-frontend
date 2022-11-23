@@ -45,11 +45,13 @@ const SmartVault = () => {
   return (
     <Page>
       {heroPrimitive && (
+        <Container>
         <Hero
           primitive={heroPrimitive}
           totalValueManaged={totalValueManaged}
           totalActions={totalActions}
         />
+        </Container>
       )}
       <LatestActionsSection>
         <Container>
