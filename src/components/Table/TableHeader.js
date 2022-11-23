@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 function TableHeader({ title, align = 'left', ...props }) {
   return (
-    <Header {...props}>
+    <Header {...props} align={align}>
       {title}
     </Header>
   )
@@ -20,6 +20,11 @@ const Header = styled.th`
   line-height: 24px;
   letter-spacing: 0.75px;
   color: #fcfcfc;
+
+  @media only screen and (max-width: 700px) {
+    padding-left: ${props => (props.align === 'left' ? 10 : 0)}px;
+    padding-right: ${props => (props.align === 'right' ? 10 : 0)}px;
+  }
 `
 
 export default TableHeader
