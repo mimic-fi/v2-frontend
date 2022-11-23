@@ -38,9 +38,7 @@ const Container = styled.div`
   z-index: 100;
   position: relative;
   display: flex;
-  <<<<<<<headheight: 100%px;
-  =======height: 100%;
-  >>>>>>>9adf4c8cbe6ed1930db732bbdec7a58b56163a10width: 100%;
+  height: 100%;
 `
 
 const NavbarContainer = styled.div`
