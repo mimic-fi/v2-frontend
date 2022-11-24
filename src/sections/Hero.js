@@ -6,6 +6,9 @@ import check from '../assets/check.svg'
 import list from '../assets/list.svg'
 import lock from '../assets/lock.svg'
 import useActionMetadata from '../hooks/useActionMetadata'
+import { formatTokenAmount } from '../utils/math-utils'
+import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
+//TODO: remove knownTokenDecimals and replace it with no hardcoded data.
 
 const Hero = ({ primitive, totalValueManaged, totalActions }) => {
   //TODO: add real data. this is a mockup
@@ -30,7 +33,9 @@ const Hero = ({ primitive, totalValueManaged, totalActions }) => {
           <Item>
             {width >= medium && <img alt="" src={lock} />}
             <div>
-              <Hxxs>${totalValueManaged}</Hxxs>
+              <Hxxs>
+                ${formatTokenAmount(totalValueManaged, USDC_DECIMALS, { digits: 2 })}
+              </Hxxs>
               <BodyS>Total assets managed</BodyS>
             </div>
           </Item>
@@ -85,7 +90,7 @@ const Box = styled.div`
     width: 70%;
     margin: 150px auto;
   }
-  @media  only screen and (max-width: 700px) {
+  @media only screen and (max-width: 700px) {
     width: 100%;
     flex-direction: column;
     height: auto;
