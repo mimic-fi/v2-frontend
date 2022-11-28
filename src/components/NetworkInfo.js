@@ -1,13 +1,14 @@
 import styled from 'styled-components'
-import { getChainInfo } from '../constants/enviroment'
+// import { getChainInfo } from '../constants/enviroment'
 import Select from 'react-select'
-import { useState } from 'react'
 import { CHAIN_INFO } from '../constants/chainInfo'
+import { useChainId } from '../hooks/useChainId'
+import { useAppDispatch } from '../context/appContext'
 
 
 const NetworkInfo = () => {
-  const [selectedOption, setSelectedOption] = useState(CHAIN_INFO[1])
-  const chainInfo = getChainInfo()
+  const { updateChainId } = useAppDispatch()
+  const chainId = useChainId()
 
   const options = Object.keys(CHAIN_INFO).map(c => CHAIN_INFO[c])
 
@@ -22,7 +23,7 @@ const NetworkInfo = () => {
         ref={innerRef}
         {...innerProps}
       >
-        <ChainLogo src={selectedOption.logoUrl} />
+        <ChainLogo src={CHAIN_INFO[chainId]?.logoUrl} />
         {children}
       </ControlContainer>
     )
@@ -32,8 +33,8 @@ const NetworkInfo = () => {
     <Container>
       <SelectElement
         components={{ Option, Control }}
-        defaultValue={selectedOption}
-        onChange={setSelectedOption}
+        defaultValue={CHAIN_INFO[chainId]}
+        onChange={e => updateChainId(e?.value)}
         options={options}
         classNamePrefix="react-select"
       />

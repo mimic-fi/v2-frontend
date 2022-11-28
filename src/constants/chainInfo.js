@@ -6,13 +6,15 @@ import gnosisLogoUrl from '../assets/chainLogos/gnosis-logo.svg'
 import arbitrumLogoUrl from '../assets/chainLogos/arbitrum-logo.svg'
 
 export const SupportedChainId = {
-    MAINNET: 1,
-    GOERLI: 5,
-    OPTIMISM: 10,
-    POLYGON: 137,
-    GNOSIS: 100,
-    ARBITRUM: 42161
-  }
+  MAINNET: 1,
+  GOERLI: 5,
+  OPTIMISM: 10,
+  POLYGON: 137,
+  GNOSIS: 100,
+  ARBITRUM: 42161
+}
+
+export const DEFAULT_CHAIN_ID = SupportedChainId.MAINNET
 
 export const CHAIN_INFO = {
     [SupportedChainId.MAINNET]: {
@@ -21,7 +23,7 @@ export const CHAIN_INFO = {
       logoUrl: ethereumLogoUrl,
       nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
       color: '#fff',
-      value: 1
+      value: SupportedChainId.MAINNET
     },
     [SupportedChainId.GOERLI]: {
       explorer: 'https://goerli.etherscan.io/',
@@ -29,7 +31,7 @@ export const CHAIN_INFO = {
       logoUrl: goerliLogoUrl,
       nativeCurrency: { name: 'Görli Ether', symbol: 'görETH', decimals: 18 },
       color: '#bb437e',
-      value: [SupportedChainId.GOERLI],
+      value: SupportedChainId.GOERLI,
     },
     [SupportedChainId.OPTIMISM]: {
       explorer: '',
@@ -37,7 +39,7 @@ export const CHAIN_INFO = {
       logoUrl: optimismLogoUrl,
       nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
       color: '#bb437e',
-      value: [SupportedChainId.OPTIMISM],
+      value: SupportedChainId.OPTIMISM,
       isDisabled: true
     },
     [SupportedChainId.POLYGON]: {
@@ -46,7 +48,7 @@ export const CHAIN_INFO = {
       logoUrl: polygonLogoUrl,
       nativeCurrency: { name: 'Görli Ether', symbol: 'görETH', decimals: 18 },
       color: '#bb437e',
-      value: [SupportedChainId.POLYGON],
+      value: SupportedChainId.POLYGON,
       isDisabled: true
     },
     [SupportedChainId.GNOSIS]: {
@@ -55,7 +57,7 @@ export const CHAIN_INFO = {
       logoUrl: gnosisLogoUrl,
       nativeCurrency: { name: 'xDAI', symbol: 'xDAI', decimals: 18 },
       color: '#bb437e',
-      value: [SupportedChainId.GNOSIS],
+      value: SupportedChainId.GNOSIS,
       isDisabled: true
     },
     [SupportedChainId.ARBITRUM]: {
@@ -64,7 +66,7 @@ export const CHAIN_INFO = {
       logoUrl: arbitrumLogoUrl,
       nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
       color: '#bb437e',
-      value: [SupportedChainId.ARBITRUM],
+      value: SupportedChainId.ARBITRUM,
       isDisabled: true
     },
   }
