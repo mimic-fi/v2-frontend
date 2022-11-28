@@ -6,7 +6,7 @@ import { Container, Hl } from '../styles/texts'
 
 const Home = () => {
   return (
-    <Page>
+    <Page sidebar={false}>
       <HomeSection>
         <Container>
           <Hl>Search for your smart vault</Hl>

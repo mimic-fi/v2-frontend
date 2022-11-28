@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Page from '../components/Page'
 import { Container } from '../styles/texts'
+import SmartVaultCard from '../sections/SmartVaultCard'
 import useSmartVaults from '../hooks/useSmartVaults'
 
 const SmartVaults = () => {
@@ -14,7 +15,7 @@ const SmartVaults = () => {
       return (
         <div key={item.id}>
           <Link to={'/smart-vaults/' + item.id}>
-            <h2>{item.id}</h2>
+            <SmartVaultCard smartVault={item} />
           </Link>
         </div>
       )
@@ -22,7 +23,7 @@ const SmartVaults = () => {
   }
 
   return (
-    <Page>
+    <Page sidebar={false}>
       <SmartVaultsSection>
         <Container>{itemsToRender}</Container>
       </SmartVaultsSection>
