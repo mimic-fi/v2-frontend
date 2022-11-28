@@ -13,11 +13,7 @@ function App() {
       <Routes>
         <Route
           path="/list"
-<<<<<<< HEAD
           element={<List />}
-=======
-          element={<AllSmartVaults />}
->>>>>>> Smart vault card
         />
         <Route path="/smart-vaults/:id" element={<SmartVault />} />
         <Route path="/" element={<Home />} />
