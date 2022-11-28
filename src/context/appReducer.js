@@ -3,8 +3,8 @@ export const ActionTypes = {
 }
 
 export const reducer = (state, action) => {
-  console.log('v2-frontend state', state)
-  console.log('v2-frontend action', action)
+  // console.log('v2-frontend state', state)
+  // console.log('v2-frontend action', action)
   switch (action.type) {
 
       case ActionTypes.SET_CHAIN_ID:

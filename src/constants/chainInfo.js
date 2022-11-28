@@ -71,3 +71,8 @@ export const CHAIN_INFO = {
     },
   }
 
+  export const CHAIN_SUBGRAPH_URL = {
+    [SupportedChainId.MAINNET]: 'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-mainnet',
+    [SupportedChainId.GOERLI]: 'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-goerli',
+  }
+
