@@ -11,12 +11,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route
-          path="/all-smart-vaults"
+          path="/list"
           element={<AllSmartVaults />}
         />
         <Route path="/smart-vaults/:id" element={<SmartVault />} />
+        <Route path="/" element={<Home />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </QueryClientProvider>
