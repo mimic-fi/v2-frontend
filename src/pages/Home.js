@@ -6,7 +6,7 @@ import { Container, Hl } from '../styles/texts'
 
 const Home = () => {
   return (
-    <Page>
+    <Page sidebar={false}>
       <HomeSection>
         <Container>
           <Hl>Search for your smart vault</Hl>
@@ -27,8 +27,8 @@ const HomeSection = styled.section`
   align-items: center;
   justify-content: center;
   @media only screen and (max-width: 700px) {
-    min-height: 650px;
     padding: 60px 0 0 0;
+    text-align: center;
   }
 `
 

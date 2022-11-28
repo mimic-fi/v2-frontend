@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
 import TableRow from '../components/Table/TableRow'
@@ -11,7 +11,13 @@ import useActionMetadata from '../hooks/useActionMetadata'
 const Action = ({ primitives }) => {
   const item = primitives[0]
   const metadata = useActionMetadata(item.target)
-  
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth))
+  }, [])
+  const medium = 700
+  const large = 900
+
   return (
     <TableRow key={item.id}>
       <TableCell>
@@ -20,14 +26,18 @@ const Action = ({ primitives }) => {
           : '-'}
       </TableCell>
       <TableCell>
-          <ActionIcon
-            src={metadata.data ? metadata.data.icon : defaultAction}
-            alt=""
-          />
-          {metadata.data ? metadata.data.title : item.type}
+        <ActionIcon
+          src={metadata.data ? metadata.data.icon : defaultAction}
+          alt=""
+        />
+        {metadata.data ? metadata.data.title : item.type}
       </TableCell>
-      <TableCell>{metadata.data ? metadata.data.description : ''}</TableCell>
-      <TableCell>{shortenAddress(item.sender)}</TableCell>
+      {width >= large && (
+        <TableCell>
+          <Text>{metadata.data ? metadata.data.description : ''}</Text>
+        </TableCell>
+      )}
+      {width >= medium && <TableCell>{shortenAddress(item.sender)}</TableCell>}
       <TableCell>
         <img src={check} alt="" />
       </TableCell>
@@ -35,9 +45,19 @@ const Action = ({ primitives }) => {
   )
 }
 
+const Text = styled.p`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 500px;
+`
 const ActionIcon = styled.img`
   height: 23px;
   margin-right: 15px;
+  @media only screen and (max-width: 700px) {
+    height: 17px;
+    margin-right: 5px;
+  }
 `
 
 export default Action

@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
 import SmartVault from './pages/SmartVault'
-import AllSmartVaults from './pages/AllSmartVaults'
+import List from './pages/List'
 
 const queryClient = new QueryClient()
 
@@ -11,12 +11,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route
-          path="/all-smart-vaults"
-          element={<AllSmartVaults />}
+          path="/list"
+          element={<List />}
         />
         <Route path="/smart-vaults/:id" element={<SmartVault />} />
+        <Route path="/" element={<Home />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </QueryClientProvider>

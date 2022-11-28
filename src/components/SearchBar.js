@@ -42,6 +42,9 @@ const Search = styled.form`
   font-family: 'GTWalsheimPro';
   font-style: normal;
   font-weight: 400;
+  @media only screen and (max-width: 700px) {
+    width: 90%;
+  }
 
   input,
   button {
