@@ -46,8 +46,6 @@ const Menu = styled.div`
 const Logo = styled.img`
   height: 37px;
   padding: 22px 36px;
-  background: #1f2021;
-  box-shadow: 0px 4px 24px rgba(31, 32, 33, 0.24);
 `
 const SidebarSection = styled.section`
   background: transparent;
