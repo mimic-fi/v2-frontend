@@ -5,7 +5,6 @@ import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 
 const SmartVault = ({ smartVault }) => {
   const metadata = useSmartVaultMetadata(smartVault.id)
-  console.log(smartVault, metadata)
   return (
     <SmartVaultCard>
       <Hxs>
