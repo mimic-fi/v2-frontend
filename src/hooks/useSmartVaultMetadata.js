@@ -1,7 +1,8 @@
+import { useChainId } from './useChainId'
 import useMetadata from './useMetadata'
 
 export default function useSmartVaultMetadata(address) {
-  const chainId = 5 // TODO: global chainId
+  const chainId = useChainId()
   const meta = useMetadata('smart-vaults', chainId, address)
   return meta
 }
