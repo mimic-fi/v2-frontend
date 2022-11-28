@@ -26,7 +26,7 @@ const Hero = ({ primitive, totalValueManaged, totalActions }) => {
         {lastAction && lastAction.data && lastAction.data.successMessage + ' ✓'}
       </Hl>
       <BodyL>
-        {primitive && moment.unix(primitive.executedAt).format('MMM Do, h:mm')}
+        {primitive && moment.unix(primitive.executedAt).fromNow()}
       </BodyL>
       {totalValueManaged && (
         <Box>
@@ -34,7 +34,10 @@ const Hero = ({ primitive, totalValueManaged, totalActions }) => {
             {width >= medium && <img alt="" src={lock} />}
             <div>
               <Hxxs>
-                ${formatTokenAmount(totalValueManaged, USDC_DECIMALS, { digits: 2 })}
+                $
+                {formatTokenAmount(totalValueManaged, USDC_DECIMALS, {
+                  digits: 2,
+                })}
               </Hxxs>
               <BodyS>Total assets managed</BodyS>
             </div>
