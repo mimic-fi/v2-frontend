@@ -12,7 +12,8 @@ import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
 
 const Hero = ({ primitive, totalValueManaged, totalActions }) => {
   //TODO: add real data. this is a mockup
-  const lastAction = useActionMetadata(primitive.target)
+  const target = primitive ? primitive.target : ''
+  const lastAction = useActionMetadata(target)
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -23,11 +24,11 @@ const Hero = ({ primitive, totalValueManaged, totalActions }) => {
     <HeroSection>
       <BodyL>Hello diver!</BodyL>
       <Hl>
-        {lastAction && lastAction.data && lastAction.data.successMessage + ' ✓'}
+        {primitive && lastAction && lastAction.data
+          ? lastAction.data.successMessage + ' ✓'
+          : ''}
       </Hl>
-      <BodyL>
-        {primitive && moment.unix(primitive.executedAt).fromNow()}
-      </BodyL>
+      <BodyL>{primitive && moment.unix(primitive.executedAt).fromNow()}</BodyL>
       {totalValueManaged && (
         <Box>
           <Item>

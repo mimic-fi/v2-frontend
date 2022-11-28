@@ -33,7 +33,9 @@ const Action = ({ primitives }) => {
         {metadata.data ? metadata.data.title : item.type}
       </TableCell>
       {width >= large && (
-        <TableCell>{metadata.data ? metadata.data.description : ''}</TableCell>
+        <TableCell>
+          <Text>{metadata.data ? metadata.data.description : ''}</Text>
+        </TableCell>
       )}
       {width >= medium && <TableCell>{shortenAddress(item.sender)}</TableCell>}
       <TableCell>
@@ -43,6 +45,12 @@ const Action = ({ primitives }) => {
   )
 }
 
+const Text = styled.p`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 500px;
+`
 const ActionIcon = styled.img`
   height: 23px;
   margin-right: 15px;

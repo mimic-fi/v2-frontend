@@ -9,7 +9,7 @@ import TableHeader from '../components/Table/TableHeader'
 import Hero from '../sections/Hero'
 import Action from '../sections/Action'
 import SmartVaultDetail from '../sections/SmartVaultDetail'
-import { Hm } from '../styles/texts'
+import { Hl, Hm } from '../styles/texts'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
 const SmartVault = () => {
@@ -26,11 +26,18 @@ const SmartVault = () => {
   let totalValueManaged = ''
   let totalActions = 0
   const smartVault = useSmartVaultWithPrimitives(params.id)
-
+  console.log('SM', smartVault)
   let actions
   if (smartVault && smartVault.data && smartVault.data.smartVault) {
     totalValueManaged = smartVault.data.smartVault.totalValueManaged
     let data = smartVault.data.smartVault.primitiveExecutions
+    if (data.length === 0) {
+      return (
+        <Page>
+          <SmartVaultDetail />
+        </Page>
+      )
+    }
     let grouped = data.reduce(function(rv, x) {
       ;(rv[x['transaction']] = rv[x['transaction']] || []).push(x)
       return rv
@@ -39,18 +46,23 @@ const SmartVault = () => {
       totalActions += 1
       return <Action primitives={primitives} key={primitives.id} />
     })
-    heroPrimitive = Object.values(grouped)[0][0]
+    heroPrimitive =
+      Object.values(grouped) &&
+      Object.values(grouped)[0] &&
+      Object.values(grouped)[0][0]
+        ? Object.values(grouped)[0][0]
+        : ''
   }
 
   return (
     <Page>
       {heroPrimitive && (
         <Container>
-        <Hero
-          primitive={heroPrimitive}
-          totalValueManaged={totalValueManaged}
-          totalActions={totalActions}
-        />
+          <Hero
+            primitive={heroPrimitive}
+            totalValueManaged={totalValueManaged}
+            totalActions={totalActions}
+          />
         </Container>
       )}
       <LatestActionsSection>
