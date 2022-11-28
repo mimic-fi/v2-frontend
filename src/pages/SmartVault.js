@@ -26,7 +26,6 @@ const SmartVault = () => {
   let totalValueManaged = ''
   let totalActions = 0
   const smartVault = useSmartVaultWithPrimitives(params.id)
-  console.log('SM', smartVault)
   let actions
   if (smartVault && smartVault.data && smartVault.data.smartVault) {
     totalValueManaged = smartVault.data.smartVault.totalValueManaged
