@@ -23,7 +23,7 @@ const SmartVaults = () => {
   }
 
   return (
-    <Page>
+    <Page sidebar={false}>
       <SmartVaultsSection>
         <Container>{itemsToRender}</Container>
       </SmartVaultsSection>
