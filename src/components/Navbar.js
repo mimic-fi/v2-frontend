@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import logo from '../assets/logo-navbar.svg'
-import NetworkInfo from './NetworkInfo'
+import NetworkInfo from './ChainSelector'
 
 const Navbar = ({ sidebar = true }) => {
   const [width, setWidth] = useState(window.innerWidth)
