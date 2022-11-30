@@ -17,11 +17,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: yarn
       - name: Install dependencies
-        run: yarn --immutable
+        run: yarn --prefer-offline
       - name: Build
         run: yarn build
       - name: Vercel pull
