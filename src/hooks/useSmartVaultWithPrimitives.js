@@ -1,21 +1,23 @@
 import { useQuery } from 'react-query'
 import { request, gql } from 'graphql-request'
-import { THEGRAPH_URL } from '../constants/enviroment'
+import { CHAIN_SUBGRAPH_URL } from '../constants/chainInfo'
+import { useChainId } from './useChainId'
 
 const useSmartVaultWithPrimitives = (id = '0x') => {
+  const chainId = useChainId()
   return useQuery(
-    ['useSmartVaultWithPrimitives', id],
-    () => fetchSmartVault(id.toString()),
+    ['useSmartVaultWithPrimitives', chainId, id],
+    () => fetchSmartVault(chainId, id.toString()),
     {
       refetchInterval: 10000,
     }
   )
 }
 
-const fetchSmartVault = async id => {
+const fetchSmartVault = async (chainId, id) => {
   //TODO: put id in the query. Cause for some reason is failing
   let smartVault = await request(
-    THEGRAPH_URL,
+    CHAIN_SUBGRAPH_URL[chainId],
     gql`
     {
         smartVault(id: ${'"' + id.toLowerCase() + '"'}) {

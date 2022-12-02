@@ -1,8 +1,8 @@
-import { getChainId } from '../constants/enviroment'
+import { useChainId } from './useChainId'
 import useMetadata from './useMetadata'
 
 export default function useActionMetadata(address) {
-  const chainId = getChainId()
+  const chainId = useChainId()
   const meta = useMetadata('actions', chainId, address)
   return meta
 }

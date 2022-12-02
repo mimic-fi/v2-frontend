@@ -1,16 +1,18 @@
 import { useQuery } from 'react-query'
 import { request, gql } from 'graphql-request'
-import { THEGRAPH_URL } from '../constants/enviroment'
+import { CHAIN_SUBGRAPH_URL } from '../constants/chainInfo'
+import { useChainId } from './useChainId'
 
 const useSmartVaults = () => {
-  return useQuery(['smartVaults'], () => fetchSmartVaults(), {
+  const chainId = useChainId()
+  return useQuery(['smartVaults', chainId], () => fetchSmartVaults(chainId), {
     refetchInterval: 10000,
   })
 }
 
-const fetchSmartVaults = async () => {
+const fetchSmartVaults = async (chainId = 1) => {
   let smartVaults = await request(
-    THEGRAPH_URL,
+    CHAIN_SUBGRAPH_URL[chainId],
     gql`
       {
         smartVaults {

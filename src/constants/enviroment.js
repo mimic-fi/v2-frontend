@@ -1,6 +1,5 @@
 import { CHAIN_INFO } from './chainInfo'
 
-export const THEGRAPH_URL = process.env.REACT_APP_THEGRAPH_URL
 export const METADATA_URL = process.env.REACT_APP_METADATA_URL
 
 // check if its vercel enviroment
