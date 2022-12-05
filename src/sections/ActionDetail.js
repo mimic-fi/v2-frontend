@@ -14,7 +14,6 @@ const ActionDetail = ({
   right,
   onClose,
 }) => {
-  console.log(primitives, 'p')
   return (
     <Detail isOpen={open}>
       <div className="overlay" onClick={onClose} />
@@ -55,7 +54,7 @@ const ActionDetail = ({
           <div className="line" />
           {primitives &&
             primitives.map(item => {
-              return <BreakdownItem primitive={item} />
+              return <BreakdownItem key={item.id} primitive={item} />
             })}
           <Item>
             <BodyXl className="noMarginBottom">Transaction completed</BodyXl>
@@ -196,6 +195,9 @@ const Detail = styled.div`
     box-sizing: border-box;
     height: 100%;
     width: 504px;
+    @media only screen and (max-width: 510px) {
+      width: 100%;
+    }
     padding: 100px 50px 100px 50px;
     background: #2d3034;
     overflow-y: auto;

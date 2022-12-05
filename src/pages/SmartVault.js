@@ -44,7 +44,7 @@ const SmartVault = () => {
     }, {})
     actions = Object.values(grouped).map(primitives => {
       totalActions += 1
-      return <Action primitives={primitives} key={primitives.id} />
+      return <Action key={primitives.id} primitives={primitives} />
     })
     heroPrimitives =
       Object.values(grouped) &&

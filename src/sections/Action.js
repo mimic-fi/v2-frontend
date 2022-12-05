@@ -21,6 +21,7 @@ const Action = ({ primitives }) => {
   const [isOpen, setOpen] = useState(false)
 
   return (
+    <>
     <Row key={item.id} onClick={() => setOpen(!isOpen)}>
       <TableCell>
         {item.executedAt
@@ -43,13 +44,15 @@ const Action = ({ primitives }) => {
       <TableCell>
         <img src={check} alt="" />
       </TableCell>
-      <ActionDetail
-        title={metadata.data ? metadata.data.description : item.type}
-        primitives={primitives}
-        open={isOpen}
-        onClose={() => setOpen(!isOpen)}
-      />
+
     </Row>
+    <ActionDetail
+      title={metadata.data ? metadata.data.description : item.type}
+      primitives={primitives}
+      open={isOpen}
+      onClose={() => setOpen(!isOpen)}
+    />
+    </>
   )
 }
 const Row = styled(TableRow)`
