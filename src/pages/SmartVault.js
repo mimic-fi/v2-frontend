@@ -9,7 +9,6 @@ import TableHeader from '../components/Table/TableHeader'
 import Hero from '../sections/Hero'
 import Action from '../sections/Action'
 import SmartVaultDetail from '../sections/SmartVaultDetail'
-
 import { Hm } from '../styles/texts'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
