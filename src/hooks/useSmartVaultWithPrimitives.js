@@ -30,6 +30,9 @@ const fetchSmartVault = async (chainId, id) => {
             transaction
             target
             sender
+            movements
+            fee
+            data
           }
         }
       }

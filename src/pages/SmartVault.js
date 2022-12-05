@@ -9,6 +9,7 @@ import TableHeader from '../components/Table/TableHeader'
 import Hero from '../sections/Hero'
 import Action from '../sections/Action'
 import SmartVaultDetail from '../sections/SmartVaultDetail'
+
 import { Hm } from '../styles/texts'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
@@ -22,7 +23,7 @@ const SmartVault = () => {
   const large = 900
 
   const params = useParams()
-  let heroPrimitive = ''
+  let heroPrimitives = ''
   let totalValueManaged = ''
   let totalActions = 0
   const smartVault = useSmartVaultWithPrimitives(params.id)
@@ -45,20 +46,20 @@ const SmartVault = () => {
       totalActions += 1
       return <Action primitives={primitives} key={primitives.id} />
     })
-    heroPrimitive =
+    heroPrimitives =
       Object.values(grouped) &&
       Object.values(grouped)[0] &&
       Object.values(grouped)[0][0]
-        ? Object.values(grouped)[0][0]
+        ? Object.values(grouped)[0]
         : ''
   }
 
   return (
     <Page>
-      {heroPrimitive && (
+      {heroPrimitives && (
         <Container>
           <Hero
-            primitive={heroPrimitive}
+            primitives={heroPrimitives}
             totalValueManaged={totalValueManaged}
             totalActions={totalActions}
           />

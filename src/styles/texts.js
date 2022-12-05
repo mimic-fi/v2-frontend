@@ -140,6 +140,24 @@ export const Hxxs = styled.h6`
   }
 `
 
+export const BodyXl = styled.p`
+  font-family: 'GTWalsheimPro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 36px;
+  letter-spacing: 0.75px;
+  color: #fcfcfc;
+  @media only screen and (max-width: 700px) {
+    font-size: 19px;
+    line-height: 35px;
+  }
+  @media only screen and (min-width: 1440px) {
+    font-size: 26px;
+    line-height: 40px;
+  }
+`
+
 export const BodyL = styled.p`
   font-family: 'GTWalsheimPro';
   font-style: normal;

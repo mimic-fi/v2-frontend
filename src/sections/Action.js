@@ -3,6 +3,7 @@ import moment from 'moment'
 import styled from 'styled-components'
 import TableRow from '../components/Table/TableRow'
 import TableCell from '../components/Table/TableCell'
+import ActionDetail from './ActionDetail'
 import { shortenAddress } from '../utils/web3-utils'
 import check from '../assets/success.svg'
 import defaultAction from '../assets/default-action.svg'
@@ -17,9 +18,10 @@ const Action = ({ primitives }) => {
   }, [])
   const medium = 700
   const large = 900
+  const [isOpen, setOpen] = useState(false)
 
   return (
-    <TableRow key={item.id}>
+    <Row key={item.id} onClick={() => setOpen(!isOpen)}>
       <TableCell>
         {item.executedAt
           ? moment.unix(item.executedAt).format('MMM Do, h:mm')
@@ -41,10 +43,18 @@ const Action = ({ primitives }) => {
       <TableCell>
         <img src={check} alt="" />
       </TableCell>
-    </TableRow>
+      <ActionDetail
+        title={metadata.data ? metadata.data.description : item.type}
+        primitives={primitives}
+        open={isOpen}
+        onClose={() => setOpen(!isOpen)}
+      />
+    </Row>
   )
 }
-
+const Row = styled(TableRow)`
+  cursor: pointer;
+`
 const Text = styled.p`
   white-space: nowrap;
   overflow: hidden;
