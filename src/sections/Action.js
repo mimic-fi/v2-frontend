@@ -47,7 +47,7 @@ const Action = ({ primitives }) => {
 
     </Row>
     <ActionDetail
-      title={metadata.data ? metadata.data.description : item.type}
+      title={metadata.data ? metadata.data.successMessage : item.type}
       primitives={primitives}
       open={isOpen}
       onClose={() => setOpen(!isOpen)}

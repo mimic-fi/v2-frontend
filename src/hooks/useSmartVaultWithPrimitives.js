@@ -22,20 +22,39 @@ const fetchSmartVault = async (chainId, id) => {
     {
         smartVault(id: ${'"' + id.toLowerCase() + '"'}) {
           id
-          totalValueManaged
           primitiveExecutions(orderBy: executedAt, orderDirection: desc) {
             id
             type
+            data
             executedAt
             transaction
-            target
+      			target
             sender
-            movements
-            fee
-            data
+            fee {
+              pct
+              token {
+                id
+                name
+                symbol
+                decimals
+              }
+              amount
+              feeCollector
+            }
+            movements {
+              id
+              type
+              token {
+                id
+                name
+                symbol
+                decimals
+              	}
+              amount
+            	}
+          	}
           }
         }
-      }
     `
   )
   return smartVault

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
+import { formatTokenAmount } from '../utils/math-utils'
 import transactionHash from '../assets/transactionHash.svg'
 import date from '../assets/date.svg'
 import executed from '../assets/executed.svg'
@@ -63,12 +64,27 @@ const ActionDetail = ({
         <Footer>
           <Hxs>Have doubts?</Hxs>
           <BodyM>
-            We are commited to ensure transparent & safe business. Check out our
-            <a href="https://docs.mimic.fi/miscellaneous/faqs" target="_blank" rel="noreferrer">Frequently asked questions</a> here.
+            We are commited to ensure transparent & safe business. Check out our{' '}
+            <a
+              href="https://docs.mimic.fi/miscellaneous/faqs"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Frequently asked questions
+            </a>{' '}
+            here.
           </BodyM>
-          <BodyM>If you have any concerns, reach us at <a href="mailto:support@mimic.fi">support@mimic.fi</a></BodyM>
-
-          <br />
+          <BodyM>
+            If you have any concerns, reach us at{' '}
+            <a
+              href="https://airtable.com/shrSvH8fTJcbHq0xl"
+              target="_blank"
+              rel="noreferrer"
+            >
+              here
+            </a>
+          </BodyM>
+          p<br />
           <br />
           <BodyXl>Thanks for doing business  with Mimic!</BodyXl>
         </Footer>
@@ -81,18 +97,56 @@ const BreakdownItem = ({ primitive }) => {
   return (
     <Item>
       <BodyXl className="noMarginBottom">{primitive.type}</BodyXl>
-      <BodyM className="grey">
-        {moment.unix(primitive.executedAt).format('MMM Do, h:mm')}
+      <BodyM>
+        Data: {primitive.data && primitive.data !== '0x' ? primitive.data : '-'}
       </BodyM>
-      <br />
-      <BodyM className="noMarginBottom">From Smart Vault</BodyM>
-      <BodyM className="grey">{primitive.sender}</BodyM>
-      <BodyM className="noMarginBottom">To Smart Vault</BodyM>
-      <BodyM className="grey">{primitive.target}</BodyM>
+      {primitive.fee ? (
+        <Box>
+          <div>
+            <BodyM>FEE: </BodyM>
+          </div>
+          <div>
+            <BodyM>
+              {formatTokenAmount(primitive.fee.pct, 18, { digits: 2 }) +
+                '% - ' +
+                formatTokenAmount(
+                  primitive.fee.amount,
+                  primitive.fee.token.decimals,
+                  { digits: 4 }
+                ) +
+                ' ' +
+                primitive.fee.token.symbol}
+            </BodyM>
+          </div>
+        </Box>
+      ) : (
+        <BodyM>FEE: -</BodyM>
+      )}
+
+      {primitive.movements &&
+        primitive.movements.map(item => {
+          return (
+            <Box key={item.id}>
+              <BodyL>Amount {item.type}: </BodyL>
+              <BodyL>
+                {formatTokenAmount(item.amount, item.token.decimals, {
+                  digits: 4,
+                })}{' '}
+                {item.token.symbol}
+              </BodyL>
+            </Box>
+          )
+        })}
     </Item>
   )
 }
 
+const Box = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`
 const Breakdown = styled.div`
   text-align: left;
   position: relative;
@@ -109,11 +163,10 @@ const Breakdown = styled.div`
 `
 
 const Footer = styled.div`
-  text-align: center!important;
+  text-align: center !important;
   a {
-    color: #8286F2;
+    color: #8286f2;
   }
-
 `
 
 const Item = styled.div`

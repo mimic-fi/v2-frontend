@@ -22,7 +22,7 @@ const Hero = ({ primitives, totalValueManaged, totalActions }) => {
   const medium = 700
 
   const [isOpen, setOpen] = useState(false)
-  
+
   return (
     <HeroSection>
       <BodyL>Hello diver!</BodyL>
@@ -32,7 +32,7 @@ const Hero = ({ primitives, totalValueManaged, totalActions }) => {
           : ''}
       </Hl>
       <ActionDetail
-        title={lastAction && lastAction.data ? lastAction.data.description : ''}
+        title={lastAction && lastAction.data ? lastAction.data.successMessage : ''}
         primitives={primitives}
         open={isOpen}
         onClose={() => setOpen(!isOpen)}
