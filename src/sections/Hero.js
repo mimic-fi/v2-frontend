@@ -8,11 +8,12 @@ import lock from '../assets/lock.svg'
 import useActionMetadata from '../hooks/useActionMetadata'
 import { formatTokenAmount } from '../utils/math-utils'
 import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
+import ActionDetail from './ActionDetail'
 //TODO: remove knownTokenDecimals and replace it with no hardcoded data.
 
-const Hero = ({ primitive, totalValueManaged, totalActions }) => {
+const Hero = ({ primitives, totalValueManaged, totalActions }) => {
   //TODO: add real data. this is a mockup
-  const target = primitive ? primitive.target : ''
+  const target = primitives ? primitives[0].target : ''
   const lastAction = useActionMetadata(target)
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
@@ -20,15 +21,27 @@ const Hero = ({ primitive, totalValueManaged, totalActions }) => {
   }, [])
   const medium = 700
 
+  const [isOpen, setOpen] = useState(false)
+
   return (
     <HeroSection>
       <BodyL>Hello diver!</BodyL>
       <Hl>
-        {primitive && lastAction && lastAction.data
+        {primitives && lastAction && lastAction.data
           ? lastAction.data.successMessage + ' ✓'
           : ''}
       </Hl>
-      <BodyL>{primitive && moment.unix(primitive.executedAt).fromNow()}</BodyL>
+      <ActionDetail
+        title={lastAction && lastAction.data ? lastAction.data.successMessage : ''}
+        primitives={primitives}
+        open={isOpen}
+        onClose={() => setOpen(!isOpen)}
+      />
+
+      <BodyL>
+        {primitives && moment.unix(primitives[0].executedAt).fromNow()}{' '}
+        <button onClick={() => setOpen(!isOpen)}>See receipt</button>
+      </BodyL>
       {totalValueManaged && (
         <Box>
           <Item>
@@ -165,15 +178,29 @@ const HeroSection = styled.section`
   }
   color: white;
   text-align: center;
-  a,
-  span.link {
-    color: #a996ff;
-    font-family: 'GTWalsheimProBold';
-    padding-left: 7px;
-  }
+
   h2 {
     max-width: 750px;
     text-align: center;
+  }
+  button{
+    background: transparent;
+    border: 0px;
+    color: #a996ff;
+    font-family: 'GTWalsheimPro';
+    padding-left: 7px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    @media only screen and (max-width: 700px) {
+      font-size: 17px;
+      line-height: 28px;
+    }
+    @media only screen and (min-width: 1440px) {
+      font-size: 20px;
+      line-height: 32px;
+    }
   }
 `
 

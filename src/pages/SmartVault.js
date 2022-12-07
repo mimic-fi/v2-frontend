@@ -22,7 +22,7 @@ const SmartVault = () => {
   const large = 900
 
   const params = useParams()
-  let heroPrimitive = ''
+  let heroPrimitives = ''
   let totalValueManaged = ''
   let totalActions = 0
   const smartVault = useSmartVaultWithPrimitives(params.id)
@@ -43,22 +43,22 @@ const SmartVault = () => {
     }, {})
     actions = Object.values(grouped).map(primitives => {
       totalActions += 1
-      return <Action primitives={primitives} key={primitives.id} />
+      return <Action key={primitives.id} primitives={primitives} />
     })
-    heroPrimitive =
+    heroPrimitives =
       Object.values(grouped) &&
       Object.values(grouped)[0] &&
       Object.values(grouped)[0][0]
-        ? Object.values(grouped)[0][0]
+        ? Object.values(grouped)[0]
         : ''
   }
 
   return (
     <Page>
-      {heroPrimitive && (
+      {heroPrimitives && (
         <Container>
           <Hero
-            primitive={heroPrimitive}
+            primitives={heroPrimitives}
             totalValueManaged={totalValueManaged}
             totalActions={totalActions}
           />
