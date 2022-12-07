@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import logo from '../assets/logo-navbar.svg'
 import NetworkInfo from './ChainSelector'
+import { Container } from '../styles/texts'
 
-const Navbar = ({ sidebar = true }) => {
+const Navbar = () => {
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -11,8 +12,8 @@ const Navbar = ({ sidebar = true }) => {
   const medium = 700
   return (
     <NavbarSection>
-      <NavbarContainer sidebar={sidebar}>
-        {(width < medium || sidebar === false) && <img src={logo} alt="" />}
+      <NavbarContainer>
+        <img src={logo} alt="" />
         <NetworkInfo />
       </NavbarContainer>
     </NavbarSection>
@@ -23,21 +24,15 @@ const NavbarSection = styled.section`
   z-index: 100;
   width: 100%;
   margin: auto;
-  border: 1px solid #2d3034;
+  background: ${props => props.theme.main};
 `
 
-const NavbarContainer = styled.div`
-  margin: auto;
-  max-width: 1140px;
+const NavbarContainer = styled(Container)`
   height: 79px;
-  padding 0 20px;
   display: flex;
   align-items: center;
-  justify-content: ${props => props.sidebar === false ? 'space-between' : 'flex-end'};
-  @media only screen and (max-width: 700px) {
-    justify-content: space-between;
-  }
-
+  justify-content: space-between;
+  padding 0;
 `
 
 export default Navbar

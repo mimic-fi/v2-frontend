@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
-import Sidebar from './Sidebar'
 
-const Page = ({ children, sidebar = true }) => {
+const Page = ({ children }) => {
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -12,10 +11,9 @@ const Page = ({ children, sidebar = true }) => {
   return (
     <Wrapper>
       <Container>
-        {width >= medium && sidebar === true && <Sidebar />}
         <PageContainer>
           <NavbarContainer>
-            <Navbar sidebar={sidebar} />
+            <Navbar />
           </NavbarContainer>
           <SectionContainer>{children}</SectionContainer>
         </PageContainer>

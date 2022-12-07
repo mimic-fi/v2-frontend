@@ -25,10 +25,11 @@ const SmartVaultDetailSection = styled.section`
   height: auto;
   max-width: 1140px;
   margin: auto;
-  padding: 80px 20px;
-  max-width: 1100px;
+  padding: 80px 0;
+  width: 100%;
+  box-sizing: border-box;
   @media only screen and (max-width: 700px) {
-    padding: 70px 20px 70px 20px;
+    padding: 70px 0;
   }
   color: white;
   text-align: left;
