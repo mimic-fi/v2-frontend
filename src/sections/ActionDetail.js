@@ -97,9 +97,6 @@ const BreakdownItem = ({ primitive }) => {
   return (
     <Item>
       <BodyXl className="noMarginBottom">{primitive.type}</BodyXl>
-      <BodyM>
-        Data: {primitive.data && primitive.data !== '0x' ? primitive.data : '-'}
-      </BodyM>
       {primitive.fee ? (
         <Box>
           <div>
