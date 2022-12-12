@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
+import Footer from './Footer'
 
 const Page = ({ children }) => {
   return (
@@ -10,7 +11,8 @@ const Page = ({ children }) => {
           <NavbarContainer>
             <Navbar />
           </NavbarContainer>
-          <SectionContainer>{children}</SectionContainer>
+          {children}
+          <Footer />
         </PageContainer>
       </Container>
     </Wrapper>
@@ -48,12 +50,6 @@ const PageContainer = styled.div`
   min-height: 100vh;
 `
 
-const SectionContainer = styled.div`
-  overflow-y: scroll;
-  overflow-x: hidden;
-  background: ${props => props.theme.backgroundDefault};
-  width: 100%;
-  height: calc(100vh - 80px);
-`
+
 
 export default Page
