@@ -19,7 +19,7 @@ const Header = styled.th`
   font-size: 15px;
   line-height: 24px;
   letter-spacing: 0.75px;
-  color: #fcfcfc;
+  color: ${props => props.theme.tableHeaderColor};
 
   @media only screen and (max-width: 700px) {
     padding-left: ${props => (props.align === 'left' ? 10 : 0)}px;

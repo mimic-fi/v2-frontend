@@ -10,22 +10,24 @@ function Table({ header, children, noSideBorders = 'false', ...props }) {
   )
 }
 
-const BORDER = '#414141'
-
 const StyledTable = styled.table`
   width: 100%;
   border-spacing: 0;
-  background: #2d3034;
-  box-shadow: 0px 4px 40px rgba(26, 28, 30, 0.24);
   border-radius: 8px;
 
   td {
-    border-bottom: 2px solid ${BORDER};
+    border-bottom: 2px solid ${props => props.theme.tableBorder};
   }
 
   /* First and last cell styling */
   tr:first-child td {
-    border-top: 2px solid ${BORDER};
+    border-top: 2px solid ${props => props.theme.tableBorder};
+  }
+  td:first-child, th:first-child {
+    padding-left: 0;
+  }
+  td:last-child, th:last-child {
+    padding-right: 0;
   }
 `
 

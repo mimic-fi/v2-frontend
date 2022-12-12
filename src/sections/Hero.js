@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useParams } from 'react-router-dom'
 import moment from 'moment'
-import { Hl, Hxxs, BodyL, BodyS } from '../styles/texts'
-import check from '../assets/check.svg'
-import list from '../assets/list.svg'
-import lock from '../assets/lock.svg'
-import useActionMetadata from '../hooks/useActionMetadata'
 import { formatTokenAmount } from '../utils/math-utils'
-import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
+import { Hl, Hxxs, BodyL, BodyS } from '../styles/texts'
 import ActionDetail from './ActionDetail'
+import check from '../assets/check.svg'
+import open from '../assets/open.svg'
+import lock from '../assets/lock.svg'
+import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
+import { CHAIN_INFO } from '../constants/chainInfo'
+import { useChainId } from '../hooks/useChainId'
+import useActionMetadata from '../hooks/useActionMetadata'
+
 //TODO: remove knownTokenDecimals and replace it with no hardcoded data.
 
 const Hero = ({ primitives, totalValueManaged, totalActions }) => {
   //TODO: add real data. this is a mockup
+  const params = useParams()
+  const chainId = useChainId()
   const target = primitives ? primitives[0].target : ''
   const lastAction = useActionMetadata(target)
   const [width, setWidth] = useState(window.innerWidth)
@@ -32,7 +38,9 @@ const Hero = ({ primitives, totalValueManaged, totalActions }) => {
           : ''}
       </Hl>
       <ActionDetail
-        title={lastAction && lastAction.data ? lastAction.data.successMessage : ''}
+        title={
+          lastAction && lastAction.data ? lastAction.data.successMessage : ''
+        }
         primitives={primitives}
         open={isOpen}
         onClose={() => setOpen(!isOpen)}
@@ -63,8 +71,11 @@ const Hero = ({ primitives, totalValueManaged, totalActions }) => {
                 <BodyS>Active</BodyS>
               </div>
               <div>
-                <img alt="" src={list} />
-                <BodyS>{totalActions} fulfilled actions to date</BodyS>
+                <img alt="" src={open} />
+                <a
+                  href={CHAIN_INFO[chainId]?.explorer+ 'address/' + params.id}
+                  target="_blank"
+                ><BodyS>Open on Etherscan</BodyS></a>
               </div>
             </MobileItem>
           )}
@@ -77,10 +88,15 @@ const Hero = ({ primitives, totalValueManaged, totalActions }) => {
                 </div>
               </Item>
               <Item>
-                <img alt="" src={list} />
+                <img alt="" src={open} />
                 <div>
-                  <Hxxs>{totalActions}</Hxxs>
-                  <BodyS>fulfilled actions to date</BodyS>
+                  <a
+                    href={CHAIN_INFO[chainId]?.explorer+ 'address/' + params.id}
+                    target="_blank"
+                  >
+                    <Hxxs>Open on Etherscan</Hxxs>
+                  </a>
+                  <BodyS>(External link)</BodyS>
                 </div>
               </Item>
             </>
@@ -119,7 +135,7 @@ const Box = styled.div`
 const Item = styled.div`
   display: flex;
   width: 33%;
-  padding: 46px 40px;
+  padding: 46px 25px;
   align-items: center;
   justify-content: center;
   text-align: left;
@@ -135,12 +151,12 @@ const Item = styled.div`
   }
 
   &:nth-child(2) {
-    border-right: solid 4px #252627;
-    border-left: solid 4px #252627;
+    border-right: solid 4px ${props => props.theme.backgroundDefault};
+    border-left: solid 4px ${props => props.theme.backgroundDefault};
     @media only screen and (max-width: 950px) {
       border: 0px;
-      border-top: solid 4px #252627;
-      border-bottom: solid 4px #252627;
+      border-top: solid 4px ${props => props.theme.backgroundDefault};
+      border-bottom: solid 4px ${props => props.theme.backgroundDefault};
       width: 100%;
     }
   }
@@ -183,7 +199,7 @@ const HeroSection = styled.section`
     max-width: 750px;
     text-align: center;
   }
-  button{
+  button {
     background: transparent;
     border: 0px;
     color: #a996ff;
