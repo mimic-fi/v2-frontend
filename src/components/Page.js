@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
 
 const Page = ({ children }) => {
-  const [width, setWidth] = useState(window.innerWidth)
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth))
-  }, [])
-  const medium = 700
   return (
     <Wrapper>
       <Container>

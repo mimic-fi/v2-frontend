@@ -73,9 +73,12 @@ const Hero = ({ primitives, totalValueManaged, totalActions }) => {
               <div>
                 <img alt="" src={open} />
                 <a
-                  href={CHAIN_INFO[chainId]?.explorer+ 'address/' + params.id}
+                  href={CHAIN_INFO[chainId]?.explorer + 'address/' + params.id}
                   target="_blank"
-                ><BodyS>Open on Etherscan</BodyS></a>
+                  rel="noreferrer"
+                >
+                  <BodyS>Open on Etherscan</BodyS>
+                </a>
               </div>
             </MobileItem>
           )}
@@ -91,8 +94,11 @@ const Hero = ({ primitives, totalValueManaged, totalActions }) => {
                 <img alt="" src={open} />
                 <div>
                   <a
-                    href={CHAIN_INFO[chainId]?.explorer+ 'address/' + params.id}
+                    href={
+                      CHAIN_INFO[chainId]?.explorer + 'address/' + params.id
+                    }
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <Hxxs>Open on Etherscan</Hxxs>
                   </a>

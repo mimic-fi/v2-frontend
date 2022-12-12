@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo-navbar.svg'
@@ -6,11 +6,6 @@ import NetworkInfo from './ChainSelector'
 import { Container } from '../styles/texts'
 
 const Navbar = () => {
-  const [width, setWidth] = useState(window.innerWidth)
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth))
-  }, [])
-  const medium = 700
   return (
     <NavbarSection>
       <NavbarContainer>
