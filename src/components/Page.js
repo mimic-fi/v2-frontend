@@ -25,6 +25,7 @@ const Wrapper = styled.section`
   position: relative;
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
 `
 
 const Container = styled.div`

@@ -39,7 +39,6 @@ const FooterSection = styled.section`
   max-width: 1140px;
   margin: auto;
   padding: 80px 0 150px 0;
-  width: 100%;
   box-sizing: border-box;
 `
 
