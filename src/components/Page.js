@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
-import Sidebar from './Sidebar'
 
-const Page = ({ children, sidebar = true }) => {
-  const [width, setWidth] = useState(window.innerWidth)
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth))
-  }, [])
-  const medium = 700
+const Page = ({ children }) => {
   return (
     <Wrapper>
       <Container>
-        {width >= medium && sidebar === true && <Sidebar />}
         <PageContainer>
           <NavbarContainer>
-            <Navbar sidebar={sidebar} />
+            <Navbar />
           </NavbarContainer>
           <SectionContainer>{children}</SectionContainer>
         </PageContainer>
@@ -49,7 +42,7 @@ const NavbarContainer = styled.div`
   box-shadow: 0px 4px 24px rgba(31, 32, 33, 0.24);
 `
 const PageContainer = styled.div`
-  background: #252627;
+  background: ${props => props.theme.backgroundDefault};
   width: 100%;
   height: 100%;
   min-height: 100vh;
@@ -58,7 +51,7 @@ const PageContainer = styled.div`
 const SectionContainer = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
-  background: #252627;
+  background: ${props => props.theme.backgroundDefault};
   width: 100%;
   height: calc(100vh - 80px);
 `

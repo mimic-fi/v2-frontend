@@ -32,7 +32,6 @@ const SmartVaults = () => {
 }
 
 const SmartVaultsSection = styled.section`
-  background: #252627;
   height: auto;
   min-height: 1700px;
   padding-top: 80px;

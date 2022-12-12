@@ -43,7 +43,7 @@ const SmartVault = () => {
     }, {})
     actions = Object.values(grouped).map(primitives => {
       totalActions += 1
-      return <Action key={primitives.id} primitives={primitives} />
+      return <Action key={primitives[0].id} primitives={primitives} />
     })
     heroPrimitives =
       Object.values(grouped) &&
@@ -93,9 +93,9 @@ const SmartVault = () => {
 
 const LatestActionsSection = styled.section`
   height: auto;
-  padding: 80px 20px;
+  padding: 80px 0;
   color: white;
-  max-width: 1100px;
+  width: 100%;
   margin: auto;
 `
 

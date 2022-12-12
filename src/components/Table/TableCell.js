@@ -14,7 +14,7 @@ function TableCell({ children, align, ...props }) {
 
 const Td = styled.td`
   padding: 20px;
-  background: #2d3034;
+  color: #fff;
   text-align: ${props => props.align};
   @media only screen and (max-width: 700px) {
     padding: 20px 10px;

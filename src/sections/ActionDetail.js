@@ -162,7 +162,7 @@ const Breakdown = styled.div`
 const Footer = styled.div`
   text-align: center !important;
   a {
-    color: #8286f2;
+    color: ${props => props.theme.mainDefault};
   }
 `
 

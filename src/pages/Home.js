@@ -19,7 +19,6 @@ const Home = () => {
 }
 
 const HomeSection = styled.section`
-  background: #252627;
   height: auto;
   padding-top: 180px;
   color: white;
