@@ -26,7 +26,7 @@ const NavbarSection = styled.section`
 `
 
 const NavbarContainer = styled(Container)`
-  height: 79px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
