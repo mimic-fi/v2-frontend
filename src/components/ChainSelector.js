@@ -10,9 +10,11 @@ const NetworkInfo = () => {
   const chainId = useChainId()
 
   const Control = props => {
-    const { children, innerRef, innerProps } = props
+    const { children, innerRef, innerProps, menuIsOpen } = props
+    console.log('props', menuIsOpen)
+
     return (
-      <ControlContainer ref={innerRef} {...innerProps}>
+      <ControlContainer ref={innerRef} {...innerProps} menuIsOpen={menuIsOpen}>
         <ChainLogo src={CHAIN_INFO[chainId]?.logoUrl} />
         {children}
       </ControlContainer>
@@ -35,7 +37,6 @@ const NetworkInfo = () => {
 }
 
 const Option = props => {
-  console.log('props', props)
   const { children, isSelected, innerRef, innerProps } = props
   return (
     <OptionContainer ref={innerRef} {...innerProps} isSelected={isSelected}>
@@ -64,7 +65,7 @@ const Menu = props => {
         <div>
           <BodyL>Select network</BodyL>
           <div>{props.children}</div>
-          <hr />
+          <Hr />
           <BodyS>Coming soon</BodyS>
           <Box>
             {Object.values(CHAIN_INFO)
@@ -90,6 +91,8 @@ const SelectElement = styled(Select)`
     background-color: transparent;
     border: none;
     min-width: 170px;
+    transition: all 0.5s ease-out;
+
   }
   .react-select__value-container {
     display: none;
@@ -97,7 +100,6 @@ const SelectElement = styled(Select)`
   .react-select__indicator-separator {
     display: none;
   }
-
   .react-select__single-value,
   .react-select__indicator {
     color: white;
@@ -106,9 +108,16 @@ const SelectElement = styled(Select)`
     background-color: #373839;
     min-width: 300px;
     width: auto;
-    padding: 24px;
+    padding: 0px 24px;
     border-radius: 24px;
     right: 0;
+    margin: 15px 0 0 0;
+    animation: fadeIn 0.2s; 
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
   }
   p {
     margin-bottom: 0;
@@ -125,20 +134,20 @@ const OptionContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 16px 0;
-  padding: 10px 24px;
+  padding: 10px 18px;
   background: ${props =>
     props.isSelected ? props.theme.mainDefault : 'transparent'};
-  border-radius: 24px !important;
+  border-radius: 20px !important;
   div {
     display: flex;
   }
   .selector {
-    width: 17px;
-    height: 17px;
+    width: 12px;
+    height: 12px;
     background: ${props =>
-      props.isSelected ? 'white' : '#A5A1B7'};
-      border: solid 7px ${props =>
-        props.isSelected ? props.theme.mainDark : '#A5A1B7'};
+    props.isSelected ? 'white' : '#A5A1B7'};
+      border: solid 5px ${props =>
+    props.isSelected ? props.theme.mainDark : '#A5A1B7'};
     border-radius: 100%;
   }
 `
@@ -147,6 +156,8 @@ const Box = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 13px;
+  margin-bottom: 24px;
   div {
     display: flex;
     align-items: center;
@@ -159,11 +170,24 @@ const ControlContainer = styled.div`
   align-items: center;
   justify-content: end;
   opacity: ${props => (props.isDisabled ? '0.25' : '1')};
+  background-color: ${props => (props.menuIsOpen ? props.theme.backgroundDefault : 'transparent')};
+  border-radius: 15px;
+  padding: 2px 0 2px 10px;
   text-align: end;
+  &:hover {
+    transition: 0.25s ease background;
+    background: #00000069;
+  }
 `
 
 const ChainName = styled.div`
   padding: 10px 10px;
+`
+
+const Hr = styled.div`
+  background: #A5A1B7;
+  width: 100%;
+  height: 1px;
 `
 
 const Container = styled.div`
