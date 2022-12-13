@@ -4,10 +4,10 @@ import styled from 'styled-components'
 import TableRow from '../components/Table/TableRow'
 import TableCell from '../components/Table/TableCell'
 import ActionDetail from './ActionDetail'
-import { shortenAddress } from '../utils/web3-utils'
 import check from '../assets/success.svg'
 import defaultAction from '../assets/default-action.svg'
 import useActionMetadata from '../hooks/useActionMetadata'
+import AddressName from '../components/AddressName'
 
 const Action = ({ primitives, index }) => {
   const item = primitives[0]
@@ -41,7 +41,7 @@ const Action = ({ primitives, index }) => {
           <Text>{metadata.data ? metadata.data.description : ''}</Text>
         </TableCell>
       )}
-      {width >= medium && <TableCell>{shortenAddress(item.sender)}</TableCell>}
+      {width >= medium && <TableCell><AddressName address={item.sender}/></TableCell>}
       <TableCell>
         <img src={check} alt="" />
       </TableCell>
