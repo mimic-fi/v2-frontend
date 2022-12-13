@@ -39,7 +39,7 @@ const NavbarContainer = styled.div`
   flex-shrink: 0;
   position: relative;
   z-index: 2;
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   box-shadow: 0px 4px 24px rgba(31, 32, 33, 0.24);

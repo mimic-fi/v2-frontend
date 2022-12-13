@@ -4,12 +4,12 @@ import styled from 'styled-components'
 import TableRow from '../components/Table/TableRow'
 import TableCell from '../components/Table/TableCell'
 import ActionDetail from './ActionDetail'
-import { shortenAddress } from '../utils/web3-utils'
 import check from '../assets/success.svg'
 import defaultAction from '../assets/default-action.svg'
 import useActionMetadata from '../hooks/useActionMetadata'
+import AddressName from '../components/AddressName'
 
-const Action = ({ primitives }) => {
+const Action = ({ primitives, index }) => {
   const item = primitives[0]
   const metadata = useActionMetadata(item.target)
   const [width, setWidth] = useState(window.innerWidth)
@@ -24,8 +24,9 @@ const Action = ({ primitives }) => {
     <>
     <Row key={item.id} onClick={() => setOpen(!isOpen)}>
       <TableCell>
+      <Number> {index} </Number>
         {item.executedAt
-          ? moment.unix(item.executedAt).format('MMM Do, h:mm')
+          ? moment.unix(item.executedAt).format('MMM Do')
           : '-'}
       </TableCell>
       <TableCell>
@@ -40,7 +41,7 @@ const Action = ({ primitives }) => {
           <Text>{metadata.data ? metadata.data.description : ''}</Text>
         </TableCell>
       )}
-      {width >= medium && <TableCell>{shortenAddress(item.sender)}</TableCell>}
+      {width >= medium && <TableCell><AddressName address={item.sender}/></TableCell>}
       <TableCell>
         <img src={check} alt="" />
       </TableCell>
@@ -58,6 +59,12 @@ const Action = ({ primitives }) => {
 const Row = styled(TableRow)`
   cursor: pointer;
 `
+
+const Number = styled.div`
+  padding: 0 20px;
+  color: ${props => props.theme.mainDefault};
+`
+
 const Text = styled.p`
   white-space: nowrap;
   overflow: hidden;
