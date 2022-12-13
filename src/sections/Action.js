@@ -69,7 +69,7 @@ const Text = styled.p`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 500px;
+  max-width: 400px;
 `
 const ActionIcon = styled.img`
   height: 23px;

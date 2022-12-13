@@ -206,6 +206,21 @@ export const BodyS = styled.p`
   }
 `
 
+export const BodyXs = styled.p`
+  font-family: 'GTWalsheimPro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11.5px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: #fcfcfc;
+
+  @media only screen and (min-width: 1440px) {
+    font-size: 13px;
+    line-height: 22px;
+  }
+`
+
 export const LinkS = styled.a`
   font-family: 'GTWalsheimPro';
   font-style: normal;
