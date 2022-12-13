@@ -11,7 +11,6 @@ const NetworkInfo = () => {
 
   const Control = props => {
     const { children, innerRef, innerProps, menuIsOpen } = props
-    console.log('props', menuIsOpen)
 
     return (
       <ControlContainer ref={innerRef} {...innerProps} menuIsOpen={menuIsOpen}>
