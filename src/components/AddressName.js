@@ -9,7 +9,6 @@ const AddressName = ({ address }) => {
   const indexPlayer = `${address}-${chainId}`
   const player = PLAYERS[indexPlayer]
 
-  console.log(PLAYERS, indexPlayer)
   if (player) {
     return (
       <Container>
