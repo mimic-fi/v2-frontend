@@ -13,7 +13,6 @@ const SmartVaultDetail = () => {
     <Container>
       <Hm>{metadata.data.title || 'Smart vault'}</Hm>
       <BodyL>{metadata.data.description || ''}</BodyL>
-      <hr />
       </Container>
     </SmartVaultDetailSection>
   ) : (
@@ -25,7 +24,7 @@ const SmartVaultDetailSection = styled.section`
   height: auto;
   max-width: 1140px;
   margin: auto;
-  padding: 80px 0;
+  padding: 80px 0 30px 0;
   width: 100%;
   box-sizing: border-box;
   @media only screen and (max-width: 700px) {
@@ -37,11 +36,6 @@ const SmartVaultDetailSection = styled.section`
   p {
     margin-left: 0;
     max-width: 620px;
-  }
-  hr {
-    color: #fcfcfc;
-    background: #fcfcfc;
-    margin-top: 50px;
   }
 `
 
