@@ -5,7 +5,7 @@ import { formatTokenAmount } from '../utils/math-utils'
 import transactionHash from '../assets/transactionHash.svg'
 import date from '../assets/date.svg'
 import executed from '../assets/executed.svg'
-import { Hm, Hxs, BodyS, BodyM, BodyL, BodyXl } from '../styles/texts'
+import { Hm, Hxs, BodyXs, BodyS, BodyM, BodyL, BodyXl } from '../styles/texts'
 
 const ActionDetail = ({
   open,
@@ -51,6 +51,8 @@ const ActionDetail = ({
         <br />
         <br />
         <Hxs>Breakdown</Hxs>
+        <br />
+        <br />
         <Breakdown>
           <div className="line" />
           {primitives &&
@@ -84,7 +86,7 @@ const ActionDetail = ({
               here
             </a>
           </BodyM>
-          p<br />
+          <br />
           <br />
           <BodyXl>Thanks for doing business  with Mimic!</BodyXl>
         </Footer>
@@ -96,7 +98,17 @@ const ActionDetail = ({
 const BreakdownItem = ({ primitive }) => {
   return (
     <Item>
-      <BodyXl className="noMarginBottom">{primitive.type}</BodyXl>
+      <Box>
+        <BodyXl className="noMargin">{primitive.type}</BodyXl>
+        {primitive.data === '0x52454c41594552' && (
+          <RelayerTag>Relayer cost</RelayerTag>
+        )}
+      </Box>
+      {primitive.data === '0x52454c41594552' && (
+        <Relayer>
+          The cost of the relayer will depend on a number of on-chain factors
+        </Relayer>
+      )}
       {primitive.fee ? (
         <Box>
           <div>
@@ -144,6 +156,22 @@ const Box = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 `
+const Relayer = styled(BodyM)`
+  color: #a5a1b7;
+`
+
+const RelayerTag = styled(BodyXs)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${props => props.theme.mainDark};
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 22px;
+  color: #fcfcfc;
+`
 const Breakdown = styled.div`
   text-align: left;
   position: relative;
@@ -189,6 +217,9 @@ const Item = styled.div`
   }
   .noMarginBottom {
     margin-bottom: 0px;
+  }
+  .noMargin {
+    margin: 0px;
   }
 `
 
