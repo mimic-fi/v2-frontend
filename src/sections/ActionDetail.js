@@ -234,12 +234,12 @@ const Footer = styled.div`
 `
 
 const Fee = styled.div`
-color: ${ props => props.theme.neutralsGray };
+  color: ${ props => props.theme.neutralsGray };
 
 `
 
 const Link = styled.a`
-displ a y: flex;
+  display: flex;
   align-items: center;
 `
 
