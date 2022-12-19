@@ -13,42 +13,41 @@ const AddressName = ({ address, title }) => {
   if (title) {
     if (player) {
       return (
-
-      <Container>
-        <BadgeXl backgroundColor={player.backgroundColor}>
-          <ImgXl src={player.logoUrl} />
-        </BadgeXl>
-        <Box>
-          <div>
-            {title && title}
-            <BodyL>
-              {player.name} {' '}
-              ({shortenAddress(address)})
-            </BodyL>
-          </div>
-        </Box>
-      </Container>
+        <Container>
+          <BadgeXl backgroundColor={player.backgroundColor}>
+            <ImgXl src={player.logoUrl} />
+          </BadgeXl>
+          <Box>
+            <div>
+              {title && title}
+              <BodyL>
+                {player.name} {' '}
+                ({shortenAddress(address)})
+              </BodyL>
+            </div>
+          </Box>
+        </Container>
       )
     } else {
       // TODO: primitive executed by owners
       return (
-      <Container>
-        {shortenAddress(address)}
-      </Container>
+        <Container>
+          {shortenAddress(address)}
+        </Container>
       )
     }
   } else {
     if (player) {
       return (
-      <Container>
-        <BadgeSm backgroundColor={player.backgroundColor}>
-          <ImgSm src={player.logoUrl} />
-        </BadgeSm>
-        <Box>
-              {player.name} {' '}
-              ({shortenAddress(address)})
-        </Box>
-      </Container>
+        <Container>
+          <BadgeSm backgroundColor={player.backgroundColor}>
+            <ImgSm src={player.logoUrl} />
+          </BadgeSm>
+          <Box>
+            {player.name} {' '}
+            ({shortenAddress(address)})
+          </Box>
+        </Container>
       )
     } else {
       return (
@@ -57,20 +56,8 @@ const AddressName = ({ address, title }) => {
         </Container>
       )
     }
-
-  
   }
-
 }
-
-// const Img = styled.img`
-//   color: white;
-//   height: 20px;
-//   width: 20px;
-//   background-color: ${props => (props.backgroundColor)};
-//   border-radius: 100px;
-//   padding: 5px;
-// `
 
 const ImgXl = styled.img`
   height: 30px !important;
@@ -104,13 +91,6 @@ const BadgeSm = styled.div`
   align-items: center;
 `
 
-const Name = styled.div`
-  color: white;
-  margin: 0 10px;
-  flex-wrap: nowrap;
-
-`
-
 const Box = styled.div`
    display: flex;
   align-items: center;
@@ -127,6 +107,5 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
 `
-
 
 export default AddressName
