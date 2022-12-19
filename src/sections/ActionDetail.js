@@ -6,6 +6,7 @@ import transactionHash from '../assets/transactionHash.svg'
 import date from '../assets/date.svg'
 import executed from '../assets/executed.svg'
 import { Hm, Hxs, BodyXs, BodyS, BodyM, BodyL, BodyXl } from '../styles/texts'
+import AddressName from '../components/AddressName'
 
 const ActionDetail = ({
   open,
@@ -27,7 +28,7 @@ const ActionDetail = ({
           <img alt="" src={transactionHash} />
           <div>
             <BodyS className="label">Transaction hash</BodyS>
-            <BodyL>{primitives ? primitives[0].transaction : ''}</BodyL>
+            <BodyL color="#A996FF">{primitives ? primitives[0].transaction : ''}</BodyL>
           </div>
         </DetailItem>
         <DetailItem>
@@ -42,10 +43,11 @@ const ActionDetail = ({
           </div>
         </DetailItem>
         <DetailItem>
-          <img alt="" src={executed} />
+          {/* <img alt="" src={executed} /> */}
           <div>
-            <BodyS className="label">Executed by</BodyS>
-            <BodyL>{primitives ? primitives[0].sender : ''}</BodyL>
+            
+            <AddressName address={primitives ? primitives[0].sender : ''} title={<BodyS className="label">Executed by</BodyS>} />
+            {/* <BodyL>{primitives ? primitives[0].sender : ''}</BodyL> */}
           </div>
         </DetailItem>
         <br />
