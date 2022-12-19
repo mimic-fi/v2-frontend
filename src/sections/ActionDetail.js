@@ -3,10 +3,13 @@ import styled from 'styled-components'
 import moment from 'moment'
 import { formatTokenAmount } from '../utils/math-utils'
 import transactionHash from '../assets/transactionHash.svg'
+import openImg from '../assets/open.svg'
 import date from '../assets/date.svg'
-import executed from '../assets/executed.svg'
+import action from '../assets/action.svg'
 import { Hm, Hxs, BodyXs, BodyS, BodyM, BodyL, BodyXl } from '../styles/texts'
 import AddressName from '../components/AddressName'
+import { getEtherscanLink } from '../utils/web3-utils'
+import { useChainId } from '../hooks/useChainId'
 
 const ActionDetail = ({
   open,
@@ -16,6 +19,9 @@ const ActionDetail = ({
   right,
   onClose,
 }) => {
+  const chainId = useChainId()
+  const hash = primitives ? primitives[0].transaction : ''
+  const actionAddress = primitives ? primitives[0].target : ''
   return (
     <Detail isOpen={open}>
       <div className="overlay" onClick={onClose} />
@@ -28,9 +34,17 @@ const ActionDetail = ({
           <img alt="" src={transactionHash} />
           <div>
             <BodyS className="label">Transaction hash</BodyS>
-            <BodyL color="#A996FF">{primitives ? primitives[0].transaction : ''}</BodyL>
+            <Link
+              href={getEtherscanLink(chainId, hash, 'transaction')}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <BodyL color="#A996FF">{hash}</BodyL>
+              <OpenLink alt="" src={openImg} />
+            </Link>
           </div>
         </DetailItem>
+
         <DetailItem>
           <img alt="" src={date} />
           <div>
@@ -43,11 +57,22 @@ const ActionDetail = ({
           </div>
         </DetailItem>
         <DetailItem>
-          {/* <img alt="" src={executed} /> */}
+          <img alt="" src={action} />
           <div>
-            
+            <BodyS className="label">Action address</BodyS>
+            <Link
+              href={getEtherscanLink(chainId, actionAddress, 'address')}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <BodyL color="#A996FF">{actionAddress}</BodyL>
+              <OpenLink alt="" src={openImg} />
+            </Link>
+          </div>
+        </DetailItem>
+        <DetailItem>
+          <div>
             <AddressName address={primitives ? primitives[0].sender : ''} title={<BodyS className="label">Executed by</BodyS>} />
-            {/* <BodyL>{primitives ? primitives[0].sender : ''}</BodyL> */}
           </div>
         </DetailItem>
         <br />
@@ -66,18 +91,13 @@ const ActionDetail = ({
           </Item>
         </Breakdown>
         <Footer>
-          <Hxs>Have doubts?</Hxs>
-          <BodyM>
-            We are commited to ensure transparent & safe business. Check out our{' '}
-            <a
-              href="https://docs.mimic.fi/miscellaneous/faqs"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Frequently asked questions
-            </a>{' '}
-            here.
-          </BodyM>
+          <br />
+          <br />
+          <br />
+          <br />
+          <BodyXl>Thanks for doing business with Mimic!</BodyXl>
+          <br />
+
           <BodyM>
             If you have any concerns, reach us at{' '}
             <a
@@ -88,9 +108,6 @@ const ActionDetail = ({
               here
             </a>
           </BodyM>
-          <br />
-          <br />
-          <BodyXl>Thanks for doing business  with Mimic!</BodyXl>
         </Footer>
       </div>
     </Detail>
@@ -111,34 +128,11 @@ const BreakdownItem = ({ primitive }) => {
           The cost of the relayer will depend on a number of on-chain factors
         </Relayer>
       )}
-      {primitive.fee ? (
-        <Box>
-          <div>
-            <BodyM>FEE: </BodyM>
-          </div>
-          <div>
-            <BodyM>
-              {formatTokenAmount(primitive.fee.pct, 18, { digits: 2 }) +
-                '% - ' +
-                formatTokenAmount(
-                  primitive.fee.amount,
-                  primitive.fee.token.decimals,
-                  { digits: 4 }
-                ) +
-                ' ' +
-                primitive.fee.token.symbol}
-            </BodyM>
-          </div>
-        </Box>
-      ) : (
-        <BodyM>FEE: -</BodyM>
-      )}
-
       {primitive.movements &&
         primitive.movements.map(item => {
           return (
             <Box key={item.id}>
-              <BodyL>Amount {item.type}: </BodyL>
+              <BodyL>Amount {item?.type?.toLowerCase()}: </BodyL>
               <BodyL>
                 {formatTokenAmount(item.amount, item.token.decimals, {
                   digits: 4,
@@ -148,6 +142,48 @@ const BreakdownItem = ({ primitive }) => {
             </Box>
           )
         })}
+
+      {primitive.fee ? (
+        <>
+          <Box>
+            <div>
+              <BodyM>Fee: </BodyM>
+            </div>
+            <div>
+              <BodyM>
+                {formatTokenAmount(
+                  primitive.fee.amount,
+                  primitive.fee.token.decimals,
+                  { digits: 4 }
+                )
+                  + ' ' +
+                  primitive.fee.token.symbol}
+              </BodyM>
+            </div>
+          </Box>
+          <Box>
+            <div>
+            </div>
+            <div>
+              <Fee>
+                ({formatTokenAmount(primitive.fee.pct, 18, { digits: 3 }) + '%'})
+              </Fee>
+            </div>
+          </Box>
+        </>
+
+      ) : (
+        <Box>
+          <div>
+            <BodyM>Fee: </BodyM>
+          </div>
+          <div>
+            <BodyM>
+              -
+            </BodyM>
+          </div>
+        </Box>
+      )}
     </Item>
   )
 }
@@ -160,19 +196,20 @@ const Box = styled.div`
 `
 const Relayer = styled(BodyM)`
   color: #a5a1b7;
+  margin: 0;
 `
 
 const RelayerTag = styled(BodyXs)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${props => props.theme.mainDark};
+  background: ${props => props.theme.secondaryDefault};
   padding: 10px 24px;
   border-radius: 24px;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 13px;
   line-height: 22px;
-  color: #fcfcfc;
+  color: ${props => props.theme.backgroundDefault};
 `
 const Breakdown = styled.div`
   text-align: left;
@@ -194,6 +231,16 @@ const Footer = styled.div`
   a {
     color: ${props => props.theme.mainDefault};
   }
+`
+
+const Fee = styled.div`
+color: ${ props => props.theme.neutralsGray };
+
+`
+
+const Link = styled.a`
+displ a y: flex;
+  align-items: center;
 `
 
 const Item = styled.div`
@@ -302,5 +349,10 @@ const Detail = styled.div`
     text-align: left !important;
   }
 `
+
+const OpenLink = styled.img`
+  height: 20px;
+`
+
 
 export default ActionDetail
