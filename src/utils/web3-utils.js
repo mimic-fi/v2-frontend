@@ -1,3 +1,5 @@
+import { CHAIN_INFO } from '../constants/chainInfo'
+
 export function shortenAddress(address, charsLength = 4) {
   const prefixLength = 2 // "0x"
   if (!address) {
@@ -11,4 +13,19 @@ export function shortenAddress(address, charsLength = 4) {
     '…' +
     address.slice(-charsLength)
   )
+}
+
+
+export function getEtherscanLink(chainId, data, type) {
+  const prefix = `${CHAIN_INFO[chainId]?.explorer || CHAIN_INFO[1]?.explorer}`
+
+  switch (type) {
+    case 'transaction': {
+      return `${prefix}tx/${data}`
+    }
+    case 'address':
+    default: {
+      return `${prefix}address/${data}`
+    }
+  }
 }
