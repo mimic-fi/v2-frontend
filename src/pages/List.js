@@ -8,24 +8,28 @@ import useSmartVaults from '../hooks/useSmartVaults'
 
 const SmartVaults = () => {
   //todo: add loader
-  const smartVaults = useSmartVaults()
+  const { data, isLoading } = useSmartVaults()
   let itemsToRender
-  if (smartVaults && smartVaults.data && smartVaults.data.smartVaults) {
-    itemsToRender = smartVaults.data.smartVaults.map(item => {
-      return (
-        <div key={item.id}>
-          <Link to={'/smart-vaults/' + item.id}>
-            <SmartVaultCard smartVault={item} />
-          </Link>
-        </div>
-      )
-    })
-  }
+  console.log(data)
 
   return (
     <Page sidebar={false}>
       <SmartVaultsSection>
-        <Container>{itemsToRender}</Container>
+        <Container>
+          {isLoading ? 'Loading Smart Vaults...' :
+          data?.length > 0 ? data.map(item => {
+            return (
+              <div key={item.id}>
+                <Link to={'/smart-vaults/' + item.id}>
+                  <SmartVaultCard smartVault={item} />
+                </Link>
+              </div>
+            )
+          })
+            : 'No Smart Vaults here'
+          
+        }
+        </Container>
       </SmartVaultsSection>
     </Page>
   )
