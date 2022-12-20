@@ -15,18 +15,17 @@ const SmartVaults = () => {
       <SmartVaultsSection>
         <Container>
           {isLoading ? 'Loading Smart Vaults...' :
-          data?.length > 0 ? data.map(item => {
-            return (
-              <div key={item.id}>
-                <Link to={'/smart-vaults/' + item.id}>
-                  <SmartVaultCard smartVault={item} />
-                </Link>
-              </div>
-            )
-          })
-            : 'No Smart Vaults here'
-          
-        }
+            data?.length > 0 ? data.map(item => {
+              return (
+                <div key={item.id}>
+                  <Link to={'/smart-vaults/' + item.id}>
+                    <SmartVaultCard smartVault={item} />
+                  </Link>
+                </div>
+              )
+            })
+              : 'No Smart Vaults here'
+          }
         </Container>
       </SmartVaultsSection>
     </Page>
