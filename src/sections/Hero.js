@@ -12,6 +12,7 @@ import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import { useChainId } from '../hooks/useChainId'
 import useActionMetadata from '../hooks/useActionMetadata'
+import { getEtherscanLink } from '../utils/web3-utils'
 
 //TODO: remove knownTokenDecimals and replace it with no hardcoded data.
 
@@ -94,9 +95,7 @@ const Hero = ({ primitives, totalValueManaged, totalActions }) => {
                 <img alt="" src={open} />
                 <div>
                   <a
-                    href={
-                      CHAIN_INFO[chainId]?.explorer + 'address/' + params.id
-                    }
+                    href={getEtherscanLink(chainId, params.id, 'address')}
                     target="_blank"
                     rel="noreferrer"
                   >

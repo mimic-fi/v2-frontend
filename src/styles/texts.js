@@ -165,7 +165,7 @@ export const BodyL = styled.p`
   font-size: 18px;
   line-height: 28px;
   letter-spacing: 0.75px;
-  color: #fcfcfc;
+  color: ${props => props.color ? props.color : '#fcfcfc'} ;
   @media only screen and (max-width: 700px) {
     font-size: 17px;
     line-height: 28px;
@@ -183,8 +183,7 @@ export const BodyM = styled.p`
   font-size: 16px;
   line-height: 28px;
   letter-spacing: 0.75px;
-  color: #fcfcfc;
-
+  color: ${props => props.color ? props.color : '#fcfcfc'} ;
   @media only screen and (min-width: 1440px) {
     font-size: 18px;
     line-height: 32px;
