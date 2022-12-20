@@ -12,6 +12,7 @@ export const SupportedChainId = {
   POLYGON: 137,
   GNOSIS: 100,
   ARBITRUM: 42161,
+  MUMBAI: 80001
 }
 
 export const DEFAULT_CHAIN_ID = SupportedChainId.MAINNET
@@ -32,6 +33,14 @@ export const CHAIN_INFO = {
     nativeCurrency: { name: 'Görli Ether', symbol: 'görETH', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.GOERLI,
+  },
+  [SupportedChainId.MUMBAI]: {
+    explorer: 'https://mumbai.polygonscan.com/',
+    label: 'Mumbai',
+    logoUrl: polygonLogoUrl,
+    nativeCurrency: { name: 'Matic', symbol: 'MATIC', decimals: 18 },
+    color: '#de4437',
+    value: SupportedChainId.MUMBAI,
   },
   [SupportedChainId.OPTIMISM]: {
     explorer: '',
@@ -76,4 +85,6 @@ export const CHAIN_SUBGRAPH_URL = {
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-mainnet',
   [SupportedChainId.GOERLI]:
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-goerli',
+  [SupportedChainId.MUMBAI]:
+    'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-mumbai',
 }

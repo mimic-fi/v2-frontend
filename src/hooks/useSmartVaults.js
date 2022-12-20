@@ -11,7 +11,7 @@ const useSmartVaults = () => {
 }
 
 const fetchSmartVaults = async (chainId = 1) => {
-  let smartVaults = await request(
+  let {smartVaults} = await request(
     CHAIN_SUBGRAPH_URL[chainId],
     gql`
       {
