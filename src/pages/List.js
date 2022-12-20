@@ -9,8 +9,6 @@ import useSmartVaults from '../hooks/useSmartVaults'
 const SmartVaults = () => {
   //todo: add loader
   const { data, isLoading } = useSmartVaults()
-  let itemsToRender
-  console.log(data)
 
   return (
     <Page sidebar={false}>
