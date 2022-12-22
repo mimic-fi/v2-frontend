@@ -36,9 +36,10 @@ const NetworkInfo = () => {
 }
 
 const Option = props => {
-  const { children, isSelected, innerRef, innerProps } = props
+  const chainId = useChainId()
+  const { children, innerRef, innerProps } = props
   return (
-    <OptionContainer ref={innerRef} {...innerProps} isSelected={isSelected}>
+    <OptionContainer ref={innerRef} {...innerProps} isSelected={props?.value === chainId }>
       <div>
         <ChainLogo src={CHAIN_INFO[(props?.value)].logoUrl} />
         <ChainName>{children}</ChainName>
@@ -91,7 +92,6 @@ const SelectElement = styled(Select)`
     border: none;
     min-width: 170px;
     transition: all 0.5s ease-out;
-
   }
   .react-select__value-container {
     display: none;
@@ -111,11 +111,15 @@ const SelectElement = styled(Select)`
     border-radius: 24px;
     right: 0;
     margin: 15px 0 0 0;
-    animation: fadeIn 0.2s; 
+    animation: fadeIn 0.2s;
 
     @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   }
   p {
@@ -143,10 +147,9 @@ const OptionContainer = styled.div`
   .selector {
     width: 12px;
     height: 12px;
-    background: ${props =>
-    props.isSelected ? 'white' : '#A5A1B7'};
-      border: solid 5px ${props =>
-    props.isSelected ? props.theme.mainDark : '#A5A1B7'};
+    background: ${props => (props.isSelected ? 'white' : '#A5A1B7')};
+    border: solid 5px
+      ${props => (props.isSelected ? props.theme.mainDark : '#A5A1B7')};
     border-radius: 100%;
   }
 `
@@ -169,7 +172,8 @@ const ControlContainer = styled.div`
   align-items: center;
   justify-content: end;
   opacity: ${props => (props.isDisabled ? '0.25' : '1')};
-  background-color: ${props => (props.menuIsOpen ? props.theme.backgroundDefault : 'transparent')};
+  background-color: ${props =>
+    props.menuIsOpen ? props.theme.backgroundDefault : 'transparent'};
   border-radius: 15px;
   padding: 2px 0 2px 10px;
   text-align: end;
@@ -184,7 +188,7 @@ const ChainName = styled.div`
 `
 
 const Hr = styled.div`
-  background: #A5A1B7;
+  background: #a5a1b7;
   width: 100%;
   height: 1px;
 `

@@ -8,6 +8,7 @@ import TableRow from '../components/Table/TableRow'
 import TableHeader from '../components/Table/TableHeader'
 import Hero from '../sections/Hero'
 import Action from '../sections/Action'
+import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import SmartVaultDetail from '../sections/SmartVaultDetail'
 import { Hm } from '../styles/texts'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
@@ -51,6 +52,9 @@ const SmartVault = () => {
       Object.values(grouped)[0][0]
         ? Object.values(grouped)[0]
         : ''
+  } else {
+    return (
+      <Page><SmartVaultNotFound id={params.id}/></Page>)
   }
 
   return (
