@@ -71,13 +71,14 @@ const fetchSmartVault = async (chainId, id) => {
             }
             period
           }
+          
           permissions {
-            method
-            target {
-              id
-            }
             grantees {
               id
+                permissions {
+                  target{ id }
+                  method
+                }
             }
           }
         }
