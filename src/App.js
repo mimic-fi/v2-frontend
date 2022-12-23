@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
 import SmartVault from './pages/SmartVault'
+import ActionHistory from './pages/ActionHistory'
 import List from './pages/List'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { isDevelopment } from './constants/enviroment'
@@ -18,6 +19,7 @@ function App() {
         {isDevelopment && <ReactQueryDevtools initialIsOpen={false} />}
         <Routes>
           <Route path="/list" element={<List />} />
+          <Route path="/smart-vaults/:id/action-history" element={<ActionHistory />} />
           <Route path="/smart-vaults/:id" element={<SmartVault />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<PageNotFound />} />

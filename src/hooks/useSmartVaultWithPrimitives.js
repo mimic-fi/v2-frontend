@@ -3,18 +3,19 @@ import { request, gql } from 'graphql-request'
 import { CHAIN_SUBGRAPH_URL } from '../constants/chainInfo'
 import { useChainId } from './useChainId'
 
-const useSmartVaultWithPrimitives = (id = '0x') => {
+const useSmartVaultWithPrimitives = (id = '0x', quantity = null) => {
+  console.log('c', id, quantity)
   const chainId = useChainId()
   return useQuery(
     ['useSmartVaultWithPrimitives', chainId, id],
-    () => fetchSmartVault(chainId, id.toString()),
+    () => fetchSmartVault(chainId, id.toString(), quantity),
     {
       refetchInterval: 10000,
     }
   )
 }
 
-const fetchSmartVault = async (chainId, id) => {
+const fetchSmartVault = async (chainId, id, quantity) => {
   //TODO: put id in the query. Cause for some reason is failing
   let smartVault = await request(
     CHAIN_SUBGRAPH_URL[chainId],
@@ -23,7 +24,10 @@ const fetchSmartVault = async (chainId, id) => {
         smartVault(id: ${'"' + id.toLowerCase() + '"'}) {
           id
           totalValueManaged
-          primitiveExecutions(orderBy: executedAt, orderDirection: desc) {
+          primitiveExecutions(${quantity &&
+            'first:' +
+              quantity +
+              ', '}orderBy: executedAt, orderDirection: desc) {
             id
             type
             data
