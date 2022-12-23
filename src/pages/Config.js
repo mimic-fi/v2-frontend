@@ -11,24 +11,27 @@ import TableHeader from '../components/Table/TableHeader'
 import TableCell from '../components/Table/TableCell'
 import { SMART_VAULT_FUNCTIONS_HASHED } from '../utils/smartVault-utils'
 import useActionMetadata from '../hooks/useActionMetadata'
+import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 
 const Config = () => {
   //todo: add loader
   const params = useParams()
   const { data, isLoading } = useSmartVaultWithConfig(params?.id)
+  const { data: metadata } = useSmartVaultMetadata(params?.id)
 
   let index = 0
   let pfIndex = 0
-  let uniqueChars = []
+  let granteesList = []
 
+  // normalize list
   data && data.permissions.map(p => {
     return p.grantees.forEach((element) => {
-      return uniqueChars.push(element)
+      return granteesList.push(element)
     })
   })
 
-  const key = 'id'
-  const unique = [...new Map(uniqueChars.map(item => [item[key], item])).values()]
+  // unique grantees
+  const uniqueGrantees = [...new Map(granteesList.map(item => [item['id'], item])).values()]
 
   return (
     <Page sidebar={false}>
@@ -47,6 +50,8 @@ const Config = () => {
             {isLoading ?
               'Loading data...' :
               <>
+                <TableData index={index += 1} param='Title' value={metadata?.title} />
+                <TableData index={index += 1} param='Description' value={metadata?.description} />
 
                 <TableData index={index += 1} param='Smart Vault Address' value={data.id} />
                 <TableData index={index += 1} param='Total Value Managed' value={data.totalValueManaged} />
@@ -76,14 +81,14 @@ const Config = () => {
           <Table
             header={
               <TableRow>
-                <TableHeader title="Methods" align="left" />
                 <TableHeader title="Grantees" align="left" />
+                <TableHeader title="Methods" align="left" />
                 <TableHeader title="" align="center" />
               </TableRow>
             }>
-            { unique.map(g => {
-                return <RenderGrantee grantee={g} index={index += 1} />
-              }) }
+            {uniqueGrantees.map(g => {
+              return <RenderGrantee grantee={g} index={index += 1} />
+            })}
           </Table>
         </Container>
       </SmartVaultsSection>
@@ -91,12 +96,12 @@ const Config = () => {
   )
 }
 
-const RenderGrantee = ({grantee, index}) => {
+const RenderGrantee = ({ grantee, index }) => {
   const { data, isLoading } = useActionMetadata(grantee?.id)
   return (
-  <TableData index={index} param={ data ? 
-  <ShowAction action={data} isLoading={isLoading} id={grantee?.id} /> : grantee?.id}
-                  value={<Grantees grantees={grantee} />} />
+    <TableData index={index} param={data ?
+      <ShowAction action={data} isLoading={isLoading} id={grantee?.id} /> : grantee?.id}
+      value={<Grantees grantees={grantee} />} />
   )
 }
 
@@ -115,10 +120,10 @@ const Grantees = ({ grantees }) => {
 
 const ShowAction = ({ action, id, isLoading }) => {
   return isLoading ? 'Loading data...' : <div>
-  <Text>{id}</Text>
-  <Text>{action.title}</Text>
-  <Text>{action.description}</Text>
-  </div> 
+    <Text>{id}</Text>
+    <Text>{action.title}</Text>
+    <Text>{action.description}</Text>
+  </div>
 }
 
 const Fee = ({ index, title, data }) => {
