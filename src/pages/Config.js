@@ -22,8 +22,8 @@ const Config = () => {
   let uniqueChars = []
 
   data && data.permissions.map(p => {
-    p.grantees.forEach((element) => {
-      uniqueChars.push(element)
+    return p.grantees.forEach((element) => {
+      return uniqueChars.push(element)
     })
   })
 
