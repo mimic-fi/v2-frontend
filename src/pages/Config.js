@@ -12,6 +12,9 @@ import TableCell from '../components/Table/TableCell'
 import { SMART_VAULT_FUNCTIONS_HASHED } from '../utils/smartVault-utils'
 import useActionMetadata from '../hooks/useActionMetadata'
 import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
+import Address from '../components/Address'
+import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
+import { formatTokenAmount } from '../utils/math-utils'
 
 const Config = () => {
   //todo: add loader
@@ -33,6 +36,11 @@ const Config = () => {
   // unique grantees
   const uniqueGrantees = [...new Map(granteesList.map(item => [item['id'], item])).values()]
 
+  const tvmFormated = formatTokenAmount(data?.totalValueManaged, USDC_DECIMALS, {
+    digits: 2,
+  })
+
+
   return (
     <Page sidebar={false}>
       <SmartVaultsSection>
@@ -53,20 +61,22 @@ const Config = () => {
                 <TableData index={index += 1} param='Title' value={metadata?.title} />
                 <TableData index={index += 1} param='Description' value={metadata?.description} />
 
-                <TableData index={index += 1} param='Smart Vault Address' value={data.id} />
-                <TableData index={index += 1} param='Total Value Managed' value={data.totalValueManaged} />
-                <TableData index={index += 1} param='swapConnector' value={data.swapConnector} />
-                <TableData index={index += 1} param='priceOracle' value={data.priceOracle} />
+
+                <TableData index={index += 1} param='Smart Vault Address' value={<Address address={data.id} />} />
+                <TableData index={index += 1} param='Total Value Managed' value={'$ ' + tvmFormated} />
+                <TableData index={index += 1} param='swapConnector' value={<Address address={data.swapConnector} />} />
+                <TableData index={index += 1} param='priceOracle' value={<Address address={data.priceOracle} />} />
 
                 {data.priceFeeds.map(pf => {
-                  return <TableData index={index += 1} param={<>priceFeed <Number>{`${pfIndex += 1}`}</Number></>}
-                    value={pf.feed} value2={<div> <TextSec>{`base: ${pf.base.id}`}</TextSec>
+                  return <TableData key={pf.feed} index={index += 1} 
+                  param={<>priceFeed <Number>{`${pfIndex += 1}`}</Number></>}
+                    value={<Address address={pf.feed} />} value2={<div> <TextSec>{`base: ${pf.base.id}`}</TextSec>
                       <TextSec>{` quote: ${pf.quote.id}`}</TextSec></div>} />
                 })}
                 <Fee index={index += 1} title="swapFee" data={data.swapFee} />
                 <Fee index={index += 1} title="withdrawFee" data={data.withdrawFee} />
                 <Fee index={index += 1} title="performanceFee" data={data.performanceFee} />
-                <TableData index={index += 1} param='feeCollector' value={data.feeCollector} />
+                <TableData index={index += 1} param='feeCollector' value={<Address address={data.feeCollector} />} />
                 <TableData index={index += 1} param='wrappedNativeToken' value={data.wrappedNativeToken?.name}
                   value2={<div> <TextSec>{`symbol: ${data.wrappedNativeToken?.symbol}`}</TextSec>
                     <TextSec>{` token: ${data.wrappedNativeToken?.decimals}`}</TextSec></div>} />
@@ -87,7 +97,7 @@ const Config = () => {
               </TableRow>
             }>
             {uniqueGrantees.map(g => {
-              return <RenderGrantee grantee={g} index={index += 1} />
+              return <RenderGrantee key={g?.id} grantee={g} index={index += 1} />
             })}
           </Table>
         </Container>
@@ -95,12 +105,14 @@ const Config = () => {
     </Page>
   )
 }
+const formatPct = (pct) => pct ? formatTokenAmount(pct, 18, { digits: 3 }) + '%' : '0%'
 
 const RenderGrantee = ({ grantee, index }) => {
   const { data, isLoading } = useActionMetadata(grantee?.id)
   return (
-    <TableData index={index} param={data ?
-      <ShowAction action={data} isLoading={isLoading} id={grantee?.id} /> : grantee?.id}
+    <TableData key={index} index={index} param={data ?
+
+      <ShowAction action={data} isLoading={isLoading} id={grantee?.id} /> : <Address address={grantee?.id} />}
       value={<Grantees grantees={grantee} />} />
   )
 }
@@ -112,15 +124,15 @@ const getMethodName = (method) => {
 
 const Grantees = ({ grantees }) => {
   return <div>
-    {grantees.permissions.map(p => {
-      return <Text> {getMethodName(p.method)}</Text>
+    {grantees.permissions.map((p, i ) => {
+      return <Text key={`${grantees?.id}-${p.method}-${i}`}> {getMethodName(p.method)}</Text>
     })}
   </div>
 }
 
 const ShowAction = ({ action, id, isLoading }) => {
   return isLoading ? 'Loading data...' : <div>
-    <Text>{id}</Text>
+    <Address address={id} />
     <Text>{action.title}</Text>
     <Text>{action.description}</Text>
   </div>
@@ -128,7 +140,7 @@ const ShowAction = ({ action, id, isLoading }) => {
 
 const Fee = ({ index, title, data }) => {
   return (
-    <TableData index={index} param={title} value={data?.pct}
+    <TableData index={index} param={title} value={formatPct(data?.pct)}
       value2={<div> <TextSec>{`cap: ${data?.cap}, period: ${data?.period}`}</TextSec>
         <TextSec>{` token: ${data?.token?.name}`}</TextSec></div>} />
   )
