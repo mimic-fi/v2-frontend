@@ -1,8 +1,6 @@
 import createIcon from '../utils/blockies'
 import styled from 'styled-components'
 
-const BlockiesContainer = styled('span')
-
 const Blockies = ({
   address,
   imageSize = 42,

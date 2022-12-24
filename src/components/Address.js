@@ -12,7 +12,7 @@ const Address = ({ address, showIdentity = true}) => {
   const chainId = useChainId()
   const indexPlayer = `${address}-${chainId}`
   const player = PLAYERS[indexPlayer]
-  const [value, copy] = useCopyToClipboard()
+  const [copy] = useCopyToClipboard()
   const [copied, setCopied] = useState(false)
 
 
