@@ -26,7 +26,7 @@ const NetworkInfo = () => {
         components={{ Menu, Option, Control }}
         defaultValue={CHAIN_INFO[chainId]}
         onChange={e => updateChainId(e?.value)}
-        options={Object.values(CHAIN_INFO).filter(item => {
+        options={Object.values(CHAIN_INFO).sort().filter(item => {
           return item.isDisabled ? null : item
         })}
         classNamePrefix="react-select"
@@ -38,12 +38,15 @@ const NetworkInfo = () => {
 const Option = props => {
   const chainId = useChainId()
   const { children, innerRef, innerProps } = props
+  const { isTestnet, logoUrl} = CHAIN_INFO[(props?.value)]
+
   return (
     <OptionContainer ref={innerRef} {...innerProps} isSelected={props?.value === chainId }>
-      <div>
-        <ChainLogo src={CHAIN_INFO[(props?.value)].logoUrl} />
+      <OptionBox>
+        <ChainLogo src={logoUrl} />
         <ChainName>{children}</ChainName>
-      </div>
+        { isTestnet && <Badge>testnet</Badge>}
+      </OptionBox>
       <div className="selector" />
     </OptionContainer>
   )
@@ -112,7 +115,6 @@ const SelectElement = styled(Select)`
     right: 0;
     margin: 15px 0 0 0;
     animation: fadeIn 0.2s;
-
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -125,6 +127,9 @@ const SelectElement = styled(Select)`
   p {
     margin-bottom: 0;
   }
+  .react-select__menu-list{
+    max-height: 600px;
+  }
 `
 
 const ChainLogo = styled.img`
@@ -136,11 +141,13 @@ const OptionContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 16px 0;
-  padding: 10px 18px;
+  margin: 5px 0;
+  padding: 5px 18px;
   background: ${props =>
     props.isSelected ? props.theme.mainDefault : 'transparent'};
-  border-radius: 20px !important;
+  border-radius: 10px !important;
+  color: ${props =>
+    props.isSelected ? props.theme.backgroundDefault : 'white'};
   div {
     display: flex;
   }
@@ -166,6 +173,20 @@ const Box = styled.div`
     width: 40%;
   }
 `
+
+const Badge = styled.div`
+ background-color: #6f6b83;
+ color: white;
+ font-size: 11px;
+ padding: 1px 5px;
+ border-radius: 5px;
+ 
+`
+const OptionBox = styled.div`
+ display: flex;
+  align-items: center;
+`
+
 
 const ControlContainer = styled.div`
   display: flex;
