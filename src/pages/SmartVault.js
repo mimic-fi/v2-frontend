@@ -38,23 +38,27 @@ const SmartVault = () => {
         </Page>
       )
     }
-    let grouped = data.reduce(function(rv, x) {
-      ;(rv[x['transaction']] = rv[x['transaction']] || []).push(x)
+    let grouped = data.reduce(function (rv, x) {
+      ; (rv[x['transaction']] = rv[x['transaction']] || []).push(x)
       return rv
     }, {})
-    actions = Object.values(grouped).map(primitives => {
+    actions = Object.entries(grouped).sort((a, b) => {
+      // sort actions
+      if (b[1][0]?.executedAt > a[1][0]?.executedAt) return 1
+      else if (b[1][0]?.executedAt < a[1][0]?.executedAt) return -1
+    }).map(primitives => {
       totalActions += 1
-      return <Action key={primitives[0].id} primitives={primitives} index={totalActions} />
+      return <Action key={primitives[0]} primitives={primitives[1]} index={totalActions} />
     })
     heroPrimitives =
       Object.values(grouped) &&
-      Object.values(grouped)[0] &&
-      Object.values(grouped)[0][0]
+        Object.values(grouped)[0] &&
+        Object.values(grouped)[0][0]
         ? Object.values(grouped)[0]
         : ''
   } else {
     return (
-      <Page><SmartVaultNotFound id={params.id}/></Page>)
+      <Page><SmartVaultNotFound id={params.id} /></Page>)
   }
 
   return (
