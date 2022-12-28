@@ -4,7 +4,7 @@ import { CHAIN_SUBGRAPH_URL } from '../constants/chainInfo'
 import { useChainId } from './useChainId'
 import { useMemo } from 'react'
 
-const useSmartVaultWithPrimitives = (id = '0x') => {
+const useSmartVaultWithPrimitives = (id = '0x', limit = 10) => {
   const chainId = useChainId()
 
 
@@ -36,7 +36,7 @@ const useSmartVaultWithPrimitives = (id = '0x') => {
       id: data?.id,
       totalValueManaged: data?.totalValueManaged || 0,
       lastAction: actions && actions[0][1],
-      actions: actions,
+      actions:actions && actions.slice(0, limit),
       isLoading: isLoading
     }
   }, [data])
