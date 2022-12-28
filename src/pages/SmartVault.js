@@ -14,61 +14,40 @@ import { Hm } from '../styles/texts'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
 const SmartVault = () => {
-  //todo: add loader
+  const params = useParams()
+  const smartVault = useSmartVaultWithPrimitives(params.id)
+
+  return (
+    <Page>
+      {smartVault.isLoading ?
+        <Loading>
+          Loading Smart Vault...
+        </Loading>
+        : !smartVault?.id ?
+          <SmartVaultNotFound id={params.id} />
+          :
+          <RenderContentPage smartVault={smartVault} />
+      }
+    </Page>
+  )
+}
+
+const RenderContentPage = ({ smartVault }) => {
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
   const medium = 700
   const large = 900
-
-  const params = useParams()
-  let heroPrimitives = ''
-  let totalValueManaged = ''
-  let totalActions = 0
-  const smartVault = useSmartVaultWithPrimitives(params.id)
-  let actions
-  if (smartVault && smartVault.data && smartVault.data.smartVault) {
-    totalValueManaged = smartVault.data.smartVault.totalValueManaged
-    let data = smartVault.data.smartVault.primitiveExecutions
-    if (data.length === 0) {
-      return (
-        <Page>
-          <SmartVaultDetail />
-        </Page>
-      )
-    }
-    let grouped = data.reduce(function (rv, x) {
-      ; (rv[x['transaction']] = rv[x['transaction']] || []).push(x)
-      return rv
-    }, {})
-    actions = Object.entries(grouped).sort((a, b) => {
-      // sort actions
-      if (b[1][0]?.executedAt > a[1][0]?.executedAt) return 1
-      else if (b[1][0]?.executedAt < a[1][0]?.executedAt) return -1
-    }).map(primitives => {
-      totalActions += 1
-      return <Action key={primitives[0]} primitives={primitives[1]} index={totalActions} />
-    })
-    heroPrimitives =
-      Object.values(grouped) &&
-        Object.values(grouped)[0] &&
-        Object.values(grouped)[0][0]
-        ? Object.values(grouped)[0]
-        : ''
-  } else {
-    return (
-      <Page><SmartVaultNotFound id={params.id} /></Page>)
-  }
-
+  
   return (
-    <Page>
-      {heroPrimitives && (
+    <>
+      {!smartVault.isLoading && (
         <Container>
           <Hero
-            primitives={heroPrimitives}
-            totalValueManaged={totalValueManaged}
-            totalActions={totalActions}
+            isLoading={smartVault.isLoading}
+            lastAction={smartVault.lastAction}
+            totalValueManaged={smartVault.totalValueManaged}
           />
         </Container>
       )}
@@ -90,21 +69,35 @@ const SmartVault = () => {
               </TableRow>
             }
           >
-            {actions}
+            {smartVault.isLoading ? 'Loading actions...' :
+              smartVault?.actions?.map((primitives, i) => {
+                return <Action key={primitives[0]} primitives={primitives[1]} index={i + 1} />
+              })
+            }
           </Table>
         </Container>
       </LatestActionsSection>
-      <SmartVaultDetail />
-    </Page>
+      <SmartVaultDetail address={smartVault?.id} />
+    </>
   )
 }
-
 const LatestActionsSection = styled.section`
   height: auto;
   padding: 80px 0;
   color: white;
   width: 100%;
   margin: auto;
+`
+
+const Loading = styled.div`
+  height: 70vh;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
 `
 
 export default SmartVault
