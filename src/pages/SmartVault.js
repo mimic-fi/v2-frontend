@@ -15,7 +15,8 @@ import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
 const SmartVault = () => {
   const params = useParams()
-  const smartVault = useSmartVaultWithPrimitives(params.id)
+  // TODO: delete limit when actionPage is ready
+  const smartVault = useSmartVaultWithPrimitives(params.id, 100)
 
   return (
     <Page>
@@ -39,7 +40,7 @@ const RenderContentPage = ({ smartVault }) => {
   }, [])
   const medium = 700
   const large = 900
-  
+
   return (
     <>
       {!smartVault.isLoading && (
@@ -69,10 +70,15 @@ const RenderContentPage = ({ smartVault }) => {
               </TableRow>
             }
           >
-            {smartVault.isLoading ? 'Loading actions...' :
-              smartVault?.actions?.map((primitives, i) => {
-                return <Action key={primitives[0]} primitives={primitives[1]} index={i + 1} />
-              })
+            {smartVault.isLoading ? 
+             'Loading actions...' 
+            :
+              <>
+                {smartVault?.actions?.map((primitives, i) => {
+                  return <Action key={primitives[0]} primitives={primitives[1]} index={i + 1} />
+                })}
+                {smartVault?.actions?.length === 0 && 'No actions'}
+              </>
             }
           </Table>
         </Container>

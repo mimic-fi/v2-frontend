@@ -36,6 +36,7 @@ const Hero = ({ totalValueManaged, lastAction, isLoading }) => {
 
     <HeroSection>
       {!isLoading ?
+        lastAction ?
         <>
           <BodyL>Hello diver!</BodyL>
           <Hl>
@@ -50,12 +51,12 @@ const Hero = ({ totalValueManaged, lastAction, isLoading }) => {
             onClose={() => setOpen(!isOpen)}
           />
 
-
           <BodyL>
             {lastAction && moment.unix(lastPrimitive.executedAt).fromNow()}{' '}
             <button onClick={() => setOpen(!isOpen)}>See receipt</button>
           </BodyL>
         </>
+        : 'No actions yet'
         : 'loading...'
       }
       {totalValueManaged && (

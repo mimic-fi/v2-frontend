@@ -7,7 +7,6 @@ import { useMemo } from 'react'
 const useSmartVaultWithPrimitives = (id = '0x', limit = 10) => {
   const chainId = useChainId()
 
-
   const { data, isLoading } = useQuery(
     ['useSmartVaultWithPrimitives', chainId, id],
     () => fetchSmartVault(chainId, id.toString()),
@@ -26,6 +25,7 @@ const useSmartVaultWithPrimitives = (id = '0x', limit = 10) => {
     }, {})
 
     // order actions
+    // eslint-disable-next-line
     actions = grouped && Object.entries(grouped).sort((a, b) => {
       // sort actions
       if (b[1][0]?.executedAt > a[1][0]?.executedAt) return 1
@@ -35,13 +35,11 @@ const useSmartVaultWithPrimitives = (id = '0x', limit = 10) => {
     return {
       id: data?.id,
       totalValueManaged: data?.totalValueManaged || 0,
-      lastAction: actions && actions[0][1],
-      actions:actions && actions.slice(0, limit),
+      lastAction: actions && actions[0] && actions[0][1],
+      actions:actions && actions?.slice(0, limit),
       isLoading: isLoading
     }
-  }, [data])
-
-
+  }, [data, isLoading, limit])
 }
 
 const fetchSmartVault = async (chainId, id) => {
