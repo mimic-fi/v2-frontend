@@ -27,7 +27,7 @@ const Config = () => {
   let granteesList = []
 
   // normalize list
-  data && data.permissions.map(p => {
+  data && data?.permissions.map(p => {
     return p.grantees.forEach((element) => {
       return granteesList.push(element)
     })
@@ -56,30 +56,30 @@ const Config = () => {
             }
           >
             {isLoading ?
-              'Loading data...' :
+              'Loading data?...' :
               <>
                 <TableData index={index += 1} param='Title' value={metadata?.title} />
                 <TableData index={index += 1} param='Description' value={metadata?.description} />
 
 
-                <TableData index={index += 1} param='Smart Vault Address' value={<Address address={data.id} />} />
+                <TableData index={index += 1} param='Smart Vault Address' value={<Address address={data?.id} />} />
                 <TableData index={index += 1} param='Total Value Managed' value={'$ ' + tvmFormated} />
-                <TableData index={index += 1} param='swapConnector' value={<Address address={data.swapConnector} />} />
-                <TableData index={index += 1} param='priceOracle' value={<Address address={data.priceOracle} />} />
+                <TableData index={index += 1} param='swapConnector' value={<Address address={data?.swapConnector} />} />
+                <TableData index={index += 1} param='priceOracle' value={<Address address={data?.priceOracle} />} />
 
-                {data.priceFeeds.map(pf => {
+                {data && data?.priceFeeds.map(pf => {
                   return <TableData key={pf.feed} index={index += 1} 
                   param={<>priceFeed <Number>{`${pfIndex += 1}`}</Number></>}
                     value={<Address address={pf.feed} />} value2={<div> <TextSec>{`base: ${pf.base.id}`}</TextSec>
                       <TextSec>{` quote: ${pf.quote.id}`}</TextSec></div>} />
                 })}
-                <Fee index={index += 1} title="swapFee" data={data.swapFee} />
-                <Fee index={index += 1} title="withdrawFee" data={data.withdrawFee} />
-                <Fee index={index += 1} title="performanceFee" data={data.performanceFee} />
-                <TableData index={index += 1} param='feeCollector' value={<Address address={data.feeCollector} />} />
-                <TableData index={index += 1} param='wrappedNativeToken' value={data.wrappedNativeToken?.name}
-                  value2={<div> <TextSec>{`symbol: ${data.wrappedNativeToken?.symbol}`}</TextSec>
-                    <TextSec>{` token: ${data.wrappedNativeToken?.decimals}`}</TextSec></div>} />
+                <Fee index={index += 1} title="swapFee" data={data?.swapFee} />
+                <Fee index={index += 1} title="withdrawFee" data={data?.withdrawFee} />
+                <Fee index={index += 1} title="performanceFee" data={data?.performanceFee} />
+                <TableData index={index += 1} param='feeCollector' value={<Address address={data?.feeCollector} />} />
+                <TableData index={index += 1} param='wrappedNativeToken' value={data?.wrappedNativeToken?.name}
+                  value2={<div> <TextSec>{`symbol: ${data?.wrappedNativeToken?.symbol}`}</TextSec>
+                    <TextSec>{` token: ${data?.wrappedNativeToken?.decimals}`}</TextSec></div>} />
               </>
             }
 
@@ -125,13 +125,13 @@ const getMethodName = (method) => {
 const Grantees = ({ grantees }) => {
   return <div>
     {grantees.permissions.map((p, i ) => {
-      return <Text key={`${grantees?.id}-${p.method}-${i}`}> {getMethodName(p.method)}</Text>
+      return <Text key={`${grantees?.id}-${p.method}`}> {getMethodName(p.method)}</Text>
     })}
   </div>
 }
 
 const ShowAction = ({ action, id, isLoading }) => {
-  return isLoading ? 'Loading data...' : <div>
+  return isLoading ? 'Loading data?...' : <div>
     <Address address={id} />
     <Text>{action.title}</Text>
     <Text>{action.description}</Text>
