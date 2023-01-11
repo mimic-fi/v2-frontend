@@ -7,6 +7,7 @@ export function formatTokenAmount(
   decimals = 0,
   { digits = 2, symbol = '', displaySign = false }
 ) {
+  if(!amount) return 0
   amount = JSBI.BigInt(String(amount))
   decimals = JSBI.BigInt(String(decimals))
   digits = JSBI.BigInt(String(digits))
