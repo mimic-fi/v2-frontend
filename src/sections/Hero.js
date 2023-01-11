@@ -35,17 +35,15 @@ const Hero = ({ totalValueManaged, lastAction, isLoading }) => {
   return (
 
     <HeroSection>
-      {!isLoading ?
-        lastAction ?
+      {!isLoading && !isLoadingMetadata ?
+        lastAction && lastActionMetadata?.successMessage ?
         <>
           <BodyL>Hello diver!</BodyL>
           <Hl>
-            {!isLoadingMetadata ? lastActionMetadata?.successMessage + ' ✓' : 'loading Metadata...'}
+            {lastActionMetadata?.successMessage + ' ✓' }
           </Hl>
           <ActionDetail
-            title={
-              !isLoadingMetadata ? lastActionMetadata?.successMessage : 'loading Metadata...'
-            }
+            title={lastActionMetadata?.successMessage}
             primitives={lastAction}
             open={isOpen}
             onClose={() => setOpen(!isOpen)}
@@ -56,7 +54,7 @@ const Hero = ({ totalValueManaged, lastAction, isLoading }) => {
             <button onClick={() => setOpen(!isOpen)}>See receipt</button>
           </BodyL>
         </>
-        : 'No actions yet'
+        : 'No data actions yet'
         : 'loading...'
       }
       {totalValueManaged && (
