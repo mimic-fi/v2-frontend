@@ -16,12 +16,14 @@ import { getEtherscanLink } from '../utils/web3-utils'
 
 //TODO: remove knownTokenDecimals and replace it with no hardcoded data.
 
-const Hero = ({ primitives, totalValueManaged, totalActions }) => {
+const Hero = ({ totalValueManaged, lastAction, isLoading }) => {
   //TODO: add real data. this is a mockup
   const params = useParams()
   const chainId = useChainId()
-  const target = primitives ? primitives[0].target : ''
-  const lastAction = useActionMetadata(target)
+  const lastPrimitive = (lastAction && lastAction[0]) || []
+  const target = lastPrimitive?.target || ''
+  const { data: lastActionMetadata, isLoading: isLoadingMetadata } = useActionMetadata(target)
+
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -31,26 +33,30 @@ const Hero = ({ primitives, totalValueManaged, totalActions }) => {
   const [isOpen, setOpen] = useState(false)
 
   return (
-    <HeroSection>
-      <BodyL>Hello diver!</BodyL>
-      <Hl>
-        {primitives && lastAction && lastAction.data
-          ? lastAction.data.successMessage + ' ✓'
-          : ''}
-      </Hl>
-      <ActionDetail
-        title={
-          lastAction && lastAction.data ? lastAction.data.successMessage : ''
-        }
-        primitives={primitives}
-        open={isOpen}
-        onClose={() => setOpen(!isOpen)}
-      />
 
-      <BodyL>
-        {primitives && moment.unix(primitives[0].executedAt).fromNow()}{' '}
-        <button onClick={() => setOpen(!isOpen)}>See receipt</button>
-      </BodyL>
+    <HeroSection>
+      {!isLoading && !isLoadingMetadata ?
+        lastAction && lastActionMetadata?.successMessage ?
+        <>
+          <BodyL>Hello diver!</BodyL>
+          <Hl>
+            {lastActionMetadata?.successMessage + ' ✓' }
+          </Hl>
+          <ActionDetail
+            title={lastActionMetadata?.successMessage}
+            primitives={lastAction}
+            open={isOpen}
+            onClose={() => setOpen(!isOpen)}
+          />
+
+          <BodyL>
+            {lastAction && moment.unix(lastPrimitive.executedAt).fromNow()}{' '}
+            <button onClick={() => setOpen(!isOpen)}>See receipt</button>
+          </BodyL>
+        </>
+        : 'No data actions yet'
+        : 'loading...'
+      }
       {totalValueManaged && (
         <Box>
           <Item>
