@@ -12,14 +12,17 @@ import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import SmartVaultDetail from '../sections/SmartVaultDetail'
 import { Hm } from '../styles/texts'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
+import SubNavbar from '../components/SubNavbar'
 
 const SmartVault = () => {
   const params = useParams()
   // TODO: delete limit when actionPage is ready
-  const smartVault = useSmartVaultWithPrimitives(params.id, 100)
+  const smartVault = useSmartVaultWithPrimitives(params?.id, 100)
 
   return (
     <Page>
+    <SubNavbar address={params?.id} />
+
       {smartVault.isLoading ?
         <Loading>
           Loading Smart Vault...
