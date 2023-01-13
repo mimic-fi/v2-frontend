@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
 import SmartVault from './pages/SmartVault'
 import List from './pages/List'
+import Config from './pages/Config'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { isDevelopment } from './constants/enviroment'
 import theme from './styles/theme.js'
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/list" element={<List />} />
           <Route path="/smart-vaults/:id" element={<SmartVault />} />
+          <Route path="/smart-vaults/:id/config" element={<Config />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

@@ -8,4 +8,10 @@ export const PLAYERS = {
       logoUrl: ethereumLogoUrl,
       backgroundColor: theme.main
     },
+     // eslint-disable-next-line
+    ['0x27751a0fe3bd6ebfeb04b359d97b0cf199f20d22-1']:{
+      name: 'Mimic Collector',
+      logoUrl: ethereumLogoUrl,
+      backgroundColor: theme.main
+    }
 }
