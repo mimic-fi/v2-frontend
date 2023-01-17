@@ -18,7 +18,6 @@ import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
 const SmartVault = () => {
   const params = useParams()
-  // TODO: delete limit when actionPage is ready
   const smartVault = useSmartVaultWithPrimitives(params.id, 10)
 
   return (
