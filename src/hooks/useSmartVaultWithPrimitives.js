@@ -36,7 +36,7 @@ const useSmartVaultWithPrimitives = (id = '0x', limit = 10) => {
       id: data?.id,
       totalValueManaged: data?.totalValueManaged || 0,
       lastAction: actions && actions[0] && actions[0][1],
-      actions:actions && actions?.slice(0, limit),
+      actions: actions && actions?.slice(0, limit),
       isLoading: isLoading
     }
   }, [data, isLoading, limit])

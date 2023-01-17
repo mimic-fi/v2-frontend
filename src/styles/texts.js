@@ -236,7 +236,7 @@ export const LinkS = styled.a`
     line-height: 24px;
   }
 `
-export const LinkL = styled.a`
+export const LinkL = styled.p`
   font-family: 'GTWalsheimProBold';
   font-weight: 700;
   font-size: 18px;

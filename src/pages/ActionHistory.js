@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Container } from '../styles/texts'
-import { Link, useParams } from 'react-router-dom'
-import Page from '../components/Page'
+import { useParams } from 'react-router-dom'
 import Subnavbar from '../components/Subnavbar'
+import Page from '../components/Page'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
 import TableHeader from '../components/Table/TableHeader'
-import Hero from '../sections/Hero'
 import Action from '../sections/Action'
 import SmartVaultNotFound from '../sections/SmartVaultNotFound'
-import SmartVaultDetail from '../sections/SmartVaultDetail'
-import { Hm, LinkL } from '../styles/texts'
+import { Hm } from '../styles/texts'
 import { Loading } from '../styles/general'
-import split from '../assets/split.svg'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
-const SmartVault = () => {
+const ActionHistory = () => {
   const params = useParams()
-  const smartVault = useSmartVaultWithPrimitives(params.id, 10)
+  // TODO: delete limit when actionPage is ready
+  const smartVault = useSmartVaultWithPrimitives(params.id, 10000)
 
   return (
     <Page>
@@ -43,25 +41,13 @@ const RenderContentPage = ({ smartVault }) => {
 
   return (
     <>
-      {!smartVault.isLoading && (
-        <>
-          <Subnavbar active="overview" />
-          <Container>
-            <Hero
-              isLoading={smartVault.isLoading}
-              lastAction={smartVault.lastAction}
-              totalValueManaged={smartVault.totalValueManaged}
-            />
-          </Container>
-          <Split src={split} />
-        </>
-      )}
+      <Subnavbar active="history" />
       <LatestActionsSection>
         <Container>
           <Hm>
-            Most recent
+            Here’s everything
             <br />
-            actions
+            that happened
           </Hm>
           <Table
             header={
@@ -95,15 +81,12 @@ const RenderContentPage = ({ smartVault }) => {
               </>
             )}
           </Table>
-          <StyledLink to="./action-history">
-            <LinkL>Swim to full history</LinkL>
-          </StyledLink>
         </Container>
       </LatestActionsSection>
-      <SmartVaultDetail address={smartVault?.id} />
     </>
   )
 }
+
 const LatestActionsSection = styled.section`
   height: auto;
   padding: 80px 0;
@@ -111,13 +94,5 @@ const LatestActionsSection = styled.section`
   width: 100%;
   margin: auto;
 `
-const Split = styled.img`
-  width: 100%;
-`
 
-const StyledLink = styled(Link)`
-  margin: 36px auto;
-  text-align: center;
-`
-
-export default SmartVault
+export default ActionHistory
