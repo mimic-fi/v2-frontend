@@ -48,6 +48,7 @@ const RenderContentPage = ({ smartVault }) => {
           <Subnavbar active="overview" address={smartVault.id} />
           <Container>
             <Hero
+              address={smartVault.id}
               isLoading={smartVault.isLoading}
               lastAction={smartVault.lastAction}
               totalValueManaged={smartVault.totalValueManaged}

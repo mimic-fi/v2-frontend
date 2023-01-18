@@ -38,7 +38,7 @@ const NetworkInfo = () => {
 
 const Option = props => {
   const chainId = useChainId()
-  const { children, innerRef, innerProps } = props
+  const { innerRef, innerProps } = props
   const { isTestnet, logoUrl, name} = CHAIN_INFO[(props?.value)]
 
   return (
