@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import useSmartVaultChainCheck from '../hooks/useSmartVaultChainCheck'
 import check from '../assets/mini-check.svg'
-import {  BodyS } from '../styles/texts'
+import { BodyS } from '../styles/texts'
 import ChainLogo from './ChainLogo'
 import { useChainId } from '../hooks/useChainId'
 import { CHAIN_INFO } from '../constants/chainInfo'
@@ -13,13 +13,12 @@ import { useAppDispatch } from '../context/appContext'
 
 const AddressOnChainDropdown = ({ address }) => {
   const chainId = useChainId()
-  const available = useSmartVaultChainCheck(address)
   const { updateChainId } = useAppDispatch()
-
+  const availableChains = useSmartVaultChainCheck(address)
 
   const colorChars = 4
 
-  const ChainColor = ({ addressSelected, chainIdToShow, hideShortName}) => {
+  const ChainColor = ({ addressSelected, chainIdToShow, hideShortName }) => {
 
     const first = addressSelected.slice(0, colorChars)
     const mid = addressSelected.slice(colorChars, 38)
@@ -29,9 +28,9 @@ const AddressOnChainDropdown = ({ address }) => {
       <SVAddress >
         <ChainLogo src={CHAIN_INFO[chainIdToShow]?.logoUrl} />
         <Space />
-       {!hideShortName && <ChainName>
+        {!hideShortName && <ChainName>
           {CHAIN_INFO[chainIdToShow]?.shortName}:
-        </ChainName> }
+        </ChainName>}
         <SVAddressAlt>{first}</SVAddressAlt>
         {mid}
         <SVAddressAlt>{last}</SVAddressAlt>
@@ -79,19 +78,14 @@ const AddressOnChainDropdown = ({ address }) => {
     )
   }
 
-  return (
-
-    available && available.length ?
-      <SelectElement
-        components={{ Menu, Option, Control }}
-        onChange={e => updateChainId(e?.value)}
-        options={available.sort()}
-        classNamePrefix="react-select"
-      /> :
-      <ChainColor addressSelected={address} chainIdToShow={chainId} hideShortName={true} />
-
-
-  )
+  return availableChains && availableChains.length ?
+    <SelectElement
+      components={{ Menu, Option, Control }}
+      onChange={e => updateChainId(e?.value)}
+      options={availableChains.sort()}
+      classNamePrefix="react-select"
+    /> :
+    <ChainColor addressSelected={address} chainIdToShow={chainId} hideShortName={true} />
 }
 
 const ControlContainer = styled.div`
@@ -154,22 +148,11 @@ const OptionContainer = styled.div`
   justify-content: space-between;
   margin: 5px 0;
   padding: 5px 18px;
-  /* background: ${props =>
-    props.isSelected ? props.theme.mainDefault : 'transparent'}; */
+  cursor: pointer;
   border-radius: 10px !important;
   font-size: 12px  !important;
-  /* color: ${props =>
-    props.isSelected ? props.theme.backgroundDefault : 'white'}; */
   div {
     display: flex;
-  }
-  .selector {
-    width: 12px;
-    height: 12px;
-    /* background: ${props => (props.isSelected ? 'white' : '#A5A1B7')}; */
-    border: solid 5px
-      ${props => (props.isSelected ? props.theme.mainDark : '#A5A1B7')};
-    border-radius: 100%;
   }
 `
 

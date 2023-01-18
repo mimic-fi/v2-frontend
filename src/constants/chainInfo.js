@@ -48,7 +48,6 @@ export const CHAIN_INFO = {
     color: '#bb437e',
     value: SupportedChainId.OPTIMISM,
     shortName: 'opt'
-    
   },
   [SupportedChainId.POLYGON]: {
     explorer: 'https://polygonscan.com/',
@@ -58,8 +57,6 @@ export const CHAIN_INFO = {
     color: '#bb437e',
     value: SupportedChainId.POLYGON,
     shortName: 'matic'
-
-
   },
   [SupportedChainId.GNOSIS]: {
     explorer: 'https://gnosisscan.io/',
@@ -90,7 +87,7 @@ export const CHAIN_INFO = {
     color: '#bb437e',
     value: SupportedChainId.ZKSYNC,
     isDisabled: true,
-    
+
   },
   [SupportedChainId.GOERLI]: {
     explorer: 'https://goerli.etherscan.io/',
@@ -103,6 +100,7 @@ export const CHAIN_INFO = {
     isTestnet: true
   },
 }
+
 
 export const CHAIN_SUBGRAPH_URL = {
   [SupportedChainId.MAINNET]:
@@ -119,4 +117,6 @@ export const CHAIN_SUBGRAPH_URL = {
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-optimism',
   [SupportedChainId.ARBITRUM]:
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-arbitrum',
+  [SupportedChainId.ZKSYNC]:
+    '',
 }
