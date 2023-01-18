@@ -50,7 +50,7 @@ const Config = () => {
 
   return (
     <Page sidebar={false}>
-      <Subnavbar active="configuration" />
+      <Subnavbar active="configuration" address={params?.id} />
       <SmartVaultsSection>
         <Container>
           <Hm>Config</Hm>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Container, BodyM } from '../styles/texts'
 import AddressOnChainDropdown from './AddressOnChainDropdown'
 

@@ -20,9 +20,7 @@ const useSmartVaultChainCheck = (address = '') => {
   }, [chainQueries])
 }
 
-
 const fetchChainCheck = async (chain, address = '') => {
-  console.log(chain, CHAIN_SUBGRAPH_URL[chain])
   const check = axios.post(CHAIN_SUBGRAPH_URL[chain], {
     query: `
     {
