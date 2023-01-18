@@ -39,13 +39,13 @@ const NetworkInfo = () => {
 const Option = props => {
   const chainId = useChainId()
   const { children, innerRef, innerProps } = props
-  const { isTestnet, logoUrl} = CHAIN_INFO[(props?.value)]
+  const { isTestnet, logoUrl, name} = CHAIN_INFO[(props?.value)]
 
   return (
     <OptionContainer ref={innerRef} {...innerProps} isSelected={props?.value === chainId }>
       <OptionBox>
         <ChainLogo src={logoUrl} />
-        <ChainName>{children}</ChainName>
+        <ChainName>{name}</ChainName>
         { isTestnet && <Badge>testnet</Badge>}
       </OptionBox>
       <div className="selector" />
