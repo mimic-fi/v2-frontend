@@ -36,10 +36,12 @@ const Footer = () => (
 
 const FooterSection = styled.section`
   height: auto;
-  max-width: 1140px;
   margin: auto;
-  padding: 80px 0 150px 0;
-  box-sizing: border-box;
+  padding: 40px 0 150px 0;
+  box-sizing: content-box;
+  border-top: solid 2px #c7c7c7;
+  width: 100%;
+  margin-top: 80px;
 `
 
 const Box = styled.div`
@@ -73,7 +75,6 @@ const FooterContainer = styled(Container)`
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
-  border-top: solid 2px #c7c7c7;
   padding-top: 100px;
   height: auto;
 

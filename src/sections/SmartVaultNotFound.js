@@ -1,15 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import SearchBar from '../components/SearchBar'
+import { CHAIN_INFO } from '../constants/chainInfo'
+import { useChainId } from '../hooks/useChainId'
 import { Container, Hm, BodyM, BodyL } from '../styles/texts'
 
 const SmartVaultNotFound = ({id = ''}) => {
+  const chainId = useChainId()
+  
   return (
       <SmartVaultNotFoundSection>
         <Container>
           <Text>
             <BodyL>Smart Vault not found</BodyL>
-            <Hm>Sorry, we can’t find a Smart Vault with that address, on Ethereum</Hm>
+            <Hm>Sorry, we can’t find a Smart Vault with that address, on {CHAIN_INFO[chainId].label}</Hm>
             <BodyM>
               Please double check or change networks, and try again
             </BodyM>

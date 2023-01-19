@@ -26,15 +26,21 @@ function SearchBar({ value = '' }) {
         value={searchInput}
         required
       />
-      <button>
+      <input type="submit" hidden />
+      <Chain>
         <ChainSelector />
-      </button>
+      </Chain>
     </Search>
   )
 }
 
+const Chain = styled.div`
+  background: #2b2d34;
+  border-radius: 0 40px 40px 0;
+`
 const Search = styled.form`
   position: relative;
+  display: flex;
   width: 630px;
   border-radius: 4px;
   margin: 30px 0;
@@ -58,7 +64,7 @@ const Search = styled.form`
     width: 100%;
     background: #2b2d34;
     padding: 0 1.6rem;
-    border-radius: 40px;
+    border-radius: 40px 0 0 40px;
     appearance: none;
     transition: all 0.5s cubic-bezier(0, 0, 0.43, 1.49);
     transition-property: width, border-radius;
@@ -82,7 +88,7 @@ const Search = styled.form`
   }
   input:not(:placeholder-shown) {
     border-radius: 40px 0 0 40px;
-    width: calc(100% - 90px);
+    width: calc(100% - 87px);
     + button {
       display: block;
     }

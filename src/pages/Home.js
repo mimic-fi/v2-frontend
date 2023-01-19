@@ -2,16 +2,34 @@ import React from 'react'
 import styled from 'styled-components'
 import Page from '../components/Page'
 import SearchBar from '../components/SearchBar'
-import { Container, Hl } from '../styles/texts'
+import split from '../assets/split.svg'
+import { Container, Hl, BodyL } from '../styles/texts'
 
 const Home = () => {
   return (
     <Page sidebar={false}>
       <HomeSection>
         <Container>
-          <Hl>Search for your smart vault</Hl>
+          <BodyL>Welcome to Mimic!</BodyL>
+          <Hl>Search a Smart Vault</Hl>
           <br />
           <SearchBar />
+        </Container>
+      </HomeSection>
+      <Split src={split} />
+      <HomeSection>
+        <Container>
+          <Hl style={{ maxWidth: '790px' }}>
+            Deploy your Smart Vault  in as little as 2 weeks
+          </Hl>
+          <BodyL>
+            Let us help you find the best Smart Vault configuration for your
+            business
+          </BodyL>
+          <br />
+          <Button href="https://airtable.com/shrSvH8fTJcbHq0xl" target="_blank">
+            Contact us
+          </Button>
         </Container>
       </HomeSection>
     </Page>
@@ -20,15 +38,31 @@ const Home = () => {
 
 const HomeSection = styled.section`
   height: auto;
-  padding-top: 180px;
+  padding: 180px 0;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   @media only screen and (max-width: 700px) {
     padding: 60px 0 0 0;
+  }
+  h2 {
     text-align: center;
   }
+`
+
+const Split = styled.img`
+  width: 100%;
+`
+
+const Button = styled.a`
+  background: #5542a9;
+  border-radius: 100px;
+  padding: 22px 60px;
+  margin-top: 30px;
+  display: inline-block;
+  font-weight: bold;
 `
 
 export default Home
