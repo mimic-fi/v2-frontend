@@ -22,66 +22,77 @@ export const DEFAULT_CHAIN_ID = SupportedChainId.MAINNET
 export const CHAIN_INFO = {
   [SupportedChainId.MAINNET]: {
     explorer: 'https://etherscan.io/',
-    label: 'Ethereum',
+    name: 'Ethereum',
     logoUrl: ethereumLogoUrl,
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: '#fff',
     value: SupportedChainId.MAINNET,
+    shortName: 'eth'
   },
 
   [SupportedChainId.MUMBAI]: {
     explorer: 'https://mumbai.polygonscan.com/',
-    label: 'Mumbai',
+    name: 'Mumbai',
     logoUrl: polygonLogoUrl,
     nativeCurrency: { name: 'Matic', symbol: 'MATIC', decimals: 18 },
     color: '#de4437',
     value: SupportedChainId.MUMBAI,
-    isTestnet: true
+    isTestnet: true,
+    shortName: 'mumbai'
   },
   [SupportedChainId.OPTIMISM]: {
     explorer: 'https://optimistic.etherscan.io/',
-    label: 'Optimism',
+    name: 'Optimism',
     logoUrl: optimismLogoUrl,
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.OPTIMISM,
+    shortName: 'opt'
   },
   [SupportedChainId.POLYGON]: {
     explorer: 'https://polygonscan.com/',
-    label: 'Polygon',
+    name: 'Polygon',
     logoUrl: polygonLogoUrl,
     nativeCurrency: { name: 'Görli Ether', symbol: 'görETH', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.POLYGON,
+    shortName: 'matic'
   },
   [SupportedChainId.GNOSIS]: {
     explorer: 'https://gnosisscan.io/',
-    label: 'Gnosis',
+    name: 'Gnosis',
     logoUrl: gnosisLogoUrl,
     nativeCurrency: { name: 'xDAI', symbol: 'xDAI', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.GNOSIS,
+    shortName: 'gnosis'
+
   },
   [SupportedChainId.ARBITRUM]: {
     explorer: 'https://arbiscan.io/',
-    label: 'Arbitrum',
+    name: 'Arbitrum',
     logoUrl: arbitrumLogoUrl,
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.ARBITRUM,
+    shortName: 'arbitrum'
+
   },
   [SupportedChainId.ZKSYNC]: {
     explorer: 'https://explorer.zksync.io/',
-    label: 'zkSync',
+    name: 'zkSync',
     logoUrl: zksyncLogoUrl,
+    shortName: 'zksync',
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.ZKSYNC,
-    isDisabled: true
+    isDisabled: true,
+
   },
   [SupportedChainId.GOERLI]: {
     explorer: 'https://goerli.etherscan.io/',
-    label: 'Görli',
+    name: 'Görli',
+    shortName: 'goerli',
     logoUrl: goerliLogoUrl,
     nativeCurrency: { name: 'Görli Ether', symbol: 'görETH', decimals: 18 },
     color: '#bb437e',
@@ -89,6 +100,7 @@ export const CHAIN_INFO = {
     isTestnet: true
   },
 }
+
 
 export const CHAIN_SUBGRAPH_URL = {
   [SupportedChainId.MAINNET]:
@@ -105,4 +117,6 @@ export const CHAIN_SUBGRAPH_URL = {
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-optimism',
   [SupportedChainId.ARBITRUM]:
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-arbitrum',
+  [SupportedChainId.ZKSYNC]:
+    '',
 }

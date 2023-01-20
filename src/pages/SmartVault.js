@@ -45,9 +45,10 @@ const RenderContentPage = ({ smartVault }) => {
     <>
       {!smartVault.isLoading && (
         <>
-          <Subnavbar active="overview" />
+          <Subnavbar active="overview" address={smartVault.id} />
           <Container>
             <Hero
+              address={smartVault.id}
               isLoading={smartVault.isLoading}
               lastAction={smartVault.lastAction}
               totalValueManaged={smartVault.totalValueManaged}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { useParams } from 'react-router-dom'
 import moment from 'moment'
 import { formatTokenAmount } from '../utils/math-utils'
 import { Hl, Hxxs, BodyL, BodyS } from '../styles/texts'
@@ -16,9 +15,7 @@ import { getEtherscanLink } from '../utils/web3-utils'
 
 //TODO: remove knownTokenDecimals and replace it with no hardcoded data.
 
-const Hero = ({ totalValueManaged, lastAction, isLoading }) => {
-  //TODO: add real data. this is a mockup
-  const params = useParams()
+const Hero = ({ totalValueManaged, lastAction, isLoading, address }) => {
   const chainId = useChainId()
   const lastPrimitive = (lastAction && lastAction[0]) || []
   const target = lastPrimitive?.target || ''
@@ -80,7 +77,7 @@ const Hero = ({ totalValueManaged, lastAction, isLoading }) => {
               <div>
                 <img alt="" src={open} />
                 <a
-                  href={CHAIN_INFO[chainId]?.explorer + 'address/' + params.id}
+                  href={CHAIN_INFO[chainId]?.explorer + 'address/' + address}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -101,7 +98,7 @@ const Hero = ({ totalValueManaged, lastAction, isLoading }) => {
                 <img alt="" src={open} />
                 <div>
                   <a
-                    href={getEtherscanLink(chainId, params.id, 'address')}
+                    href={getEtherscanLink(chainId, address, 'address')}
                     target="_blank"
                     rel="noreferrer"
                   >

@@ -41,7 +41,8 @@ const RenderContentPage = ({ smartVault }) => {
 
   return (
     <>
-      <Subnavbar active="history" />
+      <Subnavbar active="history" address={smartVault?.id} />
+
       <LatestActionsSection>
         <Container>
           <Hm>

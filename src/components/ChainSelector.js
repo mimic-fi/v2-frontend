@@ -4,6 +4,7 @@ import { CHAIN_INFO } from '../constants/chainInfo'
 import { useChainId } from '../hooks/useChainId'
 import { useAppDispatch } from '../context/appContext'
 import { BodyL, BodyS } from '../styles/texts'
+import ChainLogo from './ChainLogo'
 
 const NetworkInfo = () => {
   const { updateChainId } = useAppDispatch()
@@ -37,14 +38,14 @@ const NetworkInfo = () => {
 
 const Option = props => {
   const chainId = useChainId()
-  const { children, innerRef, innerProps } = props
-  const { isTestnet, logoUrl} = CHAIN_INFO[(props?.value)]
+  const { innerRef, innerProps } = props
+  const { isTestnet, logoUrl, name} = CHAIN_INFO[(props?.value)]
 
   return (
     <OptionContainer ref={innerRef} {...innerProps} isSelected={props?.value === chainId }>
       <OptionBox>
         <ChainLogo src={logoUrl} />
-        <ChainName>{children}</ChainName>
+        <ChainName>{name}</ChainName>
         { isTestnet && <Badge>testnet</Badge>}
       </OptionBox>
       <div className="selector" />
@@ -77,9 +78,9 @@ const Menu = props => {
               })
               .map(item => (
                 <ComingSoon
-                  key={item.label}
+                  key={item.name}
                   logo={item.logoUrl}
-                  name={item.label}
+                  name={item.name}
                 />
               ))}
           </Box>
@@ -107,7 +108,7 @@ const SelectElement = styled(Select)`
     color: white;
   }
   .react-select__menu {
-    background-color: #373839;
+    background-color: #393B3F;
     min-width: 300px;
     width: auto;
     padding: 0px 24px;
@@ -130,11 +131,6 @@ const SelectElement = styled(Select)`
   .react-select__menu-list{
     max-height: 600px;
   }
-`
-
-const ChainLogo = styled.img`
-  width: 25px;
-  object-fit: scale-down;
 `
 
 const OptionContainer = styled.div`
