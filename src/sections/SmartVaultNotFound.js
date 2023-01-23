@@ -13,7 +13,7 @@ const SmartVaultNotFound = ({id = ''}) => {
         <Container>
           <Text>
             <BodyL>Smart Vault not found</BodyL>
-            <Hm>Sorry, we can’t find a Smart Vault with that address, on {CHAIN_INFO[chainId].label}</Hm>
+            <Hm>Sorry, we can’t find a Smart Vault with that address, on {CHAIN_INFO[chainId].name}</Hm>
             <BodyM>
               Please double check or change networks, and try again
             </BodyM>
