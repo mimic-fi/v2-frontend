@@ -20,7 +20,7 @@ const useSmartVaultWithPrimitives = (id = '0x', limit = 10) => {
 
     // match primitives into actions
     let grouped = data?.primitiveExecutions.reduce(function (rv, x) {
-      ; (rv[x['transaction']] = rv[x['transaction']] || []).push(x)
+      ; (rv[x['transaction']['id']] = rv[x['transaction']['id']] || []).push(x)
       return rv
     }, {})
 
@@ -55,10 +55,19 @@ const fetchSmartVault = async (chainId, id) => {
             id
             type
             data
-            executedAt
-            transaction
-      			target
-            sender
+            transaction {
+              id
+              executedAt
+              target	
+            	sender
+              gasUsed
+              gasPrice
+              costEth
+              costUsd
+              relayer
+              hash
+            }
+      		
             fee {
               pct
               token {
@@ -81,9 +90,10 @@ const fetchSmartVault = async (chainId, id) => {
               	}
               amount
             	}
-          	}
           }
         }
+      }
+
     `
   )
   return smartVault
