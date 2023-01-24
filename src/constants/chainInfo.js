@@ -118,5 +118,5 @@ export const CHAIN_SUBGRAPH_URL = {
   [SupportedChainId.ARBITRUM]:
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-arbitrum',
   [SupportedChainId.ZKSYNC]:
-    '',
+   null,
 }
