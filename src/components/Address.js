@@ -15,9 +15,8 @@ const Address = ({ address, showIdentity = true}) => {
   const [copy, setCopy] = useCopyToClipboard()
   const [copied, setCopied] = useState(false)
 
-
   const pleaseCopy = () => {
-    copy(address)
+    setCopy(address)
     setCopied(true)
     setTimeout(() => {
       setCopied(false)
