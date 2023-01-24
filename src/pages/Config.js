@@ -174,8 +174,9 @@ const Config = () => {
             }
           >
             {uniqueGrantees.map(g => {
+              let i = index += 1
               return (
-                <RenderGrantee key={g?.id} grantee={g} index={(index += 1)} />
+                <RenderGrantee key={`${g?.id}/${i}`} grantee={g} index={i} />
               )
             })}
           </Table>
@@ -215,7 +216,7 @@ const Grantees = ({ grantees }) => {
     <div>
       {grantees.permissions.map((p, i) => {
         return (
-          <Text key={`${grantees?.id}-${p.method}`}>
+          <Text key={`${grantees?.id}-${p.method}-${i}`}>
             {' '}
             {getMethodName(p.method)}
           </Text>

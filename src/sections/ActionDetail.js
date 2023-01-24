@@ -20,8 +20,8 @@ const ActionDetail = ({
   onClose,
 }) => {
   const chainId = useChainId()
-  const hash = primitives ? primitives[0].transaction : ''
-  const actionAddress = primitives ? primitives[0].target : ''
+  const hash = primitives ? primitives[0].transaction?.hash : ''
+  const actionAddress = primitives ? primitives[0]?.transaction?.target : ''
   return (
     <Detail isOpen={open}>
       <div className="overlay" onClick={onClose} />
@@ -51,7 +51,7 @@ const ActionDetail = ({
             <BodyS className="label">Date executed</BodyS>
             <BodyL>
               {primitives
-                ? moment.unix(primitives[0].executedAt).format('MMM Do, h:mm')
+                ? moment.unix(primitives[0]?.transaction?.executedAt).format('MMM Do, h:mm')
                 : ''}
             </BodyL>
           </div>
@@ -72,7 +72,7 @@ const ActionDetail = ({
         </DetailItem>
         <DetailItem>
           <div>
-            <AddressName address={primitives ? primitives[0].sender : ''} title={<BodyS className="label">Executed by</BodyS>} />
+            <AddressName address={primitives ? primitives[0]?.transaction?.sender : ''} title={<BodyS className="label">Executed by</BodyS>} />
           </div>
         </DetailItem>
         <br />

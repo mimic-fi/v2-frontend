@@ -12,12 +12,13 @@ const Address = ({ address, showIdentity = true}) => {
   const chainId = useChainId()
   const indexPlayer = `${address}-${chainId}`
   const player = PLAYERS[indexPlayer]
-  const [copy] = useCopyToClipboard()
+  
+  // eslint-disable-next-line
+  const [copy, setCopy] = useCopyToClipboard()
   const [copied, setCopied] = useState(false)
 
-
   const pleaseCopy = () => {
-    copy(address)
+    setCopy(address)
     setCopied(true)
     setTimeout(() => {
       setCopied(false)

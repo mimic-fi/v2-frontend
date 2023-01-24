@@ -11,7 +11,7 @@ import AddressName from '../components/AddressName'
 
 const Action = ({ primitives, index }) => {
   const item = primitives[0]
-  const metadata = useActionMetadata(item.target)
+  const metadata = useActionMetadata(item?.transaction?.target)
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -19,14 +19,14 @@ const Action = ({ primitives, index }) => {
   const medium = 700
   const large = 900
   const [isOpen, setOpen] = useState(false)
-
+  
   return (
     <>
     <Row key={item.id} onClick={() => setOpen(!isOpen)}>
       <TableCell>
       <Number> {index} </Number>
-        {item.executedAt
-          ? moment.unix(item.executedAt).format('MMM Do')
+        {item?.transaction?.executedAt
+          ? moment.unix(item?.transaction?.executedAt).format('MMM Do')
           : '-'}
       </TableCell>
       <TableCell>
@@ -41,7 +41,7 @@ const Action = ({ primitives, index }) => {
           <Text>{metadata.data ? metadata.data.description : ''}</Text>
         </TableCell>
       )}
-      {width >= medium && <TableCell><AddressName address={item.sender}/></TableCell>}
+      {width >= medium && <TableCell><AddressName address={item?.transaction?.sender}/></TableCell>}
       <TableCell>
         <img src={check} alt="" />
       </TableCell>

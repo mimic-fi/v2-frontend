@@ -18,7 +18,7 @@ import { getEtherscanLink } from '../utils/web3-utils'
 const Hero = ({ totalValueManaged, lastAction, isLoading, address }) => {
   const chainId = useChainId()
   const lastPrimitive = (lastAction && lastAction[0]) || []
-  const target = lastPrimitive?.target || ''
+  const target = lastPrimitive?.transaction?.target || ''
   const { data: lastActionMetadata, isLoading: isLoadingMetadata } = useActionMetadata(target)
 
   const [width, setWidth] = useState(window.innerWidth)
@@ -47,7 +47,7 @@ const Hero = ({ totalValueManaged, lastAction, isLoading, address }) => {
           />
 
           <BodyL>
-            {lastAction && moment.unix(lastPrimitive.executedAt).fromNow()}{' '}
+            {lastAction && moment.unix(lastPrimitive?.transaction?.executedAt).fromNow()}{' '}
             <button onClick={() => setOpen(!isOpen)}>See receipt</button>
           </BodyL>
         </>
