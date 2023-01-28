@@ -28,8 +28,8 @@ const useSmartVaultWithPrimitives = (id = '0x', limit = 10) => {
     // eslint-disable-next-line
     actions = grouped && Object.entries(grouped).sort((a, b) => {
       // sort actions
-      if (b[1][0]?.executedAt > a[1][0]?.executedAt) return 1
-      else if (b[1][0]?.executedAt < a[1][0]?.executedAt) return -1
+      if (b[1][0]?.transaction?.executedAt > a[1][0]?.transaction?.executedAt) return 1
+      else if (b[1][0]?.transaction?.executedAt < a[1][0]?.transaction?.executedAt) return -1
     })
 
     return {
