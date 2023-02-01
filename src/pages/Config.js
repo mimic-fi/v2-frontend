@@ -24,7 +24,7 @@ const Config = () => {
   const { data: metadata } = useSmartVaultMetadata(params?.id)
 
   let index = 0
-  let pfIndex = 0
+  // let pfIndex = 0
   let granteesList = []
 
   // normalize list
@@ -64,7 +64,7 @@ const Config = () => {
             }
           >
             {isLoading ? (
-              'Loading data?...'
+              'Loading data...'
             ) : (
               <>
                 <TableData
@@ -99,7 +99,7 @@ const Config = () => {
                   value={<Address address={data?.priceOracle} />}
                 />
 
-                {data &&
+                {/* {data &&
                   data?.priceFeeds.map(pf => {
                     return (
                       <TableData
@@ -110,17 +110,17 @@ const Config = () => {
                             priceFeed <Number>{`${(pfIndex += 1)}`}</Number>
                           </>
                         }
-                        value={<Address address={pf.feed} />}
+                        value={<Address address={pf?.feed} />}
                         value2={
                           <div>
                             {' '}
-                            <TextSec>{`base: ${pf.base.id}`}</TextSec>
-                            <TextSec>{` quote: ${pf.quote.id}`}</TextSec>
+                            <TextSec>{`base: ${pf?.base?.id}`}</TextSec>
+                            <TextSec>{` quote: ${pf?.quote?.id}`}</TextSec>
                           </div>
                         }
                       />
                     )
-                  })}
+                  })} */}
                 <Fee
                   index={(index += 1)}
                   title="swapFee"

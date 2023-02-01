@@ -10,7 +10,7 @@ const Blockies = ({
   className
 }) => {
 
-  if (!address) return <>'No address'</>
+  if (!address) return <>No address</>
   var imgURL = createIcon({
     seed: address.toLowerCase(),
     size: 8,
