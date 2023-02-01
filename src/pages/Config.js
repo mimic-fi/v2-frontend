@@ -24,7 +24,7 @@ const Config = () => {
   const { data: metadata } = useSmartVaultMetadata(params?.id)
 
   let index = 0
-  let pfIndex = 0
+  // let pfIndex = 0
   let granteesList = []
 
   // normalize list
