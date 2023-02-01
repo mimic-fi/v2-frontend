@@ -24,13 +24,7 @@ const fetchSmartVault = async (chainId, id) => {
           id
           totalValueManaged
           priceFeeds {
-            base {
-              id
-            }
-            quote {
-              id
-            }
-            feed
+          id
           }
           priceOracle
           swapConnector
