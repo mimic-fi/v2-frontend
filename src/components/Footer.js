@@ -39,7 +39,7 @@ const FooterSection = styled.section`
   margin: auto;
   padding: 40px 0 150px 0;
   box-sizing: content-box;
-  border-top: solid 2px #c7c7c7;
+  background: ${props => props.theme.main};
   width: 100%;
   margin-top: 80px;
 `

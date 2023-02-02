@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
-import { Hm, BodyL, Container } from '../styles/texts'
+import { Hxl, BodyL, Container } from '../styles/texts'
 import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 
-const SmartVaultDetail = ({address}) => {
+const SmartVaultDetail = ({ address }) => {
   const params = useParams()
   const metadata = useSmartVaultMetadata(address || params.id)
 
   return metadata.data ? (
     <SmartVaultDetailSection>
-    <Container>
-      <Hm>{metadata.data.title || 'Smart vault'}</Hm>
-      <BodyL>{metadata.data.description || ''}</BodyL>
+      <Container>
+        <Hxl>{metadata.data.title || 'Smart vault'}</Hxl>
+        <BodyL>{metadata.data.description || ''}</BodyL>
       </Container>
     </SmartVaultDetailSection>
   ) : (

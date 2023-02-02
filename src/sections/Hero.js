@@ -1,138 +1,105 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
+import { useParams } from 'react-router-dom'
 import { formatTokenAmount } from '../utils/math-utils'
-import { Hl, Hxxs, BodyL, BodyS } from '../styles/texts'
+import { Hxl, Hxs, BodyL, BodyS } from '../styles/texts'
 import ActionDetail from './ActionDetail'
-import check from '../assets/check.svg'
-import open from '../assets/open.svg'
-import lock from '../assets/lock.svg'
+import smartVault from '../assets/smart-vault.svg'
 import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
-import { CHAIN_INFO } from '../constants/chainInfo'
-import { useChainId } from '../hooks/useChainId'
 import useActionMetadata from '../hooks/useActionMetadata'
-import { getEtherscanLink } from '../utils/web3-utils'
+import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 
 //TODO: remove knownTokenDecimals and replace it with no hardcoded data.
 
 const Hero = ({ totalValueManaged, lastAction, isLoading, address }) => {
-  const chainId = useChainId()
   const lastPrimitive = (lastAction && lastAction[0]) || []
   const target = lastPrimitive?.transaction?.target || ''
-  const { data: lastActionMetadata, isLoading: isLoadingMetadata } = useActionMetadata(target)
-
-  const [width, setWidth] = useState(window.innerWidth)
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth))
-  }, [])
-  const medium = 700
+  const {
+    data: lastActionMetadata,
+    isLoading: isLoadingMetadata,
+  } = useActionMetadata(target)
 
   const [isOpen, setOpen] = useState(false)
 
+  const params = useParams()
+  const smartVaultMetadata = useSmartVaultMetadata(address || params.id)
+
   return (
-
     <HeroSection>
-      {!isLoading && !isLoadingMetadata ?
-        lastAction && lastActionMetadata?.successMessage ?
-        <>
-          <BodyL>Hello diver!</BodyL>
-          <Hl>
-            {lastActionMetadata?.successMessage + ' ✓' }
-          </Hl>
-          <ActionDetail
-            title={lastActionMetadata?.successMessage}
-            primitives={lastAction}
-            open={isOpen}
-            onClose={() => setOpen(!isOpen)}
-          />
+      {!isLoading && !isLoadingMetadata ? (
+        lastAction && lastActionMetadata?.successMessage ? (
+          <>
+            <BodyL>Hello diver!</BodyL>
+            <Hxl>{lastActionMetadata?.successMessage + ' ✓'}</Hxl>
+            <ActionDetail
+              title={lastActionMetadata?.successMessage}
+              primitives={lastAction}
+              open={isOpen}
+              onClose={() => setOpen(!isOpen)}
+            />
 
-          <BodyL>
-            {lastAction && moment.unix(lastPrimitive?.transaction?.executedAt).fromNow()}{' '}
-            <button onClick={() => setOpen(!isOpen)}>See receipt</button>
-          </BodyL>
-        </>
-        : 'No data actions yet'
-        : 'loading...'
-      }
-      {totalValueManaged && (
-        <Box>
-          <Item>
-            {width >= medium && <img alt="" src={lock} />}
+            <BodyL>
+              {lastAction &&
+                moment
+                  .unix(lastPrimitive?.transaction?.executedAt)
+                  .fromNow()}{' '}
+              <button onClick={() => setOpen(!isOpen)}>See receipt</button>
+            </BodyL>
+          </>
+        ) : (
+          'No data actions yet'
+        )
+      ) : (
+        'loading...'
+      )}
+      <Box>
+        <SVName>
+          <img
+            alt=""
+            src={
+              smartVaultMetadata.data && smartVaultMetadata.data.logo
+                ? smartVaultMetadata.data.logo
+                : smartVault
+            }
+          />
+          <Hxs>
+            {smartVaultMetadata.data && smartVaultMetadata.data.title
+              ? smartVaultMetadata.data.title
+              : 'Smart vault'}
+          </Hxs>
+        </SVName>
+        <Item>
+          {totalValueManaged && (
             <div>
-              <Hxxs>
+              <Hxs>
                 $
                 {formatTokenAmount(totalValueManaged, USDC_DECIMALS, {
                   digits: 2,
                 })}
-              </Hxxs>
-              <BodyS>Total assets managed</BodyS>
+              </Hxs>
+              <BodyS>Total managed</BodyS>
             </div>
-          </Item>
-          {width < medium && (
-            <MobileItem>
-              <div>
-                <img alt="" src={check} />
-                <BodyS>Active</BodyS>
-              </div>
-              <div>
-                <img alt="" src={open} />
-                <a
-                  href={CHAIN_INFO[chainId]?.explorer + 'address/' + address}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <BodyS>Open on Etherscan</BodyS>
-                </a>
-              </div>
-            </MobileItem>
           )}
-          {width >= medium && (
-            <>
-              <Item>
-                <img alt="" src={check} />
-                <div>
-                  <Hxxs>Active</Hxxs>
-                </div>
-              </Item>
-              <Item>
-                <img alt="" src={open} />
-                <div>
-                  <a
-                    href={getEtherscanLink(chainId, address, 'address')}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Hxxs>Open on Etherscan</Hxxs>
-                  </a>
-                  <BodyS>(External link)</BodyS>
-                </div>
-              </Item>
-            </>
-          )}
-        </Box>
-      )}
+        </Item>
+      </Box>
     </HeroSection>
   )
 }
 
 const Box = styled.div`
-  margin: 150px auto;
+  margin: 150px auto 70px auto;
+  position: relative;
   background: #2d3034;
   box-shadow: 0px 4px 40px rgba(26, 28, 30, 0.24);
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1081px;
-  height: 150px;
-  @media only screen and (min-width: 701px) and (max-width: 950px) {
-    flex-direction: column;
-    height: auto;
-    width: 70%;
-    margin: 150px auto;
-  }
-  @media only screen and (max-width: 700px) {
-    width: 100%;
+  padding: 40px;
+
+  @media only screen and (max-width: 1040px) {
+    width: 90%;
     flex-direction: column;
     height: auto;
     margin: 80px auto 0 auto;
@@ -142,55 +109,53 @@ const Box = styled.div`
 
 const Item = styled.div`
   display: flex;
-  width: 33%;
-  padding: 46px 25px;
+  width: 50%;
+  max-width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: left;
-  gap: 21px;
+  gap: 30px;
+  @media only screen and (max-width: 1040px) {
+    width: 90%;
+  }
   @media only screen and (max-width: 700px) {
-    width: 70%;
     padding: 25px 40px;
     justify-content: center;
     text-align: center;
-  }
-  @media only screen and (max-width: 950px) {
-    width: 70%;
-  }
-
-  &:nth-child(2) {
-    border-right: solid 4px ${props => props.theme.backgroundDefault};
-    border-left: solid 4px ${props => props.theme.backgroundDefault};
-    @media only screen and (max-width: 950px) {
-      border: 0px;
-      border-top: solid 4px ${props => props.theme.backgroundDefault};
-      border-bottom: solid 4px ${props => props.theme.backgroundDefault};
-      width: 100%;
-    }
   }
   p {
     margin: 4px 0;
   }
 `
 
-const MobileItem = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 5px;
-  width: 100%;
-  flex-wrap: wrap;
-  padding: 16px 7px;
-  box-sizing: border-box;
-  border-top: 2px solid #414141;
-  img {
-    height: 24px;
-    padding-right: 7px;
+const SVName = styled(Item)`
+  width: 70%;
+  border-right: solid #fffffe45;
+  margin-right: 39px;
+  @media only screen and (max-width: 1040px) {
+    width: 90%;
+    margin-right: 0;
+    border-bottom: solid #fffffe45;
+    border-right: solid transparent 0px;
+    margin-bottom: 30px;
+    padding-bottom: 40px;
   }
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  img {
+    height: 120px;
+    @media only screen and (max-width: 1040px) {
+      position: absolute;
+      top: -30px;
+      height: 60px;
+      left: 10px;
+    }
+  }
+  h5 {
+    max-height: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    @media only screen and (max-width: 1040px) {
+      max-height: initial;
+    }
   }
 `
 
@@ -201,7 +166,7 @@ const HeroSection = styled.section`
     padding: 100px 20px 20px 20px;
   }
   color: white;
-  text-align: center;
+  text-align: left;
 
   h2 {
     max-width: 750px;
