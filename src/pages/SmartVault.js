@@ -11,7 +11,7 @@ import Hero from '../sections/Hero'
 import Action from '../sections/Action'
 import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import SmartVaultDetail from '../sections/SmartVaultDetail'
-import { Hm, LinkL } from '../styles/texts'
+import { Hxl, LinkL } from '../styles/texts'
 import { Loading } from '../styles/general'
 import split from '../assets/split.svg'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
@@ -59,11 +59,11 @@ const RenderContentPage = ({ smartVault }) => {
       )}
       <LatestActionsSection>
         <Container>
-          <Hm>
+          <Hxl>
             Most recent
             <br />
             actions
-          </Hm>
+          </Hxl>
           <Table
             header={
               <TableRow>

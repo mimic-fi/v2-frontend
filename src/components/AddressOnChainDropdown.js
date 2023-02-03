@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import useSmartVaultChainCheck from '../hooks/useSmartVaultChainCheck'
 import check from '../assets/mini-check.svg'
@@ -9,9 +9,12 @@ import { CHAIN_INFO } from '../constants/chainInfo'
 import Select, { components } from 'react-select'
 import { useAppDispatch } from '../context/appContext'
 
-
-
 const AddressOnChainDropdown = ({ address }) => {
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth))
+  }, [])
+  const medium = 700
   const chainId = useChainId()
   const { updateChainId } = useAppDispatch()
   const availableChains = useSmartVaultChainCheck(address)
@@ -19,20 +22,19 @@ const AddressOnChainDropdown = ({ address }) => {
   const colorChars = 4
 
   const ChainColor = ({ addressSelected, chainIdToShow, hideShortName }) => {
-
     const first = addressSelected.slice(0, colorChars)
     const mid = addressSelected.slice(colorChars, 38)
     const last = addressSelected.slice(-colorChars)
 
     return (
-      <SVAddress >
+      <SVAddress>
         <ChainLogo src={CHAIN_INFO[chainIdToShow]?.logoUrl} />
         <Space />
-        {!hideShortName && <ChainName>
-          {CHAIN_INFO[chainIdToShow]?.shortName}:
-        </ChainName>}
+        {!hideShortName && (
+          <ChainName>{CHAIN_INFO[chainIdToShow]?.shortName}:</ChainName>
+        )}
         <SVAddressAlt>{first}</SVAddressAlt>
-        {mid}
+        {width >= medium ? mid : mid.slice(0, 8) + '...'}
         <SVAddressAlt>{last}</SVAddressAlt>
       </SVAddress>
     )
@@ -43,7 +45,11 @@ const AddressOnChainDropdown = ({ address }) => {
 
     return (
       <ControlContainer ref={innerRef} {...innerProps} menuIsOpen={menuIsOpen}>
-        <ChainColor addressSelected={address} chainIdToShow={chainId} hideShortName={true} />
+        <ChainColor
+          addressSelected={address}
+          chainIdToShow={chainId}
+          hideShortName={true}
+        />
         {children}
       </ControlContainer>
     )
@@ -78,14 +84,20 @@ const AddressOnChainDropdown = ({ address }) => {
     )
   }
 
-  return availableChains && availableChains.length ?
+  return availableChains && availableChains.length ? (
     <SelectElement
       components={{ Menu, Option, Control }}
       onChange={e => updateChainId(e?.value)}
       options={availableChains.sort()}
       classNamePrefix="react-select"
-    /> :
-    <ChainColor addressSelected={address} chainIdToShow={chainId} hideShortName={true} />
+    />
+  ) : (
+    <ChainColor
+      addressSelected={address}
+      chainIdToShow={chainId}
+      hideShortName={true}
+    />
+  )
 }
 
 const ControlContainer = styled.div`
@@ -96,7 +108,6 @@ const ControlContainer = styled.div`
   justify-content: center;
   background-color: ${props =>
     props.menuIsOpen ? props.theme.backgroundDefault : 'transparent'};
-
 `
 
 const SelectElement = styled(Select)`
@@ -117,7 +128,7 @@ const SelectElement = styled(Select)`
     color: white;
   }
   .react-select__menu {
-    background-color: #393B3F;
+    background-color: #393b3f;
     min-width: 300px;
     width: auto;
     /* padding: 20px 4px; */
@@ -137,7 +148,7 @@ const SelectElement = styled(Select)`
   p {
     margin-bottom: 0;
   }
-  .react-select__menu-list{
+  .react-select__menu-list {
     max-height: 600px;
   }
 `
@@ -150,40 +161,39 @@ const OptionContainer = styled.div`
   padding: 5px 18px;
   cursor: pointer;
   border-radius: 10px !important;
-  font-size: 12px  !important;
+  font-size: 12px !important;
   div {
     display: flex;
   }
 `
 
 const OptionBox = styled.div`
- display: flex;
+  display: flex;
   align-items: center;
 `
 
 const ImgCheck = styled.img`
- width: 19px;
- padding-left: 5px;
+  width: 19px;
+  padding-left: 5px;
 `
 
 const Title = styled(BodyS)`
- padding-left: 20px;
+  padding-left: 20px;
 `
 
 const ChainName = styled.div`
   font-size: 12px;
   color: #d4d4d4;
-
 `
 
 const SVAddress = styled.div`
-font-family: 'GTWalsheimPro';
+  font-family: 'GTWalsheimPro';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 28px;
   letter-spacing: 0.75px;
-  color: ${props => props.color ? props.color : '#fcfcfc'} ;
+  color: ${props => (props.color ? props.color : '#fcfcfc')};
   @media only screen and (min-width: 1440px) {
     font-size: 18px;
     line-height: 32px;
@@ -195,11 +205,9 @@ font-family: 'GTWalsheimPro';
 const SVAddressAlt = styled.div`
   font-size: 15px;
   color: ${props => props.theme.secondaryDefault};
-
 `
 const Space = styled.div`
   width: 10px;
 `
-
 
 export default AddressOnChainDropdown

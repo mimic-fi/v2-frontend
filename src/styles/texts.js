@@ -6,7 +6,7 @@ export const GU = 8
 export const Hxxl = styled.h2`
   font-family: 'GTWalsheimPro';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 124px;
   line-height: 139px;
   letter-spacing: 1.71671px;
@@ -26,8 +26,8 @@ export const Hxxl = styled.h2`
 export const Hxl = styled.h1`
   font-family: 'GTWalsheimPro';
   font-style: normal;
-  font-weight: 400;
-  font-size: 72px;
+  font-weight: 500;
+  font-size: 81px;
   line-height: 81px;
   letter-spacing: 1px;
   color: #fcfcfc;
@@ -38,7 +38,7 @@ export const Hxl = styled.h1`
     line-height: 52px;
   }
   @media only screen and (min-width: 1440px) {
-    font-size: 80px;
+    font-size: 90px;
     line-height: 90px;
   }
 `

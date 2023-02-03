@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Page from '../components/Page'
 import SearchBar from '../components/SearchBar'
 import split from '../assets/split.svg'
-import { Container, Hl, BodyL } from '../styles/texts'
+import { Container, Hxl, BodyL } from '../styles/texts'
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
       <HomeSection>
         <Container>
           <BodyL>Welcome to Mimic!</BodyL>
-          <Hl>Search a Smart Vault</Hl>
+          <Hxl>Search a Smart Vault</Hxl>
           <br />
           <SearchBar />
         </Container>
@@ -19,9 +19,9 @@ const Home = () => {
       <Split src={split} />
       <HomeSection>
         <Container>
-          <Hl style={{ maxWidth: '790px' }}>
-            Deploy your Smart Vault  in as little as 2 weeks
-          </Hl>
+          <Hxl style={{ maxWidth: '790px' }}>
+            Deploy your Smart Vault in as little as 2 weeks
+          </Hxl>
           <BodyL>
             Let us help you find the best Smart Vault configuration for your
             business

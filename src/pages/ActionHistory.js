@@ -9,7 +9,7 @@ import TableRow from '../components/Table/TableRow'
 import TableHeader from '../components/Table/TableHeader'
 import Action from '../sections/Action'
 import SmartVaultNotFound from '../sections/SmartVaultNotFound'
-import { Hm } from '../styles/texts'
+import { Hxl } from '../styles/texts'
 import { Loading } from '../styles/general'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 
@@ -45,11 +45,11 @@ const RenderContentPage = ({ smartVault }) => {
 
       <LatestActionsSection>
         <Container>
-          <Hm>
+          <Hxl>
             Here’s everything
             <br />
             that happened
-          </Hm>
+          </Hxl>
           <Table
             header={
               <TableRow>
