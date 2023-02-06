@@ -209,7 +209,7 @@ export const BodyXs = styled.p`
   font-family: 'GTWalsheimPro';
   font-style: normal;
   font-weight: 400;
-  font-size: 11.5px;
+  font-size: 12px;
   line-height: 20px;
   letter-spacing: 0.25px;
   color: #fcfcfc;

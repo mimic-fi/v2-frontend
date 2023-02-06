@@ -20,7 +20,7 @@ const Home = () => {
       <HomeSection>
         <Container>
           <Hxl style={{ maxWidth: '790px' }}>
-            Deploy your Smart Vault in as little as 2 weeks
+            Deploy your Smart Vault  in as little as 2 weeks
           </Hxl>
           <BodyL>
             Let us help you find the best Smart Vault configuration for your

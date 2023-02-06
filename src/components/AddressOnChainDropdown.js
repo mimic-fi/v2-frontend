@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import useSmartVaultChainCheck from '../hooks/useSmartVaultChainCheck'
 import check from '../assets/mini-check.svg'
-import { BodyS } from '../styles/texts'
+import { BodyXs, BodyS, BodyM } from '../styles/texts'
 import ChainLogo from './ChainLogo'
 import { useChainId } from '../hooks/useChainId'
 import { CHAIN_INFO } from '../constants/chainInfo'
@@ -33,9 +33,11 @@ const AddressOnChainDropdown = ({ address }) => {
         {!hideShortName && (
           <ChainName>{CHAIN_INFO[chainIdToShow]?.shortName}:</ChainName>
         )}
-        <SVAddressAlt>{first}</SVAddressAlt>
-        {width >= medium ? mid : mid.slice(0, 8) + '...'}
-        <SVAddressAlt>{last}</SVAddressAlt>
+        <BodyM>
+          <SVAddressAlt>{first}</SVAddressAlt>
+          {width >= medium ? mid : mid.slice(0, 8) + '...'}
+          <SVAddressAlt>{last}</SVAddressAlt>
+        </BodyM>
       </SVAddress>
     )
   }
@@ -181,29 +183,24 @@ const Title = styled(BodyS)`
   padding-left: 20px;
 `
 
-const ChainName = styled.div`
+const ChainName = styled(BodyXs)`
   font-size: 12px;
   color: #d4d4d4;
+  margin: 0 5px 0 0!important;
+  align-items: center;
+  display: flex;
 `
 
 const SVAddress = styled.div`
-  font-family: 'GTWalsheimPro';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 28px;
-  letter-spacing: 0.75px;
   color: ${props => (props.color ? props.color : '#fcfcfc')};
-  @media only screen and (min-width: 1440px) {
-    font-size: 18px;
-    line-height: 32px;
-  }
   display: flex;
   flex-wrap: nowrap;
   color: #fff;
+  p {
+    margin: 0;
+  }
 `
-const SVAddressAlt = styled.div`
-  font-size: 15px;
+const SVAddressAlt = styled.span`
   color: ${props => props.theme.secondaryDefault};
 `
 const Space = styled.div`
