@@ -131,8 +131,8 @@ export const Hxxs = styled.h6`
   margin: 0;
 
   @media only screen and (max-width: 700px) {
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 18px;
+    line-height: 28px;
   }
   @media only screen and (min-width: 1440px) {
     font-size: 24px;

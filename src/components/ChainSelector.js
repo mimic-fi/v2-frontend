@@ -1,9 +1,10 @@
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Select, { components } from 'react-select'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import { useChainId } from '../hooks/useChainId'
 import { useAppDispatch } from '../context/appContext'
-import { BodyL, BodyS } from '../styles/texts'
+import { Hxxs, BodyL, BodyS } from '../styles/texts'
 import ChainLogo from './ChainLogo'
 
 const NetworkInfo = () => {
@@ -27,9 +28,11 @@ const NetworkInfo = () => {
         components={{ Menu, Option, Control }}
         defaultValue={CHAIN_INFO[chainId]}
         onChange={e => updateChainId(e?.value)}
-        options={Object.values(CHAIN_INFO).sort().filter(item => {
-          return item.isDisabled ? null : item
-        })}
+        options={Object.values(CHAIN_INFO)
+          .sort()
+          .filter(item => {
+            return item.isDisabled ? null : item
+          })}
         classNamePrefix="react-select"
       />
     </Container>
@@ -39,14 +42,18 @@ const NetworkInfo = () => {
 const Option = props => {
   const chainId = useChainId()
   const { innerRef, innerProps } = props
-  const { isTestnet, logoUrl, name} = CHAIN_INFO[(props?.value)]
+  const { isTestnet, logoUrl, name } = CHAIN_INFO[(props?.value)]
 
   return (
-    <OptionContainer ref={innerRef} {...innerProps} isSelected={props?.value === chainId }>
+    <OptionContainer
+      ref={innerRef}
+      {...innerProps}
+      isSelected={props?.value === chainId}
+    >
       <OptionBox>
         <ChainLogo src={logoUrl} />
         <ChainName>{name}</ChainName>
-        { isTestnet && <Badge>testnet</Badge>}
+        {isTestnet && <Badge>testnet</Badge>}
       </OptionBox>
       <div className="selector" />
     </OptionContainer>
@@ -63,28 +70,36 @@ const ComingSoon = ({ logo, name }) => {
 }
 
 const Menu = props => {
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth))
+  }, [])
+  const medium = 700
   return (
     <>
       <components.Menu {...props}>
-        <div>
-          <BodyL>Select network</BodyL>
+        <MenuContainer>
+          <Hxxs>Select network</Hxxs>
           <div>{props.children}</div>
-          <Hr />
-          <BodyS>Coming soon</BodyS>
-          <Box>
-            {Object.values(CHAIN_INFO)
-              .filter(item => {
-                return item.isDisabled ? item : null
-              })
-              .map(item => (
-                <ComingSoon
-                  key={item.name}
-                  logo={item.logoUrl}
-                  name={item.name}
-                />
-              ))}
-          </Box>
-        </div>
+          {width >= medium && (
+            <>
+              <Hr />
+              <Box>
+                {Object.values(CHAIN_INFO)
+                  .filter(item => {
+                    return item.isDisabled ? item : null
+                  })
+                  .map(item => (
+                    <ComingSoon
+                      key={item.name}
+                      logo={item.logoUrl}
+                      name={item.name}
+                    />
+                  ))}
+              </Box>
+            </>
+          )}
+        </MenuContainer>
       </components.Menu>
     </>
   )
@@ -108,11 +123,9 @@ const SelectElement = styled(Select)`
     color: white;
   }
   .react-select__menu {
-    background-color: #393B3F;
+    background: #454748;
     min-width: 300px;
     width: auto;
-    padding: 0px 24px;
-    border-radius: 24px;
     right: 0;
     margin: 15px 0 0 0;
     animation: fadeIn 0.2s;
@@ -128,8 +141,17 @@ const SelectElement = styled(Select)`
   p {
     margin-bottom: 0;
   }
-  .react-select__menu-list{
+  .react-select__menu-list {
     max-height: 600px;
+  }
+`
+
+const MenuContainer = styled.div`
+  h6 {
+    padding: 25px 35px 15px 35px;
+    @media only screen and (max-width: 700px) {
+      padding: 16px 20px 6px 20px;
+    }
   }
 `
 
@@ -138,21 +160,21 @@ const OptionContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 5px 0;
-  padding: 5px 18px;
-  background: ${props =>
-    props.isSelected ? props.theme.mainDefault : 'transparent'};
-  border-radius: 10px !important;
-  color: ${props =>
-    props.isSelected ? props.theme.backgroundDefault : 'white'};
+  padding: 12px 35px;
+  @media only screen and (max-width: 700px) {
+    padding: 5px 20px;
+  }
+  background: ${props => (props.isSelected ? '#383A3C' : 'transparent')};
+  color: white;
   div {
     display: flex;
   }
   .selector {
     width: 12px;
     height: 12px;
-    background: ${props => (props.isSelected ? 'white' : '#A5A1B7')};
+    background: #2d3034;
     border: solid 5px
-      ${props => (props.isSelected ? props.theme.mainDark : '#A5A1B7')};
+      ${props => (props.isSelected ? props.theme.mainDefault : '#2D3034')};
     border-radius: 100%;
   }
 `
@@ -163,6 +185,7 @@ const Box = styled.div`
   justify-content: space-between;
   margin-top: 13px;
   margin-bottom: 24px;
+  padding: 0 35px;
   div {
     display: flex;
     align-items: center;
@@ -171,18 +194,16 @@ const Box = styled.div`
 `
 
 const Badge = styled.div`
- background-color: #6f6b83;
- color: white;
- font-size: 11px;
- padding: 1px 5px;
- border-radius: 5px;
- 
+  background-color: #6f6b83;
+  color: white;
+  font-size: 11px;
+  padding: 1px 5px;
+  border-radius: 5px;
 `
 const OptionBox = styled.div`
- display: flex;
+  display: flex;
   align-items: center;
 `
-
 
 const ControlContainer = styled.div`
   display: flex;
@@ -205,9 +226,9 @@ const ChainName = styled.div`
 `
 
 const Hr = styled.div`
-  background: #a5a1b7;
+  background: #2d3034;
   width: 100%;
-  height: 1px;
+  height: 2px;
 `
 
 const Container = styled.div`
