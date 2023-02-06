@@ -4,7 +4,7 @@ import Select, { components } from 'react-select'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import { useChainId } from '../hooks/useChainId'
 import { useAppDispatch } from '../context/appContext'
-import { Hxxs, BodyL, BodyS } from '../styles/texts'
+import { Hxxs } from '../styles/texts'
 import ChainLogo from './ChainLogo'
 
 const NetworkInfo = () => {
