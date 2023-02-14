@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Container } from '../styles/texts'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Page from '../components/Page'
 import Subnavbar from '../components/Subnavbar'
 import Table from '../components/Table/Table'
@@ -15,17 +15,18 @@ import { Hxl, LinkL } from '../styles/texts'
 import { Loading } from '../styles/general'
 import split from '../assets/split.svg'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
+import useSmartVaultParam from '../hooks/useSmartVaultParam'
 
 const SmartVault = () => {
-  const params = useParams()
-  const smartVault = useSmartVaultWithPrimitives(params.id, 10)
+  const id = useSmartVaultParam()
+  const smartVault = useSmartVaultWithPrimitives(id, 10)
 
   return (
     <Page>
       {smartVault.isLoading ? (
         <Loading>Loading Smart Vault...</Loading>
       ) : !smartVault?.id ? (
-        <SmartVaultNotFound id={params.id} />
+        <SmartVaultNotFound id={id} />
       ) : (
         <RenderContentPage smartVault={smartVault} />
       )}
@@ -34,6 +35,7 @@ const SmartVault = () => {
 }
 
 const RenderContentPage = ({ smartVault }) => {
+  const id = useSmartVaultParam()
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -48,7 +50,7 @@ const RenderContentPage = ({ smartVault }) => {
           <Subnavbar active="overview" address={smartVault.id} />
           <Container>
             <Hero
-              address={smartVault.id}
+              address={smartVault.id || id}
               isLoading={smartVault.isLoading}
               lastAction={smartVault.lastAction}
               totalValueManaged={smartVault.totalValueManaged}
@@ -101,7 +103,7 @@ const RenderContentPage = ({ smartVault }) => {
           </StyledLink>
         </Container>
       </LatestActionsSection>
-      <SmartVaultDetail address={smartVault?.id} />
+      <SmartVaultDetail address={smartVault?.id || id} />
     </>
   )
 }

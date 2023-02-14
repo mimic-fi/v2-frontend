@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import useSmartVaultChainCheck from '../hooks/useSmartVaultChainCheck'
 import check from '../assets/mini-check.svg'
 import { BodyXs, BodyS, BodyM } from '../styles/texts'
@@ -7,15 +8,19 @@ import ChainLogo from './ChainLogo'
 import { useChainId } from '../hooks/useChainId'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import Select, { components } from 'react-select'
-import { useAppDispatch } from '../context/appContext'
+import { useAppDispatch, useAppState } from '../context/appContext'
+import { newIdInUrl } from '../hooks/useSmartVaultParam'
 
 const AddressOnChainDropdown = ({ address }) => {
+  const params = useParams()
+  const location = useLocation().pathname
+  const navigate = useNavigate()
+  const { chainId } = useAppState()
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
   const medium = 700
-  const chainId = useChainId()
   const { updateChainId } = useAppDispatch()
   const availableChains = useSmartVaultChainCheck(address)
 
@@ -68,7 +73,7 @@ const AddressOnChainDropdown = ({ address }) => {
           <ChainColor addressSelected={address} chainIdToShow={props?.value} />
           {children}
         </OptionBox>
-        {isSelected && <ImgCheck src={check} />}
+        {isSelected && <ImgCheck alt="check" src={check} />}
       </OptionContainer>
     )
   }
@@ -86,10 +91,21 @@ const AddressOnChainDropdown = ({ address }) => {
     )
   }
 
+  function handleChange(e) {
+    if (params && params.id) {
+      let id = params.id?.toString().split(':')
+      let smartVaultId = id[id.length - 1]
+      let url = newIdInUrl(params.id, location, e?.value, smartVaultId)
+      navigate(url)
+    }
+
+    updateChainId(e?.value)
+  }
+
   return availableChains && availableChains.length ? (
     <SelectElement
       components={{ Menu, Option, Control }}
-      onChange={e => updateChainId(e?.value)}
+      onChange={handleChange}
       options={availableChains.sort()}
       classNamePrefix="react-select"
     />
@@ -186,7 +202,7 @@ const Title = styled(BodyS)`
 const ChainName = styled(BodyXs)`
   font-size: 12px;
   color: #d4d4d4;
-  margin: 0 5px 0 0!important;
+  margin: 0 5px 0 0 !important;
   align-items: center;
   display: flex;
 `

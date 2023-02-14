@@ -19,7 +19,7 @@ const Action = ({ primitives, index }) => {
   const medium = 700
   const large = 900
   const [isOpen, setOpen] = useState(false)
-  
+
   return (
     <>
     <Row key={item.id} onClick={() => setOpen(!isOpen)}>
@@ -43,7 +43,7 @@ const Action = ({ primitives, index }) => {
       )}
       {width >= medium && <TableCell><AddressName address={item?.transaction?.sender}/></TableCell>}
       <TableCell>
-        <img src={check} alt="" />
+        <img src={check} alt="check" />
       </TableCell>
 
     </Row>

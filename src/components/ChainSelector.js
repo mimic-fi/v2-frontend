@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import Select, { components } from 'react-select'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import { useChainId } from '../hooks/useChainId'
-import { useAppDispatch } from '../context/appContext'
+import { useAppDispatch, useAppState } from '../context/appContext'
+import { newIdInUrl } from '../hooks/useSmartVaultParam'
 import { Hxxs } from '../styles/texts'
 import ChainLogo from './ChainLogo'
 
 const NetworkInfo = () => {
+  const params = useParams()
+  const location = useLocation().pathname
+  const navigate = useNavigate()
+  const { chainId } = useAppState()
   const { updateChainId } = useAppDispatch()
-  const chainId = useChainId()
 
   const Control = props => {
     const { children, innerRef, innerProps, menuIsOpen } = props
@@ -21,13 +26,22 @@ const NetworkInfo = () => {
       </ControlContainer>
     )
   }
+  function handleChange(e) {
+    if (params && params.id) {
+      let id = params.id?.toString().split(':')
+      let smartVaultId = id[id.length - 1]
+      let url = newIdInUrl(params.id, location, e?.value, smartVaultId)
+      navigate(url)
+    }
+    updateChainId(e?.value)
+  }
 
   return (
     <Container>
       <SelectElement
         components={{ Menu, Option, Control }}
         defaultValue={CHAIN_INFO[chainId]}
-        onChange={e => updateChainId(e?.value)}
+        onChange={handleChange}
         options={Object.values(CHAIN_INFO)
           .sort()
           .filter(item => {

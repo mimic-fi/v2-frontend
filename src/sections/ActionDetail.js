@@ -31,7 +31,7 @@ const ActionDetail = ({
       >
         <Hm>{title}</Hm>
         <DetailItem>
-          <img alt="" src={transactionHash} />
+          <img alt="icon" src={transactionHash} />
           <div>
             <BodyS className="label">Transaction hash</BodyS>
             <Link
@@ -46,7 +46,7 @@ const ActionDetail = ({
         </DetailItem>
 
         <DetailItem>
-          <img alt="" src={date} />
+          <img alt="icon" src={date} />
           <div>
             <BodyS className="label">Date executed</BodyS>
             <BodyL>
@@ -57,7 +57,7 @@ const ActionDetail = ({
           </div>
         </DetailItem>
         <DetailItem>
-          <img alt="" src={action} />
+          <img alt="icon" src={action} />
           <div>
             <BodyS className="label">Action address</BodyS>
             <Link

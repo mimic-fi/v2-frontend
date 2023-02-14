@@ -15,7 +15,7 @@ const AddressName = ({ address, title }) => {
       return (
         <Container>
           <BadgeXl backgroundColor={player.backgroundColor}>
-            <ImgXl src={player.logoUrl} />
+            <ImgXl alt="logo" src={player.logoUrl} />
           </BadgeXl>
           <Box>
             <div>
@@ -41,7 +41,7 @@ const AddressName = ({ address, title }) => {
       return (
         <Container>
           <BadgeSm backgroundColor={player.backgroundColor}>
-            <ImgSm src={player.logoUrl} />
+            <ImgSm alt="logo" src={player.logoUrl} />
           </BadgeSm>
           <Box>
             {player.name} {' '}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Container } from '../styles/texts'
-import { useParams } from 'react-router-dom'
 import Subnavbar from '../components/Subnavbar'
 import Page from '../components/Page'
 import Table from '../components/Table/Table'
@@ -12,18 +11,19 @@ import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import { Hxl } from '../styles/texts'
 import { Loading } from '../styles/general'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
+import useSmartVaultParam from '../hooks/useSmartVaultParam'
 
 const ActionHistory = () => {
-  const params = useParams()
+  const id = useSmartVaultParam()
   // TODO: delete limit when actionPage is ready
-  const smartVault = useSmartVaultWithPrimitives(params.id, 10000)
+  const smartVault = useSmartVaultWithPrimitives(id, 10000)
 
   return (
     <Page>
       {smartVault.isLoading ? (
         <Loading>Loading Smart Vault...</Loading>
       ) : !smartVault?.id ? (
-        <SmartVaultNotFound id={params.id} />
+        <SmartVaultNotFound id={id} />
       ) : (
         <RenderContentPage smartVault={smartVault} />
       )}

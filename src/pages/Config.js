@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useParams } from 'react-router-dom'
 import Page from '../components/Page'
 import Subnavbar from '../components/Subnavbar'
 import { Container, Hs } from '../styles/texts'
@@ -13,15 +12,16 @@ import TableCell from '../components/Table/TableCell'
 import { SMART_VAULT_FUNCTIONS_HASHED } from '../utils/smartVault-utils'
 import useActionMetadata from '../hooks/useActionMetadata'
 import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
+import useSmartVaultParam from '../hooks/useSmartVaultParam'
 import Address from '../components/Address'
 import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
 import { formatTokenAmount } from '../utils/math-utils'
 
 const Config = () => {
   //todo: add loader
-  const params = useParams()
-  const { data, isLoading } = useSmartVaultWithConfig(params?.id)
-  const { data: metadata } = useSmartVaultMetadata(params?.id)
+  const id = useSmartVaultParam()
+  const { data, isLoading } = useSmartVaultWithConfig(id)
+  const { data: metadata } = useSmartVaultMetadata(id)
 
   let index = 0
   // let pfIndex = 0
@@ -50,7 +50,7 @@ const Config = () => {
 
   return (
     <Page sidebar={false}>
-      <Subnavbar active="configuration" address={params?.id} />
+      <Subnavbar active="configuration" address={id} />
       <SmartVaultsSection>
         <Container>
           <Hm>Config</Hm>

@@ -12,7 +12,6 @@ const Address = ({ address, showIdentity = true}) => {
   const chainId = useChainId()
   const indexPlayer = `${address}-${chainId}`
   const player = PLAYERS[indexPlayer]
-  
   // eslint-disable-next-line
   const [copy, setCopy] = useCopyToClipboard()
   const [copied, setCopied] = useState(false)
@@ -26,7 +25,7 @@ const Address = ({ address, showIdentity = true}) => {
   }
 
   return (<Container>
-    {showIdentity && (player ? <MimicBadge player={player} /> 
+    {showIdentity && (player ? <MimicBadge player={player} />
     : <SingleNameBlockies imageSize={20} address={address} />)}
     <TextAddress
       href={getEtherscanLink(chainId, address, 'address')}
@@ -42,7 +41,7 @@ const Address = ({ address, showIdentity = true}) => {
 const MimicBadge = ({player}) => {
   return (
   <BadgeSm backgroundColor={player.backgroundColor}>
-    <ImgBadge src={player.logoUrl} />
+    <ImgBadge alt="badge" src={player.logoUrl} />
   </BadgeSm>
 )}
 
@@ -76,7 +75,7 @@ const BadgeSm = styled.div`
 const Container = styled.div`
  display: inline-flex;
  cursor: pointer;
- 
+
 `
 
 const CopyText = styled.div`
@@ -94,7 +93,7 @@ const TextAddress = styled.a`
     transition: 0.15s ease color;
     color: ${props => props.theme.mainDefault};
   }
-  
+
 `
 
 export default Address

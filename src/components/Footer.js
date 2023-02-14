@@ -7,7 +7,7 @@ const Footer = () => (
   <FooterSection>
     <FooterContainer>
       <div>
-        <img src={logo} alt="" />
+        <img alt="logo" src={logo} />
         <BodyL>We make DeFi interaction simpler, safer & smarter!</BodyL>
       </div>
       <Box>

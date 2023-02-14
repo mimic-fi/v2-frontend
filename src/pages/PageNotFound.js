@@ -21,7 +21,7 @@ const PageNotFound = () => {
             </Hxs>
             <br />
             <StyledLink to="/">
-              For sure it’s on the Home Page <img src={arrow} alt="" />
+              For sure it’s on the Home Page <img alt="arrow" src={arrow} />
             </StyledLink>
           </Text>
         </Container>
