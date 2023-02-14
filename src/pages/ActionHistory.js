@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Container } from '../styles/texts'
-import { useParams } from 'react-router-dom'
 import Subnavbar from '../components/Subnavbar'
 import Page from '../components/Page'
 import Table from '../components/Table/Table'

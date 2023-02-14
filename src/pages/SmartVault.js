@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Container } from '../styles/texts'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Page from '../components/Page'
 import Subnavbar from '../components/Subnavbar'
 import Table from '../components/Table/Table'
@@ -16,7 +16,6 @@ import { Loading } from '../styles/general'
 import split from '../assets/split.svg'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
-import { CHAIN_INFO } from '../constants/chainInfo'
 
 const SmartVault = () => {
   const id = useSmartVaultParam()
