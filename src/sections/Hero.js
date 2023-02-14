@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
-import { useParams } from 'react-router-dom'
 import { formatTokenAmount } from '../utils/math-utils'
 import { Hxl, Hxs, BodyL, BodyS } from '../styles/texts'
 import ActionDetail from './ActionDetail'
@@ -22,8 +21,7 @@ const Hero = ({ totalValueManaged, lastAction, isLoading, address }) => {
 
   const [isOpen, setOpen] = useState(false)
 
-  const params = useParams()
-  const smartVaultMetadata = useSmartVaultMetadata(address || params.id)
+  const smartVaultMetadata = useSmartVaultMetadata(address)
 
   return (
     <HeroSection>
@@ -56,7 +54,7 @@ const Hero = ({ totalValueManaged, lastAction, isLoading, address }) => {
       <Box>
         <SVName>
           <img
-            alt=""
+            alt="smartvault"
             src={
               smartVaultMetadata.data && smartVaultMetadata.data.logo
                 ? smartVaultMetadata.data.logo

@@ -10,7 +10,7 @@ const Navbar = () => {
     <NavbarSection>
       <NavbarContainer>
         <Link to="/">
-          <img src={logo} alt="" />
+          <img alt="logo" src={logo} />
         </Link>
         <NetworkInfo />
       </NavbarContainer>

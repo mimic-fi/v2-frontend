@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useParams } from 'react-router-dom'
 import { Hxl, BodyL, Container } from '../styles/texts'
 import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 
 const SmartVaultDetail = ({ address }) => {
-  const params = useParams()
-  const metadata = useSmartVaultMetadata(address || params.id)
+  const metadata = useSmartVaultMetadata(address)
 
   return metadata.data ? (
     <SmartVaultDetailSection>

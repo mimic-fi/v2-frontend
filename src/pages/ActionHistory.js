@@ -12,18 +12,19 @@ import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import { Hxl } from '../styles/texts'
 import { Loading } from '../styles/general'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
+import useSmartVaultParam from '../hooks/useSmartVaultParam'
 
 const ActionHistory = () => {
-  const params = useParams()
+  const id = useSmartVaultParam()
   // TODO: delete limit when actionPage is ready
-  const smartVault = useSmartVaultWithPrimitives(params.id, 10000)
+  const smartVault = useSmartVaultWithPrimitives(id, 10000)
 
   return (
     <Page>
       {smartVault.isLoading ? (
         <Loading>Loading Smart Vault...</Loading>
       ) : !smartVault?.id ? (
-        <SmartVaultNotFound id={params.id} />
+        <SmartVaultNotFound id={id} />
       ) : (
         <RenderContentPage smartVault={smartVault} />
       )}
