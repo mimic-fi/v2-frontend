@@ -14,7 +14,6 @@ export default function useSmartVaultParam() {
   if (splited.length === 1) {
     //no network in url: Put the one in the network component
     smartVaultId = splited[0]
-    console.log(smartVaultId, splited[0])
     let url = newIdInUrl(params.id, location, chainId, smartVaultId)
     navigate(url)
   } else {
