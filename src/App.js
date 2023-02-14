@@ -20,9 +20,9 @@ function App() {
         {isDevelopment && <ReactQueryDevtools initialIsOpen={false} />}
         <Routes>
           <Route path="/list" element={<List />} />
-          <Route key="history" name="history" path="/smart-vaults/:id/action-history" element={<ActionHistory />} />
-          <Route key="smartvaults" name="overview" path="/smart-vaults/:id" element={<SmartVault />} />
-          <Route key="config" name="configuration" path="/smart-vaults/:id/config" element={<Config />} />
+          <Route name="history" path="/smart-vaults/:id/action-history" element={<ActionHistory />} />
+          <Route name="overview" path="/smart-vaults/:id" element={<SmartVault />} />
+          <Route name="configuration" path="/smart-vaults/:id/config" element={<Config />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
