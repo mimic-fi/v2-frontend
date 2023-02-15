@@ -44,15 +44,16 @@ const Action = ({ primitives, index }) => {
       {width >= medium && <TableCell><AddressName address={item?.transaction?.sender}/></TableCell>}
       <TableCell>
         <img src={check} alt="check" />
+        <ActionDetail
+          title={metadata.data ? metadata.data.successMessage : item.type}
+          primitives={primitives}
+          open={isOpen}
+          onClose={() => setOpen(!isOpen)}
+        />
       </TableCell>
 
     </Row>
-    <ActionDetail
-      title={metadata.data ? metadata.data.successMessage : item.type}
-      primitives={primitives}
-      open={isOpen}
-      onClose={() => setOpen(!isOpen)}
-    />
+
     </>
   )
 }

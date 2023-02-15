@@ -9,7 +9,7 @@ import TableHeader from '../components/Table/TableHeader'
 import Action from '../sections/Action'
 import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import { Hxl } from '../styles/texts'
-import { Loading } from '../styles/general'
+import { Skeleton } from '../styles/general'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
 
@@ -20,9 +20,7 @@ const ActionHistory = () => {
 
   return (
     <Page>
-      {smartVault.isLoading ? (
-        <Loading>Loading Smart Vault...</Loading>
-      ) : !smartVault?.id ? (
+      {!smartVault.isLoading && !smartVault?.id ? (
         <SmartVaultNotFound id={id} />
       ) : (
         <RenderContentPage smartVault={smartVault} />
@@ -41,7 +39,13 @@ const RenderContentPage = ({ smartVault }) => {
 
   return (
     <>
-      <Subnavbar active="history" address={smartVault?.id} />
+      <Subnavbar
+        active="history"
+        isLoading={smartVault.isLoading}
+        address={
+          smartVault && !smartVault.isLoading ? smartVault.id : undefined
+        }
+      />
 
       <LatestActionsSection>
         <Container>
@@ -50,38 +54,40 @@ const RenderContentPage = ({ smartVault }) => {
             <br />
             that happened
           </Hxl>
-          <Table
-            header={
-              <TableRow>
-                <TableHeader title="Date" align="left" />
-                <TableHeader title="Action" align="left" />
-                {width >= large && (
-                  <TableHeader title="Description" align="left" />
-                )}
-                {width >= medium && (
-                  <TableHeader title="Excecuted by" align="left" />
-                )}
-                <TableHeader title="Status" align="center" />
-              </TableRow>
-            }
-          >
-            {smartVault.isLoading ? (
-              'Loading actions...'
-            ) : (
-              <>
-                {smartVault?.actions?.map((primitives, i) => {
-                  return (
-                    <Action
-                      key={primitives[0]}
-                      primitives={primitives[1]}
-                      index={i + 1}
-                    />
-                  )
-                })}
-                {smartVault?.actions?.length === 0 && 'No actions'}
-              </>
-            )}
-          </Table>
+          {smartVault.isLoading ? (
+            <>
+              <br />
+              <br />
+              <Skeleton height="180px" width="100%" marginBottom="30px" />
+            </>
+          ) : (
+            <Table
+              header={
+                <TableRow>
+                  <TableHeader title="Date" align="left" />
+                  <TableHeader title="Action" align="left" />
+                  {width >= large && (
+                    <TableHeader title="Description" align="left" />
+                  )}
+                  {width >= medium && (
+                    <TableHeader title="Excecuted by" align="left" />
+                  )}
+                  <TableHeader title="Status" align="center" />
+                </TableRow>
+              }
+            >
+              {smartVault?.actions?.map((primitives, i) => {
+                return (
+                  <Action
+                    key={primitives[0]}
+                    primitives={primitives[1]}
+                    index={i + 1}
+                  />
+                )
+              })}
+              {smartVault?.actions?.length === 0 && 'No actions'}
+            </Table>
+          )}
         </Container>
       </LatestActionsSection>
     </>
