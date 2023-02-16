@@ -15,7 +15,13 @@ const Subnavbar = ({ active, isLoading, address }) => {
   return (
     <Container>
       <SubnavbarSection>
-        {isLoading || !address ?   <Skeleton height="36px" width="500px" /> : <AddressOnChainDropdown address={address} />}
+        <AddressBox>
+          {isLoading || !address ? (
+            <Skeleton height="36px" width="500px" />
+          ) : (
+            <AddressOnChainDropdown address={address} />
+          )}
+        </AddressBox>
         {width <= medium ? (
           <PageSelector active={active} address={address} />
         ) : (
@@ -52,6 +58,14 @@ const SubnavbarSection = styled.section`
   .active {
     color: #a996ff;
   }
+`
+const AddressBox = styled.div`
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 32px;
 `
 
 const SubnavbarContainer = styled.div`

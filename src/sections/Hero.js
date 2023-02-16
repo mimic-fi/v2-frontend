@@ -29,7 +29,8 @@ const Hero = ({ totalValueManaged, lastAction, isLoading, address }) => {
       <BodyL>Hello diver!</BodyL>
       {isLoading && isLoadingMetadata ? (
         <>
-          <Skeleton height="180px" width="550px" marginBottom="30px" />
+          <br/>
+          <Skeleton height="180px" width="75%" marginBottom="30px" />
           <Skeleton />
         </>
       ) : (
