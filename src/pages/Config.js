@@ -5,6 +5,7 @@ import Subnavbar from '../components/Subnavbar'
 import { Container, Hs } from '../styles/texts'
 import useSmartVaultWithConfig from '../hooks/useSmartVaultWithConfig'
 import { Hm } from '../styles/texts'
+import { Skeleton } from '../styles/general'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
 import TableHeader from '../components/Table/TableHeader'
@@ -54,52 +55,55 @@ const Config = () => {
       <SmartVaultsSection>
         <Container>
           <Hm>Config</Hm>
-          <Table
-            header={
-              <TableRow>
-                <TableHeader title="Param" align="left" />
-                <TableHeader title="Value" align="left" />
-                <TableHeader title="" align="center" />
-              </TableRow>
-            }
-          >
-            {isLoading ? (
-              'Loading data...'
-            ) : (
-              <>
-                <TableData
-                  index={(index += 1)}
-                  param="Title"
-                  value={metadata?.title}
-                />
-                <TableData
-                  index={(index += 1)}
-                  param="Description"
-                  value={metadata?.description}
-                />
+          {isLoading ? (
+            <>
+              <br />
+              <br />
+              <Skeleton height="890px" width="100%" marginBottom="30px" />
+            </>
+          ) : (
+            <Table
+              header={
+                <TableRow>
+                  <TableHeader title="Param" align="left" />
+                  <TableHeader title="Value" align="left" />
+                  <TableHeader title="" align="center" />
+                </TableRow>
+              }
+            >
+              <TableData
+                index={(index += 1)}
+                param="Title"
+                value={metadata?.title}
+              />
+              <TableData
+                index={(index += 1)}
+                param="Description"
+                value={metadata?.description}
+              />
 
-                <TableData
-                  index={(index += 1)}
-                  param="Smart Vault Address"
-                  value={<Address address={data?.id} />}
-                />
-                <TableData
-                  index={(index += 1)}
-                  param="Total Value Managed"
-                  value={'$ ' + tvmFormated}
-                />
-                <TableData
-                  index={(index += 1)}
-                  param="swapConnector"
-                  value={<Address address={data?.swapConnector} />}
-                />
-                <TableData
-                  index={(index += 1)}
-                  param="priceOracle"
-                  value={<Address address={data?.priceOracle} />}
-                />
+              <TableData
+                index={(index += 1)}
+                param="Smart Vault Address"
+                value={<Address address={data?.id} />}
+              />
+              <TableData
+                index={(index += 1)}
+                param="Total Value Managed"
+                value={'$ ' + tvmFormated}
+              />
+              <TableData
+                index={(index += 1)}
+                param="swapConnector"
+                value={<Address address={data?.swapConnector} />}
+              />
+              <TableData
+                index={(index += 1)}
+                param="priceOracle"
+                value={<Address address={data?.priceOracle} />}
+              />
 
-                {/* {data &&
+              {/* {data &&
                   data?.priceFeeds.map(pf => {
                     return (
                       <TableData
@@ -121,65 +125,68 @@ const Config = () => {
                       />
                     )
                   })} */}
-                <Fee
-                  index={(index += 1)}
-                  title="swapFee"
-                  data={data?.swapFee}
-                />
-                <Fee
-                  index={(index += 1)}
-                  title="withdrawFee"
-                  data={data?.withdrawFee}
-                />
-                <Fee
-                  index={(index += 1)}
-                  title="performanceFee"
-                  data={data?.performanceFee}
-                />
-                <TableData
-                  index={(index += 1)}
-                  param="feeCollector"
-                  value={<Address address={data?.feeCollector} />}
-                />
-                <TableData
-                  index={(index += 1)}
-                  param="wrappedNativeToken"
-                  value={data?.wrappedNativeToken?.name}
-                  value2={
-                    <div>
-                      {' '}
-                      <TextSec>{`symbol: ${
-                        data?.wrappedNativeToken?.symbol
-                      }`}</TextSec>
-                      <TextSec>{` token: ${
-                        data?.wrappedNativeToken?.decimals
-                      }`}</TextSec>
-                    </div>
-                  }
-                />
-              </>
-            )}
-          </Table>
+              <Fee index={(index += 1)} title="swapFee" data={data?.swapFee} />
+              <Fee
+                index={(index += 1)}
+                title="withdrawFee"
+                data={data?.withdrawFee}
+              />
+              <Fee
+                index={(index += 1)}
+                title="performanceFee"
+                data={data?.performanceFee}
+              />
+              <TableData
+                index={(index += 1)}
+                param="feeCollector"
+                value={<Address address={data?.feeCollector} />}
+              />
+              <TableData
+                index={(index += 1)}
+                param="wrappedNativeToken"
+                value={data?.wrappedNativeToken?.name}
+                value2={
+                  <div>
+                    {' '}
+                    <TextSec>{`symbol: ${
+                      data?.wrappedNativeToken?.symbol
+                    }`}</TextSec>
+                    <TextSec>{` token: ${
+                      data?.wrappedNativeToken?.decimals
+                    }`}</TextSec>
+                  </div>
+                }
+              />
+            </Table>
+          )}
           <br />
           <br />
           <Hs>Permissions</Hs>
           <br />
-          <Table
-            header={
-              <TableRow>
-                <TableHeader title="Grantees" align="left" />
-                <TableHeader title="Methods" align="left" />
-                <TableHeader title="" align="center" />
-              </TableRow>
-            }
-          >
-            {uniqueGrantees.map(g => {
-              let i = index += 1
-              return (
-                <RenderGrantee key={`${g?.id}/${i}`} grantee={g} index={i} />
-              )
-            })}
-          </Table>
+          {isLoading ? (
+            <>
+              <br />
+              <br />
+              <Skeleton height="890px" width="100%" marginBottom="30px" />
+            </>
+          ) : (
+            <Table
+              header={
+                <TableRow>
+                  <TableHeader title="Grantees" align="left" />
+                  <TableHeader title="Methods" align="left" />
+                  <TableHeader title="" align="center" />
+                </TableRow>
+              }
+            >
+              {uniqueGrantees.map(g => {
+                let i = (index += 1)
+                return (
+                  <RenderGrantee key={`${g?.id}/${i}`} grantee={g} index={i} />
+                )
+              })}
+            </Table>
+          )}
         </Container>
       </SmartVaultsSection>
     </Page>
