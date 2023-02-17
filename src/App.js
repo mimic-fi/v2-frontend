@@ -10,6 +10,7 @@ import Config from './pages/Config'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { isDevelopment } from './constants/enviroment'
 import theme from './styles/theme.js'
+import Stats from './pages/Stats'
 
 const queryClient = new QueryClient()
 
@@ -20,6 +21,7 @@ function App() {
         {isDevelopment && <ReactQueryDevtools initialIsOpen={false} />}
         <Routes>
           <Route path="/list" element={<List />} />
+          <Route path="/stats" element={<Stats />} />
           <Route name="history" path="/smart-vaults/:id/action-history" element={<ActionHistory />} />
           <Route name="overview" path="/smart-vaults/:id" element={<SmartVault />} />
           <Route name="configuration" path="/smart-vaults/:id/config" element={<Config />} />
