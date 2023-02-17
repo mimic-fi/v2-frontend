@@ -5,6 +5,9 @@ import polygonLogoUrl from '../assets/chainLogos/polygon-logo.svg'
 import gnosisLogoUrl from '../assets/chainLogos/gnosis-logo.svg'
 import arbitrumLogoUrl from '../assets/chainLogos/arbitrum-logo.svg'
 import zksyncLogoUrl from '../assets/chainLogos/zksync.svg'
+import bscLogoUrl from '../assets/chainLogos/bsc.svg'
+import fantomLogoUrl from '../assets/chainLogos/fantom.svg'
+import avalancheLogoUrl from '../assets/chainLogos/avalanche.svg'
 
 export const SupportedChainId = {
   MAINNET: 1,
@@ -14,7 +17,10 @@ export const SupportedChainId = {
   GNOSIS: 100,
   ARBITRUM: 42161,
   MUMBAI: 80001,
-  ZKSYNC: 324
+  ZKSYNC: 324,
+  BSC: 56,
+  AVALANCHE: 43114,
+  FANTOM: 250
 }
 
 export const DEFAULT_CHAIN_ID = SupportedChainId.MAINNET
@@ -99,6 +105,36 @@ export const CHAIN_INFO = {
     value: SupportedChainId.GOERLI,
     isTestnet: true
   },
+  [SupportedChainId.BSC]: {
+    explorer: 'https://bscscan.com/',
+    name: 'BNB Smart Chain',
+    shortName: 'bnb',
+    logoUrl: bscLogoUrl,
+    nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
+    color: '#bb437e',
+    value: SupportedChainId.BSC,
+    isTestnet: false
+  },
+  [SupportedChainId.FANTOM]: {
+    explorer: 'https://ftmscan.com/',
+    name: 'Fantom',
+    shortName: 'fantom',
+    logoUrl: fantomLogoUrl,
+    nativeCurrency: { name: 'FTM', symbol: 'FTM', decimals: 18 },
+    color: '#bb437e',
+    value: SupportedChainId.FANTOM,
+    isTestnet: false
+  },
+  [SupportedChainId.AVALANCHE]: {
+    explorer: 'https://snowtrace.io/',
+    name: 'Avalance C-Chain',
+    shortName: 'avalanche',
+    logoUrl: avalancheLogoUrl,
+    nativeCurrency: { name: 'Avax', symbol: 'AVAX', decimals: 18 },
+    color: '#bb437e',
+    value: SupportedChainId.AVALANCHE,
+    isTestnet: false
+  },
 }
 
 
@@ -117,6 +153,12 @@ export const CHAIN_SUBGRAPH_URL = {
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-optimism',
   [SupportedChainId.ARBITRUM]:
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-arbitrum',
+    [SupportedChainId.BSC]:
+    'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-bsc',
+    [SupportedChainId.FANTOM]:
+    'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-fantom',
+    [SupportedChainId.AVALANCHE]:
+    'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-avalanche',
   [SupportedChainId.ZKSYNC]:
    null,
 }

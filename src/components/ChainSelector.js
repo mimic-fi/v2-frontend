@@ -45,7 +45,7 @@ const NetworkInfo = () => {
         options={Object.values(CHAIN_INFO)
           .sort()
           .filter(item => {
-            return item.isDisabled ? null : item
+            return item.isTestnet || item.isDisabled ? null : item
           })}
         classNamePrefix="react-select"
       />
