@@ -17,6 +17,24 @@ const Stats = () => {
     digits: 2,
   })
 
+  const totalRelayedCostUsdSum = data.reduce(function (prev, current) {
+    return prev + +current.data.totalRelayedCostUsd
+  }, 0)
+
+  const totalGasRefundsUsdSum = data.reduce(function (prev, current) {
+    return prev + +current.data.totalGasRefundsUsd
+  }, 0)
+
+  const totalFeesUsdSum = data.reduce(function (prev, current) {
+    return prev + +current.data.totalFeesUsd
+  }, 0)
+
+  const totalValueManagedSum = data.reduce(function (prev, current) {
+    return prev + +current.data.totalValueManaged
+  }, 0)
+
+
+
   return (
     <Page sidebar={false}>
       <SmartVaultsSection>
@@ -46,6 +64,14 @@ const Stats = () => {
                 )
               }) : 'no data'
             }
+
+            <TableData
+              chain={'TOTAL'}
+              totalRelayedCostUsd={format(totalRelayedCostUsdSum)}
+              totalGasRefundsUsd={format(totalGasRefundsUsdSum)}
+              totalFeesUsd={format(totalFeesUsdSum)}
+              totalValueManaged={format(totalValueManagedSum)}
+            />
           </Table>
 
         </Container>
@@ -59,7 +85,7 @@ const TableData = ({ chain, totalRelayedCostUsd, totalGasRefundsUsd, totalFeesUs
     <Row key={chain}>
       <TableCell>
         <Number> {chain} </Number>
-        {CHAIN_INFO[chain].name}
+        {CHAIN_INFO[chain]?.name}
       </TableCell>
       <TableCell>$ {totalRelayedCostUsd}</TableCell>
       <TableCell>$ {totalGasRefundsUsd}</TableCell>
