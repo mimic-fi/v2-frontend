@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Page from '../components/Page'
-import { Container, Hm } from '../styles/texts'
+import { Container, Hxl } from '../styles/texts'
 import useChainsStats from '../hooks/useChainsStats'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
@@ -33,13 +33,10 @@ const Stats = () => {
     return prev + +current.data.totalValueManaged
   }, 0)
 
-
-
   return (
     <Page sidebar={false}>
-      <SmartVaultsSection>
         <Container>
-          <Hm>Stats</Hm>
+          <Hxl>Stats</Hxl>
           <Table
             header={
               <TableRow>
@@ -75,14 +72,13 @@ const Stats = () => {
           </Table>
 
         </Container>
-      </SmartVaultsSection>
     </Page>
   )
 }
 
 const TableData = ({ chain, totalRelayedCostUsd, totalGasRefundsUsd, totalFeesUsd, totalValueManaged }) => {
   return (
-    <Row key={chain}>
+    <TableRow key={chain}>
       <TableCell>
         <Number> {chain} </Number>
         {CHAIN_INFO[chain]?.name}
@@ -91,26 +87,9 @@ const TableData = ({ chain, totalRelayedCostUsd, totalGasRefundsUsd, totalFeesUs
       <TableCell>$ {totalGasRefundsUsd}</TableCell>
       <TableCell>$ {totalFeesUsd}</TableCell>
       <TableCell>$ {totalValueManaged}</TableCell>
-    </Row>
+    </TableRow>
   )
 }
-
-const Row = styled(TableRow)``
-
-
-const SmartVaultsSection = styled.section`
-  height: auto;
-  min-height: 1700px;
-  padding-top: 80px;
-  color: white;
-  @media only screen and (max-width: 700px) {
-    min-height: 650px;
-    padding: 60px 0 0 0;
-  }
-  h2 {
-    color: violet;
-  }
-`
 
 const Number = styled.div`
   padding: 0 20px;
