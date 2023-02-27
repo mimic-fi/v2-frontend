@@ -12,10 +12,10 @@ const TrustedBy = () => (
       <Box>
         <BodyL>Trusted by</BodyL>
         <div>
-          <img src={balancer} />
-          <img src={paraswap} />
-          <img src={dxdao} />
-          <img src={descentraland} />
+          <img alt="Balancer" src={balancer} />
+          <img alt="Paraswap" src={paraswap} />
+          <img alt="DXDao" src={dxdao} />
+          <img alt="Descentraland" src={descentraland} />
         </div>
       </Box>
     </Container>
