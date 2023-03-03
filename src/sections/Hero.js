@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import moment from 'moment'
 import { formatTokenAmount } from '../utils/math-utils'
 import { Hxl, Hxs, BodyL, BodyS } from '../styles/texts'
+import { Skeleton } from '../styles/general'
 import ActionDetail from './ActionDetail'
 import smartVault from '../assets/smart-vault.svg'
 import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
@@ -25,31 +26,37 @@ const Hero = ({ totalValueManaged, lastAction, isLoading, address }) => {
 
   return (
     <HeroSection>
-      {!isLoading && !isLoadingMetadata ? (
-        lastAction && lastActionMetadata?.successMessage ? (
-          <>
-            <BodyL>Hello diver!</BodyL>
-            <Hxl>{lastActionMetadata?.successMessage + ' ✓'}</Hxl>
-            <ActionDetail
-              title={lastActionMetadata?.successMessage}
-              primitives={lastAction}
-              open={isOpen}
-              onClose={() => setOpen(!isOpen)}
-            />
-
-            <BodyL>
-              {lastAction &&
-                moment
-                  .unix(lastPrimitive?.transaction?.executedAt)
-                  .fromNow()}{' '}
-              <button onClick={() => setOpen(!isOpen)}>See receipt</button>
-            </BodyL>
-          </>
-        ) : (
-          'No data actions yet'
-        )
+      <BodyL>Hello diver!</BodyL>
+      {isLoading && isLoadingMetadata ? (
+        <>
+          <br/>
+          <Skeleton height="180px" width="75%" marginBottom="30px" />
+          <Skeleton />
+        </>
       ) : (
-        'loading...'
+        <>
+          <Hxl>
+            {lastAction && lastActionMetadata?.successMessage
+              ? lastActionMetadata.successMessage + ' ✓'
+              : 'No actions yet'}
+          </Hxl>
+          {lastAction &&
+            lastActionMetadata?.successMessage && (
+              <ActionDetail
+                title={lastActionMetadata?.successMessage}
+                primitives={lastAction}
+                open={isOpen}
+                onClose={() => setOpen(!isOpen)}
+              />
+            )}
+          <BodyL>
+            {lastAction &&
+              moment
+                .unix(lastPrimitive?.transaction?.executedAt)
+                .fromNow()}{' '}
+            <button onClick={() => setOpen(!isOpen)}>See receipt</button>
+          </BodyL>
+        </>
       )}
       <Box>
         <SVName>

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Container, BodyM } from '../styles/texts'
+import { Skeleton } from '../styles/general'
 import PageSelector from './PageSelector'
 import AddressOnChainDropdown from './AddressOnChainDropdown'
 
-const Subnavbar = ({ active, address }) => {
+const Subnavbar = ({ active, isLoading, address }) => {
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -14,7 +15,13 @@ const Subnavbar = ({ active, address }) => {
   return (
     <Container>
       <SubnavbarSection>
-        <AddressOnChainDropdown address={address} />
+        <AddressBox>
+          {isLoading || !address ? (
+            <Skeleton height="36px" width="500px" />
+          ) : (
+            <AddressOnChainDropdown address={address} />
+          )}
+        </AddressBox>
         {width <= medium ? (
           <PageSelector active={active} address={address} />
         ) : (
@@ -51,6 +58,14 @@ const SubnavbarSection = styled.section`
   .active {
     color: #a996ff;
   }
+`
+const AddressBox = styled.div`
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 32px;
 `
 
 const SubnavbarContainer = styled.div`

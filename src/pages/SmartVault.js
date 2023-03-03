@@ -12,7 +12,6 @@ import Action from '../sections/Action'
 import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import SmartVaultDetail from '../sections/SmartVaultDetail'
 import { Hxl, LinkL } from '../styles/texts'
-import { Loading } from '../styles/general'
 import split from '../assets/split.svg'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
@@ -23,9 +22,7 @@ const SmartVault = () => {
 
   return (
     <Page>
-      {smartVault.isLoading ? (
-        <Loading>Loading Smart Vault...</Loading>
-      ) : !smartVault?.id ? (
+      {!smartVault.isLoading && !smartVault?.id ? (
         <SmartVaultNotFound id={id} />
       ) : (
         <RenderContentPage smartVault={smartVault} />
@@ -45,20 +42,23 @@ const RenderContentPage = ({ smartVault }) => {
 
   return (
     <>
-      {!smartVault.isLoading && (
-        <>
-          <Subnavbar active="overview" address={smartVault.id} />
-          <Container>
-            <Hero
-              address={smartVault.id || id}
-              isLoading={smartVault.isLoading}
-              lastAction={smartVault.lastAction}
-              totalValueManaged={smartVault.totalValueManaged}
-            />
-          </Container>
-          <Split src={split} />
-        </>
-      )}
+      <Subnavbar
+        active="overview"
+        isLoading={smartVault.isLoading}
+        address={
+          smartVault && !smartVault.isLoading ? smartVault.id : undefined
+        }
+      />
+      <Container>
+        <Hero
+          address={smartVault.id || id}
+          isLoading={smartVault.isLoading}
+          lastAction={smartVault.lastAction}
+          totalValueManaged={smartVault.totalValueManaged}
+        />
+      </Container>
+      <Split src={split} />
+
       <LatestActionsSection>
         <Container>
           <Hxl>
