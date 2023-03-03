@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Page from '../components/Page'
 import SearchBar from '../components/SearchBar'
+import TrustedBy from '../sections/TrustedBy'
 import split from '../assets/split.svg'
 import { Container, Hxl, BodyL } from '../styles/texts'
 
@@ -13,7 +14,10 @@ const Home = () => {
           <BodyL>Welcome to Mimic!</BodyL>
           <Hxl>Search a Smart Vault</Hxl>
           <br />
-          <SearchBar />
+          <Searchbox>
+            <SearchBar />
+          </Searchbox>
+          <TrustedBy />
         </Container>
       </HomeSection>
       <Split src={split} />
@@ -50,6 +54,14 @@ const HomeSection = styled.section`
   h2 {
     text-align: center;
   }
+`
+
+const Searchbox = styled.div`
+  max-width: 780px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 `
 
 const Split = styled.img`
