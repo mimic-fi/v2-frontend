@@ -17,6 +17,7 @@ const fetchSmartVaults = async (chainId = 1) => {
       {
         smartVaults {
           id
+          totalValueManaged
         }
       }
     `
