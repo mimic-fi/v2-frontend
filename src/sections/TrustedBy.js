@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { BodyL, Container } from '../styles/texts'
 import balancer from '../assets/trusted/Balancer.svg'
-import dxdao from '../assets/trusted/DXdao.svg'
+import dxdao from '../assets/trusted/dxdao.svg'
 import paraswap from '../assets/trusted/Paraswap.svg'
 import descentraland from '../assets/trusted/Descentraland.svg'
 

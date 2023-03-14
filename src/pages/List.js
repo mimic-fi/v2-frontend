@@ -12,27 +12,25 @@ const SmartVaults = () => {
 
   return (
     <Page sidebar={false}>
-      <SmartVaultsSection>
-        <Container>
+      <SmartVaultSection>
+        <ListContainer>
           {isLoading ? 'Loading Smart Vaults...' :
             data?.length > 0 ? data.map(item => {
               return (
-                <div key={item.id}>
-                  <Link to={'/smart-vaults/' + item.id}>
+                  <Link key={item.id} to={'/smart-vaults/' + item.id}>
                     <SmartVaultCard smartVault={item} />
                   </Link>
-                </div>
               )
             })
               : 'No Smart Vaults here'
           }
-        </Container>
-      </SmartVaultsSection>
+        </ListContainer>
+      </SmartVaultSection>
     </Page>
   )
 }
 
-const SmartVaultsSection = styled.section`
+const SmartVaultSection = styled.section`
   height: auto;
   min-height: 1700px;
   padding-top: 80px;
@@ -44,6 +42,14 @@ const SmartVaultsSection = styled.section`
   h2 {
     color: violet;
   }
+`
+
+const ListContainer = styled(Container)`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
 `
 
 export default SmartVaults
