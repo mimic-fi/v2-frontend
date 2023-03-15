@@ -3,10 +3,13 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Container, BodyM } from '../styles/texts'
 import { Skeleton } from '../styles/general'
+import { useChainId } from '../hooks/useChainId'
 import PageSelector from './PageSelector'
+import OthersSelector from './OthersSelector'
 import AddressOnChainDropdown from './AddressOnChainDropdown'
 
 const Subnavbar = ({ active, isLoading, address }) => {
+  const chainId = useChainId()
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -41,6 +44,7 @@ const Subnavbar = ({ active, isLoading, address }) => {
                 Configuration
               </BodyM>
             </Link>
+            <OthersSelector address={address} chainId={chainId}/>
           </SubnavbarContainer>
         )}
       </SubnavbarSection>
@@ -54,6 +58,7 @@ const SubnavbarSection = styled.section`
   display: flex;
   align-items: center;
   margin: auto;
+  margin-top: 25px;
   justify-content: space-between;
   .active {
     color: #a996ff;
@@ -75,6 +80,10 @@ const SubnavbarContainer = styled.div`
   justify-content: flex-end;
   gap: 40px;
   padding: 0px;
+  a {
+    display: flex;
+    align-items: center;
+  }
 `
 
 export default Subnavbar
