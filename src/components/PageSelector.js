@@ -2,8 +2,11 @@ import styled from 'styled-components'
 import Select from 'react-select'
 import { Link } from 'react-router-dom'
 import { BodyM } from '../styles/texts'
+import { CHAIN_INFO } from '../constants/chainInfo'
+import etherscan from '../assets/etherscan.svg'
+import discord from '../assets/discord-menu.svg'
 
-const PageSelector = ({ active, address }) => {
+const PageSelector = ({ active, address, chainId }) => {
   const options = [
     {
       value: 'overview',
@@ -25,6 +28,20 @@ const PageSelector = ({ active, address }) => {
       active: active,
       address: address,
       link: '/config/',
+    },
+    {
+      value: 'explorer',
+      label: 'Open on explorer',
+      link: CHAIN_INFO[chainId].explorer + 'address/' + address,
+      icon: etherscan,
+      type: 'external',
+    },
+    {
+      value: 'discord',
+      label: 'Ask us on discord',
+      link: 'https://discord.mimic.fi',
+      icon: discord,
+      type: 'external',
     },
   ]
   const Control = props => {
@@ -57,6 +74,18 @@ const PageSelector = ({ active, address }) => {
 
 const Option = props => {
   const { innerRef, innerProps } = props
+  if (props.data.type === 'external') {
+    return (
+      <OptionContainer ref={innerRef} {...innerProps}>
+        <a href={props.data.link} target="_blank" rel="noreferrer">
+          <Body>
+            <img src={props.data.icon} alt="" />
+            {props.label}
+          </Body>
+        </a>
+      </OptionContainer>
+    )
+  }
   return (
     <OptionContainer ref={innerRef} {...innerProps}>
       <Link to={`/smart-vaults/${props.data.address}${props.data.link}`}>
@@ -152,6 +181,12 @@ const Container = styled.div`
   height: 100%;
   align-items: center;
   color: white;
+`
+
+const Body = styled(BodyM)`
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `
 
 export default PageSelector

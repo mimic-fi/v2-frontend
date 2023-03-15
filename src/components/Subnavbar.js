@@ -26,7 +26,7 @@ const Subnavbar = ({ active, isLoading, address }) => {
           )}
         </AddressBox>
         {width <= medium ? (
-          <PageSelector active={active} address={address} />
+          <PageSelector active={active} address={address} chainId={chainId}/>
         ) : (
           <SubnavbarContainer>
             <Link to={`/smart-vaults/${address}/`}>

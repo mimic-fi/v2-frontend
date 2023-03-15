@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import Select from 'react-select'
-import { Link } from 'react-router-dom'
 import { BodyM } from '../styles/texts'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import etherscan from '../assets/etherscan.svg'
@@ -9,7 +8,7 @@ import discord from '../assets/discord-menu.svg'
 const OthersSelector = ({address, chainId}) => {
   const options = [
     {
-      value: 'exploorer',
+      value: 'explorer',
       label: 'Open on explorer',
       link: CHAIN_INFO[chainId].explorer + 'address/' + address,
       icon: etherscan,
@@ -52,7 +51,7 @@ const Option = props => {
   console.log(props)
   return (
     <OptionContainer ref={innerRef} {...innerProps}>
-      <a href={props.data.link} target="_blank">
+      <a href={props.data.link} target="_blank" rel="noreferrer">
         <Body>
           <img src={props.data.icon} alt="" />
           {props.label}
