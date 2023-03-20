@@ -1,47 +1,23 @@
 import styled from 'styled-components'
 import Select from 'react-select'
-import { Link } from 'react-router-dom'
 import { BodyM } from '../styles/texts'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import etherscan from '../assets/etherscan.svg'
 import discord from '../assets/discord-menu.svg'
 
-const PageSelector = ({ active, address, chainId }) => {
+const OthersSelector = ({address, chainId}) => {
   const options = [
-    {
-      value: 'overview',
-      label: 'Overview',
-      active: active,
-      address: address,
-      link: '/',
-    },
-    {
-      value: 'history',
-      label: 'Action history',
-      active: active,
-      address: address,
-      link: '/action-history/',
-    },
-    {
-      value: 'configuration',
-      label: 'Configuration',
-      active: active,
-      address: address,
-      link: '/config/',
-    },
     {
       value: 'explorer',
       label: 'Open on explorer',
       link: CHAIN_INFO[chainId].explorer + 'address/' + address,
       icon: etherscan,
-      type: 'external',
     },
     {
       value: 'discord',
       label: 'Ask us on discord',
       link: 'https://discord.mimic.fi',
       icon: discord,
-      type: 'external',
     },
   ]
   const Control = props => {
@@ -51,11 +27,9 @@ const PageSelector = ({ active, address, chainId }) => {
       <ControlContainer
         ref={innerRef}
         {...innerProps}
-        active={active}
         menuIsOpen={menuIsOpen}
-        address={address}
       >
-        <BodyM>{props.options.filter(obj => { return obj.value === active })[0]?.label} </BodyM>
+        <Body>More </Body>
         {children}
       </ControlContainer>
     )
@@ -74,27 +48,15 @@ const PageSelector = ({ active, address, chainId }) => {
 
 const Option = props => {
   const { innerRef, innerProps } = props
-  if (props.data.type === 'external') {
-    return (
-      <OptionContainer ref={innerRef} {...innerProps}>
-        <a href={props.data.link} target="_blank" rel="noreferrer">
-          <Body>
-            <img src={props.data.icon} alt="" />
-            {props.label}
-          </Body>
-        </a>
-      </OptionContainer>
-    )
-  }
+  console.log(props)
   return (
     <OptionContainer ref={innerRef} {...innerProps}>
-      <Link to={`/smart-vaults/${props.data.address}${props.data.link}`}>
-        <BodyM
-          className={props.data.active === props.data.value ? 'active' : ''}
-        >
+      <a href={props.data.link} target="_blank" rel="noreferrer">
+        <Body>
+          <img src={props.data.icon} alt="" />
           {props.label}
-        </BodyM>
-      </Link>
+        </Body>
+      </a>
     </OptionContainer>
   )
 }
@@ -120,7 +82,7 @@ const SelectElement = styled(Select)`
     background-color: #393b3f;
     min-width: 300px;
     width: auto;
-    padding: 0px 24px;
+    padding: 8px 24px 14px 24px;
     border-radius: 24px;
     right: 0;
     margin: 15px 0 0 0;
@@ -135,7 +97,7 @@ const SelectElement = styled(Select)`
     }
   }
   p {
-    margin-bottom: 0;
+    margin: 8px 0;
   }
   .react-select__menu-list {
     max-height: 600px;
@@ -166,11 +128,9 @@ const ControlContainer = styled.div`
     props.menuIsOpen ? props.theme.backgroundDefault : 'transparent'};
   border-radius: 15px;
   padding: 2px 0 2px 10px;
+  margin-left: -10px;
+  margin-top: 3px;
   text-align: end;
-  &:hover {
-    transition: 0.25s ease background;
-    background: #00000069;
-  }
   p {
     margin-top: 0px;
   }
@@ -182,11 +142,14 @@ const Container = styled.div`
   align-items: center;
   color: white;
 `
-
 const Body = styled(BodyM)`
   display: flex;
   align-items: center;
   gap: 10px;
+  margin: 0 auto;
+  margin-bottom: 0!important;
 `
 
-export default PageSelector
+
+
+export default OthersSelector

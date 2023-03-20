@@ -5,7 +5,7 @@ import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 
 const SmartVaultDetail = ({ address }) => {
   const metadata = useSmartVaultMetadata(address)
-
+console.log(metadata)
   return metadata.data ? (
     <SmartVaultDetailSection>
       <Container>
