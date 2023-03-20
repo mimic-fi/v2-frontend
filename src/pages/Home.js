@@ -9,40 +9,45 @@ import { Container, Hxl, BodyL } from '../styles/texts'
 const Home = () => {
   return (
     <Page sidebar={false}>
-      <HomeSection>
-        <Container>
-          <BodyL>Welcome to Mimic!</BodyL>
-          <Hxl>Search a Smart Vault</Hxl>
-          <br />
-          <Searchbox>
-            <SearchBar />
-          </Searchbox>
-          <TrustedBy />
-        </Container>
-      </HomeSection>
-      <Split src={split} />
-      <HomeSection>
-        <Container>
-          <Hxl style={{ maxWidth: '790px' }}>
-            Deploy your Smart Vault  in as little as 2 weeks
-          </Hxl>
-          <BodyL>
-            Let us help you find the best Smart Vault configuration for your
-            business
-          </BodyL>
-          <br />
-          <Button href="https://airtable.com/shrSvH8fTJcbHq0xl" target="_blank">
-            Contact us
-          </Button>
-        </Container>
-      </HomeSection>
+      <div style={{ minHeight: 'calc(100vh - 490px)' }}>
+        <HomeSection>
+          <Container>
+            <BodyL>Welcome to Mimic!</BodyL>
+            <Hxl>Search a Smart Vault</Hxl>
+            <br />
+            <Searchbox>
+              <SearchBar />
+            </Searchbox>
+            <TrustedBy />
+          </Container>
+        </HomeSection>
+        <Split src={split} />
+        <HomeSection>
+          <Container>
+            <Hxl style={{ maxWidth: '790px', paddingTop: '300px' }}>
+              Deploy your Smart Vault  in as little as 2 weeks
+            </Hxl>
+            <BodyL>
+              Let us help you find the best Smart Vault configuration for your
+              business
+            </BodyL>
+            <br />
+            <Button
+              href="https://airtable.com/shrSvH8fTJcbHq0xl"
+              target="_blank"
+            >
+              Contact us
+            </Button>
+          </Container>
+        </HomeSection>
+      </div>
     </Page>
   )
 }
 
 const HomeSection = styled.section`
   height: auto;
-  padding: 180px 0;
+  padding: 100px 0 0 0;
   color: white;
   display: flex;
   align-items: center;
@@ -66,6 +71,7 @@ const Searchbox = styled.div`
 
 const Split = styled.img`
   width: 100%;
+  position: absolute;
 `
 
 const Button = styled.a`

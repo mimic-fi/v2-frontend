@@ -58,7 +58,6 @@ const RenderContentPage = ({ smartVault }) => {
         />
       </Container>
       <Split src={split} />
-
       <LatestActionsSection>
         <Container>
           <Hxl>
@@ -110,12 +109,14 @@ const RenderContentPage = ({ smartVault }) => {
 const LatestActionsSection = styled.section`
   height: auto;
   padding: 80px 0;
+  padding-top: 430px;
   color: white;
   width: 100%;
   margin: auto;
 `
 const Split = styled.img`
   width: 100%;
+  position: absolute;
 `
 
 const StyledLink = styled(Link)`
