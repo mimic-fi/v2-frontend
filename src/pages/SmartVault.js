@@ -109,7 +109,9 @@ const RenderContentPage = ({ smartVault }) => {
 const LatestActionsSection = styled.section`
   height: auto;
   padding: 80px 0;
-  padding-top: 430px;
+  @media only screen and (min-width: 700px) {
+    padding-top: 430px;
+  }
   color: white;
   width: 100%;
   margin: auto;

@@ -26,8 +26,7 @@ const TrustedBySection = styled.section`
   background: transparent;
   height: auto;
   @media only screen and (max-width: 700px) {
-    min-height: 650px;
-    padding: 60px 0 0 0;
+    padding: 0;
   }
 `
 
@@ -35,6 +34,9 @@ const Box = styled.div`
   max-width: 780px;
   margin: auto;
   padding: 70px 0 70px 0;
+  @media only screen and (max-width: 700px) {
+    padding: 20px 0 0 0;
+  }
   text-align: center;
   p {
     color: #a5a1b7;

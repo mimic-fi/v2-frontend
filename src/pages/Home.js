@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Page from '../components/Page'
 import SearchBar from '../components/SearchBar'
@@ -7,6 +7,11 @@ import split from '../assets/split.svg'
 import { Container, Hxl, BodyL } from '../styles/texts'
 
 const Home = () => {
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth))
+  }, [])
+  const medium = 700
   return (
     <Page sidebar={false}>
       <div style={{ minHeight: 'calc(100vh - 490px)' }}>
@@ -24,9 +29,15 @@ const Home = () => {
         <Split src={split} />
         <HomeSection>
           <Container>
-            <Hxl style={{ maxWidth: '790px', paddingTop: '300px' }}>
-              Deploy your Smart Vault  in as little as 2 weeks
-            </Hxl>
+            {width >= medium ? (
+              <Hxl style={{ maxWidth: '790px', paddingTop: '300px' }}>
+                Deploy your Smart Vault  in as little as 2 weeks
+              </Hxl>
+            ) : (
+              <Hxl style={{ paddingTop: '100px' }}>
+                Deploy your Smart Vault  in as little as 2 weeks
+              </Hxl>
+            )}
             <BodyL>
               Let us help you find the best Smart Vault configuration for your
               business
@@ -54,7 +65,7 @@ const HomeSection = styled.section`
   justify-content: center;
   text-align: center;
   @media only screen and (max-width: 700px) {
-    padding: 60px 0 0 0;
+    padding: 0;
   }
   h2 {
     text-align: center;
