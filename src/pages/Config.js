@@ -242,8 +242,10 @@ const ShowAction = ({ action, id, isLoading }) => {
   ) : (
     <div>
       <Address address={id} />
-      <Text>{action.title}</Text>
-      <Text>{action.description}</Text>
+      <ActionDetail>
+        <Text>{action.title}</Text>
+        <TextSec>{action.description}</TextSec>
+      </ActionDetail>
     </div>
   )
 }
@@ -268,7 +270,7 @@ const Fee = ({ index, title, data }) => {
 const TableData = ({ index, param, value, value2 = '' }) => {
   return (
     <Row key={index}>
-      <TableCell style={{fontWeight: '700'}}>
+      <TableCell style={{ fontWeight: '700' }}>
         <Number> {index} </Number>
         {param}
       </TableCell>
@@ -304,6 +306,9 @@ const Tab = styled(BodyL)`
 
 const Content = styled.div`
   ${props => (props.active ? '' : 'display:none')};
+  p {
+    margin-top: 0;
+  }
 `
 
 const SmartVaultsSection = styled.section`
@@ -337,6 +342,14 @@ const TextSec = styled.div`
   text-overflow: ellipsis;
   /* max-width: 400px; */
   color: gray;
+`
+
+const ActionDetail = styled.div`
+  font-weight: 400;
+  margin-top:15px;
+  p {
+    margin-bottom: 5px;
+  }
 `
 
 export default Config
