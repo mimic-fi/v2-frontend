@@ -22,38 +22,42 @@ const Action = ({ primitives, index }) => {
 
   return (
     <>
-    <Row key={item.id} onClick={() => setOpen(!isOpen)}>
-      <TableCell>
-      <Number> {index} </Number>
-        {item?.transaction?.executedAt
-          ? moment.unix(item?.transaction?.executedAt).format('MMM Do')
-          : '-'}
-      </TableCell>
-      <TableCell>
-        <ActionIcon
-          src={metadata.data ? metadata.data.icon : defaultAction}
-          alt=""
-        />
-        {metadata.data ? metadata.data.title : item.type}
-      </TableCell>
-      {width >= large && (
-        <TableCell>
-          <Text>{metadata.data ? metadata.data.description : ''}</Text>
+      <Row key={item.id} onClick={() => setOpen(!isOpen)}>
+        <TableCell align="left">
+          <Number> {index} </Number>
         </TableCell>
-      )}
-      {width >= medium && <TableCell><AddressName address={item?.transaction?.sender}/></TableCell>}
-      <TableCell>
-        <img src={check} alt="check" />
-        <ActionDetail
-          title={metadata.data ? metadata.data.successMessage : item.type}
-          primitives={primitives}
-          open={isOpen}
-          onClose={() => setOpen(!isOpen)}
-        />
-      </TableCell>
-
-    </Row>
-
+        <TableCell>
+          {item?.transaction?.executedAt
+            ? moment.unix(item?.transaction?.executedAt).format('MMM Do')
+            : '-'}
+        </TableCell>
+        <TableCell>
+          <ActionIcon
+            src={metadata.data ? metadata.data.icon : defaultAction}
+            alt=""
+          />
+          {metadata.data ? metadata.data.title : item.type}
+        </TableCell>
+        {width >= large && (
+          <TableCell>
+            <Text>{metadata.data ? metadata.data.description : ''}</Text>
+          </TableCell>
+        )}
+        {width >= medium && (
+          <TableCell>
+            <AddressName address={item?.transaction?.sender} />
+          </TableCell>
+        )}
+        <TableCell>
+          <img src={check} alt="check" />
+          <ActionDetail
+            title={metadata.data ? metadata.data.successMessage : item.type}
+            primitives={primitives}
+            open={isOpen}
+            onClose={() => setOpen(!isOpen)}
+          />
+        </TableCell>
+      </Row>
     </>
   )
 }
@@ -62,7 +66,6 @@ const Row = styled(TableRow)`
 `
 
 const Number = styled.div`
-  padding: 0 20px;
   color: ${props => props.theme.mainDefault};
 `
 

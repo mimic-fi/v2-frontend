@@ -82,6 +82,7 @@ const Config = () => {
                 <Table
                   header={
                     <TableRow>
+                      <TableHeader title="#" align="left" />
                       <TableHeader title="Param" align="left" />
                       <TableHeader title="Description" align="left" />
                       <TableHeader title="Observations" align="center" />
@@ -170,6 +171,7 @@ const Config = () => {
                 <Table
                   header={
                     <TableRow>
+                      <TableHeader title="#" align="left" />
                       <TableHeader title="Grantees" align="left" />
                       <TableHeader title="Methods" align="left" />
                       <TableHeader title="" align="center" />
@@ -270,10 +272,10 @@ const Fee = ({ index, title, data }) => {
 const TableData = ({ index, param, value, value2 = '' }) => {
   return (
     <Row key={index}>
-      <TableCell style={{ fontWeight: '700' }}>
+      <TableCell>
         <Number> {index} </Number>
-        {param}
       </TableCell>
+      <TableCell style={{ fontWeight: '700' }}>{param}</TableCell>
       <TableCell>{value}</TableCell>
 
       <TableCell>{value2}</TableCell>
@@ -325,7 +327,6 @@ const SmartVaultsSection = styled.section`
 const Row = styled(TableRow)``
 
 const Number = styled.div`
-  padding: 0 20px;
   color: ${props => props.theme.mainDefault};
 `
 
@@ -346,7 +347,7 @@ const TextSec = styled.div`
 
 const ActionDetail = styled.div`
   font-weight: 400;
-  margin-top:15px;
+  margin-top: 15px;
   p {
     margin-bottom: 5px;
   }
