@@ -28,9 +28,7 @@ const SmartVaults = () => {
       <SmartVaultSection>
         <Title>Browse Smart vaults</Title>
         <ListContainer>
-          {isLoading ? (
-            'Loading Smart Vaults...'
-          ) : data?.length > 0 ? (
+          {data?.length > 0 ? (
             <>
               {data.map(item => {
                 return <SmartVaultCard smartVault={item} active={true} key={'active' + item.id}/>
