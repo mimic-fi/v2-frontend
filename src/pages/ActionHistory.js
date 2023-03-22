@@ -64,6 +64,7 @@ const RenderContentPage = ({ smartVault }) => {
             <Table
               header={
                 <TableRow>
+                  <TableHeader title="#" align="left" />
                   <TableHeader title="Date" align="left" />
                   <TableHeader title="Action" align="left" />
                   {width >= large && (

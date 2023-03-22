@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import ChainSelector from './ChainSelector'
@@ -6,6 +6,11 @@ import ChainSelector from './ChainSelector'
 function SearchBar({ value = '' }) {
   const [searchInput, setSearchInput] = useState(value)
   const navigate = useNavigate()
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth))
+  }, [])
+  const medium = 700
 
   const handleChange = e => {
     e.preventDefault()
@@ -26,13 +31,45 @@ function SearchBar({ value = '' }) {
         value={searchInput}
         required
       />
-      <input type="submit" hidden />
-      <Chain>
-        <ChainSelector />
-      </Chain>
+
+      {width >= medium ? (
+        <>
+          <Chain>
+            <ChainSelector />
+          </Chain>
+          <input type="submit" hidden />
+        </>
+      ) : (
+        <Submit type="submit">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 12H20M20 12L14 6M20 12L14 18"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </Submit>
+      )}
     </Search>
   )
 }
+
+const Submit = styled.button`
+  background: ${props => props.theme.main}!important;
+  color: white !important;
+  width: 72px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+`
 
 const Chain = styled.div`
   background: #2b2d34;
@@ -62,6 +99,9 @@ const Search = styled.form`
   input {
     outline: 0;
     width: 100%;
+    @media only screen and (max-width: 700px) {
+      width: calc(100% - 67px);
+    }
     background: #2b2d34;
     padding: 0 1.6rem;
     border-radius: 40px 0 0 40px;
@@ -89,6 +129,9 @@ const Search = styled.form`
   input:not(:placeholder-shown) {
     border-radius: 40px 0 0 40px;
     width: calc(100% - 87px);
+    @media only screen and (max-width: 700px) {
+      width: calc(100% - 67px);
+    }
     + button {
       display: block;
     }

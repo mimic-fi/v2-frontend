@@ -58,7 +58,6 @@ const RenderContentPage = ({ smartVault }) => {
         />
       </Container>
       <Split src={split} />
-
       <LatestActionsSection>
         <Container>
           <Hxl>
@@ -69,6 +68,7 @@ const RenderContentPage = ({ smartVault }) => {
           <Table
             header={
               <TableRow>
+                <TableHeader title="#" align="left" />
                 <TableHeader title="Date" align="left" />
                 <TableHeader title="Action" align="left" />
                 {width >= large && (
@@ -110,12 +110,16 @@ const RenderContentPage = ({ smartVault }) => {
 const LatestActionsSection = styled.section`
   height: auto;
   padding: 80px 0;
+  @media only screen and (min-width: 700px) {
+    padding-top: 430px;
+  }
   color: white;
   width: 100%;
   margin: auto;
 `
 const Split = styled.img`
   width: 100%;
+  position: absolute;
 `
 
 const StyledLink = styled(Link)`
