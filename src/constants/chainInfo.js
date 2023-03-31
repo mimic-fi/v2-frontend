@@ -20,7 +20,7 @@ export const SupportedChainId = {
   ZKSYNC: 324,
   BSC: 56,
   AVALANCHE: 43114,
-  FANTOM: 250
+  FANTOM: 250,
 }
 
 export const DEFAULT_CHAIN_ID = SupportedChainId.MAINNET
@@ -33,7 +33,8 @@ export const CHAIN_INFO = {
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: '#fff',
     value: SupportedChainId.MAINNET,
-    shortName: 'eth'
+    shortName: 'eth',
+    rpc: process.env.REACT_APP_MAINNET_RPC_URL || 'https://rpc.ankr.com/eth',
   },
 
   [SupportedChainId.MUMBAI]: {
@@ -44,7 +45,7 @@ export const CHAIN_INFO = {
     color: '#de4437',
     value: SupportedChainId.MUMBAI,
     isTestnet: true,
-    shortName: 'mumbai'
+    shortName: 'mumbai',
   },
   [SupportedChainId.OPTIMISM]: {
     explorer: 'https://optimistic.etherscan.io/',
@@ -53,7 +54,9 @@ export const CHAIN_INFO = {
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.OPTIMISM,
-    shortName: 'opt'
+    shortName: 'opt',
+    rpc:
+      process.env.REACT_APP_OPTIMISM_RPC_URL || 'https://mainnet.optimism.io',
   },
   [SupportedChainId.POLYGON]: {
     explorer: 'https://polygonscan.com/',
@@ -62,7 +65,8 @@ export const CHAIN_INFO = {
     nativeCurrency: { name: 'Görli Ether', symbol: 'görETH', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.POLYGON,
-    shortName: 'matic'
+    shortName: 'matic',
+    rpc: process.env.REACT_APP_POLYGON_RPC_URL || 'https://polygon-rpc.com',
   },
   [SupportedChainId.GNOSIS]: {
     explorer: 'https://gnosisscan.io/',
@@ -71,8 +75,8 @@ export const CHAIN_INFO = {
     nativeCurrency: { name: 'xDAI', symbol: 'xDAI', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.GNOSIS,
-    shortName: 'gnosis'
-
+    shortName: 'gnosis',
+    rpc: process.env.REACT_APP_GNOSIS_RPC_URL || 'https://rpc.gnosischain.com',
   },
   [SupportedChainId.ARBITRUM]: {
     explorer: 'https://arbiscan.io/',
@@ -81,8 +85,9 @@ export const CHAIN_INFO = {
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.ARBITRUM,
-    shortName: 'arbitrum'
-
+    shortName: 'arbitrum',
+    rpc:
+      process.env.REACT_APP_ARBITRUM_RPC_URL || 'https://arb1.arbitrum.io/rpc',
   },
   [SupportedChainId.ZKSYNC]: {
     explorer: 'https://explorer.zksync.io/',
@@ -93,7 +98,6 @@ export const CHAIN_INFO = {
     color: '#bb437e',
     value: SupportedChainId.ZKSYNC,
     isDisabled: true,
-
   },
   [SupportedChainId.GOERLI]: {
     explorer: 'https://goerli.etherscan.io/',
@@ -103,7 +107,7 @@ export const CHAIN_INFO = {
     nativeCurrency: { name: 'Görli Ether', symbol: 'görETH', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.GOERLI,
-    isTestnet: true
+    isTestnet: true,
   },
   [SupportedChainId.BSC]: {
     explorer: 'https://bscscan.com/',
@@ -113,7 +117,10 @@ export const CHAIN_INFO = {
     nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.BSC,
-    isTestnet: false
+    isTestnet: false,
+    rpc:
+      process.env.REACT_APP_BNB_RPC_URL ||
+      'https://rough-sleek-hill.bsc.quiknode.pro/413cc98cbc776cda8fdf1d0f47003583ff73d9bf',
   },
   [SupportedChainId.FANTOM]: {
     explorer: 'https://ftmscan.com/',
@@ -123,7 +130,8 @@ export const CHAIN_INFO = {
     nativeCurrency: { name: 'FTM', symbol: 'FTM', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.FANTOM,
-    isTestnet: false
+    isTestnet: false,
+    rpc: process.env.REACT_APP_FANTOM_RPC_URL || 'https://rpc.ankr.com/fantom',
   },
   [SupportedChainId.AVALANCHE]: {
     explorer: 'https://snowtrace.io/',
@@ -133,10 +141,12 @@ export const CHAIN_INFO = {
     nativeCurrency: { name: 'Avax', symbol: 'AVAX', decimals: 18 },
     color: '#bb437e',
     value: SupportedChainId.AVALANCHE,
-    isTestnet: false
+    isTestnet: false,
+    rpc:
+      process.env.REACT_APP_AVALANCE_RPC_URL ||
+      'https://rpc.ankr.com/avalanche',
   },
 }
-
 
 export const CHAIN_SUBGRAPH_URL = {
   [SupportedChainId.MAINNET]:
@@ -153,12 +163,11 @@ export const CHAIN_SUBGRAPH_URL = {
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-optimism',
   [SupportedChainId.ARBITRUM]:
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-arbitrum',
-    [SupportedChainId.BSC]:
+  [SupportedChainId.BSC]:
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-bsc',
-    [SupportedChainId.FANTOM]:
+  [SupportedChainId.FANTOM]:
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-fantom',
-    [SupportedChainId.AVALANCHE]:
+  [SupportedChainId.AVALANCHE]:
     'https://api.thegraph.com/subgraphs/name/mimic-fi/v2-avalanche',
-  [SupportedChainId.ZKSYNC]:
-   null,
+  [SupportedChainId.ZKSYNC]: null,
 }
