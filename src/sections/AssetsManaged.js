@@ -14,11 +14,22 @@ const AssetsManaged = ({ address, chain }) => {
   return (
     <AssetsManagedSection>
       <Container>
+        <TitleBox>
         <Hxl>
           Assets being
           <br />
           managed
         </Hxl>
+        <a
+          href={
+            CHAIN_INFO[chain].explorer + 'tokenholdings?a=' + address
+          }
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Button>Manage</Button>
+        </a>
+        </TitleBox>
         <Table
           header={
             <TableRow>
@@ -118,6 +129,16 @@ const TokenName = styled(BodyM)`
   span {
     padding-left: 5px;
     color: #a996ff;
+  }
+`
+
+const TitleBox = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  h1 {
+    margin: 0;
   }
 `
 
