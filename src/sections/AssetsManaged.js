@@ -29,42 +29,44 @@ const AssetsManaged = ({ address, chain }) => {
           }
         >
           {Object.values(results)
+            .filter(
+              token => token.balance !== '0' && token.balance !== undefined
+            )
             .sort((a, b) => b.balance - a.balance)
             .map((token, i) => {
-              if (token.balance !== '0' && token.balance !== undefined) {
-                return (
-                  <TableRow key={i}>
-                    <TableCell align="left">
-                      <TokenName>
-                        <img
-                          src={token.logoURI}
-                          alt="Logo"
-                          onError={e => {
-                            e.target.onerror = null
-                            e.target.src = tokenSample
-                          }}
-                        />
-                        {token.name}, <span>{token.symbol}</span>
-                      </TokenName>
-                    </TableCell>
-                    <TableCell align="left">{token.balance}</TableCell>
-                    <TableCell align="center">
-                      <a
-                        href={
-                          CHAIN_INFO[chain].explorer +
-                          'token/' +
-                          token.address +
-                          '?a=' +
-                          address
-                        }
-                        target="_blank"
-                      >
-                        <Button>View</Button>
-                      </a>
-                    </TableCell>
-                  </TableRow>
-                )
-              }
+              return (
+                <TableRow key={i}>
+                  <TableCell align="left">
+                    <TokenName>
+                      <img
+                        src={token.logoURI}
+                        alt="Logo"
+                        onError={e => {
+                          e.target.onerror = null
+                          e.target.src = tokenSample
+                        }}
+                      />
+                      {token.name}, <span>{token.symbol}</span>
+                    </TokenName>
+                  </TableCell>
+                  <TableCell align="left">{token.balance}</TableCell>
+                  <TableCell align="center">
+                    <a
+                      href={
+                        CHAIN_INFO[chain].explorer +
+                        'token/' +
+                        token.address +
+                        '?a=' +
+                        address
+                      }
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Button>View</Button>
+                    </a>
+                  </TableCell>
+                </TableRow>
+              )
             })}
         </Table>
       </Container>
