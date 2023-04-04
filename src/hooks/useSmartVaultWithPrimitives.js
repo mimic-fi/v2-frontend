@@ -62,7 +62,7 @@ const fetchSmartVault = async (chainId, id) => {
             	sender
               gasUsed
               gasPrice
-              costEth
+              costNative
               costUsd
               relayer
               hash
