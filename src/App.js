@@ -24,7 +24,6 @@ function App() {
   const chainId = useChainId()
   const config = {
     autoConnect: false,
-    readOnlyChainId: chainId,
     readOnlyUrls: {
       [Mainnet.chainId]: getDefaultProvider('mainnet'),
       [Goerli.chainId]: getDefaultProvider('goerli'),

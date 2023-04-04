@@ -16,7 +16,8 @@ export function useTokensBalance(smartVaultAddress = null, chain = null) {
       address: t.address,
       method: 'balanceOf',
       args: [smartVaultAddress],
-    }))
+    })),
+    { chainId: chain }
   )
 
   return useMemo(
