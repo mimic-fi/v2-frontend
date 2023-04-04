@@ -1,3 +1,4 @@
+import React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
@@ -14,36 +15,28 @@ import { isDevelopment } from './constants/enviroment'
 import theme from './styles/theme.js'
 import Stats from './pages/Stats'
 import { useChainId } from './hooks/useChainId'
+import { CHAIN_INFO } from './constants/chainInfo'
 
 const queryClient = new QueryClient()
 
 function App() {
+  
   const chainId = useChainId()
-  console.log('chain', chainId)
   const config = {
     autoConnect: false,
-    readOnlyChainId: [Mainnet.chainId],
+    readOnlyChainId: chainId,
     readOnlyUrls: {
       [Mainnet.chainId]: getDefaultProvider('mainnet'),
       [Goerli.chainId]: getDefaultProvider('goerli'),
+      10: CHAIN_INFO[10].rpc,
+      137: CHAIN_INFO[137].rpc,
+      100: CHAIN_INFO[100].rpc,
+      42161: CHAIN_INFO[42161].rpc,
+      56: CHAIN_INFO[56].rpc,
+      43114: CHAIN_INFO[43114].rpc,
+      250: CHAIN_INFO[250].rpc,
     },
   }
-  
-  // // 137: CHAIN_INFO[137].rpc,
-  // // 100: CHAIN_INFO[100].rpc,
-  // // 42161: CHAIN_INFO[42161].rpc,
-  // // 56: CHAIN_INFO[56].rpc,
-  // // 43114: CHAIN_INFO[43114].rpc,
-  // // 250: CHAIN_INFO[250].rpc
-  // const config = {
-  //   autoConnect: false,
-  //   readOnlyChainId: chainId,
-  //   readOnlyUrls: {
-  //     [Mainnet.chainId]: getDefaultProvider('mainnet'),
-  //     [Goerli.chainId]: getDefaultProvider('goerli'),
-  //     10: CHAIN_INFO[10].rpc,
-  //   },
-  // }
 
   return (
     <DAppProvider config={config}>
@@ -61,7 +54,7 @@ function App() {
             <Route
               name="overview"
               path="/smart-vaults/:id"
-              element={<SmartVault />}
+              element={<SmartVault chain={chainId} />}
             />
             <Route
               name="configuration"

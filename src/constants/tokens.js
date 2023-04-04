@@ -803,6 +803,73 @@ export const tokens = [
       optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
     },
   },
+
+  {
+    chainId: 1,
+    address: '0x0000000000000000000000000000000000000000',
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+    logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
+    extensions: {
+      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
+    },
+  },
+  {
+    chainId: 10,
+    address: '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+    logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
+    extensions: {
+      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
+    },
+  },
+  {
+    chainId: 42,
+    address: '0x0000000000000000000000000000000000000000',
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+    logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
+    extensions: {
+      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
+    },
+  },
+  {
+    chainId: 5,
+    address: '0x0000000000000000000000000000000000000000',
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+    logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
+    extensions: {
+      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
+    },
+  },
+  {
+    chainId: 69,
+    address: '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+    logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
+    extensions: {
+      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
+    },
+  },
+  {
+    chainId: 420,
+    address: '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+    logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
+    extensions: {
+      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
+    },
+  },
   {
     chainId: 1,
     address: '0xc18360217d8f7ab5e7c516566761ea12ce7f9d72',
@@ -3352,74 +3419,16 @@ export const tokens = [
       optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
     },
   },
+  {
+    chainId: 1,
+    address: '0x0f5d2fb29fb7d3cfee444a200298f468908cc942',
+    name: 'Decentraland MANA',
+    symbol: 'MANA',
+    decimals: 18,
+    logoURI:
+      'https://assets.coingecko.com/coins/images/878/large/decentraland-mana.png',
+    extensions: {
+      optimismBridgeAddress: '0x4200000000000000000000000000000000000006',
+    },
+  },
 ]
-
-
-// 
-// 
-// {
-//   chainId: 1,
-//   address: '0x0000000000000000000000000000000000000000',
-//   name: 'Ether',
-//   symbol: 'ETH',
-//   decimals: 18,
-//   logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
-//   extensions: {
-//     optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-//   },
-// },
-// {
-//   chainId: 10,
-//   address: '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
-//   name: 'Ether',
-//   symbol: 'ETH',
-//   decimals: 18,
-//   logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
-//   extensions: {
-//     optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-//   },
-// },
-// {
-//   chainId: 42,
-//   address: '0x0000000000000000000000000000000000000000',
-//   name: 'Ether',
-//   symbol: 'ETH',
-//   decimals: 18,
-//   logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
-//   extensions: {
-//     optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-//   },
-// },
-// {
-//   chainId: 5,
-//   address: '0x0000000000000000000000000000000000000000',
-//   name: 'Ether',
-//   symbol: 'ETH',
-//   decimals: 18,
-//   logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
-//   extensions: {
-//     optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-//   },
-// },
-// {
-//   chainId: 69,
-//   address: '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
-//   name: 'Ether',
-//   symbol: 'ETH',
-//   decimals: 18,
-//   logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
-//   extensions: {
-//     optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-//   },
-// },
-// {
-//   chainId: 420,
-//   address: '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
-//   name: 'Ether',
-//   symbol: 'ETH',
-//   decimals: 18,
-//   logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
-//   extensions: {
-//     optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-//   },
-// },

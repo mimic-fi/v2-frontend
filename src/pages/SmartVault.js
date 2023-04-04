@@ -17,7 +17,7 @@ import split from '../assets/split.svg'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
 
-const SmartVault = () => {
+const SmartVault = ({ chain }) => {
   const id = useSmartVaultParam()
   const smartVault = useSmartVaultWithPrimitives(id, 10)
 
@@ -26,13 +26,13 @@ const SmartVault = () => {
       {!smartVault.isLoading && !smartVault?.id ? (
         <SmartVaultNotFound id={id} />
       ) : (
-        <RenderContentPage smartVault={smartVault} />
+        <RenderContentPage smartVault={smartVault} chain={chain}/>
       )}
     </Page>
   )
 }
 
-const RenderContentPage = ({ smartVault }) => {
+const RenderContentPage = ({ smartVault, chain }) => {
   const id = useSmartVaultParam()
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
@@ -104,6 +104,7 @@ const RenderContentPage = ({ smartVault }) => {
           </StyledLink>
         </Container>
       </LatestActionsSection>
+      <AssetsManaged address={smartVault?.id || id} chain={chain}/>
       <SmartVaultDetail address={smartVault?.id || id} />
     </>
   )

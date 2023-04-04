@@ -7,9 +7,10 @@ import TableCell from '../components/Table/TableCell'
 import TableHeader from '../components/Table/TableHeader'
 import tokenSample from '../assets/token-sample.svg'
 import { useTokensBalance } from '../hooks/useTokenBalance'
+import { CHAIN_INFO } from '../constants/chainInfo'
 
-const AssetsManaged = ({ address }) => {
-  const results = useTokensBalance(address)
+const AssetsManaged = ({ address, chain }) => {
+  const results = useTokensBalance(address, chain)
   return (
     <AssetsManagedSection>
       <Container>
@@ -27,38 +28,63 @@ const AssetsManaged = ({ address }) => {
             </TableRow>
           }
         >
-          {Object.values(results).map((token, i) => {
-            if (token.balance === '0') {
-              return 
-            }
-            return (
-              <TableRow key={i}>
-                <TableCell align="left">
-                  <TokenName>
-                    <img
-                      src={token.logoURI.replace(
-                        'ipfs://',
-                        'https://ipfs.io/ipfs/'
-                      )}
-                      alt="Logo"
-                      onError={e => {
-                        e.target.onerror = null
-                        e.target.src = tokenSample
-                      }}
-                    />
-                    {token.name}, <span>{token.symbol}</span>
-                  </TokenName>
-                </TableCell>
-                <TableCell align="left">{token.balance}</TableCell>
-                <TableCell align="center">manage</TableCell>
-              </TableRow>
-            )
-          })}
+          {Object.values(results)
+            .sort((a, b) => b.balance - a.balance)
+            .map((token, i) => {
+              if (token.balance !== '0' && token.balance !== undefined) {
+                return (
+                  <TableRow key={i}>
+                    <TableCell align="left">
+                      <TokenName>
+                        <img
+                          src={token.logoURI}
+                          alt="Logo"
+                          onError={e => {
+                            e.target.onerror = null
+                            e.target.src = tokenSample
+                          }}
+                        />
+                        {token.name}, <span>{token.symbol}</span>
+                      </TokenName>
+                    </TableCell>
+                    <TableCell align="left">{token.balance}</TableCell>
+                    <TableCell align="center">
+                      <a
+                        href={
+                          CHAIN_INFO[chain].explorer +
+                          'token/' +
+                          token.address +
+                          '?a=' +
+                          address
+                        }
+                        target="_blank"
+                      >
+                        <Button>View</Button>
+                      </a>
+                    </TableCell>
+                  </TableRow>
+                )
+              }
+            })}
         </Table>
       </Container>
     </AssetsManagedSection>
   )
 }
+
+const Button = styled(BodyM)`
+  border: solid 2px #353945;
+  font-weight: 700;
+  font-weight: 700;
+  margin: 0;
+  padding: 0px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background: #353945;
+  }
+`
 
 const AssetsManagedSection = styled.section`
   height: auto;

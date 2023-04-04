@@ -74,6 +74,7 @@ const Text = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 400px;
+  margin: 0;
 `
 const ActionIcon = styled.img`
   height: 23px;

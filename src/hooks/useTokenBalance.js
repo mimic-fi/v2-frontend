@@ -1,28 +1,24 @@
 import { useMemo } from 'react'
-import { ERC20, useContractCalls, useEthers } from '@usedapp/core'
+import { ERC20, useContractCalls } from '@usedapp/core'
 import { Interface } from '@ethersproject/abi'
 import { formatTokenAmount } from '../utils/math-utils'
 import { tokens } from '../constants/tokens'
 
-export function useTokensBalance(smartVaultAddress = null) {
-  const { chainId } = useEthers()
-
+export function useTokensBalance(smartVaultAddress = null, chain = null) {
   const allTokens = tokens.filter(element => {
-    return element.chainId === chainId
+    return element.chainId === chain
   })
-
   const ERC20Interface = new Interface(ERC20.abi)
 
   const results = useContractCalls(
-    allTokens && smartVaultAddress
-      ? allTokens.map(t => ({
-          abi: ERC20Interface,
-          address: t.address,
-          method: 'balanceOf',
-          args: [smartVaultAddress],
-        }))
-      : []
+    allTokens.map(t => ({
+      abi: ERC20Interface,
+      address: t.address,
+      method: 'balanceOf',
+      args: [smartVaultAddress],
+    }))
   )
+
   return useMemo(
     () => {
       let balances = {}
@@ -32,11 +28,12 @@ export function useTokensBalance(smartVaultAddress = null) {
           formatTokenAmount(value, token.decimals, {
             digits: 2,
           })
-        balances[token.symbol].balance = results[idx] && results[idx][0] && format(results[idx][0])
+        balances[token.symbol].balance =
+          results[idx] && results[idx][0] && format(results[idx][0])
         return balances[token.symbol]
       })
       return balances
     },
-    [results]
+    [results, allTokens]
   ) // eslint-disable-line
 }
