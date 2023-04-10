@@ -3431,4 +3431,20 @@ export const tokens = [
       optimismBridgeAddress: '0x4200000000000000000000000000000000000006',
     },
   },
+  {
+    chainId: 10,
+    address: '0x899F737750db562b88c1E412eE1902980D3a4844',
+    name: 'BPT Helter Skelter',
+    symbol: 'BPT-WSTETH-USDC',
+    decimals: 18,
+    logoURI: 'https://optimistic.etherscan.io/images/main/empty-token.png',
+  },
+  {
+    chainId: 10,
+    address: '0xf30dB0Ca4605e5115Df91B56BD299564dcA02666',
+    name: 'BPT Just BEET it',
+    symbol: 'BPT-BEET-WSTEH',
+    decimals: 18,
+    logoURI: 'https://optimistic.etherscan.io/images/main/empty-token.png',
+  },
 ]
