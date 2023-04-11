@@ -16,23 +16,25 @@ import { Hxl, LinkL } from '../styles/texts'
 import split from '../assets/split.svg'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
+import usePrimitivesFromSmartVault from '../hooks/usePrimitivesFromSmartVault'
 
 const SmartVault = ({ chain }) => {
   const id = useSmartVaultParam()
   const smartVault = useSmartVaultWithPrimitives(id, 10)
+  const smartVaultActions = usePrimitivesFromSmartVault(id, 10)
 
   return (
     <Page>
       {!smartVault.isLoading && !smartVault?.id ? (
         <SmartVaultNotFound id={id} />
       ) : (
-        <RenderContentPage smartVault={smartVault} chain={chain}/>
+        <RenderContentPage smartVault={smartVault} chain={chain} smartVaultActions={smartVaultActions}/>
       )}
     </Page>
   )
 }
 
-const RenderContentPage = ({ smartVault, chain }) => {
+const RenderContentPage = ({ smartVault, chain, smartVaultActions }) => {
   const id = useSmartVaultParam()
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
@@ -82,11 +84,11 @@ const RenderContentPage = ({ smartVault, chain }) => {
               </TableRow>
             }
           >
-            {smartVault.isLoading ? (
+            {smartVaultActions.isLoading ? (
               'Loading actions...'
             ) : (
               <>
-                {smartVault?.actions?.map((primitives, i) => {
+                {smartVaultActions?.actions?.map((primitives, i) => {
                   return (
                     <Action
                       key={primitives[0]}
@@ -95,7 +97,7 @@ const RenderContentPage = ({ smartVault, chain }) => {
                     />
                   )
                 })}
-                {smartVault?.actions?.length === 0 && 'No actions'}
+                {smartVaultActions?.actions?.length === 0 && 'No actions'}
               </>
             )}
           </Table>
