@@ -31,11 +31,11 @@ const Home = () => {
           <Container>
             {width >= medium ? (
               <Hxl style={{ maxWidth: '790px', paddingTop: '300px' }}>
-                Deploy your Smart Vault  in as little as 2 weeks
+                Deploy your Smart Vault in as little as 2 weeks
               </Hxl>
             ) : (
               <Hxl style={{ paddingTop: '100px' }}>
-                Deploy your Smart Vault  in as little as 2 weeks
+                Deploy your Smart Vault in as little as 2 weeks
               </Hxl>
             )}
             <BodyL>
