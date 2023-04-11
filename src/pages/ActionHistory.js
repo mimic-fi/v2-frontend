@@ -10,7 +10,6 @@ import Action from '../sections/Action'
 import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import { Hxl } from '../styles/texts'
 import { Skeleton } from '../styles/general'
-import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
 import usePrimitivesFromSmartVault from '../hooks/usePrimitivesFromSmartVault'
 
