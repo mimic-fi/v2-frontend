@@ -87,9 +87,9 @@ const fetchSmartVault = async (chainId, id) => {
                 name
                 symbol
                 decimals
-              	}
+              }
               amount
-            	}
+            }
             }
           }
 
