@@ -59,7 +59,7 @@ const fetchSmartVault = async (chainId, id) => {
               id
               executedAt
               target	
-            	sender
+              sender
               gasUsed
               gasPrice
               costNative
