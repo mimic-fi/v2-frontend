@@ -21,8 +21,7 @@ const ActionHistory = () => {
 
   return (
     <Page>
-      {/* {!smartVault.isLoading && !smartVault?.id ? ( */}
-      {false ? (
+      {!smartVault.isLoading && !smartVault?.id ? (
         <SmartVaultNotFound id={id} />
       ) : (
         <RenderContentPage smartVault={smartVault} />
