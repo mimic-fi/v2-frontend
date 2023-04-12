@@ -67,7 +67,6 @@ const fetchSmartVault = async (chainId, id) => {
               relayer
               hash
             }
-      		
             fee {
               pct
               token {
