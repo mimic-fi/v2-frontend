@@ -50,7 +50,7 @@ const fetchSmartVault = async (chainId, id) => {
     {
           primitiveExecutions(orderBy: transaction__executedAt, orderDirection: desc, where: {smartVault: ${'"' + id.toLowerCase() + '"'}}){
             id
-      			smartVault {
+            smartVault {
               totalValueManaged
             }
             type
