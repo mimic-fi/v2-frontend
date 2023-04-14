@@ -72,6 +72,7 @@ const SmartVaultCard = styled.section`
   justify-content: space-between;
   img {
     height: 55px;
+    border-radius: 100px;
     margin-bottom: 35px;
   }
   h6 {
