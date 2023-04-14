@@ -5,36 +5,39 @@ import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
 import TableCell from '../components/Table/TableCell'
 import TableHeader from '../components/Table/TableHeader'
+import TokenDetail from './TokenDetail'
 import tokenSample from '../assets/token-sample.svg'
 import { useTokensBalance } from '../hooks/useTokenBalance'
 import { CHAIN_INFO } from '../constants/chainInfo'
 
 const AssetsManaged = ({ address, chain }) => {
   const results = useTokensBalance(address, chain)
+
   return (
     <AssetsManagedSection>
       <Container>
         <TitleBox>
-        <Hxl>
-          Assets being
-          <br />
-          managed
-        </Hxl>
-        <a
-          href={
-            CHAIN_INFO[chain].explorer + 'tokenholdings?a=' + address
-          }
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Button>Manage</Button>
-        </a>
+          <Hxl>
+            Assets being
+            <br />
+            managed
+          </Hxl>
+          <a
+            href={CHAIN_INFO[chain].explorer + 'tokenholdings?a=' + address}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Button>Manage</Button>
+          </a>
         </TitleBox>
         <Table
           header={
             <TableRow>
               <TableHeader title="Coin" align="left" />
+              <TableHeader title="Price" align="left" />
+              <TableHeader title="24h change" align="left" />
               <TableHeader title="Vault total" align="left" />
+              <TableHeader title="Vault total USD" align="left" />
               <TableHeader title="" align="center" />
             </TableRow>
           }
@@ -60,7 +63,11 @@ const AssetsManaged = ({ address, chain }) => {
                       {token.name}, <span>{token.symbol}</span>
                     </TokenName>
                   </TableCell>
-                  <TableCell align="left">{token.balance}</TableCell>
+                  <TokenDetail
+                    balance={token.balance}
+                    tokenAddress={token.address}
+
+                  />
                   <TableCell align="center">
                     <a
                       href={
@@ -84,6 +91,10 @@ const AssetsManaged = ({ address, chain }) => {
     </AssetsManagedSection>
   )
 }
+
+// prices.isLoading !== true &&
+// prices.data.filter(item => item.symbol === token.symbol)
+
 
 const Button = styled(BodyM)`
   border: solid 2px #353945;
