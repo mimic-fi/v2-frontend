@@ -32,6 +32,9 @@ const usePrimitivesFromSmartVault = (id = '0x', limit = 10) => {
       else if (b[1][0]?.transaction?.executedAt < a[1][0]?.transaction?.executedAt) return -1
     })
 
+    console.log('actions', actions)
+
+
     return {
       id: data?.id,
       totalValueManaged: data?.totalValueManaged || 0,
