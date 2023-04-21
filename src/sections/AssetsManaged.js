@@ -1,18 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Hxl, Container, BodyM } from '../styles/texts'
+import { Hxl, Container, BodyM, BodyXl } from '../styles/texts'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
 import TableCell from '../components/Table/TableCell'
 import TableHeader from '../components/Table/TableHeader'
 import TokenDetail from './TokenDetail'
+import { Skeleton } from '../styles/general'
 import tokenSample from '../assets/token-sample.svg'
 import { useTokensBalance } from '../hooks/useTokenBalance'
 import { CHAIN_INFO } from '../constants/chainInfo'
 
 const AssetsManaged = ({ address, chain }) => {
-  const results = useTokensBalance(address, chain)
-
   return (
     <AssetsManagedSection>
       <Container>
@@ -30,71 +29,90 @@ const AssetsManaged = ({ address, chain }) => {
             <Button>Manage</Button>
           </a>
         </TitleBox>
-        <Table
-          header={
-            <TableRow>
-              <TableHeader title="Coin" align="left" />
-              <TableHeader title="Price" align="left" />
-              <TableHeader title="24h change" align="left" />
-              <TableHeader title="Vault total" align="left" />
-              <TableHeader title="Vault total USD" align="left" />
-              <TableHeader title="" align="center" />
-            </TableRow>
-          }
-        >
-          {Object.values(results)
-            .filter(
-              token => token.balance !== '0' && token.balance !== undefined
-            )
-            .sort((a, b) => b.balance - a.balance)
-            .map((token, i) => {
-              return (
-                <TableRow key={i}>
-                  <TableCell align="left">
-                    <TokenName>
-                      <img
-                        src={token.logoURI}
-                        alt="Logo"
-                        onError={e => {
-                          e.target.onerror = null
-                          e.target.src = tokenSample
-                        }}
-                      />
-                      {token.name}, <span>{token.symbol}</span>
-                    </TokenName>
-                  </TableCell>
-                  <TokenDetail
-                    balance={token.balance}
-                    tokenAddress={token.address}
-
-                  />
-                  <TableCell align="center">
-                    <a
-                      href={
-                        CHAIN_INFO[chain].explorer +
-                        'token/' +
-                        token.address +
-                        '?a=' +
-                        address
-                      }
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Button>View</Button>
-                    </a>
-                  </TableCell>
-                </TableRow>
-              )
-            })}
-        </Table>
+        <Content address={address} chain={chain} />
       </Container>
     </AssetsManagedSection>
   )
 }
 
-// prices.isLoading !== true &&
-// prices.data.filter(item => item.symbol === token.symbol)
+const Content = ({ address, chain }) => {
+  const [loading, setLoading] = useState(true)
+  const results = useTokensBalance(address, chain)
 
+  useEffect(
+    () => {
+      if (Object.keys(results).length > 0) {
+        setLoading(false)
+      }
+    },
+    [results]
+  )
+
+  if (loading) {
+    return (
+      <>
+        <br />
+        <br />
+        <Skeleton height="300px" width="100%" marginBottom="30px" />
+      </>
+    )
+  }
+  return (
+    <Table
+      header={
+        <TableRow>
+          <TableHeader title="Token" align="left" />
+          <TableHeader title="Price" align="left" />
+          <TableHeader title="24h change" align="left" />
+          <TableHeader title="Balance" align="left" />
+          <TableHeader title="Value" align="left" />
+          <TableHeader title="" align="center" />
+        </TableRow>
+      }
+    >
+      {Object.values(results)
+        ? Object.values(results).map((token, i) => {
+            return (
+              <TableRow key={i}>
+                <TableCell align="left">
+                  <TokenName>
+                    <img
+                      src={token.logoURI}
+                      alt="Logo"
+                      onError={e => {
+                        e.target.onerror = null
+                        e.target.src = tokenSample
+                      }}
+                    />
+                    {token.name}, <span>{token.symbol}</span>
+                  </TokenName>
+                </TableCell>
+                <TokenDetail
+                  balance={token.balance}
+                  tokenAddress={token.address}
+                />
+                <TableCell align="center">
+                  <a
+                    href={
+                      CHAIN_INFO[chain].explorer +
+                      'token/' +
+                      token.address +
+                      '?a=' +
+                      address
+                    }
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Button>View</Button>
+                  </a>
+                </TableCell>
+              </TableRow>
+            )
+          })
+        : 'loading!'}
+    </Table>
+  )
+}
 
 const Button = styled(BodyM)`
   border: solid 2px #353945;
