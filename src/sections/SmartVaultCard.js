@@ -35,13 +35,20 @@ const SmartVault = ({ smartVault, active }) => {
             alt="smartvault"
             src={metadata.data && metadata.data.logo ? metadata.data.logo : sv}
           />
-          <Hxxs>
+          <Hxxs className={metadata.data && metadata.data.deprecated ? 'deprecated' : 'active'}>
             {metadata.data && metadata.data.title
               ? metadata.data.title
               : 'Smart vault'}
           </Hxxs>
           {metadata.data && metadata.data.deprecated ? (
-            <Tag>Deprecated</Tag>
+            <><Tag>Deprecated</Tag>
+            <Body>
+              $
+              {formatTokenAmount(smartVault.totalValueManaged, USDC_DECIMALS, {
+                digits: 2,
+              })}{' '}
+              total managed
+            </Body></>
           ) : (
             <Body>
               $
@@ -78,6 +85,9 @@ const SmartVaultCard = styled.section`
   h6 {
     margin-bottom: 25px;
     min-height: 65px;
+    &.deprecated {
+      margin-bottom: 10px;
+    }
   }
 `
 const Address = styled(BodyM)`
@@ -95,6 +105,7 @@ const Tag = styled(BodyM)`
   background: #a996ff;
   border-radius: 15px;
   margin: auto;
+  margin-bottom: 10px;
   width: 150px;
 `
 
