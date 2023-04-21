@@ -33,7 +33,9 @@ export function useTokensBalance(smartVaultAddress = null, chain = null) {
           results[idx] && results[idx][0] && format(results[idx][0])
         return balances[token.symbol]
       })
-      return balances
+      return Object.values(balances).filter(
+        token => token.balance !== '0' && token.balance !== undefined
+      ).sort((a, b) => b.balance - a.balance)
     },
     [results, allTokens]
   ) // eslint-disable-line

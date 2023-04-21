@@ -147,6 +147,7 @@ const SVName = styled(Item)`
   }
   img {
     height: 120px;
+    border-radius: 100px;
     @media only screen and (max-width: 1040px) {
       position: absolute;
       top: -30px;
