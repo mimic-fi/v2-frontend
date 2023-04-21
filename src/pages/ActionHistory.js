@@ -7,29 +7,24 @@ import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
 import TableHeader from '../components/Table/TableHeader'
 import Action from '../sections/Action'
-import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import { Hxl } from '../styles/texts'
 import { Skeleton } from '../styles/general'
-import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
+import usePrimitivesFromSmartVault from '../hooks/usePrimitivesFromSmartVault'
 
 const ActionHistory = () => {
   const id = useSmartVaultParam()
-  // TODO: delete limit when actionPage is ready
-  const smartVault = useSmartVaultWithPrimitives(id, 10000)
+  const smartVault = usePrimitivesFromSmartVault(id, 10000)
 
   return (
     <Page>
-      {!smartVault.isLoading && !smartVault?.id ? (
-        <SmartVaultNotFound id={id} />
-      ) : (
-        <RenderContentPage smartVault={smartVault} />
-      )}
+      <RenderContentPage smartVault={smartVault} />
     </Page>
   )
 }
 
 const RenderContentPage = ({ smartVault }) => {
+
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))

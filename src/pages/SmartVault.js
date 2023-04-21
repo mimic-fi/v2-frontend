@@ -9,7 +9,6 @@ import TableRow from '../components/Table/TableRow'
 import TableHeader from '../components/Table/TableHeader'
 import Hero from '../sections/Hero'
 import Action from '../sections/Action'
-import { Skeleton } from '../styles/general'
 import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import SmartVaultDetail from '../sections/SmartVaultDetail'
 import AssetsManaged from '../sections/AssetsManaged'
@@ -17,23 +16,25 @@ import { Hxl, LinkL } from '../styles/texts'
 import split from '../assets/split.svg'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
+import usePrimitivesFromSmartVault from '../hooks/usePrimitivesFromSmartVault'
 
 const SmartVault = ({ chain }) => {
   const id = useSmartVaultParam()
   const smartVault = useSmartVaultWithPrimitives(id, 10)
+  const smartVaultActions = usePrimitivesFromSmartVault(id, 10)
 
   return (
     <Page>
       {!smartVault.isLoading && !smartVault?.id ? (
         <SmartVaultNotFound id={id} />
       ) : (
-        <RenderContentPage smartVault={smartVault} chain={chain} />
+        <RenderContentPage smartVault={smartVault} chain={chain} smartVaultActions={smartVaultActions}/>
       )}
     </Page>
   )
 }
 
-const RenderContentPage = ({ smartVault, chain }) => {
+const RenderContentPage = ({ smartVault, chain, smartVaultActions }) => {
   const id = useSmartVaultParam()
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
@@ -67,37 +68,39 @@ const RenderContentPage = ({ smartVault, chain }) => {
             <br />
             actions
           </Hxl>
-          {!smartVault.actions ? (
-            <Skeleton height="830px" width="100%" marginBottom="30px" />
-          ) : (
-            <Table
-              header={
-                <TableRow>
-                  <TableHeader title="#" align="left" />
-                  <TableHeader title="Date" align="left" />
-                  <TableHeader title="Action" align="left" />
-                  {width >= large && (
-                    <TableHeader title="Description" align="left" />
-                  )}
-                  {width >= medium && (
-                    <TableHeader title="Excecuted by" align="left" />
-                  )}
-                  <TableHeader title="Status" align="center" />
-                </TableRow>
-              }
-            >
-              {smartVault?.actions?.map((primitives, i) => {
-                return (
-                  <Action
-                    key={primitives[0]}
-                    primitives={primitives[1]}
-                    index={i + 1}
-                  />
-                )
-              })}
-              {smartVault?.actions?.length === 0 && 'No actions'}
-            </Table>
-          )}
+          <Table
+            header={
+              <TableRow>
+                <TableHeader title="#" align="left" />
+                <TableHeader title="Date" align="left" />
+                <TableHeader title="Action" align="left" />
+                {width >= large && (
+                  <TableHeader title="Description" align="left" />
+                )}
+                {width >= medium && (
+                  <TableHeader title="Excecuted by" align="left" />
+                )}
+                <TableHeader title="Status" align="center" />
+              </TableRow>
+            }
+          >
+            {smartVaultActions.isLoading ? (
+              'Loading actions...'
+            ) : (
+              <>
+                {smartVaultActions?.actions?.map((primitives, i) => {
+                  return (
+                    <Action
+                      key={primitives[0]}
+                      primitives={primitives[1]}
+                      index={i + 1}
+                    />
+                  )
+                })}
+                {smartVaultActions?.actions?.length === 0 && 'No actions'}
+              </>
+            )}
+          </Table>
           <StyledLink to="./action-history">
             <LinkL>Swim to full history</LinkL>
           </StyledLink>

@@ -4,11 +4,11 @@ import { CHAIN_SUBGRAPH_URL } from '../constants/chainInfo'
 import { useChainId } from './useChainId'
 import { useMemo } from 'react'
 
-const useSmartVaultWithPrimitives = (id = '0x', limit = 10) => {
+const usePrimitivesFromSmartVault = (id = '0x', limit = 10) => {
   const chainId = useChainId()
 
   const { data, isLoading } = useQuery(
-    ['useSmartVaultWithPrimitives', chainId, id],
+    ['usePrimitivesFromSmartVault', chainId, id],
     () => fetchSmartVault(chainId, id.toString()),
     {
       refetchInterval: 10000,
@@ -43,23 +43,23 @@ const useSmartVaultWithPrimitives = (id = '0x', limit = 10) => {
 }
 
 const fetchSmartVault = async (chainId, id) => {
-
-  let { smartVault } = await request(
+  //TODO: put id in the query. Cause for some reason is failing
+  let data = await request(
     CHAIN_SUBGRAPH_URL[chainId],
     gql`
     {
-        smartVault(id: ${'"' + id.toLowerCase() + '"'}) {
-          id
-          totalValueManaged
-          primitiveExecutions {
+          primitiveExecutions(orderBy: transaction__executedAt, orderDirection: desc, where: {smartVault: ${'"' + id.toLowerCase() + '"'}}){
             id
+            smartVault {
+              totalValueManaged
+            }
             type
             data
             transaction {
               id
               executedAt
               target	
-            	sender
+              sender
               gasUsed
               gasPrice
               costNative
@@ -67,7 +67,6 @@ const fetchSmartVault = async (chainId, id) => {
               relayer
               hash
             }
-      		
             fee {
               pct
               token {
@@ -87,16 +86,16 @@ const fetchSmartVault = async (chainId, id) => {
                 name
                 symbol
                 decimals
-              	}
+              }
               amount
-            	}
+            }
+            }
           }
-        }
-      }
 
     `
   )
-  return smartVault
+  console.log('usePrimitivesFromSmartVault2', data)
+  return data
 }
 
-export default useSmartVaultWithPrimitives
+export default usePrimitivesFromSmartVault

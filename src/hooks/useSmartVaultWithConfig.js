@@ -15,7 +15,6 @@ const useSmartVaultWithConfig = (id = '0x') => {
 }
 
 const fetchSmartVault = async (chainId, id) => {
-  //TODO: put id in the query. Cause for some reason is failing
   let {smartVault} = await request(
     CHAIN_SUBGRAPH_URL[chainId],
     gql`
