@@ -12,6 +12,7 @@ import Action from '../sections/Action'
 import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import SmartVaultDetail from '../sections/SmartVaultDetail'
 import AssetsManaged from '../sections/AssetsManaged'
+import { Skeleton } from '../styles/general'
 import { Hxl, LinkL } from '../styles/texts'
 import split from '../assets/split.svg'
 import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
@@ -68,6 +69,13 @@ const RenderContentPage = ({ smartVault, chain, smartVaultActions }) => {
             <br />
             actions
           </Hxl>
+          {smartVaultActions.isLoading ? (
+            <>
+              <br />
+              <br />
+              <Skeleton height="830px" width="100%" marginBottom="30px" />
+            </>
+          ) : (
           <Table
             header={
               <TableRow>
@@ -84,10 +92,8 @@ const RenderContentPage = ({ smartVault, chain, smartVaultActions }) => {
               </TableRow>
             }
           >
-            {smartVaultActions.isLoading ? (
-              'Loading actions...'
-            ) : (
-              <>
+
+
                 {smartVaultActions?.actions?.map((primitives, i) => {
                   return (
                     <Action
@@ -98,9 +104,9 @@ const RenderContentPage = ({ smartVault, chain, smartVaultActions }) => {
                   )
                 })}
                 {smartVaultActions?.actions?.length === 0 && 'No actions'}
-              </>
-            )}
-          </Table>
+
+
+          </Table>)}
           <StyledLink to="./action-history">
             <LinkL>Swim to full history</LinkL>
           </StyledLink>

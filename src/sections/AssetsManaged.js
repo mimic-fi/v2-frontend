@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Hxl, Container, BodyM, BodyXl } from '../styles/texts'
+import { Hxl, Container, BodyM } from '../styles/texts'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
 import TableCell from '../components/Table/TableCell'
