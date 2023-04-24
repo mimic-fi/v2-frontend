@@ -38,6 +38,12 @@ const AssetsManaged = ({ address, chain }) => {
 const Content = ({ address, chain }) => {
   const [loading, setLoading] = useState(true)
   const results = useTokensBalance(address, chain)
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    window.addEventListener('resize', () => setWidth(window.innerWidth))
+  }, [])
+  const medium = 700
+  const large = 900
 
   useEffect(
     () => {
@@ -57,17 +63,28 @@ const Content = ({ address, chain }) => {
       </>
     )
   }
+
   return (
     <Table
       header={
-        <TableRow>
-          <TableHeader title="Token" align="left" />
-          <TableHeader title="Price" align="left" />
-          <TableHeader title="24h change" align="left" />
-          <TableHeader title="Balance" align="left" />
-          <TableHeader title="Value" align="left" />
-          <TableHeader title="" align="center" />
-        </TableRow>
+        width >= medium ? (
+          <TableRow>
+            <TableHeader title="Token" align="left" />
+            <TableHeader title="Price" align="left" />
+            <TableHeader title="24h change" align="left" />
+            <TableHeader title="Balance" align="left" />
+            <TableHeader title="Value" align="left" />
+            <TableHeader title="" align="center" />
+          </TableRow>
+        ) : (
+          <TableRow>
+            <TableHeader title="Token" align="left" />
+            <TableHeader title="Price" align="left" />
+            <TableHeader title="Balance" align="left" />
+            <TableHeader title="Value" align="left" />
+            <TableHeader title="" align="center" />
+          </TableRow>
+        )
       }
     >
       {Object.values(results)
@@ -84,7 +101,8 @@ const Content = ({ address, chain }) => {
                         e.target.src = tokenSample
                       }}
                     />
-                    {token.name}, <span>{token.symbol}</span>
+                    {width >= medium && token.name + ','}{' '}
+                    <span>{token.symbol}</span>
                   </TokenName>
                 </TableCell>
                 <TokenDetail
@@ -137,6 +155,7 @@ const AssetsManagedSection = styled.section`
   box-sizing: border-box;
   @media only screen and (max-width: 700px) {
     padding: 70px 0;
+    overflow-x: scroll;
   }
   color: white;
   text-align: left;
@@ -148,6 +167,10 @@ const AssetsManagedSection = styled.section`
   img {
     height: 30px;
     padding-right: 7px;
+  }
+  table {
+    white-space: nowrap;
+    overflow-x: scroll;
   }
 `
 
