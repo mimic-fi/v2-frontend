@@ -11,7 +11,7 @@ import AddressOnChainDropdown from './AddressOnChainDropdown'
 const Subnavbar = ({ active, address }) => {
   const chainId = useChainId()
   const [width, setWidth] = useState(window.innerWidth)
-
+  console.log(address)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])

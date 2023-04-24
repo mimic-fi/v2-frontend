@@ -15,16 +15,6 @@ import usePrimitivesFromSmartVault from '../hooks/usePrimitivesFromSmartVault'
 const ActionHistory = () => {
   const id = useSmartVaultParam()
   const smartVault = usePrimitivesFromSmartVault(id, 10000)
-
-  return (
-    <Page>
-      <RenderContentPage smartVault={smartVault} />
-    </Page>
-  )
-}
-
-const RenderContentPage = ({ smartVault }) => {
-
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -33,13 +23,10 @@ const RenderContentPage = ({ smartVault }) => {
   const large = 900
 
   return (
-    <>
+    <Page>
       <Subnavbar
         active="history"
-        isLoading={smartVault.isLoading}
-        address={
-          smartVault && !smartVault.isLoading ? smartVault.id : undefined
-        }
+        address={id}
       />
 
       <LatestActionsSection>
@@ -86,7 +73,7 @@ const RenderContentPage = ({ smartVault }) => {
           )}
         </Container>
       </LatestActionsSection>
-    </>
+    </Page>
   )
 }
 
