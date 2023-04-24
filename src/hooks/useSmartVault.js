@@ -2,7 +2,6 @@ import { useQuery } from 'react-query'
 import { request, gql } from 'graphql-request'
 import { CHAIN_SUBGRAPH_URL } from '../constants/chainInfo'
 import { useChainId } from './useChainId'
-import { useMemo } from 'react'
 
 const useSmartVault = (id = '0x', limit = 10) => {
   const chainId = useChainId()
