@@ -13,7 +13,6 @@ const useSmartVault = (id = '0x', limit = 10) => {
 }
 
 const fetchSmartVault = async (chainId, id) => {
-  console.log('fetch')
   let { smartVault } = await request(
     CHAIN_SUBGRAPH_URL[chainId],
     gql`

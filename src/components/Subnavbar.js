@@ -16,7 +16,6 @@ const Subnavbar = ({ active, address }) => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
   const medium = 700
-  console.log('render')
 
   return (
     <Container>
