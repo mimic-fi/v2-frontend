@@ -50,15 +50,12 @@ const fetchSmartVault = async (chainId, id) => {
     {
           primitiveExecutions(orderBy: transaction__executedAt, orderDirection: desc, where: {smartVault: ${'"' + id.toLowerCase() + '"'}}){
             id
-            smartVault {
-              totalValueManaged
-            }
             type
             data
             transaction {
               id
               executedAt
-              target	
+              target
               sender
               gasUsed
               gasPrice
@@ -94,7 +91,6 @@ const fetchSmartVault = async (chainId, id) => {
 
     `
   )
-  console.log('usePrimitivesFromSmartVault2', data)
   return data
 }
 

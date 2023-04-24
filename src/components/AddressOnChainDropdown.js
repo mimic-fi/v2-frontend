@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import useSmartVaultChainCheck from '../hooks/useSmartVaultChainCheck'
@@ -98,7 +98,6 @@ const AddressOnChainDropdown = ({ address }) => {
       let url = newIdInUrl(params.id, location, e?.value, smartVaultId)
       navigate(url)
     }
-
     updateChainId(e?.value)
   }
 

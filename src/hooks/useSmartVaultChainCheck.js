@@ -42,9 +42,6 @@ const fetchChainCheck = async (chain, address = '') => {
     .then(res => {
       return res?.data?.data?.smartVault?.id
     })
-  // .catch((error) => {
-  //   console.error(error)
-  // })
 
   return check
 }
