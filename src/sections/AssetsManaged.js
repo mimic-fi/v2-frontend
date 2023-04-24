@@ -43,7 +43,6 @@ const Content = ({ address, chain }) => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
   const medium = 700
-  const large = 900
 
   useEffect(
     () => {
