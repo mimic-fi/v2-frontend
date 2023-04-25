@@ -135,7 +135,7 @@ export const CHAIN_INFO = {
   },
   [SupportedChainId.AVALANCHE]: {
     explorer: 'https://snowtrace.io/',
-    name: 'Avalance C-Chain',
+    name: 'Avalanche C-Chain',
     shortName: 'avalanche',
     logoUrl: avalancheLogoUrl,
     nativeCurrency: { name: 'Avax', symbol: 'AVAX', decimals: 18 },
@@ -143,7 +143,7 @@ export const CHAIN_INFO = {
     value: SupportedChainId.AVALANCHE,
     isTestnet: false,
     rpc:
-      process.env.REACT_APP_AVALANCE_RPC_URL ||
+      process.env.REACT_APP_AVALANCHE_RPC_URL ||
       'https://rpc.ankr.com/avalanche',
   },
 }
