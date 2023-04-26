@@ -16,6 +16,7 @@ import theme from './styles/theme.js'
 import Stats from './pages/Stats'
 import { useChainId } from './hooks/useChainId'
 import { CHAIN_INFO } from './constants/chainInfo'
+import Heatmap from './pages/Heatmap'
 
 const queryClient = new QueryClient()
 
@@ -59,6 +60,11 @@ function App() {
               name="configuration"
               path="/smart-vaults/:id/config"
               element={<Config />}
+            />
+            <Route
+              name="heatmap"
+              path="/smart-vaults/:id/heatmap"
+              element={<Heatmap />}
             />
             <Route path="/" element={<Home />} />
             <Route path="*" element={<PageNotFound />} />

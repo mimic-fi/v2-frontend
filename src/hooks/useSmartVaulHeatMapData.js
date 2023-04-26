@@ -3,69 +3,45 @@ import { request, gql } from 'graphql-request'
 import { CHAIN_SUBGRAPH_URL } from '../constants/chainInfo'
 import { useChainId } from './useChainId'
 import { useMemo } from 'react'
+import moment from 'moment'
 
-const useSmartVaulHeatMapData = (id = '0x', limit = 10) => {
+const useSmartVaulHeatMapData = (id = '0x', chain) => {
   const chainId = useChainId()
-
+  const chainToUse = chain || chainId
   const { data, isLoading } = useQuery(
-    ['usePrimitivesFromSmartVault', chainId, id],
-    () => fetchSmartVault(chainId, id.toString()),
+    ['useSmartVaulHeatMapData', chainToUse, id],
+    () => fetchSmartVault(chainToUse, id.toString()),
     {
       refetchInterval: 10000,
     }
   )
 
   return useMemo(() => {
-    let actions
-
-    // match primitives into actions
-    // let grouped = data?.primitiveExecutions.reduce(function (rv, x) {
-    //   ; (rv[x['transaction']['id']] = rv[x['transaction']['id']] || []).push(x)
-    //   return rv
-    // }, {})
-
-    // order actions
-    // eslint-disable-next-line
-    // actions = grouped && Object.entries(grouped).sort((a, b) => {
-    //   // sort actions
-    //   if (b[1][0]?.transaction?.executedAt > a[1][0]?.transaction?.executedAt) return 1
-    //   else if (b[1][0]?.transaction?.executedAt < a[1][0]?.transaction?.executedAt) return -1
-    // })
-
-    const heat = data?.
-
-    console.log('actions', actions)
-
-
-    return {
-      id: data?.id,
-      totalValueManaged: data?.totalValueManaged || 0,
-      lastAction: actions && actions[0] && actions[0][1],
-      actions: actions && actions?.slice(0, limit),
-      isLoading: isLoading
-    }
-  }, [data, isLoading, limit])
+    var count = {}
+    data?.transactions.forEach(t => { count[moment.unix(t?.executedAt).format('YYYY/MM/DD')] = (count[moment.unix(t?.executedAt).format('YYYY/MM/DD')] || 0) + 1 })
+    const heat = Object.keys(count).map(i => { return { date: i.toString(), count: count[i] } })
+    return {heat, isLoading}
+  // eslint-disable-next-line 
+  }, [data, chain, isLoading])
 }
 
 const fetchSmartVault = async (chainId, id) => {
   //TODO: put id in the query. Cause for some reason is failing
-  let {smartvault} = await request(
+  let { smartVault } = await request(
     CHAIN_SUBGRAPH_URL[chainId],
     gql`
     {
-      {
-        smartVault (id: ${'"' + id.toLowerCase() + '"'}){
-          id
-          transactions {
-            hash
-            executedAt
-          }
+      smartVault (id: ${'"' + id.toLowerCase() + '"'}){
+        id
+        transactions {
+          hash
+          executedAt
         }
       }
+    }
     `
   )
-  console.log('useSmartVaulHeatMapData', smartvault)
-  return smartvault
+  return smartVault
 }
 
 export default useSmartVaulHeatMapData

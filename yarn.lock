@@ -3193,6 +3193,46 @@
     "@typescript-eslint/types" "5.43.0"
     eslint-visitor-keys "^3.3.0"
 
+"@uiw/react-heat-map@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@uiw/react-heat-map/-/react-heat-map-2.0.5.tgz#65755f16c84d6f0c0dcfad4c7e5ff1b4769a2e8c"
+  integrity sha512-VM/mEm46+ykX3AMu0FOUVP45plC9j1X0PDwyBgOdjCucE4weXj1nAzUmGb1tsDgaLh9yrQMHArvltJebAgkx4g==
+
+"@uiw/react-overlay-trigger@^4.21.25":
+  version "4.21.25"
+  resolved "https://registry.yarnpkg.com/@uiw/react-overlay-trigger/-/react-overlay-trigger-4.21.25.tgz#0c4753c5ddda3c0b56a092b9c4dd747cd575cd83"
+  integrity sha512-lPZRjUb80FZ/dcar8LjNJ8Tppy6NynhV+jfL/L2B2SPdFDn1mSS0U2suobmPLBSxEsFmdmDQnxSmC8HF7b1ADQ==
+  dependencies:
+    "@uiw/react-overlay" "^4.21.25"
+    "@uiw/utils" "^4.21.25"
+
+"@uiw/react-overlay@^4.21.25":
+  version "4.21.25"
+  resolved "https://registry.yarnpkg.com/@uiw/react-overlay/-/react-overlay-4.21.25.tgz#b1bb03589083fc423dee15644a9692fb26c22ea8"
+  integrity sha512-wi7x4UoVhM1Beiqo0ImUoINmcK+oZGZpFtnZJcdoWyiYFSP4f4VyDzPcA4OBhtO0Ro7MI8d7x5L3nusUth9rhA==
+  dependencies:
+    "@uiw/react-portal" "^4.21.25"
+    "@uiw/utils" "^4.21.25"
+    react-transition-group "~4.4.2"
+
+"@uiw/react-portal@^4.21.25":
+  version "4.21.25"
+  resolved "https://registry.yarnpkg.com/@uiw/react-portal/-/react-portal-4.21.25.tgz#a783124146d81465a7353308ebf11cea125ff7ab"
+  integrity sha512-LHE1YUaAEaOYUHCW0Np5BdGb+A3HA9JB493rx2To5lB8Omdt6e/ixqNhnLOyPBXaNpeNxMzL9s7uIEG70QddAw==
+
+"@uiw/react-tooltip@^4.21.25":
+  version "4.21.25"
+  resolved "https://registry.yarnpkg.com/@uiw/react-tooltip/-/react-tooltip-4.21.25.tgz#5dfeccb6721ea83e8f9ed0fdefc6ef3b204db3d0"
+  integrity sha512-5Yf+lEZ2ROHQVLYh3KiJrJGft2f3xa9J70GrBMKZcGoaFrtMR4MedCpcA0xAp+0kGyKDdLaZeLsO/Zbdn+BiwA==
+  dependencies:
+    "@uiw/react-overlay-trigger" "^4.21.25"
+    "@uiw/utils" "^4.21.25"
+
+"@uiw/utils@^4.21.25":
+  version "4.21.25"
+  resolved "https://registry.yarnpkg.com/@uiw/utils/-/utils-4.21.25.tgz#50e3ccc2e85a9ce5cfab61e198de5a8eb39431a2"
+  integrity sha512-eOtg0qif4RKkcaihOrQVVAryLk+9n3AI5sGscSt1ihaK4J6HJl2hb1n2LEO77eMOeNZ5V3Sm84B9r/EZ4Io0Qg==
+
 "@uniswap/token-lists@^1.0.0-beta.27":
   version "1.0.0-beta.31"
   resolved "https://registry.yarnpkg.com/@uniswap/token-lists/-/token-lists-1.0.0-beta.31.tgz#ff3852bd505ec7b4c276625c762ea79a93a919ec"
@@ -9719,7 +9759,7 @@ react-select@^5.6.1:
     react-transition-group "^4.3.0"
     use-isomorphic-layout-effect "^1.1.2"
 
-react-transition-group@^4.3.0:
+react-transition-group@^4.3.0, react-transition-group@~4.4.2:
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.5.tgz#e53d4e3f3344da8521489fbef8f2581d42becdd1"
   integrity sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==

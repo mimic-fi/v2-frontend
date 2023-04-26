@@ -1,85 +1,91 @@
-import React, { useState } from 'react'
 import styled from 'styled-components'
 import Page from '../components/Page'
 import Subnavbar from '../components/Subnavbar'
-import { Container, BodyL } from '../styles/texts'
-import useSmartVaultWithConfig from '../hooks/useSmartVaultWithConfig'
+import { Container } from '../styles/texts'
 import { Hm } from '../styles/texts'
-import { Skeleton } from '../styles/general'
-import Table from '../components/Table/Table'
-import TableRow from '../components/Table/TableRow'
-import TableHeader from '../components/Table/TableHeader'
-import TableCell from '../components/Table/TableCell'
-import { SMART_VAULT_FUNCTIONS_HASHED } from '../utils/smartVault-utils'
-import useActionMetadata from '../hooks/useActionMetadata'
-import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
-import Address from '../components/Address'
-import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
-import { formatTokenAmount } from '../utils/math-utils'
 import useSmartVaulHeatMapData from '../hooks/useSmartVaulHeatMapData'
+import HeatMap from '@uiw/react-heat-map'
+import { CHAIN_INFO } from '../constants/chainInfo'
+import Tooltip from '@uiw/react-tooltip'
 
 const Heatmap = () => {
-  const [active, setActive] = useState(0)
-  const handleClick = e => {
-    const index = parseInt(e.target.id, 0)
-    if (index !== active) {
-      setActive(index)
-    }
-  }
+
   const id = useSmartVaultParam()
-  const { data, isLoading } = useSmartVaulHeatMapData(id)
-  const { data: metadata } = useSmartVaultMetadata(id)
 
-  let index = 0
-  // let pfIndex = 0
-  let granteesList = []
-
-
+  const chains = Object.values(CHAIN_INFO).filter(item => {
+    return item.isTestnet ? null : item
+  })
 
   return (
     <Page sidebar={false}>
       <Subnavbar active="configuration" address={id} />
       <SmartVaultsSection>
         <Container>
-          <Hm>Heatmap</Hm>
-          
-
-        
+          <Tooltip placement="top" content={`count: ${'hola'}`}>
+            <Hm>Heatmap</Hm>
+          </Tooltip>
+          <Wrapper>
+            {chains.map((chain) => {
+              return <HM address={id} chain={chain.value} name={chain.name} logo={chain.logoUrl} />
+            })}
+          </Wrapper>
         </Container>
       </SmartVaultsSection>
     </Page>
   )
 }
 
+const HM = ({ address, chain, name, logo }) => {
+  const {heat: dataHeatmap} = useSmartVaulHeatMapData(address, chain)
+  if (!dataHeatmap?.length) return null
+  return (
+    <div>
+      <Title>
+        <img width="20px" src={logo} alt={name} /> {name}
+      </Title>
+      <HeatMap
+        width="100%"
+        height="240px"
+        value={dataHeatmap}
+        rectSize={20}
+        legendCellSize={0}
+        startDate={new Date('2023/01/01')}
+        endDate={new Date()}
+        style={{ color: '#fff', }}
+        panelColors={{
+          0: '#dbd3ff',
+          2: '#b3a3f7',
+          4: '#9380e2',
+          10: '#7c6acb',
+          20: '#5542a9',
+          30: '#000',
+        }}
 
-const Tabs = styled.div`
+        rectRender={(props, data) => {
+          return (
+            <>
+              <Tooltip key={props.key} placement="top" content={`${data.date} ${data.count || 0}`}>
+                <rect {...props} />
+              </Tooltip>
+            </>
+          )
+        }}
+      />
+    </div>
+  )
+}
+
+const Wrapper = styled.div`
+    display: grid;
+  grid-template-columns: 50% 50%;
+`
+
+const Title = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 30px;
-`
-
-const Tab = styled(BodyL)`
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 12px 15px;
-  border-radius: 50px;
-  background-color: ${props => (props.active ? '#353945' : 'transparent')};
-  color: ${props => (props.active ? '#FCFCFD' : '#777E90')};
-  transition: all 0.1s ease-in-out;
-
-  :hover {
-    background-color: #353945;
-    color: #fcfcfd;
-  }
-`
-
-const Content = styled.div`
-  ${props => (props.active ? '' : 'display:none')};
-  p {
-    margin-top: 0;
+  img {
+    margin-right: 10px;
   }
 `
 
@@ -94,33 +100,4 @@ const SmartVaultsSection = styled.section`
   }
 `
 
-const Row = styled(TableRow)``
-
-const Number = styled.div`
-  color: ${props => props.theme.mainDefault};
-`
-
-const Text = styled.p`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 400px;
-`
-
-const TextSec = styled.div`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  /* max-width: 400px; */
-  color: gray;
-`
-
-const ActionDetail = styled.div`
-  font-weight: 400;
-  margin-top: 15px;
-  p {
-    margin-bottom: 5px;
-  }
-`
-
-export default Config
+export default Heatmap

@@ -5,7 +5,7 @@ import { useQueries } from 'react-query'
 
 const useChainsStats = () => {
   const chains = Object.values(CHAIN_INFO).filter(item => {
-    return item.isTestnet ? null : item
+    return item.isDisabled ? null : item
   })
   const queriesChain = chains.map((chain) => {
     return {
