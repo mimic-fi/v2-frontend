@@ -35,7 +35,7 @@ const Stats = () => {
 
   return (
     <Page sidebar={false}>
-        <Container>
+        <StyledContainer>
           <Hxl>Stats</Hxl>
           <Table
             header={
@@ -71,7 +71,7 @@ const Stats = () => {
             />
           </Table>
 
-        </Container>
+        </StyledContainer>
     </Page>
   )
 }
@@ -91,6 +91,9 @@ const TableData = ({ chain, totalRelayedCostUsd, totalGasRefundsUsd, totalFeesUs
   )
 }
 
+const StyledContainer = styled(Container)`
+  overflow-x: scroll;
+`
 const Number = styled.div`
   padding: 0 20px;
   color: ${props => props.theme.mainDefault};

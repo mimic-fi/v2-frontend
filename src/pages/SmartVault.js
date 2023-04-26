@@ -15,108 +15,99 @@ import AssetsManaged from '../sections/AssetsManaged'
 import { Skeleton } from '../styles/general'
 import { Hxl, LinkL } from '../styles/texts'
 import split from '../assets/split.svg'
-import useSmartVaultWithPrimitives from '../hooks/useSmartVaultWithPrimitives'
+import useSmartVault from '../hooks/useSmartVault'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
 import usePrimitivesFromSmartVault from '../hooks/usePrimitivesFromSmartVault'
 
 const SmartVault = ({ chain }) => {
   const id = useSmartVaultParam()
-  const smartVault = useSmartVaultWithPrimitives(id, 10)
+  const smartVault = useSmartVault(id, 10)
   const smartVaultActions = usePrimitivesFromSmartVault(id, 10)
 
-  return (
-    <Page>
-      {!smartVault.isLoading && !smartVault?.id ? (
-        <SmartVaultNotFound id={id} />
-      ) : (
-        <RenderContentPage smartVault={smartVault} chain={chain} smartVaultActions={smartVaultActions}/>
-      )}
-    </Page>
-  )
-}
-
-const RenderContentPage = ({ smartVault, chain, smartVaultActions }) => {
-  const id = useSmartVaultParam()
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
   const medium = 700
   const large = 900
-
   return (
-    <>
-      <Subnavbar
-        active="overview"
-        isLoading={smartVault.isLoading}
-        address={
-          smartVault && !smartVault.isLoading ? smartVault.id : undefined
-        }
-      />
-      <Container>
-        <Hero
-          address={smartVault.id || id}
-          isLoading={smartVault.isLoading}
-          lastAction={smartVault.lastAction}
-          totalValueManaged={smartVault.totalValueManaged}
-        />
-      </Container>
-      <Split src={split} />
-      <LatestActionsSection>
-        <Container>
-          <Hxl>
-            Most recent
-            <br />
-            actions
-          </Hxl>
-          {smartVaultActions.isLoading ? (
-            <>
-              <br />
-              <br />
-              <Skeleton height="830px" width="100%" marginBottom="30px" />
-            </>
-          ) : (
-          <Table
-            header={
-              <TableRow>
-                <TableHeader title="#" align="left" />
-                <TableHeader title="Date" align="left" />
-                <TableHeader title="Action" align="left" />
-                {width >= large && (
-                  <TableHeader title="Description" align="left" />
-                )}
-                {width >= medium && (
-                  <TableHeader title="Excecuted by" align="left" />
-                )}
-                <TableHeader title="Status" align="center" />
-              </TableRow>
-            }
-          >
-
-
-                {smartVaultActions?.actions?.map((primitives, i) => {
-                  return (
-                    <Action
-                      key={primitives[0]}
-                      primitives={primitives[1]}
-                      index={i + 1}
-                    />
-                  )
-                })}
-                {smartVaultActions?.actions?.length === 0 && 'No actions'}
-
-
-          </Table>)}
-          <StyledLink to="./action-history">
-            <LinkL>Swim to full history</LinkL>
-          </StyledLink>
-        </Container>
-      </LatestActionsSection>
-      <AssetsManaged address={smartVault?.id || id} chain={chain} />
-      <SmartVaultDetail address={smartVault?.id || id} />
-    </>
+    <Page>
+      {!smartVault.isLoading && !smartVault?.data.id ? (
+        <SmartVaultNotFound id={id} />
+      ) : (
+        <>
+          <Subnavbar
+            active="overview"
+            address={id}
+          />
+          <Container>
+            <Hero
+              address={id}
+              isLoading={smartVault.isLoading}
+              lastAction={smartVaultActions?.lastAction}
+              totalValueManaged={
+                smartVault.isLoading
+                  ? undefined
+                  : smartVault.data.totalValueManaged
+              }
+            />
+          </Container>
+          <Split src={split} />
+          <LatestActionsSection>
+            <Container>
+              <Hxl>
+                Most recent
+                <br />
+                actions
+              </Hxl>
+              {smartVaultActions.isLoading ? (
+                <>
+                  <br />
+                  <br />
+                  <Skeleton height="830px" width="100%" marginBottom="30px" />
+                </>
+              ) : (
+                <Table
+                  header={
+                    <TableRow>
+                      <TableHeader title="#" align="left" />
+                      <TableHeader title="Date" align="left" />
+                      <TableHeader title="Action" align="left" />
+                      {width >= large && (
+                        <TableHeader title="Description" align="left" />
+                      )}
+                      {width >= medium && (
+                        <TableHeader title="Excecuted by" align="left" />
+                      )}
+                      <TableHeader title="Status" align="center" />
+                    </TableRow>
+                  }
+                >
+                  {smartVaultActions?.actions?.map((primitives, i) => {
+                    return (
+                      <Action
+                        key={primitives[0]}
+                        primitives={primitives[1]}
+                        index={i + 1}
+                      />
+                    )
+                  })}
+                  {smartVaultActions?.actions?.length === 0 && 'No actions'}
+                </Table>
+              )}
+              <StyledLink to="./action-history">
+                <LinkL>Swim to full history</LinkL>
+              </StyledLink>
+            </Container>
+          </LatestActionsSection>
+          <AssetsManaged address={smartVault?.id || id} chain={chain} />
+          <SmartVaultDetail address={smartVault?.id || id} />
+        </>
+      )}
+    </Page>
   )
 }
+
 const LatestActionsSection = styled.section`
   height: auto;
   padding: 80px 0;

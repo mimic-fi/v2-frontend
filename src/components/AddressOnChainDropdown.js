@@ -98,7 +98,6 @@ const AddressOnChainDropdown = ({ address }) => {
       let url = newIdInUrl(params.id, location, e?.value, smartVaultId)
       navigate(url)
     }
-
     updateChainId(e?.value)
   }
 

@@ -8,25 +8,27 @@ import PageSelector from './PageSelector'
 import OthersSelector from './OthersSelector'
 import AddressOnChainDropdown from './AddressOnChainDropdown'
 
-const Subnavbar = ({ active, isLoading, address }) => {
+const Subnavbar = ({ active, address }) => {
   const chainId = useChainId()
   const [width, setWidth] = useState(window.innerWidth)
+  console.log(address)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
   const medium = 700
+
   return (
     <Container>
       <SubnavbarSection>
         <AddressBox>
-          {isLoading || !address ? (
+          {address === undefined || !address ? (
             <Skeleton height="36px" width="500px" />
           ) : (
             <AddressOnChainDropdown address={address} />
           )}
         </AddressBox>
         {width <= medium ? (
-          <PageSelector active={active} address={address} chainId={chainId}/>
+          <PageSelector active={active} address={address} chainId={chainId} />
         ) : (
           <SubnavbarContainer>
             <Link to={`/smart-vaults/${address}/`}>
@@ -44,7 +46,7 @@ const Subnavbar = ({ active, isLoading, address }) => {
                 Configuration
               </BodyM>
             </Link>
-            <OthersSelector address={address} chainId={chainId}/>
+            <OthersSelector address={address} chainId={chainId} />
           </SubnavbarContainer>
         )}
       </SubnavbarSection>
