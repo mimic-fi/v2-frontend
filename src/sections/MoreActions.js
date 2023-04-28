@@ -56,7 +56,7 @@ const Action = ({ action, index }) => {
         {metadata?.data?.title}
       </TableCell>
       <TableCell align="left">{metadata?.data?.description}</TableCell>
-      <TableCell align="left"><div className="grey">Automatic</div></TableCell>
+      <TableCell align="left"><div className="grey"> {metadata?.data?.trigger || 'Automatic' }</div></TableCell>
       <TableCell align="left">
         <div className="success">Active</div>
       </TableCell>
