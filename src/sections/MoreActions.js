@@ -44,7 +44,6 @@ const Content = ({ actions }) => {
 
 const Action = ({ action, index }) => {
   const metadata = useActionMetadata(action.id)
-  console.log('action delfi', metadata)
   return (
     <TableRow>
       <TableCell align="left">{index}</TableCell>
