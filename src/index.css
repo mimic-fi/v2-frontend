@@ -31,3 +31,7 @@ a, a span, button {
  src: url('./fonts/GTWalsheimPro-Bold.ttf') format('opentype');
  font-display: swap;
 }
+
+.success {
+  color: #00D095;
+}
