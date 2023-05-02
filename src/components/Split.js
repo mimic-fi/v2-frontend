@@ -13,7 +13,7 @@ function Split({ primary, secondary, invert }) {
     if (width < large) {
       setOneColumn(true)
     }
-  }, [])
+  }, [width])
 
   const primaryContent = (
     <Inside name="Split:primary">

@@ -4,7 +4,7 @@ import Page from '../components/Page'
 import Subnavbar from '../components/Subnavbar'
 import { Container, BodyL } from '../styles/texts'
 import useSmartVaultWithConfig from '../hooks/useSmartVaultWithConfig'
-import { Hm, Hs, BodyS } from '../styles/texts'
+import { Hs, BodyS } from '../styles/texts'
 import { Skeleton } from '../styles/general'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
@@ -178,7 +178,7 @@ const Config = () => {
               <Tabs>
                 <Title>SMART VAULT</Title>
                 <Tab onClick={handleClick} active={active === 0} id={0}>
-                  <img src={sv} />
+                  <img src={sv} alt="smart vault"/>
                   General
                 </Tab>
               </Tabs>
@@ -331,13 +331,6 @@ const Tab = styled(BodyL)`
   }
 `
 
-const Content = styled.div`
-  ${props => (props.active ? '' : 'display:none')};
-  p {
-    margin-top: 0;
-  }
-`
-
 const ConfigSection = styled.section`
   height: auto;
   min-height: 1700px;
@@ -353,10 +346,6 @@ const ConfigSection = styled.section`
 `
 
 const Row = styled(TableRow)``
-
-const Number = styled.div`
-  color: ${props => props.theme.mainDefault};
-`
 
 const Text = styled.p`
   white-space: nowrap;
