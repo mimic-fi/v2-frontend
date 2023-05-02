@@ -12,6 +12,7 @@ import Action from '../sections/Action'
 import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import SmartVaultDetail from '../sections/SmartVaultDetail'
 import AssetsManaged from '../sections/AssetsManaged'
+import MoreActions from '../sections/MoreActions'
 import { Skeleton } from '../styles/general'
 import { Hxl, LinkL } from '../styles/texts'
 import split from '../assets/split.svg'
@@ -36,10 +37,7 @@ const SmartVault = ({ chain }) => {
         <SmartVaultNotFound id={id} />
       ) : (
         <>
-          <Subnavbar
-            active="overview"
-            address={id}
-          />
+          <Subnavbar active="overview" address={id} />
           <Container>
             <Hero
               address={id}
@@ -102,6 +100,7 @@ const SmartVault = ({ chain }) => {
           </LatestActionsSection>
           <AssetsManaged address={smartVault?.id || id} chain={chain} />
           <SmartVaultDetail address={smartVault?.id || id} />
+          <MoreActions actions={smartVault?.data?.actions} />
         </>
       )}
     </Page>

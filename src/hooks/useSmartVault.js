@@ -19,6 +19,9 @@ const fetchSmartVault = async (chainId, id) => {
         smartVault(id: ${'"' + id.toLowerCase() + '"'}) {
           id
           totalValueManaged
+          actions {
+           id
+         }
         }
       }
 
