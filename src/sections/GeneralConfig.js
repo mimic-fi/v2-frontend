@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { BodyL } from '../styles/texts'
-import useSmartVaultWithConfig from '../hooks/useSmartVaultWithConfig'
-import { Hs, BodyS } from '../styles/texts'
+import { Hs, BodyL } from '../styles/texts'
 import { Skeleton } from '../styles/general'
+import Address from '../components/Address'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
 import TableHeader from '../components/Table/TableHeader'
 import TableCell from '../components/Table/TableCell'
-import { SMART_VAULT_FUNCTIONS_HASHED } from '../utils/smartVault-utils'
+import Grantees from '../components/Grantees'
 import useActionMetadata from '../hooks/useActionMetadata'
 import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
-import Address from '../components/Address'
-import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
+import useSmartVaultWithConfig from '../hooks/useSmartVaultWithConfig'
 import { formatTokenAmount } from '../utils/math-utils'
+import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
 
 const GeneralConfig = () => {
   const id = useSmartVaultParam()
@@ -171,11 +170,6 @@ const RenderGrantee = ({ grantee, index }) => {
   )
 }
 
-const getMethodName = method => {
-  const meth = method.slice(2)
-  return SMART_VAULT_FUNCTIONS_HASHED[meth]
-}
-
 const ShowAction = ({ action, id, isLoading }) => {
   return isLoading ? (
     'Loading data?...'
@@ -198,9 +192,13 @@ const Fee = ({ index, title, data }) => {
       value={formatPct(data?.pct)}
       value2={
         <div>
-          {' '}
-          <TextSec>{`cap: ${data?.cap}, period: ${data?.period}`}</TextSec>
-          <TextSec>{` token: ${data?.token?.name}`}</TextSec>
+          <TextSec>
+            {data?.cap !== undefined && 'cap: ' + data?.cap}{' '}
+            {data?.period !== undefined && 'period: ' + data?.period}
+          </TextSec>
+          <TextSec>
+            {data?.token?.name !== undefined && 'token: ' + data?.token?.name}
+          </TextSec>
         </div>
       }
     />
@@ -223,41 +221,6 @@ const TableData = ({ index, param, value, value2 = '' }) => {
     </Row>
   )
 }
-
-const Grantees = ({ grantees }) => {
-  const [showAll, setShowAll] = useState(false)
-  const [text, setText] = useState('')
-
-  useEffect(
-    () => {
-      const textArray = grantees.permissions.map((p, i) =>
-        getMethodName(p.method)
-      )
-      setText(textArray.join('\n'))
-    },
-    [grantees]
-  )
-
-  const toggleShowAll = () => setShowAll(!showAll)
-  const toggleText = showAll ? 'Hide details' : 'Show details'
-  const textLines = text.split('\n')
-  const visibleText = showAll ? text : textLines.slice(0, 4).join('\n')
-
-  return (
-    <div>
-      <TextSec>{visibleText}</TextSec>
-      {textLines.length > 4 && (
-        <SeeMore onClick={toggleShowAll}>{toggleText}</SeeMore>
-      )}
-    </div>
-  )
-}
-
-const SeeMore = styled(BodyS)`
-  font-weight: 700;
-  cursor: pointer;
-  color: #5dfbd7;
-`
 
 const BreakAll = styled.div`
   word-break: break-all;

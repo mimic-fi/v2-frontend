@@ -1,22 +1,29 @@
 import React, { useState } from 'react'
+import { useParams, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Page from '../components/Page'
 import Subnavbar from '../components/Subnavbar'
-import { Container, BodyL } from '../styles/texts'
+import { Container, BodyM } from '../styles/texts'
 import Split from '../components/Split'
-import useSmartVaultParam from '../hooks/useSmartVaultParam'
 import GeneralConfig from '../sections/GeneralConfig'
+import ActionConfig from '../sections/ActionConfig'
+import useSmartVaultParam from '../hooks/useSmartVaultParam'
+import useSmartVault from '../hooks/useSmartVault'
+import useActionMetadata from '../hooks/useActionMetadata'
 import sv from '../assets/configMenu/sv.svg'
 
 const Config = () => {
-  const [active, setActive] = useState(0)
+  const params = useParams()
+  const [active, setActive] = useState(params.action || 0)
+  const id = useSmartVaultParam()
+  const smartVault = useSmartVault(id, 10)
+
   const handleClick = e => {
-    const index = parseInt(e.target.id, 0)
+    const index = e.target.id
     if (index !== active) {
       setActive(index)
     }
   }
-  const id = useSmartVaultParam()
 
   return (
     <Page sidebar={false}>
@@ -24,45 +31,59 @@ const Config = () => {
       <ConfigSection>
         <Container>
           <Split
-            primary={<GeneralConfig />}
+            primary={
+              params.action !== undefined ? (
+                <ActionConfig action={params.action} />
+              ) : (
+                <GeneralConfig />
+              )
+            }
             secondary={
               <Tabs>
                 <Title>SMART VAULT</Title>
-                <Tab onClick={handleClick} active={active === 0} id={0}>
-                  <img src={sv} alt="smart vault" />
-                  General
-                </Tab>
+                <Link to={'/smart-vaults/' + params.id + '/config/'}>
+                  <Tab onClick={handleClick} active={active === 0} id={0}>
+                    <img src={sv} alt="smart vault" />
+                    General
+                  </Tab>
+                </Link>
                 <br />
                 <Title>ACTIONS</Title>
-                <Tab onClick={handleClick} active={active === 1} id={1}>
-                  <img
-                    src={sv}
-                    alt="smart vault"
-                  />
-                  General
-                </Tab>
-                <Tab onClick={handleClick} active={active === 1} id={1}>
-                  <img src={sv} alt="smart vault" />
-                  General
-                </Tab>
-                <Tab onClick={handleClick} active={active === 1} id={1}>
-                  <img src={sv} alt="smart vault" />
-                  General
-                </Tab>
-                <Tab onClick={handleClick} active={active === 1} id={1}>
-                  <img src={sv} alt="smart vault" />
-                  General
-                </Tab>
-                <Tab onClick={handleClick} active={active === 1} id={1}>
-                  <img src={sv} alt="smart vault" />
-                  General
-                </Tab>
+                {smartVault?.data?.actions?.map((action, i) => {
+                  return (
+                    <TabAction
+                      action={action}
+                      index={action.id}
+                      key={action.id}
+                      handleClick={handleClick}
+                      active={active}
+                    />
+                  )
+                })}
               </Tabs>
             }
           />
         </Container>
       </ConfigSection>
     </Page>
+  )
+}
+
+const TabAction = ({ action, index, handleClick, active }) => {
+  const metadata = useActionMetadata(action.id)
+  const params = useParams()
+  return (
+    <Link to={'/smart-vaults/' + params.id + '/config/' + action.id}>
+      <Tab
+        onClick={handleClick}
+        active={active === index}
+        key={index}
+        id={index}
+      >
+        <img src={metadata.data?.icon} alt="smart vault" />
+        {metadata.data?.title}
+      </Tab>
+    </Link>
   )
 }
 
@@ -77,7 +98,7 @@ const Title = styled.div`
 
 const Tabs = styled.div``
 
-const Tab = styled(BodyL)`
+const Tab = styled(BodyM)`
   border: none;
   outline: none;
   cursor: pointer;
@@ -87,10 +108,11 @@ const Tab = styled(BodyL)`
   align-items: center;
   margin: 13px 0;
   background-color: ${props => (props.active ? '#5542A9' : 'transparent')};
-  color: ${props => (props.active ? '#FCFCFD' : ' #a5a1b7')};
+  color: #fcfcfd;
   transition: all 0.2s ease-in-out;
   img {
     padding-right: 7px;
+    height: 24px;
     filter: hue-rotate(270deg) brightness(90%);
   }
 

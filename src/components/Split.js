@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Inside } from 'use-inside'
 import styled from 'styled-components'
 
-const MENUWIDTH = 180
+const MENUWIDTH = 216
 
 function Split({ primary, secondary, invert }) {
   const large = 900
