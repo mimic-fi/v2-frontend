@@ -27,7 +27,7 @@ const Config = () => {
 
   return (
     <Page sidebar={false}>
-      <Subnavbar active="configuration" address={id} />
+      <Subnavbar active="configuration" address={params.id ? params.id : id} />
       <ConfigSection>
         <Container>
           <Split

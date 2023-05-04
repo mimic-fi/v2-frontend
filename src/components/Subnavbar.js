@@ -11,7 +11,6 @@ import AddressOnChainDropdown from './AddressOnChainDropdown'
 const Subnavbar = ({ active, address }) => {
   const chainId = useChainId()
   const [width, setWidth] = useState(window.innerWidth)
-  console.log(address)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
@@ -31,17 +30,19 @@ const Subnavbar = ({ active, address }) => {
           <PageSelector active={active} address={address} chainId={chainId} />
         ) : (
           <SubnavbarContainer>
-            <Link to={`/smart-vaults/${address}/`}>
+            <Link to={address ? `/smart-vaults/${address}/` : '#'}>
               <BodyM className={active === 'overview' ? 'active' : ''}>
                 Overview
               </BodyM>
             </Link>
-            <Link to={`/smart-vaults/${address}/action-history/`}>
+            <Link
+              to={address ? `/smart-vaults/${address}/action-history/` : '#'}
+            >
               <BodyM className={active === 'history' ? 'active' : ''}>
                 History
               </BodyM>
             </Link>
-            <Link to={`/smart-vaults/${address}/config/`}>
+            <Link to={address ? `/smart-vaults/${address}/config/` : '#'}>
               <BodyM className={active === 'configuration' ? 'active' : ''}>
                 Configuration
               </BodyM>

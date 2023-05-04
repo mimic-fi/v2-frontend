@@ -4,8 +4,10 @@ import { BodyM } from '../styles/texts'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import etherscan from '../assets/etherscan.svg'
 import discord from '../assets/discord-menu.svg'
+import useSmartVaultParam from '../hooks/useSmartVaultParam'
 
-const OthersSelector = ({address, chainId}) => {
+const OthersSelector = ({ chainId }) => {
+  const address = useSmartVaultParam()
   const options = [
     {
       value: 'explorer',
@@ -24,11 +26,7 @@ const OthersSelector = ({address, chainId}) => {
     const { children, innerRef, innerProps, menuIsOpen } = props
 
     return (
-      <ControlContainer
-        ref={innerRef}
-        {...innerProps}
-        menuIsOpen={menuIsOpen}
-      >
+      <ControlContainer ref={innerRef} {...innerProps} menuIsOpen={menuIsOpen}>
         <Body>More </Body>
         {children}
       </ControlContainer>
@@ -48,7 +46,6 @@ const OthersSelector = ({address, chainId}) => {
 
 const Option = props => {
   const { innerRef, innerProps } = props
-  console.log(props)
   return (
     <OptionContainer ref={innerRef} {...innerProps}>
       <a href={props.data.link} target="_blank" rel="noreferrer">
@@ -147,9 +144,7 @@ const Body = styled(BodyM)`
   align-items: center;
   gap: 10px;
   margin: 0 auto;
-  margin-bottom: 0!important;
+  margin-bottom: 0 !important;
 `
-
-
 
 export default OthersSelector

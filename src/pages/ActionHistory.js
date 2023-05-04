@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useParams } from 'react-router-dom'
 import { Container } from '../styles/texts'
 import Subnavbar from '../components/Subnavbar'
 import Page from '../components/Page'
@@ -13,6 +14,7 @@ import useSmartVaultParam from '../hooks/useSmartVaultParam'
 import usePrimitivesFromSmartVault from '../hooks/usePrimitivesFromSmartVault'
 
 const ActionHistory = () => {
+  const params = useParams()
   const id = useSmartVaultParam()
   const smartVault = usePrimitivesFromSmartVault(id, 10000)
   const [width, setWidth] = useState(window.innerWidth)
@@ -24,11 +26,7 @@ const ActionHistory = () => {
 
   return (
     <Page>
-      <Subnavbar
-        active="history"
-        address={id}
-      />
-
+      <Subnavbar active="history" address={params.id ? params.id : id} />
       <LatestActionsSection>
         <Container>
           <Hxl>
