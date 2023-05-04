@@ -20,7 +20,7 @@ import { CHAIN_INFO } from './constants/chainInfo'
 const queryClient = new QueryClient()
 
 function App() {
-  
+
   const chainId = useChainId()
   const config = {
     autoConnect: false,
@@ -54,6 +54,11 @@ function App() {
               name="overview"
               path="/smart-vaults/:id"
               element={<SmartVault chain={chainId} />}
+            />
+            <Route
+              name="action-configuration"
+              path="/smart-vaults/:id/config/:action"
+              element={<Config />}
             />
             <Route
               name="configuration"
