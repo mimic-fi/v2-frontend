@@ -1,33 +1,53 @@
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import styled from 'styled-components'
 import Page from '../components/Page'
 import Subnavbar from '../components/Subnavbar'
 import { Container } from '../styles/texts'
-import { Hm } from '../styles/texts'
+import { Hm, Hxxs } from '../styles/texts'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
 import useSmartVaulHeatMapData from '../hooks/useSmartVaulHeatMapData'
 import HeatMap from '@uiw/react-heat-map'
 import { CHAIN_INFO } from '../constants/chainInfo'
-import Tooltip from '@uiw/react-tooltip'
 
 const Heatmap = () => {
+  const [count, setCount] = useState({ chain: 0 })
+  const [info, setInfo] = useState(null)
+
+  const updateChain = useCallback((name, number) => {
+    setCount((prevCount) => ({ ...prevCount, [name]: number }))
+  }, [])
+
+  const calculateTotalTransactions = () => {
+    return Object.values(count).reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+  }
 
   const id = useSmartVaultParam()
 
-  const chains = Object.values(CHAIN_INFO).filter(item => {
-    return item.isTestnet ? null : item
-  })
+  const chains = useMemo(
+    () =>
+      Object.values(CHAIN_INFO).filter((item) => {
+        return item.isTestnet ? null : item
+      }),
+    []
+  )
 
   return (
     <Page sidebar={false}>
       <Subnavbar active="configuration" address={id} />
       <SmartVaultsSection>
         <Container>
-          <Tooltip placement="top" content={`count: ${'hola'}`}>
-            <Hm>Heatmap</Hm>
-          </Tooltip>
+          <Hm>Heatmap</Hm>
+          <Flex>
+            <Hxxs color='#8b8b8b'>Transactions {calculateTotalTransactions()}</Hxxs>
+            {info && <Hxxs color='#8b8b8b'>{info}</Hxxs>}
+          </Flex>
           <Wrapper>
             {chains.map((chain) => {
-              return <HM address={id} chain={chain.value} name={chain.name} logo={chain.logoUrl} />
+              return <HM address={id} chain={chain.value} name={chain.name}
+                shortName={chain.shortName}
+                logo={chain.logoUrl}
+                setInfo={setInfo}
+                updateChain={updateChain} />
             })}
           </Wrapper>
         </Container>
@@ -36,13 +56,20 @@ const Heatmap = () => {
   )
 }
 
-const HM = ({ address, chain, name, logo }) => {
-  const {heat: dataHeatmap} = useSmartVaulHeatMapData(address, chain)
+const HM = ({ address, chain, name, logo, updateChain, shortName, setInfo }) => {
+  const { heat: dataHeatmap } = useSmartVaulHeatMapData(address, chain)
+  useEffect(() => {
+    updateChain(shortName, dataHeatmap?.length)
+  }, [dataHeatmap?.length])
+
   if (!dataHeatmap?.length) return null
+
+
+
   return (
     <div>
       <Title>
-        <img width="20px" src={logo} alt={name} /> {name}
+        <img width="20px" src={logo} alt={name} /> {name} ({dataHeatmap?.length})
       </Title>
       <HeatMap
         width="100%"
@@ -64,11 +91,7 @@ const HM = ({ address, chain, name, logo }) => {
 
         rectRender={(props, data) => {
           return (
-            <>
-              <Tooltip key={props.key} placement="top" content={`${data.date} ${data.count || 0}`}>
-                <rect {...props} />
-              </Tooltip>
-            </>
+            <rect {...props} onMouseOver={() => setInfo(`${data.date} -> ${data.count || 0}`)} />
           )
         }}
       />
@@ -77,8 +100,17 @@ const HM = ({ address, chain, name, logo }) => {
 }
 
 const Wrapper = styled.div`
-    display: grid;
+  display: grid;
   grid-template-columns: 50% 50%;
+`
+
+const Flex = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  color: #8b8b8b !important;
+  min-height: 100px;
+  flex-direction: column;
 `
 
 const Title = styled.div`

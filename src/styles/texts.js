@@ -127,8 +127,8 @@ export const Hxxs = styled.h6`
   font-size: 21px;
   line-height: 28px;
   letter-spacing: 1px;
-  color: #fcfcfc;
   margin: 0;
+  color: ${props => props.color ? props.color : '#fcfcfc'} ;
 
   @media only screen and (max-width: 700px) {
     font-size: 18px;
