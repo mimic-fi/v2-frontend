@@ -3,6 +3,7 @@ import Select from 'react-select'
 import { BodyM } from '../styles/texts'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import etherscan from '../assets/etherscan.svg'
+import calendar from '../assets/calendar.svg'
 import discord from '../assets/discord-menu.svg'
 
 const OthersSelector = ({address, chainId}) => {
@@ -12,6 +13,12 @@ const OthersSelector = ({address, chainId}) => {
       label: 'Open on explorer',
       link: CHAIN_INFO[chainId].explorer + 'address/' + address,
       icon: etherscan,
+    },
+    {
+      value: 'heatmap',
+      label: 'Heatmap',
+      link: 'heatmap',
+      icon: calendar,
     },
     {
       value: 'discord',
