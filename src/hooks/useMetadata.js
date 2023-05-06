@@ -10,8 +10,9 @@ const useMetadata = (type = null, chainId = 1, address = null) => {
 }
 
 const fetchMetadata = async (type, chainId, address) => {
-  // TODO: urlMetadata update domain address, split to enviroment file
+  if (!address) return []
   const urlMetadata = `${METADATA_URL}/${type}/${chainId}/${address}`
+  console.log(urlMetadata)
   const { data } = await axios.get(urlMetadata)
   return data
 }
