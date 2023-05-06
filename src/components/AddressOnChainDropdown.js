@@ -10,6 +10,7 @@ import { CHAIN_INFO } from '../constants/chainInfo'
 import Select, { components } from 'react-select'
 import { useAppDispatch, useAppState } from '../context/appContext'
 import { newIdInUrl } from '../hooks/useSmartVaultParam'
+import { useMemo } from 'react'
 
 const AddressOnChainDropdown = ({ address }) => {
   const params = useParams()
@@ -78,19 +79,6 @@ const AddressOnChainDropdown = ({ address }) => {
     )
   }
 
-  const Menu = props => {
-    return (
-      <>
-        <components.Menu {...props}>
-          <div>
-            <Title>Same address in other chains:</Title>
-            <div>{props.children}</div>
-          </div>
-        </components.Menu>
-      </>
-    )
-  }
-
   function handleChange(e) {
     if (params && params.id) {
       let id = params.id?.toString().split(':')
@@ -101,13 +89,17 @@ const AddressOnChainDropdown = ({ address }) => {
     updateChainId(e?.value)
   }
 
-  return availableChains && availableChains.length ? (
+  const memoizedSelectElement = useMemo(() => (
     <SelectElement
-      components={{ Menu, Option, Control }}
+      components={{  Option, Control }}
       onChange={handleChange}
       options={availableChains.sort()}
       classNamePrefix="react-select"
     />
+  ), [handleChange, availableChains])
+
+  return availableChains && availableChains.length ? (
+    memoizedSelectElement
   ) : (
     <ChainColor
       addressSelected={address}
