@@ -66,6 +66,14 @@ export const tokens = [
     },
   },
   {
+    chainId: 10,
+    address: '0xa1150db5105987CEC5Fd092273d1e3cbb22b378b',
+    name: 'Oath Token',
+    symbol: 'OATH',
+    decimals: 18,
+    logoURI: 'https://arbiscan.io/token/images/bytemasons_32.png',
+  },
+  {
     chainId: 42,
     address: '0x9BE876c6DC42215B00d7efe892E2691C3bc35d10',
     name: 'Aave Token',
