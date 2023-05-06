@@ -66,7 +66,7 @@ export const tokens = [
     },
   },
   {
-    chainId: 10,
+    chainId: 42161,
     address: '0xa1150db5105987CEC5Fd092273d1e3cbb22b378b',
     name: 'Oath Token',
     symbol: 'OATH',

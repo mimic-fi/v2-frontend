@@ -1,42 +1,39 @@
 import { useMemo } from 'react'
-import { ERC20, useContractCalls } from '@usedapp/core'
-import { Interface } from '@ethersproject/abi'
+import { useCalls, ERC20Interface } from '@usedapp/core'
+import { Contract } from 'ethers'
 import { formatTokenAmount } from '../utils/math-utils'
 import { tokens } from '../constants/tokens'
 
 export function useTokensBalance(smartVaultAddress = null, chain = null) {
-  const allTokens = tokens.filter(element => {
+  const chainTokens = tokens.filter(element => {
     return element.chainId === chain
   })
-  const ERC20Interface = new Interface(ERC20.abi)
 
-  const results = useContractCalls(
-    allTokens.map(t => ({
-      abi: ERC20Interface,
-      address: t.address,
-      method: 'balanceOf',
-      args: [smartVaultAddress],
-    })),
-    { chainId: chain }
-  )
+  const calls = chainTokens.map(t => ({
+    contract: new Contract(t?.address, ERC20Interface),
+    method: 'balanceOf',
+    args: [smartVaultAddress],
+  })) ?? []
+
+  const results = useCalls(calls, { chainId: chain })
 
   return useMemo(
     () => {
       let balances = {}
-      allTokens.forEach((token, idx) => {
+      chainTokens.forEach((token, idx) => {
         balances[token.symbol] = token
         const format = value =>
           formatTokenAmount(value, token.decimals, {
             digits: 2,
           })
         balances[token.symbol].balance =
-          results[idx] && results[idx][0] && format(results[idx][0])
+          results[idx] && results[idx]?.value?.balance && format(results[idx]?.value?.balance)
         return balances[token.symbol]
       })
       return Object.values(balances).filter(
         token => token.balance !== '0' && token.balance !== undefined
       ).sort((a, b) => b.balance - a.balance)
     },
-    [results, allTokens]
-  ) // eslint-disable-line
+    [results, chainTokens]
+  )
 }
