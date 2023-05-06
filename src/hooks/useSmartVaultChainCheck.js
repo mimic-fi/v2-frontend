@@ -5,14 +5,22 @@ import { useQueries } from 'react-query'
 import { useEffect } from 'react'
 
 const useSmartVaultChainCheck = (address = '') => {
-  const chains = Object.values(CHAIN_INFO)
+
+  const chains = useMemo(
+    () =>
+      Object.values(CHAIN_INFO).filter((item) => {
+        return item.isDisabled ? null : item
+      }),
+    []
+  )
+
   const queriesChain = chains.map(chain => {
     return chain && chain.value
       ? {
-          queryKey: ['smart-vault', chain.value, address],
-          queryFn: () => fetchChainCheck(chain.value, address),
-          select: data => ({ value: chain.value, data }),
-        }
+        queryKey: ['smart-vault', chain.value, address],
+        queryFn: () => fetchChainCheck(chain.value, address),
+        select: data => ({ value: chain.value, data }),
+      }
       : undefined
   })
 
@@ -34,17 +42,14 @@ const useSmartVaultChainCheck = (address = '') => {
   return availableChains
 }
 
-
-
-
-
-
-
-
-const fetchChainCheck = async (chain, address = '') => {
+const fetchChainCheck = async (chain, address) => {
+  if (!chain) return []
   if (!address) return []
+  const urlSubgraph = CHAIN_SUBGRAPH_URL[chain]
+
+  if (!urlSubgraph) return []
   const check = axios
-    .post(CHAIN_SUBGRAPH_URL[chain], {
+    .post(urlSubgraph, {
       query: `
     {
       smartVault(id: ${'"' + address?.toLowerCase() + '"'}) {

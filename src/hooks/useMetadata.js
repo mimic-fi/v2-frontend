@@ -12,7 +12,6 @@ const useMetadata = (type = null, chainId = 1, address = null) => {
 const fetchMetadata = async (type, chainId, address) => {
   if (!address) return []
   const urlMetadata = `${METADATA_URL}/${type}/${chainId}/${address}`
-  console.log(urlMetadata)
   const { data } = await axios.get(urlMetadata)
   return data
 }
