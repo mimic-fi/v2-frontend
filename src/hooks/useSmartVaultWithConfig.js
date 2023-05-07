@@ -19,63 +19,62 @@ const fetchSmartVault = async (chainId, id) => {
     CHAIN_SUBGRAPH_URL[chainId],
     gql`
     {
-        smartVault(id: ${'"' + id.toLowerCase() + '"'}) {
+      smartVault(id: ${'"' + id.toLowerCase() + '"'}) {
+        id
+        totalValueManaged
+        priceFeeds {
           id
-          totalValueManaged
-          priceFeeds {
-          id
-          }
-          priceOracle
-          swapConnector
-          strategies
-          feeCollector
-          wrappedNativeToken {
+        }
+        priceOracle
+        swapConnector
+        strategies
+        feeCollector
+        wrappedNativeToken {
+          name
+          symbol
+          decimals
+        }
+        swapFee {
+          pct
+          cap
+          token {
             name
             symbol
             decimals
           }
-          swapFee {
+          period
+        }
+        withdrawFee {
             pct
-            cap
-            token {
-              name
-              symbol
-              decimals
-            }
-            period
+          cap
+          token {
+            name
+            symbol
+            decimals
           }
-          withdrawFee {
-             pct
-            cap
-            token {
-              name
-              symbol
-              decimals
-            }
-            period
+          period
+        }
+        performanceFee {
+          pct
+          cap
+          token {
+            name
+            symbol
+            decimals
           }
-          performanceFee {
-             pct
-            cap
-            token {
-              name
-              symbol
-              decimals
-            }
-            period
-          }
-          
-          permissions {
-            grantees {
-              id
-                permissions {
-                  target{ id }
-                  method
-                }
+          period
+        }
+        permissions {
+          grantees {
+            id
+            permissions {
+              target { id }
+              method
             }
           }
         }
       }
+    }
     `
   )
   return smartVault
