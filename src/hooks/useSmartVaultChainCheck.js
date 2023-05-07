@@ -5,7 +5,6 @@ import { useQueries } from 'react-query'
 import { useEffect } from 'react'
 
 const useSmartVaultChainCheck = (address = '') => {
-
   const chains = useMemo(
     () =>
       Object.values(CHAIN_INFO).filter((item) => {
@@ -29,7 +28,7 @@ const useSmartVaultChainCheck = (address = '') => {
   const availableChains = useMemo(() => {
     return chainQueries.filter(c => c.data).map(c => {
       return c.data
-    })
+    }) // eslint-disable-next-line
   }, [address, chainQueries])
 
   useEffect(() => {
@@ -51,12 +50,12 @@ const fetchChainCheck = async (chain, address) => {
   const check = axios
     .post(urlSubgraph, {
       query: `
-    {
-      smartVault(id: ${'"' + address?.toLowerCase() + '"'}) {
-        id
-      }
-    }
-  `,
+        {
+          smartVault(id: ${'"' + address?.toLowerCase() + '"'}) {
+            id
+          }
+        }
+      `,
     })
     .then(res => {
       return res?.data?.data?.smartVault?.id

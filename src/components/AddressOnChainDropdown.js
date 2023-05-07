@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import useSmartVaultChainCheck from '../hooks/useSmartVaultChainCheck'
 import check from '../assets/mini-check.svg'
-import { BodyXs, BodyS, BodyM } from '../styles/texts'
+import { BodyXs, BodyM } from '../styles/texts'
 import ChainLogo from './ChainLogo'
 import { useChainId } from '../hooks/useChainId'
 import { CHAIN_INFO } from '../constants/chainInfo'
-import Select, { components } from 'react-select'
+import Select from 'react-select'
 import { useAppDispatch, useAppState } from '../context/appContext'
 import { newIdInUrl } from '../hooks/useSmartVaultParam'
 import { useMemo } from 'react'
@@ -95,7 +95,7 @@ const AddressOnChainDropdown = ({ address }) => {
       onChange={handleChange}
       options={availableChains.sort()}
       classNamePrefix="react-select"
-    />
+    /> // eslint-disable-next-line
   ), [handleChange, availableChains])
 
   return availableChains && availableChains.length ? (
@@ -184,10 +184,6 @@ const OptionBox = styled.div`
 const ImgCheck = styled.img`
   width: 19px;
   padding-left: 5px;
-`
-
-const Title = styled(BodyS)`
-  padding-left: 20px;
 `
 
 const ChainName = styled(BodyXs)`
