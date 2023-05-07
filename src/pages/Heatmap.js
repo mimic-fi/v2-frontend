@@ -60,12 +60,10 @@ const HM = ({ address, chain, name, logo, updateChain, shortName, setInfo }) => 
   const { heat: dataHeatmap } = useSmartVaulHeatMapData(address, chain)
   useEffect(() => {
     updateChain(shortName, dataHeatmap?.length)
+    // eslint-disable-next-line
   }, [dataHeatmap?.length])
 
   if (!dataHeatmap?.length) return null
-
-
-
   return (
     <div>
       <Title>
