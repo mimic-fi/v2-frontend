@@ -17,10 +17,6 @@ const ActionConfig = () => {
   const { data, isLoading } = useActionPermissions(actionId)
 
   const uniqueGrantees = normalizePermissions(data)
- 
-  // const permissionsArray = permissions?.data?.permissions
-  //   ? Object.values(permissions.data.permissions)
-  //   : undefined
 
   return (
     <>
@@ -54,6 +50,9 @@ const ActionConfig = () => {
       <br />
       <Hs>{metadata?.data?.title} permissions</Hs>
       <br />
+      {
+        isLoading ? 
+        'Loading permissions...' : // TODO: fix this loader 
       <Table>
         {uniqueGrantees && uniqueGrantees.map((grantee, index) => {
           return (
@@ -66,6 +65,8 @@ const ActionConfig = () => {
           )
         })}
       </Table>
+      }
+
     </>
   )
 }
