@@ -18,8 +18,8 @@ const fetchMetadata = async (type, chainId, address) => {
     return data
   } catch (error) {
     if (error.response && error.response.status === 404) {
-      console.log(address, 'Not an action')
-      return false // It's not an action
+      console.log(`- ${address} ${type} no metadata.`)
+      return false 
     }
     throw error // Rethrow other errors
   }
