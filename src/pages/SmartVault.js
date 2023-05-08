@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Container } from '../styles/texts'
-import { Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import Page from '../components/Page'
 import Subnavbar from '../components/Subnavbar'
 import Table from '../components/Table/Table'
@@ -14,7 +13,7 @@ import SmartVaultDetail from '../sections/SmartVaultDetail'
 import AssetsManaged from '../sections/AssetsManaged'
 import MoreActions from '../sections/MoreActions'
 import { Skeleton } from '../styles/general'
-import { Hxl, LinkL } from '../styles/texts'
+import { Hxl, LinkL, Container } from '../styles/texts'
 import split from '../assets/split.svg'
 import useSmartVault from '../hooks/useSmartVault'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
@@ -22,6 +21,7 @@ import usePrimitivesFromSmartVault from '../hooks/usePrimitivesFromSmartVault'
 
 const SmartVault = ({ chain }) => {
   const id = useSmartVaultParam()
+  const params = useParams()
   const smartVault = useSmartVault(id, 10)
   const smartVaultActions = usePrimitivesFromSmartVault(id, 10)
 
@@ -37,7 +37,7 @@ const SmartVault = ({ chain }) => {
         <SmartVaultNotFound id={id} />
       ) : (
         <>
-          <Subnavbar active="overview" address={id} />
+          <Subnavbar active="overview" address={params.id ? params.id : id} />
           <Container>
             <Hero
               address={id}
