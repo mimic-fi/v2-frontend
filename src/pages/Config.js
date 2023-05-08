@@ -11,6 +11,7 @@ import useSmartVaultParam from '../hooks/useSmartVaultParam'
 import useSmartVault from '../hooks/useSmartVault'
 import useActionMetadata from '../hooks/useActionMetadata'
 import sv from '../assets/configMenu/sv.svg'
+import defaultAction from '../assets/default-action.svg'
 
 const Config = () => {
   const params = useParams()
@@ -57,6 +58,7 @@ const Config = () => {
                       key={action.id}
                       handleClick={handleClick}
                       active={active}
+                      count={i + 1}
                     />
                   )
                 })}
@@ -69,7 +71,7 @@ const Config = () => {
   )
 }
 
-const TabAction = ({ action, index, handleClick, active }) => {
+const TabAction = ({ action, index, handleClick, active, count }) => {
   const metadata = useActionMetadata(action.id)
   const params = useParams()
   return (
@@ -80,8 +82,11 @@ const TabAction = ({ action, index, handleClick, active }) => {
         key={index}
         id={index}
       >
-        <img src={metadata.data?.icon} alt="smart vault" />
-        {metadata.data?.title}
+        <img
+          src={metadata.data?.icon ? metadata.data?.icon : defaultAction}
+          alt="smart vault"
+        />
+        {metadata.data?.title ? metadata.data?.title : 'Action ' + count}
       </Tab>
     </Link>
   )
