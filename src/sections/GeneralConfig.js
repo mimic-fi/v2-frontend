@@ -14,28 +14,15 @@ import useSmartVaultParam from '../hooks/useSmartVaultParam'
 import useSmartVaultWithConfig from '../hooks/useSmartVaultWithConfig'
 import { formatTokenAmount } from '../utils/math-utils'
 import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
+import { normalizePermissions } from '../utils/smartVault-utils'
 
 const GeneralConfig = () => {
+  let index = 0
   const id = useSmartVaultParam()
   const { data, isLoading } = useSmartVaultWithConfig(id)
   const { data: metadata } = useSmartVaultMetadata(id)
 
-  let index = 0
-  // let pfIndex = 0
-  let granteesList = []
-
-  // normalize list
-  data &&
-    data?.permissions.map(p => {
-      return p.grantees.forEach(element => {
-        return granteesList.push(element)
-      })
-    })
-
-  // unique grantees
-  const uniqueGrantees = [
-    ...new Map(granteesList.map(item => [item['id'], item])).values(),
-  ]
+  const uniqueGrantees = normalizePermissions(data)
 
   const tvmFormated = formatTokenAmount(
     data?.totalValueManaged,

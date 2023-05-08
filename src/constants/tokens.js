@@ -6,9 +6,6 @@ export const tokens = [
     symbol: '0xBTC',
     decimals: 8,
     logoURI: 'https://ethereum-optimism.github.io/data/0xBTC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -17,9 +14,6 @@ export const tokens = [
     symbol: '0xBTC',
     decimals: 8,
     logoURI: 'https://ethereum-optimism.github.io/data/0xBTC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -28,9 +22,6 @@ export const tokens = [
     symbol: '0xBTC',
     decimals: 8,
     logoURI: 'https://ethereum-optimism.github.io/data/0xBTC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -39,9 +30,6 @@ export const tokens = [
     symbol: '0xBTC',
     decimals: 8,
     logoURI: 'https://ethereum-optimism.github.io/data/0xBTC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -50,9 +38,6 @@ export const tokens = [
     symbol: 'AAVE',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/AAVE/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -61,9 +46,14 @@ export const tokens = [
     symbol: 'AAVE',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/AAVE/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
+  },
+  {
+    chainId: 42161,
+    address: '0xa1150db5105987CEC5Fd092273d1e3cbb22b378b',
+    name: 'Oath Token',
+    symbol: 'OATH',
+    decimals: 18,
+    logoURI: 'https://arbiscan.io/token/images/bytemasons_32.png',
   },
   {
     chainId: 42,
@@ -72,9 +62,6 @@ export const tokens = [
     symbol: 'AAVE',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/AAVE/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -83,9 +70,6 @@ export const tokens = [
     symbol: 'AAVE',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/AAVE/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -94,9 +78,6 @@ export const tokens = [
     symbol: 'aCRV',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/aCRV/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -105,9 +86,6 @@ export const tokens = [
     symbol: 'aCRV',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/aCRV/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -116,9 +94,6 @@ export const tokens = [
     symbol: 'aCRV',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/aCRV/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -127,9 +102,6 @@ export const tokens = [
     symbol: 'aCRV',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/aCRV/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -138,9 +110,6 @@ export const tokens = [
     symbol: 'ACX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/ACX/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -149,9 +118,6 @@ export const tokens = [
     symbol: 'ACX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/ACX/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 10,
@@ -160,7 +126,7 @@ export const tokens = [
     symbol: 'AELIN',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/AELIN/logo.png',
-    extensions: {},
+
   },
   {
     chainId: 1,
@@ -169,7 +135,7 @@ export const tokens = [
     symbol: 'alETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/alETH/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 10,
@@ -178,7 +144,7 @@ export const tokens = [
     symbol: 'alETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/alETH/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 1,
@@ -187,9 +153,6 @@ export const tokens = [
     symbol: 'BAL',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BAL/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -198,9 +161,6 @@ export const tokens = [
     symbol: 'BAL',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BAL/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -209,9 +169,6 @@ export const tokens = [
     symbol: 'BAL',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BAL/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -220,9 +177,6 @@ export const tokens = [
     symbol: 'BAL',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BAL/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -231,9 +185,6 @@ export const tokens = [
     symbol: 'BANK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BANK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -242,9 +193,6 @@ export const tokens = [
     symbol: 'BANK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BANK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -253,9 +201,6 @@ export const tokens = [
     symbol: 'BAXA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BAXA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -264,9 +209,6 @@ export const tokens = [
     symbol: 'BAXA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BAXA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -275,9 +217,6 @@ export const tokens = [
     symbol: 'BAXA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BAXA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -286,9 +225,6 @@ export const tokens = [
     symbol: 'BAXA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BAXA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -297,9 +233,6 @@ export const tokens = [
     symbol: 'BitANT',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BitANT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -308,9 +241,6 @@ export const tokens = [
     symbol: 'BitANT',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BitANT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -319,9 +249,6 @@ export const tokens = [
     symbol: 'BitANT',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BitANT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -330,9 +257,6 @@ export const tokens = [
     symbol: 'BitANT',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BitANT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -341,9 +265,6 @@ export const tokens = [
     symbol: 'BitBTC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BitBTC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0xaBA2c5F108F7E820C049D5Af70B16ac266c8f128',
-    },
   },
   {
     chainId: 10,
@@ -352,9 +273,6 @@ export const tokens = [
     symbol: 'BitBTC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BitBTC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x158F513096923fF2d3aab2BcF4478536de6725e2',
-    },
   },
   {
     chainId: 42,
@@ -363,9 +281,6 @@ export const tokens = [
     symbol: 'BitBTC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BitBTC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x0b651A42F32069d62d5ECf4f2a7e5Bd3E9438746',
-    },
   },
   {
     chainId: 69,
@@ -374,9 +289,6 @@ export const tokens = [
     symbol: 'BitBTC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BitBTC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x0CFb46528a7002a7D8877a5F7a69b9AaF1A9058e',
-    },
   },
   {
     chainId: 1,
@@ -385,7 +297,7 @@ export const tokens = [
     symbol: 'BOB',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BOB/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 10,
@@ -394,7 +306,7 @@ export const tokens = [
     symbol: 'BOB',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BOB/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 1,
@@ -403,9 +315,6 @@ export const tokens = [
     symbol: 'BOND',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BOND/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -414,9 +323,6 @@ export const tokens = [
     symbol: 'BOND',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BOND/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -425,9 +331,6 @@ export const tokens = [
     symbol: 'BOND',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BOND/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -436,9 +339,6 @@ export const tokens = [
     symbol: 'BOND',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/BOND/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -447,9 +347,6 @@ export const tokens = [
     symbol: 'cbETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/cbETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -458,9 +355,6 @@ export const tokens = [
     symbol: 'cbETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/cbETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -469,9 +363,6 @@ export const tokens = [
     symbol: 'cbETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/cbETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -480,9 +371,6 @@ export const tokens = [
     symbol: 'cbETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/cbETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -491,9 +379,6 @@ export const tokens = [
     symbol: 'COLLAB',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/COLLAB/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -502,9 +387,6 @@ export const tokens = [
     symbol: 'COLLAB',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/COLLAB/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -513,9 +395,6 @@ export const tokens = [
     symbol: 'CRV',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/CRV/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -524,9 +403,6 @@ export const tokens = [
     symbol: 'CRV',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/CRV/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -535,9 +411,6 @@ export const tokens = [
     symbol: 'CTSI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/CTSI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -546,9 +419,6 @@ export const tokens = [
     symbol: 'CTSI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/CTSI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 69,
@@ -557,9 +427,6 @@ export const tokens = [
     symbol: 'CTSI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/CTSI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -568,9 +435,6 @@ export const tokens = [
     symbol: 'DAI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DAI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x10E6593CDda8c58a1d0f14C5164B376352a55f2F',
-    },
   },
   {
     chainId: 10,
@@ -579,9 +443,6 @@ export const tokens = [
     symbol: 'DAI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DAI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x467194771dAe2967Aef3ECbEDD3Bf9a310C76C65',
-    },
   },
   {
     chainId: 42,
@@ -590,9 +451,6 @@ export const tokens = [
     symbol: 'DAI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DAI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0xb415e822C4983ecD6B1c1596e8a5f976cf6CD9e3',
-    },
   },
   {
     chainId: 69,
@@ -601,9 +459,6 @@ export const tokens = [
     symbol: 'DAI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DAI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x467194771dAe2967Aef3ECbEDD3Bf9a310C76C65',
-    },
   },
   {
     chainId: 5,
@@ -612,9 +467,6 @@ export const tokens = [
     symbol: 'DAI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DAI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x05a388Db09C2D44ec0b00Ee188cD42365c42Df23',
-    },
   },
   {
     chainId: 420,
@@ -623,9 +475,6 @@ export const tokens = [
     symbol: 'DAI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DAI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x467194771dAe2967Aef3ECbEDD3Bf9a310C76C65',
-    },
   },
   {
     chainId: 1,
@@ -634,9 +483,6 @@ export const tokens = [
     symbol: 'DCN',
     decimals: 0,
     logoURI: 'https://ethereum-optimism.github.io/data/DCN/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -645,9 +491,6 @@ export const tokens = [
     symbol: 'DCN',
     decimals: 0,
     logoURI: 'https://ethereum-optimism.github.io/data/DCN/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -656,9 +499,6 @@ export const tokens = [
     symbol: 'DCN',
     decimals: 0,
     logoURI: 'https://ethereum-optimism.github.io/data/DCN/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -667,9 +507,6 @@ export const tokens = [
     symbol: 'DCN',
     decimals: 0,
     logoURI: 'https://ethereum-optimism.github.io/data/DCN/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -678,9 +515,6 @@ export const tokens = [
     symbol: 'DF',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DF/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -689,9 +523,6 @@ export const tokens = [
     symbol: 'DF',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DF/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -700,9 +531,6 @@ export const tokens = [
     symbol: 'DF',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DF/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -711,9 +539,6 @@ export const tokens = [
     symbol: 'DF',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DF/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -722,9 +547,6 @@ export const tokens = [
     symbol: 'DHT',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DHT/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -733,9 +555,6 @@ export const tokens = [
     symbol: 'DHT',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DHT/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -744,9 +563,6 @@ export const tokens = [
     symbol: 'DOLA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DOLA/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -755,9 +571,6 @@ export const tokens = [
     symbol: 'DOLA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DOLA/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -766,9 +579,6 @@ export const tokens = [
     symbol: 'DOLA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DOLA/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -777,9 +587,6 @@ export const tokens = [
     symbol: 'DOLA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DOLA/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -788,9 +595,6 @@ export const tokens = [
     symbol: 'DUCK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DUCK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -799,9 +603,6 @@ export const tokens = [
     symbol: 'DUCK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/DUCK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
 
   {
@@ -811,9 +612,6 @@ export const tokens = [
     symbol: 'ETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -822,9 +620,6 @@ export const tokens = [
     symbol: 'ETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -833,9 +628,6 @@ export const tokens = [
     symbol: 'ETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 5,
@@ -844,9 +636,6 @@ export const tokens = [
     symbol: 'ETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 69,
@@ -855,9 +644,6 @@ export const tokens = [
     symbol: 'ETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 420,
@@ -866,9 +652,6 @@ export const tokens = [
     symbol: 'ETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/ETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -877,9 +660,6 @@ export const tokens = [
     symbol: 'ENS',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/ENS/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -888,9 +668,6 @@ export const tokens = [
     symbol: 'ENS',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/ENS/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -899,9 +676,6 @@ export const tokens = [
     symbol: 'EQZ',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/EQZ/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -910,9 +684,6 @@ export const tokens = [
     symbol: 'EQZ',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/EQZ/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -921,9 +692,6 @@ export const tokens = [
     symbol: 'EQZ',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/EQZ/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -932,9 +700,6 @@ export const tokens = [
     symbol: 'EQZ',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/EQZ/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -943,9 +708,6 @@ export const tokens = [
     symbol: 'EST',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/EST/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -954,9 +716,6 @@ export const tokens = [
     symbol: 'EST',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/EST/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -965,9 +724,6 @@ export const tokens = [
     symbol: 'EURT',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/EURT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -976,9 +732,6 @@ export const tokens = [
     symbol: 'EURT',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/EURT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -987,9 +740,6 @@ export const tokens = [
     symbol: 'FLASH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/FLASH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -998,9 +748,6 @@ export const tokens = [
     symbol: 'FLASH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/FLASH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1009,7 +756,7 @@ export const tokens = [
     symbol: 'FRAX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/FRAX/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 10,
@@ -1018,7 +765,7 @@ export const tokens = [
     symbol: 'FRAX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/FRAX/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 1,
@@ -1027,9 +774,6 @@ export const tokens = [
     symbol: 'frxETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/frxETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1038,9 +782,6 @@ export const tokens = [
     symbol: 'frxETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/frxETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -1049,9 +790,6 @@ export const tokens = [
     symbol: 'frxETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/frxETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 1,
@@ -1060,7 +798,7 @@ export const tokens = [
     symbol: 'FXS',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/FXS/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 10,
@@ -1069,7 +807,7 @@ export const tokens = [
     symbol: 'FXS',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/FXS/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 1,
@@ -1078,9 +816,6 @@ export const tokens = [
     symbol: 'GRG',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/GRG/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1089,9 +824,6 @@ export const tokens = [
     symbol: 'GRG',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/GRG/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1100,9 +832,6 @@ export const tokens = [
     symbol: 'GTC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/GTC/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1111,9 +840,6 @@ export const tokens = [
     symbol: 'GTC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/GTC/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -1122,9 +848,6 @@ export const tokens = [
     symbol: 'GTC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/GTC/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -1133,9 +856,6 @@ export const tokens = [
     symbol: 'GTC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/GTC/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1144,9 +864,6 @@ export const tokens = [
     symbol: 'GYEN',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/GYEN/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1155,9 +872,6 @@ export const tokens = [
     symbol: 'GYEN',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/GYEN/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1166,9 +880,6 @@ export const tokens = [
     symbol: 'GYSR',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/GYSR/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1177,9 +888,6 @@ export const tokens = [
     symbol: 'GYSR',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/GYSR/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -1188,9 +896,6 @@ export const tokens = [
     symbol: 'GYSR',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/GYSR/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -1199,9 +904,6 @@ export const tokens = [
     symbol: 'GYSR',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/GYSR/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1210,9 +912,6 @@ export const tokens = [
     symbol: 'HAIR',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/HAIR/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1221,9 +920,6 @@ export const tokens = [
     symbol: 'HAIR',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/HAIR/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1232,9 +928,6 @@ export const tokens = [
     symbol: 'HAN',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/HAN/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1243,9 +936,6 @@ export const tokens = [
     symbol: 'HAN',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/HAN/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -1254,9 +944,6 @@ export const tokens = [
     symbol: 'HAN',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/HAN/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -1265,9 +952,6 @@ export const tokens = [
     symbol: 'HAN',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/HAN/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1276,7 +960,7 @@ export const tokens = [
     symbol: 'HOP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/HOP/logo.png',
-    extensions: {},
+
   },
   {
     chainId: 10,
@@ -1285,7 +969,7 @@ export const tokens = [
     symbol: 'HOP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/HOP/logo.png',
-    extensions: {},
+
   },
   {
     chainId: 5,
@@ -1294,7 +978,7 @@ export const tokens = [
     symbol: 'HOP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/HOP/logo.png',
-    extensions: {},
+
   },
   {
     chainId: 420,
@@ -1303,7 +987,7 @@ export const tokens = [
     symbol: 'HOP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/HOP/logo.png',
-    extensions: {},
+
   },
   {
     chainId: 1,
@@ -1312,9 +996,6 @@ export const tokens = [
     symbol: 'IBEX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/IBEX/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1323,9 +1004,6 @@ export const tokens = [
     symbol: 'IBEX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/IBEX/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -1334,9 +1012,6 @@ export const tokens = [
     symbol: 'INSURE',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/INSURE/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -1345,9 +1020,6 @@ export const tokens = [
     symbol: 'INSURE',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/INSURE/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1356,9 +1028,6 @@ export const tokens = [
     symbol: 'JRT',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/JRT/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 1,
@@ -1367,9 +1036,6 @@ export const tokens = [
     symbol: 'KNC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/KNC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1378,9 +1044,6 @@ export const tokens = [
     symbol: 'KNC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/KNC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -1389,9 +1052,6 @@ export const tokens = [
     symbol: 'KNC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/KNC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -1400,9 +1060,6 @@ export const tokens = [
     symbol: 'KNC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/KNC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1411,9 +1068,6 @@ export const tokens = [
     symbol: 'KROM',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/KROM/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1422,9 +1076,6 @@ export const tokens = [
     symbol: 'KROM',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/KROM/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -1433,9 +1084,6 @@ export const tokens = [
     symbol: 'KROM',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/KROM/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -1444,9 +1092,6 @@ export const tokens = [
     symbol: 'KROM',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/KROM/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -1455,9 +1100,6 @@ export const tokens = [
     symbol: 'LAND',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LAND/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -1466,9 +1108,6 @@ export const tokens = [
     symbol: 'LAND',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LAND/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1477,9 +1116,6 @@ export const tokens = [
     symbol: 'LDO',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LDO/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1488,9 +1124,6 @@ export const tokens = [
     symbol: 'LDO',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LDO/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -1499,9 +1132,6 @@ export const tokens = [
     symbol: 'TESTLDO',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LDO/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -1510,9 +1140,6 @@ export const tokens = [
     symbol: 'TESTLDO',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LDO/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1521,9 +1148,6 @@ export const tokens = [
     symbol: 'LINK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LINK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1532,9 +1156,6 @@ export const tokens = [
     symbol: 'LINK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LINK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -1543,9 +1164,6 @@ export const tokens = [
     symbol: 'LINK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LINK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -1554,9 +1172,6 @@ export const tokens = [
     symbol: 'LINK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LINK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -1565,9 +1180,6 @@ export const tokens = [
     symbol: 'LINK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LINK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -1576,9 +1188,6 @@ export const tokens = [
     symbol: 'LINK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LINK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1587,9 +1196,6 @@ export const tokens = [
     symbol: 'LIZ',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LIZ/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1598,9 +1204,6 @@ export const tokens = [
     symbol: 'LIZ',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LIZ/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -1609,9 +1212,6 @@ export const tokens = [
     symbol: 'LIZ',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LIZ/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -1620,9 +1220,6 @@ export const tokens = [
     symbol: 'LIZ',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LIZ/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1631,9 +1228,6 @@ export const tokens = [
     symbol: 'LPF',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LPF/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1642,9 +1236,6 @@ export const tokens = [
     symbol: 'LPF',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LPF/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1653,9 +1244,6 @@ export const tokens = [
     symbol: 'LRC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LRC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1664,9 +1252,6 @@ export const tokens = [
     symbol: 'LRC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LRC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1675,9 +1260,6 @@ export const tokens = [
     symbol: 'LUSD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LUSD/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1686,9 +1268,6 @@ export const tokens = [
     symbol: 'LUSD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LUSD/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1697,9 +1276,6 @@ export const tokens = [
     symbol: 'LYRA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LYRA/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1708,9 +1284,6 @@ export const tokens = [
     symbol: 'LYRA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/LYRA/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1719,9 +1292,6 @@ export const tokens = [
     symbol: 'MASK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/MASK/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1730,9 +1300,6 @@ export const tokens = [
     symbol: 'MASK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/MASK/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1741,9 +1308,6 @@ export const tokens = [
     symbol: 'MKR',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/MKR/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1752,9 +1316,6 @@ export const tokens = [
     symbol: 'MKR',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/MKR/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1763,9 +1324,6 @@ export const tokens = [
     symbol: 'MOCHI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/MOCHI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1774,9 +1332,6 @@ export const tokens = [
     symbol: 'MOCHI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/MOCHI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -1785,9 +1340,6 @@ export const tokens = [
     symbol: 'MOCHI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/MOCHI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -1796,9 +1348,6 @@ export const tokens = [
     symbol: 'MOCHI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/MOCHI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1807,9 +1356,6 @@ export const tokens = [
     symbol: 'MOM',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/MOM/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1818,9 +1364,6 @@ export const tokens = [
     symbol: 'MOM',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/MOM/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -1829,9 +1372,6 @@ export const tokens = [
     symbol: 'MOM',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/MOM/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -1840,9 +1380,6 @@ export const tokens = [
     symbol: 'MOM',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/MOM/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1851,9 +1388,6 @@ export const tokens = [
     symbol: 'NFTE',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/NFTE/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1862,9 +1396,6 @@ export const tokens = [
     symbol: 'NFTE',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/NFTE/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 10,
@@ -1873,7 +1404,7 @@ export const tokens = [
     symbol: 'OP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/OP/logo.png',
-    extensions: {},
+
   },
   {
     chainId: 69,
@@ -1882,7 +1413,7 @@ export const tokens = [
     symbol: 'OP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/OP/logo.png',
-    extensions: {},
+
   },
   {
     chainId: 5,
@@ -1891,9 +1422,6 @@ export const tokens = [
     symbol: 'OUTb',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/OUTb/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -1902,9 +1430,6 @@ export const tokens = [
     symbol: 'OUTb',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/OUTb/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1913,9 +1438,6 @@ export const tokens = [
     symbol: 'PAPER',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/PAPER/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1924,9 +1446,6 @@ export const tokens = [
     symbol: 'PAPER',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/PAPER/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -1935,9 +1454,6 @@ export const tokens = [
     symbol: 'PERP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/PERP/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -1946,9 +1462,6 @@ export const tokens = [
     symbol: 'PERP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/PERP/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -1957,9 +1470,6 @@ export const tokens = [
     symbol: 'PERP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/PERP/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -1968,9 +1478,6 @@ export const tokens = [
     symbol: 'PERP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/PERP/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -1979,9 +1486,6 @@ export const tokens = [
     symbol: 'PERP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/PERP/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -1990,9 +1494,6 @@ export const tokens = [
     symbol: 'PERP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/PERP/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2001,9 +1502,6 @@ export const tokens = [
     symbol: 'PHTK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/PHTK/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2012,9 +1510,6 @@ export const tokens = [
     symbol: 'PHTK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/PHTK/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2023,9 +1518,6 @@ export const tokens = [
     symbol: 'POOL',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/POOL/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2034,9 +1526,6 @@ export const tokens = [
     symbol: 'POOL',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/POOL/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2045,9 +1534,6 @@ export const tokens = [
     symbol: 'POP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/POP/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2056,9 +1542,6 @@ export const tokens = [
     symbol: 'POP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/POP/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2067,9 +1550,6 @@ export const tokens = [
     symbol: 'PREMIA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/PREMIA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2078,9 +1558,6 @@ export const tokens = [
     symbol: 'PREMIA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/PREMIA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2089,9 +1566,6 @@ export const tokens = [
     symbol: 'RAI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/RAI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2100,9 +1574,6 @@ export const tokens = [
     symbol: 'RAI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/RAI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2111,9 +1582,6 @@ export const tokens = [
     symbol: 'RAI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/RAI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2122,9 +1590,6 @@ export const tokens = [
     symbol: 'RAI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/RAI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2133,9 +1598,6 @@ export const tokens = [
     symbol: 'rETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/rETH/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2144,9 +1606,6 @@ export const tokens = [
     symbol: 'rETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/rETH/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2155,9 +1614,6 @@ export const tokens = [
     symbol: 'RFWSTETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/RFWSTETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2166,9 +1622,6 @@ export const tokens = [
     symbol: 'RFWSTETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/RFWSTETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2177,9 +1630,6 @@ export const tokens = [
     symbol: 'RFWSTETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/RFWSTETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2188,9 +1638,6 @@ export const tokens = [
     symbol: 'RFWSTETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/RFWSTETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2199,9 +1646,6 @@ export const tokens = [
     symbol: 'RGT',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/RGT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2210,9 +1654,6 @@ export const tokens = [
     symbol: 'RGT',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/RGT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2221,9 +1662,6 @@ export const tokens = [
     symbol: 'SARCO',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SARCO/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2232,9 +1670,6 @@ export const tokens = [
     symbol: 'SARCO',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SARCO/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 10,
@@ -2243,7 +1678,7 @@ export const tokens = [
     symbol: 'sBTC',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/sBTC/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 1,
@@ -2252,9 +1687,6 @@ export const tokens = [
     symbol: 'SDL',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SDL/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2263,9 +1695,6 @@ export const tokens = [
     symbol: 'SDL',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SDL/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2274,9 +1703,6 @@ export const tokens = [
     symbol: 'SDL',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SDL/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2285,9 +1711,6 @@ export const tokens = [
     symbol: 'SDL',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SDL/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 10,
@@ -2296,7 +1719,7 @@ export const tokens = [
     symbol: 'sETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/sETH/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 10,
@@ -2305,7 +1728,7 @@ export const tokens = [
     symbol: 'sLINK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/sLINK/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 1,
@@ -2314,9 +1737,6 @@ export const tokens = [
     symbol: 'SNX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SNX/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x39Ea01a0298C315d149a490E34B59Dbf2EC7e48F',
-    },
   },
   {
     chainId: 10,
@@ -2325,9 +1745,6 @@ export const tokens = [
     symbol: 'SNX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SNX/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x136b1EC699c62b0606854056f02dC7Bb80482d63',
-    },
   },
   {
     chainId: 42,
@@ -2336,9 +1753,6 @@ export const tokens = [
     symbol: 'SNX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SNX/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0xc00E7C2Bd7B0Fb95DbBF10d2d336399A939099ee',
-    },
   },
   {
     chainId: 69,
@@ -2347,9 +1761,6 @@ export const tokens = [
     symbol: 'SNX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SNX/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x5b643DFC67f9701929A0b55f23e0Af61df50E75D',
-    },
   },
   {
     chainId: 5,
@@ -2358,9 +1769,6 @@ export const tokens = [
     symbol: 'SNX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SNX/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x1427Bc44755d9Aa317535B1feE38922760Aa4e65',
-    },
   },
   {
     chainId: 420,
@@ -2369,9 +1777,6 @@ export const tokens = [
     symbol: 'SNX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SNX/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0xD2b3F0Ea40dB68088415412b0043F37B3088836D',
-    },
   },
   {
     chainId: 1,
@@ -2380,9 +1785,6 @@ export const tokens = [
     symbol: 'SPANK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SPANK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2391,9 +1793,6 @@ export const tokens = [
     symbol: 'SPANK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SPANK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2402,9 +1801,6 @@ export const tokens = [
     symbol: 'SPANK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SPANK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2413,9 +1809,6 @@ export const tokens = [
     symbol: 'SPANK',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SPANK/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2424,9 +1817,6 @@ export const tokens = [
     symbol: 'stkLYRA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/stkLYRA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2435,9 +1825,6 @@ export const tokens = [
     symbol: 'stkLYRA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/stkLYRA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2446,9 +1833,6 @@ export const tokens = [
     symbol: 'SUKU',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SUKU/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2457,9 +1841,6 @@ export const tokens = [
     symbol: 'SUKU',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SUKU/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2468,9 +1849,6 @@ export const tokens = [
     symbol: 'SUKU',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SUKU/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2479,9 +1857,6 @@ export const tokens = [
     symbol: 'SUKU',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SUKU/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 10,
@@ -2490,7 +1865,7 @@ export const tokens = [
     symbol: 'sUSD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/sUSD/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 69,
@@ -2499,7 +1874,7 @@ export const tokens = [
     symbol: 'sUSD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/sUSD/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 420,
@@ -2508,7 +1883,7 @@ export const tokens = [
     symbol: 'sUSD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/sUSD/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 1,
@@ -2517,9 +1892,6 @@ export const tokens = [
     symbol: 'SUSHI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SUSHI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2528,9 +1900,6 @@ export const tokens = [
     symbol: 'SUSHI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/SUSHI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2539,9 +1908,6 @@ export const tokens = [
     symbol: 'THALES',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/THALES/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2550,9 +1916,6 @@ export const tokens = [
     symbol: 'THALES',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/THALES/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2561,9 +1924,6 @@ export const tokens = [
     symbol: 'TheDAO',
     decimals: 16,
     logoURI: 'https://ethereum-optimism.github.io/data/TheDAO/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2572,9 +1932,6 @@ export const tokens = [
     symbol: 'TheDAO',
     decimals: 16,
     logoURI: 'https://ethereum-optimism.github.io/data/TheDAO/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2583,9 +1940,6 @@ export const tokens = [
     symbol: 'TheDAO',
     decimals: 16,
     logoURI: 'https://ethereum-optimism.github.io/data/TheDAO/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2594,9 +1948,6 @@ export const tokens = [
     symbol: 'TheDAO',
     decimals: 16,
     logoURI: 'https://ethereum-optimism.github.io/data/TheDAO/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2605,9 +1956,6 @@ export const tokens = [
     symbol: 'TRB',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/TRB/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2616,9 +1964,6 @@ export const tokens = [
     symbol: 'TRB',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/TRB/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2627,9 +1972,6 @@ export const tokens = [
     symbol: 'TRB',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/TRB/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2638,9 +1980,6 @@ export const tokens = [
     symbol: 'TRB',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/TRB/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2649,9 +1988,6 @@ export const tokens = [
     symbol: 'TUSD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/TUSD/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2660,9 +1996,6 @@ export const tokens = [
     symbol: 'TUSD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/TUSD/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2671,9 +2004,6 @@ export const tokens = [
     symbol: 'TUSD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/TUSD/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2682,9 +2012,6 @@ export const tokens = [
     symbol: 'TUSD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/TUSD/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2693,9 +2020,6 @@ export const tokens = [
     symbol: 'UBI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/UBI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2704,9 +2028,6 @@ export const tokens = [
     symbol: 'UBI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/UBI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2715,9 +2036,6 @@ export const tokens = [
     symbol: 'UBI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/UBI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2726,9 +2044,6 @@ export const tokens = [
     symbol: 'UBI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/UBI/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2737,9 +2052,6 @@ export const tokens = [
     symbol: 'UMA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/UMA/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2748,9 +2060,6 @@ export const tokens = [
     symbol: 'UMA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/UMA/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2759,9 +2068,6 @@ export const tokens = [
     symbol: 'UNI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/UNI/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2770,9 +2076,6 @@ export const tokens = [
     symbol: 'UNI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/UNI/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2781,9 +2084,6 @@ export const tokens = [
     symbol: 'UNI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/UNI/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2792,9 +2092,6 @@ export const tokens = [
     symbol: 'UNI',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/UNI/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2803,9 +2100,6 @@ export const tokens = [
     symbol: 'USDC',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2814,9 +2108,6 @@ export const tokens = [
     symbol: 'USDC',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2825,9 +2116,6 @@ export const tokens = [
     symbol: 'USDC',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2836,9 +2124,6 @@ export const tokens = [
     symbol: 'USDC',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -2847,9 +2132,6 @@ export const tokens = [
     symbol: 'USDC',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -2858,9 +2140,6 @@ export const tokens = [
     symbol: 'USDC',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDC/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2869,9 +2148,6 @@ export const tokens = [
     symbol: 'USDD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/USDD/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2880,9 +2156,6 @@ export const tokens = [
     symbol: 'USDD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/USDD/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2891,9 +2164,6 @@ export const tokens = [
     symbol: 'USDD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/USDD/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2902,9 +2172,6 @@ export const tokens = [
     symbol: 'USDD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/USDD/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 10,
@@ -2913,7 +2180,7 @@ export const tokens = [
     symbol: 'USD+',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDplus/logo.svg',
-    extensions: {},
+
   },
   {
     chainId: 1,
@@ -2922,9 +2189,6 @@ export const tokens = [
     symbol: 'USDT',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2933,9 +2197,6 @@ export const tokens = [
     symbol: 'USDT',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -2944,9 +2205,6 @@ export const tokens = [
     symbol: 'USDT',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -2955,9 +2213,6 @@ export const tokens = [
     symbol: 'USDT',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -2966,9 +2221,6 @@ export const tokens = [
     symbol: 'USDT',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -2977,9 +2229,6 @@ export const tokens = [
     symbol: 'USDT',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/USDT/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -2988,9 +2237,6 @@ export const tokens = [
     symbol: 'UST',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/UST/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -2999,9 +2245,6 @@ export const tokens = [
     symbol: 'UST',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/UST/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -3010,9 +2253,6 @@ export const tokens = [
     symbol: 'USX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/USX/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0xC5b1EC605738eF73a4EFc562274c1c0b6609cF59',
-    },
   },
   {
     chainId: 10,
@@ -3021,9 +2261,6 @@ export const tokens = [
     symbol: 'USX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/USX/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0xc76cbFbAfD41761279E3EDb23Fd831Ccb74D5D67',
-    },
   },
   {
     chainId: 42,
@@ -3032,9 +2269,6 @@ export const tokens = [
     symbol: 'USX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/USX/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x40E862341b2416345F02c41Ac70df08525150dC7',
-    },
   },
   {
     chainId: 69,
@@ -3043,9 +2277,6 @@ export const tokens = [
     symbol: 'USX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/USX/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0xB4d37826b14Cd3CB7257A2A5094507d701fe715f',
-    },
   },
   {
     chainId: 1,
@@ -3054,9 +2285,6 @@ export const tokens = [
     symbol: 'VALX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/VALX/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -3065,9 +2293,6 @@ export const tokens = [
     symbol: 'VALX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/VALX/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -3076,9 +2301,6 @@ export const tokens = [
     symbol: 'veKWENTA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/veKWENTA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -3087,9 +2309,6 @@ export const tokens = [
     symbol: 'veKWENTA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/veKWENTA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -3098,9 +2317,6 @@ export const tokens = [
     symbol: 'veKWENTA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/veKWENTA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -3109,9 +2325,6 @@ export const tokens = [
     symbol: 'veKWENTA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/veKWENTA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 10,
@@ -3120,9 +2333,6 @@ export const tokens = [
     symbol: 'VELO',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/VELO/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -3131,9 +2341,6 @@ export const tokens = [
     symbol: 'VITA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/VITA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -3142,9 +2349,6 @@ export const tokens = [
     symbol: 'VITA',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/VITA/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -3153,9 +2357,6 @@ export const tokens = [
     symbol: 'WAD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/WAD/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -3164,9 +2365,6 @@ export const tokens = [
     symbol: 'WAD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/WAD/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -3175,9 +2373,6 @@ export const tokens = [
     symbol: 'WAD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/WAD/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -3186,9 +2381,6 @@ export const tokens = [
     symbol: 'WAD',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/WAD/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -3197,9 +2389,6 @@ export const tokens = [
     symbol: 'WBTC',
     decimals: 8,
     logoURI: 'https://ethereum-optimism.github.io/data/WBTC/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -3208,9 +2397,6 @@ export const tokens = [
     symbol: 'WBTC',
     decimals: 8,
     logoURI: 'https://ethereum-optimism.github.io/data/WBTC/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 42,
@@ -3219,9 +2405,6 @@ export const tokens = [
     symbol: 'WBTC',
     decimals: 8,
     logoURI: 'https://ethereum-optimism.github.io/data/WBTC/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x22F24361D548e5FaAfb36d1437839f080363982B',
-    },
   },
   {
     chainId: 69,
@@ -3230,9 +2413,6 @@ export const tokens = [
     symbol: 'WBTC',
     decimals: 8,
     logoURI: 'https://ethereum-optimism.github.io/data/WBTC/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 5,
@@ -3241,9 +2421,6 @@ export const tokens = [
     symbol: 'WBTC',
     decimals: 8,
     logoURI: 'https://ethereum-optimism.github.io/data/WBTC/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -3252,9 +2429,6 @@ export const tokens = [
     symbol: 'WBTC',
     decimals: 8,
     logoURI: 'https://ethereum-optimism.github.io/data/WBTC/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 10,
@@ -3263,7 +2437,7 @@ export const tokens = [
     symbol: 'WETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/WETH/logo.png',
-    extensions: {},
+
   },
   {
     chainId: 5,
@@ -3272,9 +2446,6 @@ export const tokens = [
     symbol: 'WMP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/WMP/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x636Af16bf2f682dD3109e60102b8E1A089FedAa8',
-    },
   },
   {
     chainId: 420,
@@ -3283,9 +2454,6 @@ export const tokens = [
     symbol: 'WMP',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/WMP/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -3294,9 +2462,6 @@ export const tokens = [
     symbol: 'WOO',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/WOO/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -3305,9 +2470,6 @@ export const tokens = [
     symbol: 'WOO',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/WOO/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -3316,9 +2478,6 @@ export const tokens = [
     symbol: 'wstETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/wstETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x76943C0D61395d8F2edF9060e1533529cAe05dE6',
-    },
   },
   {
     chainId: 10,
@@ -3327,9 +2486,6 @@ export const tokens = [
     symbol: 'wstETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/wstETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x8E01013243a96601a86eb3153F0d9Fa4fbFb6957',
-    },
   },
   {
     chainId: 42,
@@ -3338,9 +2494,6 @@ export const tokens = [
     symbol: 'wstETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/wstETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x65321bf24210b81500230dCEce14Faa70a9f50a7',
-    },
   },
   {
     chainId: 69,
@@ -3349,9 +2502,6 @@ export const tokens = [
     symbol: 'wstETH',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/wstETH/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x2E34e7d705AfaC3C4665b6feF31Aa394A1c81c92',
-    },
   },
   {
     chainId: 1,
@@ -3360,9 +2510,6 @@ export const tokens = [
     symbol: 'XCHF',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/XCHF/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -3371,9 +2518,6 @@ export const tokens = [
     symbol: 'XCHF',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/XCHF/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -3382,9 +2526,6 @@ export const tokens = [
     symbol: 'ZRX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/ZRX/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -3393,9 +2534,6 @@ export const tokens = [
     symbol: 'ZRX',
     decimals: 18,
     logoURI: 'https://ethereum-optimism.github.io/data/ZRX/logo.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -3404,9 +2542,6 @@ export const tokens = [
     symbol: 'ZUSD',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/ZUSD/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1',
-    },
   },
   {
     chainId: 10,
@@ -3415,9 +2550,6 @@ export const tokens = [
     symbol: 'ZUSD',
     decimals: 6,
     logoURI: 'https://ethereum-optimism.github.io/data/ZUSD/logo.svg',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000010',
-    },
   },
   {
     chainId: 1,
@@ -3427,9 +2559,6 @@ export const tokens = [
     decimals: 18,
     logoURI:
       'https://assets.coingecko.com/coins/images/878/large/decentraland-mana.png',
-    extensions: {
-      optimismBridgeAddress: '0x4200000000000000000000000000000000000006',
-    },
   },
   {
     chainId: 10,
@@ -3447,4 +2576,1436 @@ export const tokens = [
     decimals: 18,
     logoURI: 'https://optimistic.etherscan.io/images/main/empty-token.png',
   },
+  {
+    symbol: 'GMX',
+    name: 'GMX',
+    address: '0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a.png',
+  },
+  {
+    symbol: 'TLPT',
+    name: 'tLPT',
+    address: '0xfaC38532829fDD744373fdcd4708Ab90fA0c4078',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/26972/thumb/tenderLPT.png?1661152923',
+  },
+  {
+    symbol: 'CARBON',
+    name: 'Carboncoin',
+    address: '0xfa42DA1bd08341537a44a4ca9D236D1c00A98b40',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cloudstorage.openocean.finance/images/1637832686338_7422730180325647.png',
+  },
+  {
+    symbol: 'LINK',
+    name: 'Chainlink',
+    address: '0xf97f4df75117a78c1A5a0DBb814Af92458539FB4',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x514910771af9ca656af840dff83e8264ecf986ca.png',
+  },
+  {
+    symbol: 'CREAM',
+    name: 'Cream',
+    address: '0xf4D48Ce3ee1Ac3651998971541bAdbb9A14D7234',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cryptologos.cc/logos/cream-finance-cream-logo.png',
+  },
+  {
+    symbol: 'RGT',
+    name: 'Rari Governance',
+    address: '0xef888bcA6AB6B1d26dbeC977C455388ecd794794',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/RariGovernanceToken_32.png',
+  },
+  {
+    symbol: 'ACRV',
+    name: 'Aladdin cvxCRV',
+    address: '0xebf1F92D4384118bFb91B4496660a95931c92861',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/25395/thumb/Sv06cFHS_400x400.jpg?1651707422',
+  },
+  {
+    symbol: 'AUC',
+    name: 'Auctus',
+    address: '0xea986d33eF8a20A96120ecc44dBdD49830192043',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/2165/thumb/Auc_Discord_Avatar1.png?1618983355',
+  },
+  {
+    symbol: 'ELK',
+    name: 'Elk',
+    address: '0xeEeEEb57642040bE42185f49C52F7E9B38f8eeeE',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xeeeeeb57642040be42185f49c52f7e9b38f8eeee.png',
+  },
+  {
+    symbol: 'NYAN',
+    name: 'ArbiNYAN',
+    address: '0xeD3fB761414DA74b74F33e5c5a1f78104b188DfC',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cloudstorage.openocean.finance/images/1638170899569_12235125291982096.png',
+  },
+  {
+    symbol: 'AWETH',
+    name: 'Aave WETH',
+    address: '0xe50fA9b3c56FfB159cB0FCA61F5c9D750e8128c8',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/17238/thumb/aWETH_2x.png?1626940782',
+  },
+  {
+    symbol: 'ALTA',
+    name: 'Alta Finance',
+    address: '0xe0cCa86B254005889aC3a81e737f56a14f4A38F5',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/18713/thumb/AFN-token-Altafin-200.png?1633079552',
+  },
+  {
+    symbol: 'DEFI5',
+    name: 'DEFI Top 5 Tokens Index',
+    address: '0xdeBa25AF35e4097146d7629055E0EC3C71706324',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/13691/thumb/thGDKHo.png?1610959947',
+  },
+  {
+    symbol: 'KSW',
+    name: 'KillSwitch',
+    address: '0xdc7179416c08c15f689d9214A3BeC2Dd003DeABc',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/20215/thumb/logo_%2824%29.png?1636670633',
+  },
+  {
+    symbol: 'Z2O',
+    name: 'ZeroTwOhm',
+    address: '0xdb96f8efd6865644993505318cc08FF9C42fb9aC',
+    decimals: 9,
+    chainId: 42161,
+    logoURI: 'https://cloudstorage.openocean.finance/images/1637928264168_1276740912855694.png',
+  },
+  {
+    symbol: 'SWPR',
+    name: 'Swapr',
+    address: '0xdE903E2712288A1dA82942DDdF2c20529565aC30',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/18740/thumb/swapr.jpg?1633516501',
+  },
+  {
+    symbol: 'HONEY',
+    name: 'Honey Pot BeeKeepers',
+    address: '0xdE31e75182276738B0c025daa8F80020A4F2fbFE',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/18380/thumb/ac6fTCfDQDIV.jpg?1631695015',
+  },
+  {
+    symbol: 'SUSHI',
+    name: 'Sushi',
+    address: '0xd4d42F0b6DEF4CE0383636770eF773390d85c61A',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x6b3595068778dd592e39a122f4f5a5cf09c90fe2.png',
+  },
+  {
+    symbol: 'DBL',
+    name: 'Doubloon',
+    address: '0xd3f1Da62CAFB7E7BC6531FF1ceF6F414291F03D3',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/23660/thumb/galleon-sky.png?1651744892',
+  },
+  {
+    symbol: 'USX',
+    name: 'dForce USD',
+    address: '0xcd14C3A2ba27819B352aae73414A26e2b366dC50',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/dforceusd_32.png',
+  },
+  {
+    symbol: 'NFTI',
+    name: 'Scalara NFT Index',
+    address: '0xcFe3FBc98D80f7Eca0bC76cD1F406A19dD425896',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xcfe3fbc98d80f7eca0bc76cd1f406a19dd425896.png',
+  },
+  {
+    symbol: 'WOO',
+    name: 'WOO Network',
+    address: '0xcAFcD85D8ca7Ad1e1C6F82F651fA15E33AEfD07b',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/12921/thumb/w2UiemF__400x400.jpg?1603670367',
+  },
+  {
+    symbol: 'deETH',
+    name: 'deBridge Ether',
+    address: '0xcAB86F6Fb6d1C2cBeeB97854A0C023446A075Fe3',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xcab86f6fb6d1c2cbeeb97854a0c023446a075fe3.png',
+  },
+  {
+    symbol: 'NFD',
+    name: 'Feisty Doge NFT',
+    address: '0xc9c2B86CD4cdbAB70cd65D22EB044574c3539F6c',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/feistydoge_32.png',
+  },
+  {
+    symbol: 'HOP',
+    name: 'Hop Protocol',
+    address: '0xc5102fE9359FD9a28f877a67E36B0F050d81a3CC',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xc5102fe9359fd9a28f877a67e36b0f050d81a3cc.png',
+  },
+  {
+    symbol: 'CREDA',
+    name: 'CreDA',
+    address: '0xc136E6B376a9946B156db1ED3A34b08AFdAeD76d',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/arbitrum/assets/0xc136E6B376a9946B156db1ED3A34b08AFdAeD76d/logo.png',
+  },
+  {
+    symbol: 'RAI',
+    name: 'Rai Reflex Index',
+    address: '0xaeF5bbcbFa438519a5ea80B4c7181B4E78d419f2',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/raireflexindex_32.png',
+  },
+  {
+    symbol: 'MATTER',
+    name: 'AntiMatter',
+    address: '0xaaA62D9584Cbe8e4D68A43ec91BfF4fF1fAdB202',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/antimatter_32.png',
+  },
+  {
+    symbol: 'DF',
+    name: 'dForce',
+    address: '0xaE6aab43C4f3E0cea4Ab83752C278f8dEbabA689',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/9709/thumb/xlGxxIjI_400x400.jpg?1571006794',
+  },
+  {
+    symbol: 'TNGL',
+    name: 'Tangle',
+    address: '0xa943F863fA69ff4F6D9022843Fb861BBEe45B2ce',
+    decimals: 9,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/18312/thumb/tangle.PNG?1631510159',
+  },
+  {
+    symbol: 'VSTA',
+    name: 'Vesta Finance',
+    address: '0xa684cd057951541187f288294a1e1C2646aA2d24',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cloudstorage.openocean.finance/images/1648808309036_20667985804740718.jpg',
+  },
+  {
+    symbol: 'LYS',
+    name: 'LYS Capital',
+    address: '0xa4f595Ba35161c9fFE3db8c03991B9C2CBB26C6b',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/20863/thumb/1637613107-lys-logo-cg-200pix.png?1637805637',
+  },
+  {
+    symbol: 'GNO',
+    name: 'Gnosis',
+    address: '0xa0b862F60edEf4452F25B4160F177db44DeB6Cf1',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x6810e776880c02933d47db1b9fc05908e5386b96.png',
+  },
+  {
+    symbol: 'USDT',
+    name: 'Tether',
+    address: '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9',
+    decimals: 6,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xdac17f958d2ee523a2206206994597c13d831ec7.png',
+  },
+  {
+    symbol: 'MGN',
+    name: 'Mugen Finance',
+    address: '0xFc77b86F3ADe71793E1EEc1E7944DB074922856e',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/27340/thumb/Group_2915.jpg?1663549948',
+  },
+  {
+    symbol: 'UNI',
+    name: 'Uniswap',
+    address: '0xFa7F8980b0f1E64A2062791cc3b0871572f1F7f0',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984.png',
+  },
+  {
+    symbol: 'USDC',
+    name: 'USD Coin',
+    address: '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8',
+    decimals: 6,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.png',
+  },
+  {
+    symbol: 'MIM',
+    name: 'Magic Internet Money',
+    address: '0xFEa7a6a0B346362BF88A9e4A88416B77a57D6c2A',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xfea7a6a0b346362bf88a9e4a88416b77a57d6c2a.png',
+  },
+  {
+    symbol: 'sSPELL',
+    name: 'Staked Spell Token',
+    address: '0xF7428FFCb2581A2804998eFbB036A43255c8A8D3',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/logos/main/network/arbitrum/0xF7428FFCb2581A2804998eFbB036A43255c8A8D3.jpg',
+  },
+  {
+    symbol: 'HDX',
+    name: 'Hydranet',
+    address: '0xF4fe727C855c2D395852ca43F645caB4b504Af23',
+    decimals: 9,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/25177/thumb/HDXdarkblueInv.png?1652694650',
+  },
+  {
+    symbol: 'MNTO',
+    name: 'Minato',
+    address: '0xF0DFAD1817b5ba73726B02Ab34dd4B4B00bcD392',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/24622/thumb/MNTO_200x200.png?1648448664',
+  },
+  {
+    symbol: 'DUSD',
+    name: 'DigitalDollar',
+    address: '0xF0B5cEeFc89684889e5F7e0A7775Bd100FcD3709',
+    decimals: 6,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0xF0B5cEeFc89684889e5F7e0A7775Bd100FcD3709/logo.png',
+  },
+  {
+    symbol: 'XTK',
+    name: 'xToken',
+    address: '0xF0A5717Ec0883eE56438932b0fe4A20822735fBa',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/14089/thumb/xToken.png?1614226407',
+  },
+  {
+    symbol: 'O3',
+    name: 'O3 Swap',
+    address: '0xEe9801669C6138E84bD50dEB500827b776777d28',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/arbitrum/assets/0xEe9801669C6138E84bD50dEB500827b776777d28/logo.png',
+  },
+  {
+    symbol: 'WMEMO',
+    name: 'Wonderful Memories',
+    address: '0xECf2ADafF1De8A512f6e8bfe67a2C836EDb25Da3',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/22392/thumb/wMEMO.png?1665832927',
+  },
+  {
+    symbol: 'FOREX',
+    name: 'handle fi',
+    address: '0xDb298285FE4C5410B05390cA80e8Fbe9DE1F259B',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/18533/thumb/handle.fiFOREXLogoDark200x200.png?1632755675',
+  },
+  {
+    symbol: 'DAI',
+    name: 'Dai',
+    address: '0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x6b175474e89094c44da98b954eedeac495271d0f.png',
+  },
+  {
+    symbol: 'USDS',
+    name: 'Sperax USD',
+    address: '0xD74f5255D557944cf7Dd0E45FF521520002D5748',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xd74f5255d557944cf7dd0e45ff521520002d5748.png',
+  },
+  {
+    symbol: 'ICE',
+    name: 'Ice Token',
+    address: '0xCB58418Aa51Ba525aEF0FE474109C0354d844b7c',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/logos/main/network/arbitrum/0xCB58418Aa51Ba525aEF0FE474109C0354d844b7c.jpg',
+  },
+  {
+    symbol: 'MYC',
+    name: 'Mycelium',
+    address: '0xC74fE4c715510Ec2F8C61d70D397B32043F55Abe',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xc74fe4c715510ec2f8c61d70d397b32043f55abe.png',
+  },
+  {
+    symbol: 'OSEA',
+    name: 'Omnisea',
+    address: '0xC72633F995e98Ac3BB8a89e6a9C4Af335C3D6E44',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/26475/thumb/293837892_407994084681555_3167689470652146992_n.png?1658195766',
+  },
+  {
+    symbol: 'DXD',
+    name: 'DXdao',
+    address: '0xC3Ae0333F0F34aa734D5493276223d95B8F9Cb37',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xa1d65e8fb6e87b60feccbc582f7f97804b725521.png',
+  },
+  {
+    symbol: 'BADGER',
+    name: 'Badger DAO',
+    address: '0xBfa641051Ba0a0Ad1b0AcF549a89536A0D76472E',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x3472a5a71965499acd81997a54bba8d852c6e53d.png',
+  },
+  {
+    symbol: 'FUSE',
+    name: 'Fuse Token',
+    address: '0xBDeF0E9ef12E689F366fe494A7A7D0dad25D9286',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/10347/thumb/vUXKHEe.png?1601523640',
+  },
+  {
+    symbol: 'NDX',
+    name: 'Indexed Finance',
+    address: '0xB965029343D55189c25a7f3e0c9394DC0F5D41b1',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/13546/thumb/indexed-light.74bb5471.png?1609712728',
+  },
+  {
+    symbol: 'BRC',
+    name: 'Brinc Finance',
+    address: '0xB5de3f06aF62D8428a8BF7b4400Ea42aD2E0bc53',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/26116/thumb/76469697.png?1655937532',
+  },
+  {
+    symbol: 'IMO',
+    name: 'Ideamarket',
+    address: '0xB41bd4C99dA73510d9e081C5FADBE7A27Ac1F814',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/arbitrum/assets/0xB41bd4C99dA73510d9e081C5FADBE7A27Ac1F814/logo.png',
+  },
+  {
+    symbol: 'BUCK',
+    name: 'Arbucks',
+    address: '0xAFD871f684F21Ab9D7137608C71808f83D75e6fc',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/arbitrum/assets/0xAFD871f684F21Ab9D7137608C71808f83D75e6fc/logo.png',
+  },
+  {
+    symbol: 'DEGEN',
+    name: 'DEGEN Index',
+    address: '0xAE6e3540E97b0b9EA8797B157B510e133afb6282',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/14143/thumb/alpha_logo.png?1614651244',
+  },
+  {
+    symbol: 'SUSD',
+    name: 'sUSD',
+    address: '0xA970AF1a584579B618be4d69aD6F73459D112F95',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/5013/thumb/sUSD.png?1616150765',
+  },
+  {
+    symbol: 'DVF',
+    name: 'Rhino fi',
+    address: '0xA7Aa2921618e3D63dA433829d448b58C9445A4c3',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/dvf_32.png',
+  },
+  {
+    symbol: 'TCR',
+    name: 'Tracer DAO',
+    address: '0xA72159FC390f0E3C6D415e658264c7c4051E9b87',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/18271/thumb/tracer_logo.png?1631176676',
+  },
+  {
+    symbol: 'WCHI',
+    name: 'Wrapped CHI',
+    address: '0xA64eCCe74F8CdB7a940766B71f1b108BAC69851a',
+    decimals: 8,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/2091/thumb/xaya_logo-1.png?1547036406',
+  },
+  {
+    symbol: 'ARVAULT',
+    name: 'ArVault',
+    address: '0xA6219B4Bf4B861A2b1C02da43b2aF266186eDC04',
+    decimals: 9,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/arbitrum/assets/0xA6219B4Bf4B861A2b1C02da43b2aF266186eDC04/logo.png',
+  },
+  {
+    symbol: 'ARBIS',
+    name: 'Arbis Finance',
+    address: '0x9f20de1fc9b161b34089cbEAE888168B44b03461',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/arbitrum/assets/0x9f20de1fc9b161b34089cbEAE888168B44b03461/logo.png',
+  },
+  {
+    symbol: 'XDO',
+    name: 'xDollar',
+    address: '0x9eF758aC000a354479e538B8b2f01b917b8e89e7',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cloudstorage.openocean.finance/images/1637831645816_6024340081244819.png',
+  },
+  {
+    symbol: 'ASCEND',
+    name: 'Ascension Protocol',
+    address: '0x9e724698051DA34994F281bD81C3E7372d1960AE',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/16019/thumb/icon200.png?1622612188',
+  },
+  {
+    symbol: 'FXS',
+    name: 'Frax Share',
+    address: '0x9d2F299715D94d8A7E6F5eaa8E654E8c74a988A7',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cloudstorage.openocean.finance/images/1648904710979_811680259074864.png',
+  },
+  {
+    symbol: 'IMX',
+    name: 'Impermax  OLD ',
+    address: '0x9c67eE39e3C4954396b9142010653F17257dd39C',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/impermax_32.png',
+  },
+  {
+    symbol: 'ALN',
+    name: 'Aluna',
+    address: '0x9b3fa2A7C3EB36d048A5d38d81E7fAFC6bc47B25',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/14379/thumb/uaLoLU8c_400x400_%281%29.png?1627873106',
+  },
+  {
+    symbol: 'MULTI',
+    name: 'Multichain',
+    address: '0x9Fb9a33956351cf4fa040f65A13b835A3C8764E3',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/22087/thumb/1_Wyot-SDGZuxbjdkaOeT2-A.png?1640764238',
+  },
+  {
+    symbol: 'MATH',
+    name: 'MATH',
+    address: '0x99F40b01BA9C469193B360f72740E416B17Ac332',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x08d967bb0134f2d07f7cfb6e246680c53927dd30.png',
+  },
+  {
+    symbol: 'BIFI',
+    name: 'Beefy Finance',
+    address: '0x99C409E5f62E4bd2AC142f17caFb6810B8F0BAAE',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/arbitrum/assets/0x99C409E5f62E4bd2AC142f17caFb6810B8F0BAAE/logo.png',
+  },
+  {
+    symbol: 'VISR',
+    name: 'Visor',
+    address: '0x995C235521820f2637303Ca1970c7c044583df44',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/14381/thumb/visor_logo.png?1615782828',
+  },
+  {
+    symbol: 'EUX',
+    name: 'dForce EUR',
+    address: '0x969131D8ddC06C2Be11a13e6E7fACF22CF57d95e',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/dforceeur_32.png',
+  },
+  {
+    symbol: 'PICKLE',
+    name: 'Pickle Finance',
+    address: '0x965772e0E9c84b6f359c8597C891108DcF1c5B1A',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/pickle_32.png',
+  },
+  {
+    symbol: 'SWPR',
+    name: 'Swapr',
+    address: '0x955b9fe60a5b5093df9Dc4B1B18ec8e934e77162',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/icons/master/token/swpr.jpg',
+  },
+  {
+    symbol: 'LIQD',
+    name: 'Liquid Finance',
+    address: '0x93C15cd7DE26f07265f0272E0b831C5D7fAb174f',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x93c15cd7de26f07265f0272e0b831c5d7fab174f.png',
+  },
+  {
+    symbol: 'MAGNET',
+    name: 'Magnethereum',
+    address: '0x8eD4191F81F1e1D24a8a1195267D024d9358c9d7',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/Magnethereum/MyFiles/main/magnethereum.jpg',
+  },
+  {
+    symbol: 'AMY',
+    name: 'Amy Finance Token',
+    address: '0x8Fbd420956FDD301f4493500fd0BCaAa80f2389C',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cloudstorage.openocean.finance/images/1637893005424_2740901520185888.png',
+  },
+  {
+    symbol: 'NITRODOGE',
+    name: 'nitroDOGE',
+    address: '0x8E75DafEcf75de7747A05B0891177ba03333a166',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/27161/thumb/nitrodoge_2.png?1662280112',
+  },
+  {
+    symbol: 'GOHM',
+    name: 'Governance OHM',
+    address: '0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/21129/small/token_wsOHM_logo.png?1638764900',
+  },
+  {
+    symbol: 'FLUID',
+    name: 'FluidFi',
+    address: '0x876Ec6bE52486Eeec06bc06434f3E629D695c6bA',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0x876Ec6bE52486Eeec06bc06434f3E629D695c6bA/logo.png',
+  },
+  {
+    symbol: 'OMIC',
+    name: 'Omicron',
+    address: '0x86b3353387F560295a8Fa7902679735E5f076Bd5',
+    decimals: 9,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/19954/thumb/YHCCP1e.png?1636339997',
+  },
+  {
+    symbol: 'ARBYS',
+    name: 'Arbys',
+    address: '0x86A1012d437BBFf84fbDF62569D12d4FD3396F8c',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/arbitrum/assets/0x86A1012d437BBFf84fbDF62569D12d4FD3396F8c/logo.png',
+  },
+  {
+    symbol: 'FXUSD',
+    name: 'handleUSD',
+    address: '0x8616E8EA83f048ab9A5eC513c9412Dd2993bcE3F',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/26954/thumb/fxUSDLogo_200px-200px.png?1660988882',
+  },
+  {
+    symbol: 'AGVE',
+    name: 'Agave',
+    address: '0x848e0BA28B637e8490D88BaE51fA99C87116409B',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/14146/thumb/agve.png?1614659384',
+  },
+  {
+    symbol: 'YFI',
+    name: 'yearn finance',
+    address: '0x82e3A8F066a6989666b031d916c43672085b1582',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cryptologos.cc/logos/yearn-finance-yfi-logo.png',
+  },
+  {
+    symbol: 'WETH',
+    name: 'WETH',
+    address: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2.png',
+  },
+  {
+    symbol: 'ADAI',
+    name: 'Aave DAI',
+    address: '0x82E64f49Ed5EC1bC6e43DAD4FC8Af9bb3A2312EE',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/14242/thumb/aDAI.84b6c41f.png?1615528749',
+  },
+  {
+    symbol: 'CVOL',
+    name: 'Crypto Volatility',
+    address: '0x8096aD3107715747361acefE685943bFB427C722',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/24008/thumb/govi-dao.03ef3083.png?1646029661',
+  },
+  {
+    symbol: 'DHT',
+    name: 'dHEDGE DAO',
+    address: '0x8038F3C971414FD1FC220bA727F2D4A0fC98cb65',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xca1207647ff814039530d7d35df0e1dd2e91fa84.png',
+  },
+  {
+    symbol: '0XBTC',
+    name: '0xBitcoin',
+    address: '0x7cb16cb78ea464aD35c8a50ABF95dff3c9e09d5d',
+    decimals: 8,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/4454/thumb/0xbtc.png?1561603765',
+  },
+  {
+    symbol: 'SDT',
+    name: 'Stake DAO',
+    address: '0x7bA4a00d54A07461D9DB2aEF539e91409943AdC9',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/13724/thumb/stakedao_logo.jpg?1611195011',
+  },
+  {
+    symbol: 'PPEGG',
+    name: 'Parrot Egg',
+    address: '0x78055dAA07035Aa5EBC3e5139C281Ce6312E1b22',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/arbitrum/assets/0x78055dAA07035Aa5EBC3e5139C281Ce6312E1b22/logo.png',
+  },
+  {
+    symbol: 'DEUSDC',
+    name: 'deUSDC',
+    address: '0x76b44e0Cf9bD024dbEd09E1785DF295D59770138',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/26669/thumb/deUSDC.png?1659509853',
+  },
+  {
+    symbol: 'SDL',
+    name: 'Saddle Finance',
+    address: '0x75C9bC761d88f70156DAf83aa010E84680baF131',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x75c9bc761d88f70156daf83aa010e84680baf131.png',
+  },
+  {
+    symbol: 'PERP',
+    name: 'Perpetual',
+    address: '0x753D224bCf9AAFaCD81558c32341416df61D3DAC',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/12381/thumb/60d18e06844a844ad75901a9_mark_only_03.png?1628674771',
+  },
+  {
+    symbol: 'BSGG',
+    name: 'BETSWAP.GG',
+    address: '0x750bfe8490175c2A9A9387b19Aa2AaE2d75dB638',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/17169.png',
+  },
+  {
+    symbol: 'wsOHM',
+    name: 'Wrapped sOHM',
+    address: '0x739ca6D71365a08f584c8FC4e1029045Fa8ABC4B',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x739ca6d71365a08f584c8fc4e1029045fa8abc4b.png',
+  },
+  {
+    symbol: 'AUSDT',
+    name: 'Aave USDT',
+    address: '0x6ab707Aca953eDAeFBc4fD23bA73294241490620',
+    decimals: 6,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/14243/thumb/aUSDT.78f5faae.png?1615528400',
+  },
+  {
+    symbol: 'CNFI',
+    name: 'Connect Financial',
+    address: '0x6F5401c53e2769c858665621d22DDBF53D8d27c5',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/13592/thumb/cf-logo-iconic-black.png?1644479524',
+  },
+  {
+    symbol: 'DPX',
+    name: 'Dopex',
+    address: '0x6C2C06790b3E3E3c38e12Ee22F8183b37a13EE55',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x6c2c06790b3e3e3c38e12ee22f8183b37a13ee55.png',
+  },
+  {
+    symbol: 'L2PAD',
+    name: 'L2PAD',
+    address: '0x6Ba4edd6dB54eD34d53D8d8883E599C4dba009fb',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/23694/thumb/l2pad_200x200.png?1645080419',
+  },
+  {
+    symbol: 'DODO',
+    name: 'DODO',
+    address: '0x69Eb4FA4a2fbd498C257C57Ea8b7655a2559A581',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/dodo_32.png',
+  },
+  {
+    symbol: 'POP',
+    name: 'Popcorn',
+    address: '0x68eAd55C258d6fa5e46D67fc90f53211Eab885BE',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/21438/thumb/pop-1_200_x_200.png?1662607611',
+  },
+  {
+    symbol: 'STG',
+    name: 'Stargate Finance',
+    address: '0x6694340fc020c5E6B96567843da2df01b2CE1eb6',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x6694340fc020c5e6b96567843da2df01b2ce1eb6.png',
+  },
+  {
+    symbol: 'VST',
+    name: 'Vesta Stable',
+    address: '0x64343594Ab9b56e99087BfA6F2335Db24c2d1F17',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x64343594ab9b56e99087bfa6f2335db24c2d1f17.png',
+  },
+  {
+    symbol: 'USX',
+    name: 'dForce USD',
+    address: '0x641441c631e2F909700d2f41FD87F0aA6A6b4EDb',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/17422/thumb/usx_32.png?1627600920',
+  },
+  {
+    symbol: 'AUSDC',
+    name: 'Aave USDC',
+    address: '0x625E7708f30cA75bfd92586e17077590C60eb4cD',
+    decimals: 6,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/14318/thumb/aUSDC.e260d492.png?1615527797',
+  },
+  {
+    symbol: 'WSTETH',
+    name: 'Wrapped stETH',
+    address: '0x5979D7b546E38E414F7E9822514be443A4800529',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x5979d7b546e38e414f7e9822514be443a4800529.png',
+  },
+  {
+    symbol: 'GMX',
+    name: 'GMX',
+    address: '0x590020B1005b8b25f1a2C82c5f743c540dcfa24d',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: null,
+  },
+  {
+    symbol: 'QSD',
+    name: 'QIAN Second Generation Dollar',
+    address: '0x5837d843D49ffdefC78Fe09B5F371427c917946F',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/17985/thumb/QSD_.png?1630029729',
+  },
+  {
+    symbol: 'KROM',
+    name: 'Kromatika',
+    address: '0x55fF62567f09906A85183b866dF84bf599a4bf70',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/20541/thumb/KROM_Transparent.png?1641398421',
+  },
+  {
+    symbol: 'SPA',
+    name: 'Sperax',
+    address: '0x5575552988A3A80504bBaeB1311674fCFd40aD4B',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: null,
+  },
+  {
+    symbol: 'OVR',
+    name: 'OVR',
+    address: '0x55704A0e9E2eb59E176C5b69655DbD3DCDCFc0F0',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/13429/thumb/ovr_logo.png?1608518911',
+  },
+  {
+    symbol: 'MAGIC',
+    name: 'Magic',
+    address: '0x539bdE0d7Dbd336b79148AA742883198BBF60342',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/18623/small/Magic.png?1635755672',
+  },
+  {
+    symbol: 'MTA',
+    name: 'Meta',
+    address: '0x5298Ee77A8f9E226898403eBAC33e68a62F770A0',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/11846/thumb/mStable.png?1594950533',
+  },
+  {
+    symbol: 'PREMIA',
+    name: 'Premia',
+    address: '0x51fC0f6660482Ea73330E414eFd7808811a57Fa2',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x6399c842dd2be3de30bf99bc7d1bbf6fa3650e70.png',
+  },
+  {
+    symbol: 'PLS',
+    name: 'PlutusDAO',
+    address: '0x51318B7D00db7ACc4026C88c3952B66278B6A67F',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/25326/small/M6nUndNU_400x400.jpg?1651233987',
+  },
+  {
+    symbol: 'MCB',
+    name: 'MUX Protocol',
+    address: '0x4e352cF164E64ADCBad318C3a1e222E9EBa4Ce42',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x4e352cf164e64adcbad318c3a1e222e9eba4ce42.png',
+  },
+  {
+    symbol: 'NISHIB',
+    name: 'NitroShiba',
+    address: '0x4DAD357726b41bb8932764340ee9108cC5AD33a0',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/27288/thumb/nishib_logo.png?1663143249',
+  },
+  {
+    symbol: 'TUSD',
+    name: 'TrueUSD',
+    address: '0x4D15a3A2286D883AF0AA1B3f21367843FAc63E07',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://images.prismic.io/tusd-homepage/fb4d581a-95ed-404c-b9de-7ab1365c1386_%E5%9B%BE%E5%B1%82+1.png',
+  },
+  {
+    symbol: 'FST',
+    name: 'Futureswap',
+    address: '0x488cc08935458403a0458e45E20c0159c8AB2c92',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/futureswap2_32.png',
+  },
+  {
+    symbol: 'LRC',
+    name: 'Loopring',
+    address: '0x46d0cE7de6247b0A95f67b43B589b4041BaE7fbE',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cryptologos.cc/logos/loopring-lrc-logo.png',
+  },
+  {
+    symbol: 'ETHRISE',
+    name: 'ETHRISE',
+    address: '0x46D06cf8052eA6FdbF71736AF33eD23686eA1452',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/26761/thumb/ETHRISE.png?1660036893',
+  },
+  {
+    symbol: 'DOG',
+    name: 'The Doge NFT',
+    address: '0x4425742F1EC8D98779690b5A3A6276Db85Ddc01A',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/thedogenft_32.png',
+  },
+  {
+    symbol: 'EVO',
+    name: 'EVO',
+    address: '0x42006Ab57701251B580bDFc24778C43c9ff589A1',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/25088/large/evoToken.png?1650269135',
+  },
+  {
+    symbol: 'CELR',
+    name: 'Celer Network',
+    address: '0x3a8B787f78D775AECFEEa15706D4221B40F345AB',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/4379/thumb/Celr.png?1554705437',
+  },
+  {
+    symbol: 'MIMATIC',
+    name: 'MAI',
+    address: '0x3F56e0c36d275367b8C502090EDF38289b3dEa0d',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xa3fa99a148fa48d14ed51d610c367c61876997f1.png',
+  },
+  {
+    symbol: 'SPELL',
+    name: 'Spell',
+    address: '0x3E6648C5a70A150A88bCE65F4aD4d506Fe15d2AF',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x3e6648c5a70a150a88bce65f4ad4d506fe15d2af.png',
+  },
+  {
+    symbol: 'LAND',
+    name: 'Land',
+    address: '0x3CD1833Ce959E087D0eF0Cb45ed06BffE60F23Ba',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x9d986a3f147212327dd658f712d5264a73a1fdb0.png',
+  },
+  {
+    symbol: 'ROOBEE',
+    name: 'Roobee',
+    address: '0x3BD2dFd03BC7c3011ed7fb8c4d0949B382726cee',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/8791/thumb/Group_11.png?1580344629',
+  },
+  {
+    symbol: 'PHONON',
+    name: 'Phonon DAO',
+    address: '0x39A49bc5017Fc668299Cd32e734C9269aCc35295',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/22308/thumb/ezgif-2-e7fb84364d.png?1641449852',
+  },
+  {
+    symbol: 'ZYX',
+    name: 'ZYX',
+    address: '0x377c6E37633e390aEf9AFB4F5E0B16689351EeD4',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/11964/thumb/zyx.png?1596454904',
+  },
+  {
+    symbol: 'PANA',
+    name: 'PANA DAO',
+    address: '0x369eB8197062093a20402935D3a707b4aE414E9D',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/27031/thumb/pana_logo.png?1661495937',
+  },
+  {
+    symbol: 'PL2',
+    name: 'Plenny',
+    address: '0x3642c0680329ae3e103E2B5AB29DDfed4d43CBE5',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: null,
+  },
+  {
+    symbol: 'COMP',
+    name: 'Compound',
+    address: '0x354A6dA3fcde098F8389cad84b0182725c6C91dE',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xc00e94cb662c3520282e6f5717214004a7f26888.png',
+  },
+  {
+    symbol: 'XUSD',
+    name: 'xDollar Stablecoin',
+    address: '0x3509f19581aFEDEff07c53592bc0Ca84e4855475',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cloudstorage.openocean.finance/images/1637892796159_3482286577377456.png',
+  },
+  {
+    symbol: 'RDPX',
+    name: 'Dopex Rebate',
+    address: '0x32Eb7902D4134bf98A28b963D26de779AF92A212',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/16659/small/rDPX_200x200_Coingecko.png?1624614475',
+  },
+  {
+    symbol: 'STRP',
+    name: 'Strips Finance',
+    address: '0x326c33FD1113c1F29B35B4407F3d6312a8518431',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://etherscan.io/token/images/strips_32.png',
+  },
+  {
+    symbol: 'CTSI',
+    name: 'Cartesi',
+    address: '0x319f865b287fCC10b30d8cE6144e8b6D1b476999',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://elk.finance/tokens/logos/arbitrum/0x319f865b287fCC10b30d8cE6144e8b6D1b476999/logo.png',
+  },
+  {
+    symbol: 'WBTC',
+    name: 'Wrapped Bitcoin',
+    address: '0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f',
+    decimals: 8,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599.png',
+  },
+  {
+    symbol: 'MKR',
+    name: 'Maker',
+    address: '0x2e9a6Df78E42a30712c10a9Dc4b1C8656f8F2879',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2.png',
+  },
+  {
+    symbol: 'MAGIC',
+    name: 'MagicLand',
+    address: '0x2c852D3334188BE136bFC540EF2bB8C37b590BAD',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/18844/thumb/logo_-_2021-10-07T141625.399.png?1633587397',
+  },
+  {
+    symbol: 'L2DAO',
+    name: 'Layer2DAO',
+    address: '0x2CaB3abfC1670D1a452dF502e216a66883cDf079',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/23699/thumb/Khp7Y4Sn.png?1645081048',
+  },
+  {
+    symbol: 'STBZ',
+    name: 'Stabilize',
+    address: '0x2C110867CA90e43D372C1C2E92990B00EA32818b',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/12753/thumb/icon.png?1608771101',
+  },
+  {
+    symbol: 'GRT',
+    name: 'The Graph',
+    address: '0x23A941036Ae778Ac51Ab04CEa08Ed6e2FE103614',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xc944e90c64b2c07662a292be6244bdf05cda44a7.png',
+  },
+  {
+    symbol: 'FLUX',
+    name: 'Flux Protocol',
+    address: '0x2338a5d62E9A766289934e8d2e83a443e8065b83',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cryptologos.cc/logos/zel-flux-logo.png',
+  },
+  {
+    symbol: 'DERI',
+    name: 'Deri Protocol',
+    address: '0x21E60EE73F17AC0A411ae5D690f908c3ED66Fe12',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/13931/thumb/200vs200.jpg?1627649443',
+  },
+  {
+    symbol: 'deUSDC',
+    name: 'deBridge USD Coin',
+    address: '0x1dDcaa4Ed761428ae348BEfC6718BCb12e63bFaa',
+    decimals: 6,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x1ddcaa4ed761428ae348befc6718bcb12e63bfaa_2.png',
+  },
+  {
+    symbol: 'aMoon',
+    name: 'ArbiMoon',
+    address: '0x1a7BD9EDC36Fb2b3c0852bcD7438c2A957Fd7Ad5',
+    decimals: 9,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/ArbiMoonXyz/MyFiles/main/arbimoon.jpg',
+  },
+  {
+    symbol: 'NIFLOKI',
+    name: 'NitroFloki',
+    address: '0x1FAe2A29940015632f2a6CE006dFA7E3225515A7',
+    decimals: 9,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/28038/thumb/nifloki.png?1667198797',
+  },
+  {
+    symbol: 'BFR',
+    name: 'Buffer Token',
+    address: '0x1A5B0aaF478bf1FDA7b934c76E7692D722982a6D',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cloudstorage.openocean.finance/images/1668519619894_7648242062364901.jpg',
+  },
+  {
+    symbol: 'ALINK',
+    name: 'Aave LINK',
+    address: '0x191c10Aa4AF7C30e871E70C95dB0E4eb77237530',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/14315/thumb/aLINK.412c6589.png?1615527827',
+  },
+  {
+    symbol: 'FRAX',
+    name: 'Frax',
+    address: '0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x17fc002b466eec40dae837fc4be5c67993ddbd6f.png',
+  },
+  {
+    symbol: 'UMAMI',
+    name: 'Umami',
+    address: '0x1622bF67e6e5747b81866fE0b85178a93C7F86e3',
+    decimals: 9,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/arbitrum/assets/0x1622bF67e6e5747b81866fE0b85178a93C7F86e3/logo.png',
+  },
+  {
+    symbol: 'ADOGE',
+    name: 'ArbiDoge',
+    address: '0x155f0DD04424939368972f4e1838687d6a831151',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/icons/master/token/doge.jpg',
+  },
+  {
+    symbol: 'EMAX',
+    name: 'EthereumMax',
+    address: '0x123389C2f0e9194d9bA98c21E63c375B67614108',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x123389c2f0e9194d9ba98c21e63c375b67614108.png',
+  },
+  {
+    symbol: 'CRV',
+    name: 'Curve DAO',
+    address: '0x11cDb42B0EB46D95f990BeDD4695A6e3fA034978',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xd533a949740bb3306d119cc777fa900ba034cd52.png',
+  },
+  {
+    symbol: 'PBTC',
+    name: 'pTokens BTC',
+    address: '0x115D8bF0a53e751f8A472F88D587944EC1C8CA6D',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/25861/thumb/wMTpRljt_400x400.png?1654228097',
+  },
+  {
+    symbol: 'JONES',
+    name: 'Jones DAO',
+    address: '0x10393c20975cF177a3513071bC110f7962CD67da',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/23290/small/3c8c2ed8-afb3-4b67-9937-5493acd88b50.jpg?1648597625',
+  },
+  {
+    symbol: 'HND',
+    name: 'Hundred Finance',
+    address: '0x10010078a54396F62c96dF8532dc2B4847d47ED3',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cloudstorage.openocean.finance/images/1637892347363_6124669428880605.png',
+  },
+  {
+    symbol: 'ALCH',
+    name: 'Alchemy',
+    address: '0x0e15258734300290a651FdBAe8dEb039a8E7a2FA',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/14719/thumb/sbEW5W8.png?1617939648',
+  },
+  {
+    symbol: 'ZIPT',
+    name: 'Zippie',
+    address: '0x0F61B24272AF65EACF6adFe507028957698e032F',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xedd7c94fd7b4971b916d15067bc454b9e1bad980.png',
+  },
+  {
+    symbol: 'BOND',
+    name: 'BarnBridge Governance Token',
+    address: '0x0D81E50bC677fa67341c44D7eaA9228DEE64A4e1',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cryptologos.cc/logos/barnbridge-bond-logo.png',
+  },
+  {
+    symbol: 'RDNT',
+    name: 'Radiant Capital',
+    address: '0x0C4681e6C0235179ec3D4F4fc4DF3d14FDD96017',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0x0c4681e6c0235179ec3d4f4fc4df3d14fdd96017.png',
+  },
+  {
+    symbol: 'IUSD',
+    name: 'iZUMi Bond USD',
+    address: '0x0A3BB08b3a15A19b4De82F8AcFc862606FB69A2D',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/25388/thumb/iusd-logo-symbol-10k%E5%A4%A7%E5%B0%8F.png?1651660620',
+  },
+  {
+    symbol: 'ARBY',
+    name: 'Adamant Token',
+    address: '0x09ad12552ec45f82bE90B38dFE7b06332A680864',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/arbitrum/assets/0x09ad12552ec45f82bE90B38dFE7b06332A680864/logo.png',
+  },
+  {
+    symbol: 'SYN',
+    name: 'Synapse',
+    address: '0x080F6AEd32Fc474DD5717105Dba5ea57268F46eb',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/18024/thumb/synapse_social_icon.png?1663921797',
+  },
+  {
+    symbol: 'GOVI',
+    name: 'GOVI',
+    address: '0x07E49d5dE43DDA6162Fa28D24d5935C151875283',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/13875/thumb/GOVI.png?1612451531',
+  },
+  {
+    symbol: 'QSD',
+    name: ' QIAN second generation dollar',
+    address: '0x07AaA29E63FFEB2EBf59B33eE61437E1a91A3bb2',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://cloudstorage.openocean.finance/images/1637832211908_8528681646600584.png',
+  },
+  {
+    symbol: 'AWBTC',
+    name: 'Aave WBTC',
+    address: '0x078f358208685046a11C85e8ad32895DED33A249',
+    decimals: 8,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/14244/thumb/aWBTC.41453c2a.png?1615528721',
+  },
+  {
+    symbol: 'KUN',
+    name: 'Chemix Ecology Governance',
+    address: '0x04cb2d263a7489f02d813eaaB9Ba1bb8466347F2',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/13177/thumb/kun_logo.png?1605923919',
+  },
+  {
+    symbol: 'BAL',
+    name: 'Balancer',
+    address: '0x040d1EdC9569d4Bab2D15287Dc5A4F10F56a56B8',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xba100000625a3754423978a60c9317c58a424e3d.png',
+  },
+  {
+    symbol: 'AGVE',
+    name: 'Agave',
+    address: '0x03b95f1C84Af0607afd5dD87ca1FDE7572aa827F',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://elk.finance/tokens/logos/arbitrum/0x03b95f1C84Af0607afd5dD87ca1FDE7572aa827F/logo.png',
+  },
+  {
+    symbol: 'CAP',
+    name: 'Cap',
+    address: '0x031d35296154279DC1984dCD93E392b1f946737b',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://assets.coingecko.com/coins/images/11775/thumb/CAP.png?1594083244',
+  },
+  {
+    symbol: 'ETH',
+    name: 'Ethereum',
+    address: '0x0000000000000000000000000000000000000000',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://tokens.1inch.io/0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.png',
+  },
+  {
+    symbol: 'GRAIN',
+    name: 'Granary Token',
+    address: '0x80bB30D62a16e1F2084dEAE84dc293531c3AC3A1',
+    decimals: 18,
+    chainId: 42161,
+    logoURI: 'https://arbiscan.io/images/main/empty-token.png?v=1',
+  }
 ]

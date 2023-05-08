@@ -34,7 +34,7 @@ export const CHAIN_INFO = {
     color: '#fff',
     value: SupportedChainId.MAINNET,
     shortName: 'eth',
-    rpc: process.env.REACT_APP_MAINNET_RPC_URL || 'https://rpc.ankr.com/eth',
+    rpc: process.env.REACT_APP_MAINNET_RPC_URL || 'https://eth.llamarpc.com',
   },
 
   [SupportedChainId.MUMBAI]: {
@@ -56,7 +56,7 @@ export const CHAIN_INFO = {
     value: SupportedChainId.OPTIMISM,
     shortName: 'opt',
     rpc:
-      process.env.REACT_APP_OPTIMISM_RPC_URL || 'https://mainnet.optimism.io',
+      process.env.REACT_APP_OPTIMISM_RPC_URL || 'https://endpoints.omniatech.io/v1/op/mainnet/public',
   },
   [SupportedChainId.POLYGON]: {
     explorer: 'https://polygonscan.com/',
@@ -108,6 +108,9 @@ export const CHAIN_INFO = {
     color: '#bb437e',
     value: SupportedChainId.GOERLI,
     isTestnet: true,
+    rpc:
+    process.env.REACT_APP_GOERLI_RPC_URL ||
+    'https://rpc.ankr.com/eth_goerli',
   },
   [SupportedChainId.BSC]: {
     explorer: 'https://bscscan.com/',

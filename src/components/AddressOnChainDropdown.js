@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import useSmartVaultChainCheck from '../hooks/useSmartVaultChainCheck'
 import check from '../assets/mini-check.svg'
-import { BodyXs, BodyS, BodyM } from '../styles/texts'
+import { BodyXs, BodyM } from '../styles/texts'
 import ChainLogo from './ChainLogo'
 import { useChainId } from '../hooks/useChainId'
 import { CHAIN_INFO } from '../constants/chainInfo'
-import Select, { components } from 'react-select'
+import Select from 'react-select'
 import { useAppDispatch, useAppState } from '../context/appContext'
 import { newIdInUrl } from '../hooks/useSmartVaultParam'
+import { useMemo } from 'react'
 
 const AddressOnChainDropdown = ({ address }) => {
   const params = useParams()
@@ -78,19 +79,6 @@ const AddressOnChainDropdown = ({ address }) => {
     )
   }
 
-  const Menu = props => {
-    return (
-      <>
-        <components.Menu {...props}>
-          <div>
-            <Title>Same address in other chains:</Title>
-            <div>{props.children}</div>
-          </div>
-        </components.Menu>
-      </>
-    )
-  }
-
   function handleChange(e) {
     if (params && params.id) {
       let id = params.id?.toString().split(':')
@@ -101,13 +89,17 @@ const AddressOnChainDropdown = ({ address }) => {
     updateChainId(e?.value)
   }
 
-  return availableChains && availableChains.length ? (
+  const memoizedSelectElement = useMemo(() => (
     <SelectElement
-      components={{ Menu, Option, Control }}
+      components={{  Option, Control }}
       onChange={handleChange}
       options={availableChains.sort()}
       classNamePrefix="react-select"
-    />
+    /> // eslint-disable-next-line
+  ), [handleChange, availableChains])
+
+  return availableChains && availableChains.length ? (
+    memoizedSelectElement
   ) : (
     <ChainColor
       addressSelected={address}
@@ -192,10 +184,6 @@ const OptionBox = styled.div`
 const ImgCheck = styled.img`
   width: 19px;
   padding-left: 5px;
-`
-
-const Title = styled(BodyS)`
-  padding-left: 20px;
 `
 
 const ChainName = styled(BodyXs)`

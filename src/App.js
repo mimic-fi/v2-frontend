@@ -2,8 +2,7 @@ import React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
-import { DAppProvider, Mainnet, Goerli } from '@usedapp/core'
-import { getDefaultProvider } from 'ethers'
+import { DAppProvider } from '@usedapp/core'
 import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
 import ActionHistory from './pages/ActionHistory'
@@ -25,8 +24,8 @@ function App() {
   const config = {
     autoConnect: false,
     readOnlyUrls: {
-      [Mainnet.chainId]: getDefaultProvider('mainnet'),
-      [Goerli.chainId]: getDefaultProvider('goerli'),
+      1: CHAIN_INFO[1].rpc,
+      5: CHAIN_INFO[5].rpc,
       10: CHAIN_INFO[10].rpc,
       137: CHAIN_INFO[137].rpc,
       100: CHAIN_INFO[100].rpc,

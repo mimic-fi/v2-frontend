@@ -16,20 +16,19 @@ const fetchActionPermissions = async (chainId, id) => {
     CHAIN_SUBGRAPH_URL[chainId],
     gql`
     {
-        action(id: ${'"' + id.toLowerCase() + '"'}) {
-          id
-          permissions {
-            grantees {
-              id
-              permissions {
-                target{ id }
-                method
-              }
+      action(id: ${'"' + id.toLowerCase() + '"'}) {
+        id
+        permissions {
+          grantees {
+            id
+            permissions {
+              target { id }
+              method
             }
           }
         }
       }
-
+    }
     `
   )
   return action

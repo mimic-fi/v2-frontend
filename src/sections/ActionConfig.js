@@ -9,14 +9,14 @@ import Address from '../components/Address'
 import Grantees from '../components/Grantees'
 import useActionMetadata from '../hooks/useActionMetadata'
 import useActionPermissions from '../hooks/useActionPermissions'
+import { normalizePermissions } from '../utils/smartVault-utils'
 
 const ActionConfig = () => {
   const actionId = useParams().action
   const metadata = useActionMetadata(actionId)
-  const permissions = useActionPermissions(actionId)
-  const permissionsArray = permissions?.data?.permissions
-    ? Object.values(permissions.data.permissions)
-    : undefined
+  const { data, isLoading } = useActionPermissions(actionId)
+
+  const uniqueGrantees = normalizePermissions(data)
 
   return (
     <>
@@ -50,22 +50,23 @@ const ActionConfig = () => {
       <br />
       <Hs>{metadata?.data?.title} permissions</Hs>
       <br />
+      {
+        isLoading ? 
+        'Loading permissions...' : // TODO: fix this loader 
       <Table>
-        {permissionsArray && permissionsArray.map((permission, index) => {
+        {uniqueGrantees && uniqueGrantees.map((grantee, index) => {
           return (
-            <React.Fragment key={index}>
-              {permission.grantees.map((grantee, index) => (
-                <TableRow key={index}>
-                  <TableCell>
-                    <Address address={grantee.id} />
-                  </TableCell>
-                  <TableCell><Grantees grantees={grantee}/></TableCell>
-                </TableRow>
-              ))}
-            </React.Fragment>
+            <TableRow key={index}>
+              <TableCell>
+                <Address address={grantee.id} />
+              </TableCell>
+              <TableCell><Grantees grantees={grantee}/></TableCell>
+            </TableRow>
           )
         })}
       </Table>
+      }
+
     </>
   )
 }

@@ -2,42 +2,60 @@ import { useMemo } from 'react'
 import { CHAIN_INFO, CHAIN_SUBGRAPH_URL } from '../constants/chainInfo'
 import axios from 'axios'
 import { useQueries } from 'react-query'
+import { useEffect } from 'react'
 
 const useSmartVaultChainCheck = (address = '') => {
-  const chains = Object.values(CHAIN_INFO)
+  const chains = useMemo(
+    () =>
+      Object.values(CHAIN_INFO).filter((item) => {
+        return item.isDisabled ? null : item
+      }),
+    []
+  )
+
   const queriesChain = chains.map(chain => {
     return chain && chain.value
       ? {
-          queryKey: ['smart-vault', chain.value, address],
-          queryFn: () => fetchChainCheck(chain.value, address),
-          select: data => ({ value: chain.value, data }),
-        }
+        queryKey: ['smart-vault', chain.value, address],
+        queryFn: () => fetchChainCheck(chain.value, address),
+        select: data => ({ value: chain.value, data }),
+      }
       : undefined
   })
 
   const chainQueries = useQueries(queriesChain)
 
-  return useMemo(
-    () => {
-      return chainQueries.filter(c => c.data).map(c => {
-        return c.data
-      })
-    },
-    [chainQueries]
-  )
+  const availableChains = useMemo(() => {
+    return chainQueries.filter(c => c.data).map(c => {
+      return c.data
+    }) // eslint-disable-next-line
+  }, [address, chainQueries])
+
+  useEffect(() => {
+    const refetchQueries = chainQueries.filter(q => q.isFetching)
+    if (refetchQueries.length) {
+      refetchQueries.forEach(q => q.refetch())
+    }
+  }, [address, chainQueries])
+
+  return availableChains
 }
 
-const fetchChainCheck = async (chain, address = '') => {
+const fetchChainCheck = async (chain, address) => {
+  if (!chain) return []
   if (!address) return []
+  const urlSubgraph = CHAIN_SUBGRAPH_URL[chain]
+
+  if (!urlSubgraph) return []
   const check = axios
-    .post(CHAIN_SUBGRAPH_URL[chain], {
+    .post(urlSubgraph, {
       query: `
-    {
-      smartVault(id: ${'"' + address?.toLowerCase() + '"'}) {
-        id
-      }
-    }
-  `,
+        {
+          smartVault(id: ${'"' + address?.toLowerCase() + '"'}) {
+            id
+          }
+        }
+      `,
     })
     .then(res => {
       return res?.data?.data?.smartVault?.id
