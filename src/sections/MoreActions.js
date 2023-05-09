@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useParams, useNavigate } from 'react-router-dom'
 import { Hxl, Container } from '../styles/texts'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
@@ -7,6 +8,7 @@ import TableCell from '../components/Table/TableCell'
 import TableHeader from '../components/Table/TableHeader'
 import defaultAction from '../assets/default-action.svg'
 import useActionMetadata from '../hooks/useActionMetadata'
+import { shortenAddress } from '../utils/web3-utils'
 
 const MoreActions = ({ actions }) => {
   //TODO: remove two hardcoded items and replace them for real data
@@ -44,18 +46,28 @@ const Content = ({ actions }) => {
 
 const Action = ({ action, index }) => {
   const metadata = useActionMetadata(action.id)
+  const params = useParams()
+  const navigate = useNavigate()
+  function handleClick() {
+    const ruta = '/smart-vaults/' + params.id + '/config/' + action.id
+    navigate(ruta)
+  }
   return (
-    <TableRow>
+    <TableRow style={{cursor: 'pointer'}} onClick={handleClick}>
       <TableCell align="left">{index}</TableCell>
       <TableCell align="left">
         <ActionIcon
           src={metadata.data ? metadata.data?.icon : defaultAction}
           alt=""
         />
-        {metadata?.data?.title}
+        {metadata?.data?.title
+          ? metadata?.data?.title
+          : shortenAddress(action.id)}
       </TableCell>
       <TableCell align="left">{metadata?.data?.description}</TableCell>
-      <TableCell align="left"><div className="grey"> {metadata?.data?.trigger || 'Automatic' }</div></TableCell>
+      <TableCell align="left">
+        <div className="grey"> {metadata?.data?.trigger || 'Automatic'}</div>
+      </TableCell>
       <TableCell align="left">
         <div className="success">Active</div>
       </TableCell>
@@ -75,7 +87,7 @@ const MoreActionsSection = styled.section`
     overflow-x: scroll;
   }
   .grey {
-    color: #A5A1B7;
+    color: #a5a1b7;
   }
   color: white;
   text-align: left;
