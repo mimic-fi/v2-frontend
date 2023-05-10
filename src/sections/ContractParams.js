@@ -1,5 +1,5 @@
 import React from 'react'
-import { Hs, BodyL } from '../styles/texts'
+import { Hs } from '../styles/texts'
 import Table from '../components/Table/Table'
 import Function from './Function'
 import useAbiFromEtherscan from '../hooks/useAbiFromEtherscan'
