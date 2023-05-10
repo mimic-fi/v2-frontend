@@ -49,30 +49,35 @@ const ActionConfig = () => {
       <br />
       <br />
       <br />
-      <ContractParams id={actionId}/>
+      <ContractParams
+        id={actionId}
+        name={metadata?.data?.title ? metadata.data.title : 'Action'}
+      />
       <br />
       <br />
       <br />
       <br />
       <Hs>{metadata?.data?.title} permissions</Hs>
       <br />
-      {
-        isLoading ?
-        'Loading permissions...' : // TODO: fix this loader
-      <Table>
-        {uniqueGrantees && uniqueGrantees.map((grantee, index) => {
-          return (
-            <TableRow key={index}>
-              <TableCell>
-                <Address address={grantee.id} />
-              </TableCell>
-              <TableCell><Grantees grantees={grantee}/></TableCell>
-            </TableRow>
-          )
-        })}
-      </Table>
-      }
-
+      {isLoading ? (
+        'Loading permissions...' // TODO: fix this loader
+      ) : (
+        <Table>
+          {uniqueGrantees &&
+            uniqueGrantees.map((grantee, index) => {
+              return (
+                <TableRow key={index}>
+                  <TableCell>
+                    <Address address={grantee.id} />
+                  </TableCell>
+                  <TableCell>
+                    <Grantees grantees={grantee} />
+                  </TableCell>
+                </TableRow>
+              )
+            })}
+        </Table>
+      )}
     </>
   )
 }

@@ -15,6 +15,10 @@ export function shortenAddress(address, charsLength = 4) {
   )
 }
 
+export function convertWeiToGwei(wei) {
+  const gwei = wei / 1000000000
+  return gwei
+}
 
 export function getEtherscanLink(chainId, data, type) {
   const prefix = `${CHAIN_INFO[chainId]?.explorer || CHAIN_INFO[1]?.explorer}`
