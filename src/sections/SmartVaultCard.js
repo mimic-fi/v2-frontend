@@ -24,9 +24,9 @@ const SmartVault = ({ smartVault, active }) => {
       <></>
     )
   }
-
+// /env/:id/history"
   return (
-    <Link key={smartVault.id} to={'/smart-vaults/' + smartVault.id}>
+    <Link key={smartVault.id} to={'/env/' + smartVault.id + '/history'}>
       <SmartVaultCard
         deprecated={metadata.data && metadata.data.deprecated ? true : false}
       >

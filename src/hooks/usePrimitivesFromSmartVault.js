@@ -1,45 +1,114 @@
-import { useQuery } from 'react-query'
+import { useQueries, useQuery } from 'react-query'
 import { request, gql } from 'graphql-request'
-import { CHAIN_SUBGRAPH_URL } from '../constants/chainInfo'
+import { CHAIN_INFO, CHAIN_SUBGRAPH_URL } from '../constants/chainInfo'
 import { useChainId } from './useChainId'
 import { useMemo } from 'react'
 
-const usePrimitivesFromSmartVault = (id = '0x', limit = 10) => {
+const usePrimitivesFromSmartVault = (id = '0x', limit = 10, chain = null) => {
   const chainId = useChainId()
+  const chainToUse = chainId || chainId
 
-  const { data, isLoading } = useQuery(
-    ['usePrimitivesFromSmartVault', chainId, id],
-    () => fetchSmartVault(chainId, id.toString()),
-    {
-      refetchInterval: 10000,
-    }
+
+
+
+
+
+
+
+
+
+  const chains = useMemo(
+    () =>
+      Object.values(CHAIN_INFO).filter((item) => {
+        return item.isDisabled ? null : item
+      }),
+    []
   )
+
+  const queriesChain = chains.map(chain => {
+    return chain && chain.value
+      ? {
+        queryKey: ['smart-vault', chain.value, id],
+        queryFn: () => fetchSmartVault(chain.value, id),
+        select: data => ({ value: chain.value, data }),
+      }
+      : undefined
+  })
+
+  // const { data, isLoading } = useQuery(
+  //   ['usePrimitivesFromSmartVault', chainToUse, id],
+  //   () => fetchSmartVault(chainToUse, id.toString()),
+  //   {
+  //     refetchInterval: 10000,
+  //   }
+  // )
+
+  const chainQueries = useQueries(queriesChain)
+
+  const primitivesChains = useMemo(() => {
+    return chainQueries.filter(c => c.data).map(c => {
+      return c.data
+    }) // eslint-disable-next-line
+  }, [id, chainQueries])
+console.log('availableChains', primitivesChains)
+  // useEffect(() => {
+  //   const refetchQueries = chainQueries.filter(q => q.isFetching)
+  //   if (refetchQueries.length) {
+  //     refetchQueries.forEach(q => q.refetch())
+  //   }
+  // }, [address, chainQueries])
+
+  // return availableChains
+
+
+
+
+
+
 
   return useMemo(() => {
     let actions
 
+
     // match primitives into actions
-    let grouped = data?.primitiveExecutions.reduce(function (rv, x) {
-      ; (rv[x['transaction']['id']] = rv[x['transaction']['id']] || []).push(x)
-      return rv
-    }, {})
+    let grouped = primitivesChains?.map(c => {
+return c?.data.primitiveExecutions.reduce(function (rv, x) {
+  let existingGroup = rv.find(group => group.id === x['transaction']['id'] )
+  
+  if (existingGroup) {
+    existingGroup.data.push(x)
+  } else {
+    rv.push({
+      id: x['transaction']['id'],
+      chain: c.value,
+      data: [x]
+    })
+  }
+
+  return rv
+}, [])
+    }
+      
+      )
+      console.log('grouped', grouped.flat())
 
     // order actions
     // eslint-disable-next-line
-    actions = grouped && Object.entries(grouped).sort((a, b) => {
+    actions = grouped && grouped?.flat().sort((a, b) => {
       // sort actions
-      if (b[1][0]?.transaction?.executedAt > a[1][0]?.transaction?.executedAt) return 1
-      else if (b[1][0]?.transaction?.executedAt < a[1][0]?.transaction?.executedAt) return -1
+      console.log(b?.data)
+      if (b?.data && b?.data[0]?.transaction?.executedAt > a.data[0]?.transaction?.executedAt) return 1
+      else if (b?.data && b?.data[0]?.transaction?.executedAt < a.data[0]?.transaction?.executedAt) return -1
+      else return 0
     })
 
+    console.log('actions', actions)
+
+
     return {
-      id: data?.id,
-      totalValueManaged: data?.totalValueManaged || 0,
-      lastAction: actions && actions[0] && actions[0][1],
-      actions: actions && actions?.slice(0, limit),
-      isLoading: isLoading
+      actions: actions 
     }
-  }, [data, isLoading, limit])
+  }, [id, primitivesChains])
 }
 
 const fetchSmartVault = async (chainId, id) => {

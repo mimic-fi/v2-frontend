@@ -15,6 +15,7 @@ import theme from './styles/theme.js'
 import Stats from './pages/Stats'
 import { useChainId } from './hooks/useChainId'
 import { CHAIN_INFO } from './constants/chainInfo'
+import EnvHistory from './pages/EnvHistory'
 
 const queryClient = new QueryClient()
 
@@ -44,7 +45,7 @@ function App() {
           <Routes>
             <Route path="/list" element={<List />} />
             <Route path="/stats" element={<Stats />} />
-            <Route
+            {/* <Route
               name="history"
               path="/smart-vaults/:id/action-history"
               element={<ActionHistory />}
@@ -63,6 +64,11 @@ function App() {
               name="configuration"
               path="/smart-vaults/:id/config"
               element={<Config />}
+            /> */}
+            <Route
+              name="history"
+              path="/env/:id/history"
+              element={<EnvHistory />}
             />
             <Route path="/" element={<Home />} />
             <Route path="*" element={<PageNotFound />} />
