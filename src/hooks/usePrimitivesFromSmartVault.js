@@ -1,22 +1,9 @@
-import { useQueries, useQuery } from 'react-query'
+import { useQueries } from 'react-query'
 import { request, gql } from 'graphql-request'
 import { CHAIN_INFO, CHAIN_SUBGRAPH_URL } from '../constants/chainInfo'
-import { useChainId } from './useChainId'
 import { useMemo } from 'react'
 
-const usePrimitivesFromSmartVault = (id = '0x', limit = 10, chain = null) => {
-  const chainId = useChainId()
-  const chainToUse = chainId || chainId
-
-
-
-
-
-
-
-
-
-
+const usePrimitivesFromSmartVault = (id = '0x') => {
   const chains = useMemo(
     () =>
       Object.values(CHAIN_INFO).filter((item) => {
@@ -35,14 +22,6 @@ const usePrimitivesFromSmartVault = (id = '0x', limit = 10, chain = null) => {
       : undefined
   })
 
-  // const { data, isLoading } = useQuery(
-  //   ['usePrimitivesFromSmartVault', chainToUse, id],
-  //   () => fetchSmartVault(chainToUse, id.toString()),
-  //   {
-  //     refetchInterval: 10000,
-  //   }
-  // )
-
   const chainQueries = useQueries(queriesChain)
 
   const primitivesChains = useMemo(() => {
@@ -50,21 +29,6 @@ const usePrimitivesFromSmartVault = (id = '0x', limit = 10, chain = null) => {
       return c.data
     }) // eslint-disable-next-line
   }, [id, chainQueries])
-console.log('availableChains', primitivesChains)
-  // useEffect(() => {
-  //   const refetchQueries = chainQueries.filter(q => q.isFetching)
-  //   if (refetchQueries.length) {
-  //     refetchQueries.forEach(q => q.refetch())
-  //   }
-  // }, [address, chainQueries])
-
-  // return availableChains
-
-
-
-
-
-
 
   return useMemo(() => {
     let actions
@@ -72,25 +36,25 @@ console.log('availableChains', primitivesChains)
 
     // match primitives into actions
     let grouped = primitivesChains?.map(c => {
-return c?.data.primitiveExecutions.reduce(function (rv, x) {
-  let existingGroup = rv.find(group => group.id === x['transaction']['id'] )
-  
-  if (existingGroup) {
-    existingGroup.data.push(x)
-  } else {
-    rv.push({
-      id: x['transaction']['id'],
-      chain: c.value,
-      data: [x]
-    })
-  }
+      return c?.data.primitiveExecutions.reduce(function (rv, x) {
+        let existingGroup = rv.find(group => group.id === x['transaction']['id'])
 
-  return rv
-}, [])
+        if (existingGroup) {
+          existingGroup.data.push(x)
+        } else {
+          rv.push({
+            id: x['transaction']['id'],
+            chain: c.value,
+            data: [x]
+          })
+        }
+
+        return rv
+      }, [])
     }
-      
-      )
-      console.log('grouped', grouped.flat())
+
+    )
+    console.log('grouped', grouped.flat())
 
     // order actions
     // eslint-disable-next-line
@@ -102,12 +66,10 @@ return c?.data.primitiveExecutions.reduce(function (rv, x) {
       else return 0
     })
 
-    console.log('actions', actions)
-
-
     return {
-      actions: actions 
+      actions: actions
     }
+    // eslint-disable-next-line
   }, [id, primitivesChains])
 }
 

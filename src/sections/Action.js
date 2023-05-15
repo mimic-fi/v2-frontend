@@ -54,8 +54,9 @@ const Action = ({ primitives, chain }) => {
           </Column>
         </TableCell>
         <TableCell>
-        {/* // eslint-disable-next-line */}
-          {primitives.map(p => {
+          {
+          // eslint-disable-next-line 
+          primitives.map(p => {
             switch (p.type) {
               case 'Bridge':
                 return <Text>
