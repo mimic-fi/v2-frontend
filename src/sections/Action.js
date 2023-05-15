@@ -11,7 +11,7 @@ import AddressName from '../components/AddressName'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import { formatTokenAmount } from '../utils/math-utils'
 
-const Action = ({ primitives, index, chain }) => {
+const Action = ({ primitives, chain }) => {
   const item = primitives && primitives[0]
   const metadata = useActionMetadata(item?.transaction?.target, chain)
   const [width, setWidth] = useState(window.innerWidth)
@@ -19,7 +19,7 @@ const Action = ({ primitives, index, chain }) => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
   }, [])
   const medium = 700
-  const large = 900
+  // const large = 900
   const [isOpen, setOpen] = useState(false)
 
   return (
@@ -30,13 +30,13 @@ const Action = ({ primitives, index, chain }) => {
         </TableCell>
         <TableCell>
           <Time>
-          {item?.transaction?.executedAt
-            ? 
-          <Column>
-{moment.unix(item?.transaction?.executedAt).format('YYYY-MM-DD ')} <br/>
-{moment.unix(item?.transaction?.executedAt).format('HH:mm:ss')}
-            </Column>
-            : '-'}
+            {item?.transaction?.executedAt
+              ?
+              <Column>
+                {moment.unix(item?.transaction?.executedAt).format('YYYY-MM-DD ')} <br />
+                {moment.unix(item?.transaction?.executedAt).format('HH:mm:ss')}
+              </Column>
+              : '-'}
           </Time>
         </TableCell>
         <TableCell>
@@ -54,9 +54,8 @@ const Action = ({ primitives, index, chain }) => {
           </Column>
         </TableCell>
         <TableCell>
-
+        {/* // eslint-disable-next-line */}
           {primitives.map(p => {
-            console.log(metadata.data&&metadata.data.title, p)
             switch (p.type) {
               case 'Bridge':
                 return <Text>
@@ -71,17 +70,16 @@ const Action = ({ primitives, index, chain }) => {
                   digits: 4,
                 })} {p?.movements[1].token.symbol}</Text>
 
-                case 'Withdraw':
-                  if(p.data === '0x'){
-                  return  <Text>
+              case 'Withdraw':
+                if (p.data === '0x') {
+                  return <Text>
                     {formatTokenAmount(p?.movements[0].amount, p?.movements[0].token.decimals, {
                       digits: 4,
                     })} {p?.movements[0].token.symbol}</Text>
-                  }
+                }
+                break
               default:
                 return <></>
-
-
             }
           })
           }
@@ -138,7 +136,6 @@ const Column = styled.div`
   display: flex;
   flex-direction: column;
 `
-
 
 const Text = styled.p`
   white-space: nowrap;

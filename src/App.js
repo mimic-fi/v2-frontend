@@ -5,15 +5,15 @@ import { ThemeProvider } from 'styled-components'
 import { DAppProvider } from '@usedapp/core'
 import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
-import ActionHistory from './pages/ActionHistory'
-import SmartVault from './pages/SmartVault'
+// import ActionHistory from './pages/ActionHistory'
+// import SmartVault from './pages/SmartVault'
 import List from './pages/List'
-import Config from './pages/Config'
+// import Config from './pages/Config'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { isDevelopment } from './constants/enviroment'
 import theme from './styles/theme.js'
 import Stats from './pages/Stats'
-import { useChainId } from './hooks/useChainId'
+// import { useChainId } from './hooks/useChainId'
 import { CHAIN_INFO } from './constants/chainInfo'
 import EnvHistory from './pages/EnvHistory'
 
@@ -21,7 +21,7 @@ const queryClient = new QueryClient()
 
 function App() {
 
-  const chainId = useChainId()
+  // const chainId = useChainId()
   const config = {
     autoConnect: false,
     readOnlyUrls: {

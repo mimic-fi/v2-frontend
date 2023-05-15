@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
-import { Container, Hxs } from '../styles/texts'
-import Subnavbar from '../components/Subnavbar'
+import { Container } from '../styles/texts'
+// import Subnavbar from '../components/Subnavbar'
 import Page from '../components/Page'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
@@ -14,10 +14,10 @@ import { Skeleton } from '../styles/general'
 import usePrimitivesFromSmartVault from '../hooks/usePrimitivesFromSmartVault'
 
 const EnvHistory = () => {
-  // const params = useParams()
-  const env = '0x94dd9c6152a2a0bbcb52d3297b723a6f01d5f9f7'
+  const params = useParams()
+  // const env = '0x94dd9c6152a2a0bbcb52d3297b723a6f01d5f9f7'
 
-  const id = env
+  const id = params?.id
   const {actions} = usePrimitivesFromSmartVault(id, 1000, 1)
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
@@ -26,14 +26,14 @@ const EnvHistory = () => {
   const medium = 700
   const large = 900
 
-console.log('smartVault actions', actions )
+console.log('smartVault actions', params )
   return (
     <Page>
       {/* <Subnavbar active="history" address={env} /> */}
       <LatestActionsSection>
         <Container>
           <Hxxs>
-          env:{env}
+          env:{id}
           </Hxxs>
           {false ? (
             <>
