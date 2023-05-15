@@ -63,7 +63,6 @@ console.log('smartVault actions', params )
               }
             >
               {actions?.map((action, i) => {
-                console.log('xoxo', action)
                 return (
                   <Action
                     key={action.id}
