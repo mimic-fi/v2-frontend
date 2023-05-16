@@ -7,7 +7,7 @@ const useAbiFromEtherscan = contractAddress => {
   useEffect(
     () => {
       const getAbi = async () => {
-        const apiKey = process.env.REACT_APP_ETHERSCAN_API_KEY
+        const apiKey = 'JEV379M4BFXE61SX1VVX88J75CHCNRT2SR'
         const url = `https://api.etherscan.io/api?module=contract&action=getabi&address=${contractAddress}&apikey=${apiKey}`
         const response = await fetch(url)
         const result = await response.json()

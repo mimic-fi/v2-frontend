@@ -1,7 +1,7 @@
 import React from 'react'
 import { Hs } from '../styles/texts'
 import Table from '../components/Table/Table'
-import Function from './Function'
+import ConfigParam from './ConfigParam'
 import useAbiFromEtherscan from '../hooks/useAbiFromEtherscan'
 
 
@@ -14,7 +14,7 @@ const ContractParams = ({ id, name }) => {
     <Table>
       {functions?.map((f, i) => {
         return (
-          <Function key={i} abiFunction={f} abi={abi} contractAddress={id} />
+          <ConfigParam key={i} abiFunction={f} abi={abi} contractAddress={id} />
         )
       })}
     </Table>
