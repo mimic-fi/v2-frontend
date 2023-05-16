@@ -16,6 +16,7 @@ export function shortenAddress(address, charsLength = 4) {
 }
 
 export function convertWeiToGwei(wei) {
+  if (!wei) return 0
   const gwei = wei / 1000000000
   return gwei
 }
