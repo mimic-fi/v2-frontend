@@ -33,8 +33,7 @@ const Action = ({ primitives, chain }) => {
             {item?.transaction?.executedAt
               ?
               <Column>
-                {moment.unix(item?.transaction?.executedAt).format('YYYY-MM-DD ')} <br />
-                {moment.unix(item?.transaction?.executedAt).format('HH:mm:ss')}
+                {moment.unix(item?.transaction?.executedAt).fromNow()} 
               </Column>
               : '-'}
           </Time>
@@ -54,10 +53,13 @@ const Action = ({ primitives, chain }) => {
           </Column>
         </TableCell>
         <TableCell>
+        <Time>
+
           {
           // eslint-disable-next-line 
           primitives.map(p => {
             console.log(p)
+            console.log(primitives)
             switch (p.type) {
               case 'Bridge':
                 return <Text>
@@ -66,27 +68,29 @@ const Action = ({ primitives, chain }) => {
                   })} {p?.movements[0].token.symbol}</Text>
 
               case 'Swap' :
-              case 'Wrap' :
+              // case 'Wrap' :
 
                 return <Text> {formatTokenAmount(p?.movements[0].amount, p?.movements[0].token.decimals, {
                   digits: 4,
-                })} {p?.movements[0].token.symbol} ➡️  {formatTokenAmount(p?.movements[1].amount, p?.movements[1].token.decimals, {
+                })} {p?.movements[0].token.symbol} >  {formatTokenAmount(p?.movements[1].amount, p?.movements[1].token.decimals, {
                   digits: 4,
                 })} {p?.movements[1].token.symbol}</Text>
 
-              case 'Withdraw':
-                if (p.data === '0x') {
-                  return <Text>
-                    {formatTokenAmount(p?.movements[0].amount, p?.movements[0].token.decimals, {
-                      digits: 4,
-                    })} {p?.movements[0].token.symbol}</Text>
-                }
+              // case 'Withdraw':
+              //   if (p.data === '0x') {
+              //     return <Text>
+              //       {formatTokenAmount(p?.movements[0].amount, p?.movements[0].token.decimals, {
+              //         digits: 4,
+              //       })} {p?.movements[0].token.symbol}</Text>
+              //   }
                 break
               default:
                 return <></>
             }
           })
           }
+        </Time>
+
         </TableCell>
 
 
