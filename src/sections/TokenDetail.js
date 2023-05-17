@@ -33,7 +33,7 @@ const TokenDetail = ({ balance, tokenAddress }) => {
         {tokenPrice &&
           '$ ' +
             (
-              Number(parseFloat(balance)) * Number(parseFloat(tokenPrice.usd))
+              Number(parseFloat(balance.split(',').join(''))) * Number(parseFloat(tokenPrice.usd))
             ).toFixed(2)}
       </TableCell>
     </>
