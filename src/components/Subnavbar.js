@@ -3,13 +3,16 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Container, BodyM } from '../styles/texts'
 import { Skeleton } from '../styles/general'
-import { useChainId } from '../hooks/useChainId'
 import PageSelector from './PageSelector'
 import OthersSelector from './OthersSelector'
 import AddressOnChainDropdown from './AddressOnChainDropdown'
+import { useChainId } from '../hooks/useChainId'
+import useSmartVaultParam from '../hooks/useSmartVaultParam'
+
 
 const Subnavbar = ({ active, address }) => {
   const chainId = useChainId()
+  const smartVaultId = useSmartVaultParam()
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -23,7 +26,7 @@ const Subnavbar = ({ active, address }) => {
           {address === undefined || !address ? (
             <Skeleton height="36px" width="500px" />
           ) : (
-            <AddressOnChainDropdown address={address} />
+            <AddressOnChainDropdown address={smartVaultId} />
           )}
         </AddressBox>
         {width <= medium ? (
