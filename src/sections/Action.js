@@ -72,7 +72,7 @@ const Action = ({ primitives, chain }) => {
 
                 return <Text> {formatTokenAmount(p?.movements[0].amount, p?.movements[0].token.decimals, {
                   digits: 4,
-                })} {p?.movements[0].token.symbol} >  {formatTokenAmount(p?.movements[1].amount, p?.movements[1].token.decimals, {
+                })} {p?.movements[0].token.symbol} {'>'}  {formatTokenAmount(p?.movements[1].amount, p?.movements[1].token.decimals, {
                   digits: 4,
                 })} {p?.movements[1].token.symbol}</Text>
 
@@ -83,7 +83,7 @@ const Action = ({ primitives, chain }) => {
               //         digits: 4,
               //       })} {p?.movements[0].token.symbol}</Text>
               //   }
-                break
+                // eslint-disable-next-line no-unreachable
               default:
                 return <></>
             }
