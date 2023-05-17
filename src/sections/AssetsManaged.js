@@ -38,6 +38,7 @@ const AssetsManaged = ({ address, chain }) => {
 const Content = ({ address, chain }) => {
   const [loading, setLoading] = useState(true)
   const results = useTokensBalance(address, chain)
+  console.log(results, address)
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -47,6 +48,9 @@ const Content = ({ address, chain }) => {
   useEffect(
     () => {
       if (Object.keys(results).length > 0) {
+        setLoading(false)
+      }
+      if(results) {
         setLoading(false)
       }
     },
@@ -59,6 +63,16 @@ const Content = ({ address, chain }) => {
         <br />
         <br />
         <Skeleton height="300px" width="100%" marginBottom="30px" />
+      </>
+    )
+  }
+
+  if (results.length === 0 ) {
+    return (
+      <>
+        <br />
+        <br />
+        <BodyM>No assets being managed yet</BodyM>
       </>
     )
   }
