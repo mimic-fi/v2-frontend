@@ -11,7 +11,6 @@ import useActionMetadata from '../hooks/useActionMetadata'
 import { shortenAddress } from '../utils/web3-utils'
 
 const MoreActions = ({ actions }) => {
-  //TODO: remove two hardcoded items and replace them for real data
 
   return (
     <MoreActionsSection>
