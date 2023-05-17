@@ -97,7 +97,7 @@ const MoreActionsSection = styled.section`
     max-width: 620px;
   }
   img {
-    height: 30px;
+    height: 23px;
     padding-right: 7px;
   }
   table {
