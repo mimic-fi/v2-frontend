@@ -4,12 +4,13 @@ import styled from 'styled-components'
 import TableRow from '../components/Table/TableRow'
 import TableCell from '../components/Table/TableCell'
 import ActionDetail from './ActionDetail'
-import check from '../assets/success.svg'
+import openImg from '../assets/open.svg'
 import defaultAction from '../assets/default-action.svg'
 import useActionMetadata from '../hooks/useActionMetadata'
 import AddressName from '../components/AddressName'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import { formatTokenAmount } from '../utils/math-utils'
+import { getEtherscanLink } from '../utils/web3-utils'
 
 const Action = ({ primitives, chain }) => {
   const item = primitives && primitives[0]
@@ -47,14 +48,14 @@ const Action = ({ primitives, chain }) => {
               />
               {metadata.data ? metadata.data.title : item?.type}
             </Flex>
-            <Description>
+            {/* <Description>
               <Text>{metadata.data ? metadata.data.description : ''}</Text>
-            </Description>
+            </Description> */}
           </Column>
         </TableCell>
         <TableCell>
         <Time>
-
+<Flex>
           {
           // eslint-disable-next-line 
           primitives.map(p => {
@@ -68,13 +69,31 @@ const Action = ({ primitives, chain }) => {
                   })} {p?.movements[0].token.symbol}</Text>
 
               case 'Swap' :
-              // case 'Wrap' :
 
-                return <Text> {formatTokenAmount(p?.movements[0].amount, p?.movements[0].token.decimals, {
+                return (
+                  <Text> 
+                    <Flex>
+                <Swap>
+                {formatTokenAmount(p?.movements[0].amount, p?.movements[0].token.decimals, {
                   digits: 4,
-                })} {p?.movements[0].token.symbol} {'>'}  {formatTokenAmount(p?.movements[1].amount, p?.movements[1].token.decimals, {
+                })} {p?.movements[0].token.symbol} 
+                </Swap>
+                <Arrow>
+                {'>'}  
+
+                </Arrow>
+                <Swap>
+                {formatTokenAmount(p?.movements[1].amount, p?.movements[1].token.decimals, {
                   digits: 4,
-                })} {p?.movements[1].token.symbol}</Text>
+                })} {p?.movements[1].token.symbol}
+                </Swap>
+                </Flex>
+                </Text>
+                )
+
+              case 'Wrap' :
+                return <Text>+ wrap</Text>
+
 
               // case 'Withdraw':
               //   if (p.data === '0x') {
@@ -89,6 +108,7 @@ const Action = ({ primitives, chain }) => {
             }
           })
           }
+          </Flex>
         </Time>
 
         </TableCell>
@@ -96,11 +116,15 @@ const Action = ({ primitives, chain }) => {
 
         {width >= medium && (
           <TableCell>
+            {/* {item?.transaction?.sender} */}
             <AddressName address={item?.transaction?.sender} />
           </TableCell>
         )}
         <TableCell>
-          <img src={check} alt="check" />
+          <Link href={getEtherscanLink(chain, item?.transaction?.hash, 'transaction')}>
+          <OpenLink alt="" src={openImg} />
+
+          </Link>
           <ActionDetail
             title={metadata.data ? metadata.data.successMessage : item?.type}
             primitives={primitives}
@@ -115,10 +139,30 @@ const Action = ({ primitives, chain }) => {
 const Row = styled(TableRow)`
   cursor: pointer;
 `
+const OpenLink = styled.img`
+  height: 20px;
+`
 
 const Flex = styled.div`
   display: flex;
   
+`
+const Swap = styled.div`
+  display: flex;
+  min-width: 120px;
+  
+`
+const Arrow = styled.div`
+  width: 30px;
+  
+`
+
+const Link = styled.a`
+  &:hover {
+    transition: 0.15s ease color;
+    color: ${props => props.theme.mainDefault};
+  }
+
 `
 
 const Time = styled.div`
@@ -129,13 +173,13 @@ const Time = styled.div`
 
 `
 
-const Description = styled.div`
-  color: #6a6a6a;
-  padding-top: 7px;
-  font-size: 14px;
-  max-width: 251px;
+// const Description = styled.div`
+//   color: #6a6a6a;
+//   padding-top: 7px;
+//   font-size: 14px;
+//   max-width: 251px;
 
-`
+// `
 const ChainLogo = styled.img`
   width: 25px;
   object-fit: scale-down;
@@ -151,6 +195,7 @@ const Text = styled.p`
   text-overflow: ellipsis;
   max-width: 400px;
   margin: 0;
+  margin-right: 3px;
 `
 const ActionIcon = styled.img`
   height: 23px;

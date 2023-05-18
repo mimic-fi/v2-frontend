@@ -13,7 +13,7 @@ function TableCell({ children, align, ...props }) {
 }
 
 const Td = styled.td`
-  padding: 20px;
+  padding: 10px;
   color: #fff;
   vertical-align: top;
   text-align: ${props => props.align};
