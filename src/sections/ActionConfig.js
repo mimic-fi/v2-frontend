@@ -7,6 +7,7 @@ import TableRow from '../components/Table/TableRow'
 import TableCell from '../components/Table/TableCell'
 import Address from '../components/Address'
 import Grantees from '../components/Grantees'
+import ContractParams from './ContractParams'
 import useActionMetadata from '../hooks/useActionMetadata'
 import useActionPermissions from '../hooks/useActionPermissions'
 import { normalizePermissions } from '../utils/smartVault-utils'
@@ -48,25 +49,35 @@ const ActionConfig = () => {
       <br />
       <br />
       <br />
+      <ContractParams
+        id={actionId}
+        name={metadata?.data?.title ? metadata.data.title : 'Action'}
+      />
+      <br />
+      <br />
+      <br />
+      <br />
       <Hs>{metadata?.data?.title} permissions</Hs>
       <br />
-      {
-        isLoading ? 
-        'Loading permissions...' : // TODO: fix this loader 
-      <Table>
-        {uniqueGrantees && uniqueGrantees.map((grantee, index) => {
-          return (
-            <TableRow key={index}>
-              <TableCell>
-                <Address address={grantee.id} />
-              </TableCell>
-              <TableCell><Grantees grantees={grantee}/></TableCell>
-            </TableRow>
-          )
-        })}
-      </Table>
-      }
-
+      {isLoading ? (
+        'Loading permissions...' // TODO: fix this loader
+      ) : (
+        <Table>
+          {uniqueGrantees &&
+            uniqueGrantees.map((grantee, index) => {
+              return (
+                <TableRow key={index}>
+                  <TableCell>
+                    <Address address={grantee.id} />
+                  </TableCell>
+                  <TableCell>
+                    <Grantees grantees={grantee} />
+                  </TableCell>
+                </TableRow>
+              )
+            })}
+        </Table>
+      )}
     </>
   )
 }

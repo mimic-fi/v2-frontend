@@ -98,8 +98,8 @@ const SmartVault = ({ chain }) => {
               </StyledLink>
             </Container>
           </LatestActionsSection>
-          <AssetsManaged address={smartVault?.id || id} chain={chain} />
-          <SmartVaultDetail address={smartVault?.id || id} />
+          <AssetsManaged address={id || smartVault?.id} chain={chain} />
+          <SmartVaultDetail address={id || smartVault?.id} />
           <MoreActions actions={smartVault?.data?.actions} />
         </>
       )}
