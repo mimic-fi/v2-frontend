@@ -38,7 +38,6 @@ const AssetsManaged = ({ address, chain }) => {
 const Content = ({ address, chain }) => {
   const [loading, setLoading] = useState(true)
   const results = useTokensBalance(address, chain)
-  console.log(results, address)
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))

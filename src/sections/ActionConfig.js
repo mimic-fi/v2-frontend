@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { Hs, BodyL } from '../styles/texts'
 import Table from '../components/Table/Table'
@@ -13,12 +13,17 @@ import useActionPermissions from '../hooks/useActionPermissions'
 import { normalizePermissions } from '../utils/smartVault-utils'
 
 const ActionConfig = () => {
-  const actionId = useParams().action
+  const navigate = useNavigate()
+  const params = useParams()
+  const actionId = params.action
   const metadata = useActionMetadata(actionId)
   const { data, isLoading } = useActionPermissions(actionId)
 
   const uniqueGrantees = normalizePermissions(data)
 
+  if (metadata.data === false && !data && uniqueGrantees.length === 0) {
+    navigate('/smart-vaults/' + params.id + '/config')
+  }
   return (
     <>
       <Hs>{metadata?.data?.title} action</Hs>

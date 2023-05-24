@@ -5,10 +5,8 @@ import { ThemeProvider } from 'styled-components'
 import { DAppProvider } from '@usedapp/core'
 import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
-import ActionHistory from './pages/ActionHistory'
 import SmartVault from './pages/SmartVault'
 import List from './pages/List'
-import Config from './pages/Config'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { isDevelopment } from './constants/enviroment'
 import theme from './styles/theme.js'
@@ -19,7 +17,6 @@ import { CHAIN_INFO } from './constants/chainInfo'
 const queryClient = new QueryClient()
 
 function App() {
-
   const chainId = useChainId()
   const config = {
     autoConnect: false,
@@ -45,24 +42,20 @@ function App() {
             <Route path="/list" element={<List />} />
             <Route path="/stats" element={<Stats />} />
             <Route
-              name="history"
-              path="/smart-vaults/:id/action-history"
-              element={<ActionHistory />}
+              name="configuration"
+              path="/smart-vaults/:id/:page/:action"
+              element={<SmartVault chain={chainId} />}
+            />
+            <Route
+              name="action-history"
+              path="/smart-vaults/:id/:page"
+              element={<SmartVault chain={chainId} />}
             />
             <Route
               name="overview"
               path="/smart-vaults/:id"
               element={<SmartVault chain={chainId} />}
             />
-            <Route
-              name="action-configuration"
-              path="/smart-vaults/:id/config/:action"
-              element={<Config />}
-            />
-            <Route
-              name="configuration"
-              path="/smart-vaults/:id/config"
-              element={<Config />}
             />
             <Route path="/" element={<Home />} />
             <Route path="*" element={<PageNotFound />} />
