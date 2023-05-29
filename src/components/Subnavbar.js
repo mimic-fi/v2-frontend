@@ -41,12 +41,12 @@ const Subnavbar = ({ active, address }) => {
             <Link
               to={address ? `/smart-vaults/${address}/action-history/` : '#'}
             >
-              <BodyM className={active === 'history' ? 'active' : ''}>
+              <BodyM className={active === 'action-history' ? 'active' : ''}>
                 History
               </BodyM>
             </Link>
             <Link to={address ? `/smart-vaults/${address}/config/` : '#'}>
-              <BodyM className={active === 'configuration' ? 'active' : ''}>
+              <BodyM className={active === 'config' ? 'active' : ''}>
                 Configuration
               </BodyM>
             </Link>

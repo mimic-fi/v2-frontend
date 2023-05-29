@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Page from '../components/Page'
-import Subnavbar from '../components/Subnavbar'
 import { Container, BodyM } from '../styles/texts'
 import Split from '../components/Split'
 import GeneralConfig from '../sections/GeneralConfig'
@@ -15,7 +13,7 @@ import defaultAction from '../assets/default-action.svg'
 
 const Config = () => {
   const params = useParams()
-  const [active, setActive] = useState(params.action || 0)
+  const [active, setActive] = useState(params.action ? params.action : 0)
   const id = useSmartVaultParam()
   const smartVault = useSmartVault(id, 10)
 
@@ -27,8 +25,7 @@ const Config = () => {
   }
 
   return (
-    <Page sidebar={false}>
-      <Subnavbar active="configuration" address={params.id ? params.id : id} />
+    <>
       <ConfigSection>
         <Container>
           <Split
@@ -67,7 +64,7 @@ const Config = () => {
           />
         </Container>
       </ConfigSection>
-    </Page>
+    </>
   )
 }
 
