@@ -5,6 +5,7 @@ import { BodyM } from '../styles/texts'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import etherscan from '../assets/etherscan.svg'
 import discord from '../assets/discord-menu.svg'
+import activity from '../assets/activity.svg'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
 
 const OthersSelector = ({ chainId }) => {
@@ -25,6 +26,7 @@ const OthersSelector = ({ chainId }) => {
     },
     {
       value: 'activity',
+      icon: activity,
       internal: true,
       label: 'Activity on all chains',
       link: '/smart-vaults/' + params.id + '/activity',
