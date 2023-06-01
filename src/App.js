@@ -6,6 +6,7 @@ import { DAppProvider } from '@usedapp/core'
 import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
 import SmartVault from './pages/SmartVault'
+import Activity from './pages/Activity'
 import List from './pages/List'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { isDevelopment } from './constants/enviroment'
@@ -41,6 +42,11 @@ function App() {
           <Routes>
             <Route path="/list" element={<List />} />
             <Route path="/stats" element={<Stats />} />
+            <Route
+              name="action-history"
+              path="/smart-vaults/:id/activity"
+              element={<Activity chain={chainId} />}
+            />
             <Route
               name="configuration"
               path="/smart-vaults/:id/:page/:action"
