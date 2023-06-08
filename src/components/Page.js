@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar'
-import Footer from './Footer'
 
 const Page = ({ children }) => {
   return (
@@ -12,7 +11,6 @@ const Page = ({ children }) => {
             <Navbar />
           </NavbarContainer>
           {children}
-          <Footer />
         </PageContainer>
       </Container>
     </Wrapper>

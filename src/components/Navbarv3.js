@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import logo from '../assets/logo-navbar.svg'
-import NetworkInfo from './ChainSelector'
-import { Container } from '../styles/texts'
+import logo from '../assets/logov3.svg'
 
 const Navbar = () => {
   return (
@@ -12,7 +10,7 @@ const Navbar = () => {
         <Link to="/">
           <img alt="logo" src={logo} />
         </Link>
-        <NetworkInfo />
+
       </NavbarContainer>
     </NavbarSection>
   )
@@ -23,11 +21,12 @@ const NavbarSection = styled.section`
   width: 100%;
   margin: auto;
   position: sticky;
-  background: ${props => props.theme.main};
+  background: #12141A;
 `
 
-const NavbarContainer = styled(Container)`
-  height: 60px;
+const NavbarContainer = styled.div`
+  margin-left: 32px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;

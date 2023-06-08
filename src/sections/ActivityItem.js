@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
 import TableRow from '../components/Table/TableRow'
@@ -9,24 +9,21 @@ import AddressName from '../components/AddressName'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import { formatTokenAmount } from '../utils/math-utils'
 
-const ActivityItem = ({ primitives, chain }) => {
+const ActivityItem = ({ primitives, chain, width }) => {
   const item = primitives && primitives[0]
   const metadata = useActionMetadata(item?.transaction?.target, chain)
-  const [width, setWidth] = useState(window.innerWidth)
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth))
-  }, [])
-  const medium = 700
+  const large = 1000
+  const xlarge = 1200
   const [isOpen, setOpen] = useState(false)
 
-  console.log(
-    'action type:',
-    item?.type,
-    'metadata title:',
-    metadata?.data?.title,
-    'primitives:',
-    primitives
-  )
+  // console.log(
+  //   'action type:',
+  //   item?.type,
+  //   'metadata title:',
+  //   metadata?.data?.title,
+  //   'primitives:',
+  //   primitives
+  // )
 
   return (
     <>
@@ -48,63 +45,63 @@ const ActivityItem = ({ primitives, chain }) => {
         <TableCell>
           <Success>Fullfilled</Success>
         </TableCell>
+        {width >= large && (
+          <TableCell>
+            <Time>
+              {// eslint-disable-next-line
 
-        <TableCell>
-          <Time>
-            {// eslint-disable-next-line
-
-            primitives?.map((p, i) => {
-              switch (p.type) {
-                case 'Bridge':
-                  return (
-                    <Text key={i}>
-                      {formatTokenAmount(
-                        p?.movements[0].amount,
-                        p?.movements[0].token.decimals,
-                        {
-                          digits: 4,
-                        }
-                      )}{' '}
-                      {p?.movements[0].token.symbol}
-                    </Text>
-                  )
-
-                case 'Swap':
-                  return (
-                    <Text key={i}>
-                      <Flex>
+              primitives?.map((p, i) => {
+                switch (p.type) {
+                  case 'Bridge':
+                    return (
+                      <Text key={i}>
                         {formatTokenAmount(
                           p?.movements[0].amount,
                           p?.movements[0].token.decimals,
                           {
                             digits: 4,
                           }
-                        )}
-                        {'  '}
-                        {p?.movements[0].token.symbol} <Arrow>➡️</Arrow>
-                        {formatTokenAmount(
-                          p?.movements[1].amount,
-                          p?.movements[1].token.decimals,
-                          {
-                            digits: 4,
-                          }
                         )}{' '}
-                        {p?.movements[1].token.symbol}
-                      </Flex>
-                    </Text>
-                  )
+                        {p?.movements[0].token.symbol}
+                      </Text>
+                    )
 
-                case 'Wrap':
-                  return <Text key={i}>+ wrap</Text>
+                  case 'Swap':
+                    return (
+                      <Text key={i}>
+                        <Flex>
+                          {formatTokenAmount(
+                            p?.movements[0].amount,
+                            p?.movements[0].token.decimals,
+                            {
+                              digits: 4,
+                            }
+                          )}
+                          {'  '}
+                          {p?.movements[0].token.symbol} <Arrow>➡️</Arrow>
+                          {formatTokenAmount(
+                            p?.movements[1].amount,
+                            p?.movements[1].token.decimals,
+                            {
+                              digits: 4,
+                            }
+                          )}{' '}
+                          {p?.movements[1].token.symbol}
+                        </Flex>
+                      </Text>
+                    )
 
-                default:
-                  return <></>
-              }
-            })}
-          </Time>
-        </TableCell>
+                  case 'Wrap':
+                    return <Text key={i}>+ wrap</Text>
 
-        {width >= medium && (
+                  default:
+                    return <></>
+                }
+              })}
+            </Time>
+          </TableCell>
+        )}
+        {width >= xlarge && (
           <TableCell>
             <AddressName address={item?.transaction?.sender} />
           </TableCell>

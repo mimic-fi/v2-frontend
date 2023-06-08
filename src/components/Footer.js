@@ -41,7 +41,6 @@ const FooterSection = styled.section`
   box-sizing: content-box;
   background: ${props => props.theme.main};
   width: 100%;
-  margin-top: 80px;
 `
 
 const Box = styled.div`

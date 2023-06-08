@@ -6,7 +6,7 @@ const theme = {
   backgroundDefault: '#212327',
   backgroundLight: '#393b3f',
   tableBorder: '#2B2D34',
-  tableHeaderColor: '#fcfcfc',
+  tableHeaderColor: '#A4A4A4',
   neutralsGray: '#A5A1B7',
   success: '#3EB349'
 }

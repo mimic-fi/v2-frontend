@@ -6,6 +6,7 @@ import { DAppProvider } from '@usedapp/core'
 import Home from './pages/Home'
 import PageNotFound from './pages/PageNotFound'
 import SmartVault from './pages/SmartVault'
+import Dashboard from './pages/Dashboard'
 import Activity from './pages/Activity'
 import List from './pages/List'
 import { ReactQueryDevtools } from 'react-query/devtools'
@@ -61,6 +62,11 @@ function App() {
               name="overview"
               path="/smart-vaults/:id"
               element={<SmartVault chain={chainId} />}
+            />
+            <Route
+              name="dashboard"
+              path="/dashboard/:id"
+              element={<Dashboard chain={chainId} />}
             />
             />
             <Route path="/" element={<Home />} />

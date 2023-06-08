@@ -1,10 +1,10 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import styled from 'styled-components'
 import Page from '../components/Page'
 import Overview from './Overview'
 import ActionHistory from './ActionHistory'
 import Config from './Config'
-import Subnavbar from '../components/Subnavbar'
 import SmartVaultNotFound from '../sections/SmartVaultNotFound'
 import PageNotFound from './PageNotFound'
 import useSmartVault from '../hooks/useSmartVault'
@@ -44,16 +44,27 @@ const SmartVault = ({ chain }) => {
       {!smartVault.isLoading && !smartVault?.data?.id ? (
         <SmartVaultNotFound id={id} />
       ) : (
-        <>
-          <Subnavbar
-            active={params.page ? params.page : 'overview'}
-            address={params.id ? params.id : id}
-          />
-          {renderContent()}
-        </>
+        <SVContainer>
+          <Content>{renderContent()}</Content>
+        </SVContainer>
       )}
     </Page>
   )
 }
 
+
+const SVContainer = styled.div`
+  z-index: 100;
+  position: relative;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+`
+
+
+const Content = styled.div`
+  width: 100%;
+  height: 100%;
+  margin-bottom: 600px;
+`
 export default SmartVault
