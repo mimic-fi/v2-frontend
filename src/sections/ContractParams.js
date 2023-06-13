@@ -6,7 +6,6 @@ import useAbiFromEtherscan from '../hooks/useAbiFromEtherscan'
 
 const ContractParams = ({ id, name }) => {
   const { abi, functions } = useAbiFromEtherscan(id)
-  console.log('abi', abi, functions)
   return (
     <>
       {functions && (

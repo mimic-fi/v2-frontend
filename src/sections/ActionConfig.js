@@ -20,7 +20,6 @@ const ActionConfig = () => {
   const { data, isLoading } = useActionPermissions(actionId)
 
   const uniqueGrantees = normalizePermissions(data)
-  console.log('unique', uniqueGrantees)
 
   if (metadata.data === false && !data && uniqueGrantees.length === 0) {
     navigate('/smart-vaults/' + params.id + '/config')
