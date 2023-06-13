@@ -20,6 +20,7 @@ const ActionConfig = () => {
   const { data, isLoading } = useActionPermissions(actionId)
 
   const uniqueGrantees = normalizePermissions(data)
+  console.log('unique', uniqueGrantees)
 
   if (metadata.data === false && !data && uniqueGrantees.length === 0) {
     navigate('/smart-vaults/' + params.id + '/config')
@@ -62,7 +63,7 @@ const ActionConfig = () => {
       <br />
       <br />
       <br />
-      <Hs>{metadata?.data?.title} permissions</Hs>
+      {uniqueGrantees && uniqueGrantees.length > 0 && <Hs>{metadata?.data?.title} permissions</Hs>}
       <br />
       {isLoading ? (
         'Loading permissions...' // TODO: fix this loader
