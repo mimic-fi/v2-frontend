@@ -74,7 +74,7 @@ const Hero = ({ totalValueManaged, lastAction, isLoading, address }) => {
               : 'Smart vault'}
           </Hxs>
         </SVName>
-        <Item>
+        {/* <Item>
           {totalValueManaged && (
             <div>
               <Hxs>
@@ -86,7 +86,7 @@ const Hero = ({ totalValueManaged, lastAction, isLoading, address }) => {
               <BodyS>Total managed</BodyS>
             </div>
           )}
-        </Item>
+        </Item> */}
       </Box>
     </HeroSection>
   )
@@ -135,7 +135,7 @@ const Item = styled.div`
 
 const SVName = styled(Item)`
   width: 70%;
-  border-right: solid #fffffe45;
+  /* border-right: solid #fffffe45; */
   margin-right: 39px;
   @media only screen and (max-width: 1040px) {
     width: 90%;
