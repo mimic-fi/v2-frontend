@@ -5,8 +5,6 @@ import { Hxxs, BodyM } from '../styles/texts'
 import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 import sv from '../assets/smart-vault.svg'
 import { shortenAddress } from '../utils/web3-utils'
-import { formatTokenAmount } from '../utils/math-utils'
-import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
 
 const SmartVault = ({ smartVault, active }) => {
   const metadata = useSmartVaultMetadata(smartVault.id)
@@ -31,34 +29,20 @@ const SmartVault = ({ smartVault, active }) => {
         deprecated={metadata.data && metadata.data.deprecated ? true : false}
       >
         <div>
+
           <img
             alt="smartvault"
             src={metadata.data && metadata.data.logo ? metadata.data.logo : sv}
           />
+        </div>
+
           <Hxxs className={metadata.data && metadata.data.deprecated ? 'deprecated' : 'active'}>
             {metadata.data && metadata.data.title
               ? metadata.data.title
               : 'Smart vault'}
           </Hxxs>
-          {metadata.data && metadata.data.deprecated ? (
-            <><Tag>Deprecated</Tag>
-            <Body>
-              $
-              {formatTokenAmount(smartVault.totalValueManaged, USDC_DECIMALS, {
-                digits: 2,
-              })}{' '}
-              total managed
-            </Body></>
-          ) : (
-            <Body>
-              $
-              {formatTokenAmount(smartVault.totalValueManaged, USDC_DECIMALS, {
-                digits: 2,
-              })}{' '}
-              total managed
-            </Body>
-          )}
-        </div>
+          {metadata.data && metadata.data.deprecated &&<Tag>Deprecated</Tag>}
+          
         <Address>{shortenAddress(smartVault.id, 8)}</Address>
       </SmartVaultCard>
     </Link>
@@ -93,11 +77,6 @@ const SmartVaultCard = styled.section`
 const Address = styled(BodyM)`
   color: #a996ff;
   font-weight: 700;
-`
-
-const Body = styled(BodyM)`
-  color: #777e91;
-  margin: 0;
 `
 
 const Tag = styled(BodyM)`

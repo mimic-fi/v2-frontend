@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 import Select from 'react-select'
+import { Link, useParams } from 'react-router-dom'
 import { BodyM } from '../styles/texts'
 import { CHAIN_INFO } from '../constants/chainInfo'
 import etherscan from '../assets/etherscan.svg'
 import discord from '../assets/discord-menu.svg'
+import activity from '../assets/activity.svg'
 import useSmartVaultParam from '../hooks/useSmartVaultParam'
 
 const OthersSelector = ({ chainId }) => {
   const address = useSmartVaultParam()
+  const params = useParams()
   const options = [
     {
       value: 'explorer',
@@ -20,6 +23,13 @@ const OthersSelector = ({ chainId }) => {
       label: 'Ask us on discord',
       link: 'https://discord.mimic.fi',
       icon: discord,
+    },
+    {
+      value: 'activity',
+      icon: activity,
+      internal: true,
+      label: 'Enviroment Activity',
+      link: '/smart-vaults/' + params.id + '/activity',
     },
   ]
   const Control = props => {
@@ -48,12 +58,21 @@ const Option = props => {
   const { innerRef, innerProps } = props
   return (
     <OptionContainer ref={innerRef} {...innerProps}>
-      <a href={props.data.link} target="_blank" rel="noreferrer">
-        <Body>
-          <img src={props.data.icon} alt="" />
-          {props.label}
-        </Body>
-      </a>
+      {props.data.internal ? (
+        <Link to={props.data.link}>
+          <Body>
+            <img src={props.data.icon} alt="" />
+            {props.label}
+          </Body>
+        </Link>
+      ) : (
+        <a href={props.data.link} target="_blank" rel="noreferrer">
+          <Body>
+            <img src={props.data.icon} alt="" />
+            {props.label}
+          </Body>
+        </a>
+      )}
     </OptionContainer>
   )
 }
