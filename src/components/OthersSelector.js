@@ -28,7 +28,7 @@ const OthersSelector = ({ chainId }) => {
       value: 'activity',
       icon: activity,
       internal: true,
-      label: 'Activity on all chains',
+      label: 'Enviroment Activity',
       link: '/smart-vaults/' + params.id + '/activity',
     },
   ]

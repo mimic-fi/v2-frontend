@@ -19,15 +19,6 @@ const ActivityItem = ({ primitives, chain }) => {
   const medium = 700
   const [isOpen, setOpen] = useState(false)
 
-  console.log(
-    'action type:',
-    item?.type,
-    'metadata title:',
-    metadata?.data?.title,
-    'primitives:',
-    primitives
-  )
-
   return (
     <>
       <Row key={item?.id} onClick={() => setOpen(!isOpen)}>
@@ -53,54 +44,61 @@ const ActivityItem = ({ primitives, chain }) => {
           <Time>
             {// eslint-disable-next-line
 
-            primitives?.map((p, i) => {
-              switch (p.type) {
-                case 'Bridge':
-                  return (
-                    <Text key={i}>
-                      {formatTokenAmount(
-                        p?.movements[0].amount,
-                        p?.movements[0].token.decimals,
-                        {
-                          digits: 4,
-                        }
-                      )}{' '}
-                      {p?.movements[0].token.symbol}
-                    </Text>
-                  )
-
-                case 'Swap':
-                  return (
-                    <Text key={i}>
-                      <Flex>
+              primitives?.map((p, i) => {
+                switch (p.type) {
+                  case 'Bridge':
+                    return (
+                      <Text key={i}>
                         {formatTokenAmount(
                           p?.movements[0].amount,
                           p?.movements[0].token.decimals,
                           {
                             digits: 4,
                           }
-                        )}
-                        {'  '}
-                        {p?.movements[0].token.symbol} <Arrow>➡️</Arrow>
-                        {formatTokenAmount(
-                          p?.movements[1].amount,
-                          p?.movements[1].token.decimals,
-                          {
-                            digits: 4,
-                          }
                         )}{' '}
-                        {p?.movements[1].token.symbol}
-                      </Flex>
-                    </Text>
-                  )
+                        {p?.movements[0].token.symbol}
+                      </Text>
+                    )
 
-                case 'Wrap':
-                  return <Text key={i}>+ wrap</Text>
+                  case 'Swap':
+                    return (
+                      <Text key={i}>
+                        <Flex>
+                          {formatTokenAmount(
+                            p?.movements[0].amount,
+                            p?.movements[0].token.decimals,
+                            {
+                              digits: 4,
+                            }
+                          )}
+                          {'  '}
+                          {p?.movements[0].token.symbol} <Arrow>➡️</Arrow>
+                          {formatTokenAmount(
+                            p?.movements[1].amount,
+                            p?.movements[1].token.decimals,
+                            {
+                              digits: 4,
+                            }
+                          )}{' '}
+                          {p?.movements[1].token.symbol}
+                        </Flex>
+                      </Text>
+                    )
 
-                default:
-                  return <></>
+
+                  default:
+                    return <></>
+
+                }
+              })}
+            {metadata?.data?.title == 'Gather and Wrap' && <Flex>{formatTokenAmount(
+              primitives[1]?.movements[1]?.amount,
+              primitives[1]?.movements[1]?.token?.decimals,
+              {
+                digits: 4,
               }
-            })}
+            )} {primitives[1]?.movements[1]?.token.symbol}</Flex>}
+
           </Time>
         </TableCell>
 

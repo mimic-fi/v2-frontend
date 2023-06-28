@@ -79,11 +79,6 @@ const Address = styled(BodyM)`
   font-weight: 700;
 `
 
-const Body = styled(BodyM)`
-  color: #777e91;
-  margin: 0;
-`
-
 const Tag = styled(BodyM)`
   color: white;
   background: #a996ff;
