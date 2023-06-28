@@ -28,8 +28,9 @@ const useActivityPrimitives = (id = '0x') => {
     () => {
       return chainQueries.filter(c => c.data).map(c => {
         return c.data
-      }) // eslint-disable-next-line
+      }) 
     },
+    // eslint-disable-next-line
     [id, chainQueries]
   )
 
@@ -82,8 +83,7 @@ const useActivityPrimitives = (id = '0x') => {
       return {
         actions: actions,
       }
-      // eslint-disable-next-line
-    },
+    }, // eslint-disable-next-line
     [id, primitivesChains]
   )
 }
