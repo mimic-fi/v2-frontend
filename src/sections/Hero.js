@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
-import { formatTokenAmount } from '../utils/math-utils'
-import { Hxl, Hxs, BodyL, BodyS } from '../styles/texts'
+import { Hxl, Hxs, BodyL } from '../styles/texts'
 import { Skeleton } from '../styles/general'
 import ActionDetail from './ActionDetail'
 import smartVault from '../assets/smart-vault.svg'
-import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
 import useActionMetadata from '../hooks/useActionMetadata'
 import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 

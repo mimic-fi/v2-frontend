@@ -91,7 +91,7 @@ const ActivityItem = ({ primitives, chain }) => {
 
                 }
               })}
-            {metadata?.data?.title == 'Gather and Wrap' && <Flex>{formatTokenAmount(
+            {metadata?.data?.title === 'Gather and Wrap' && <Flex>{formatTokenAmount(
               primitives[1]?.movements[1]?.amount,
               primitives[1]?.movements[1]?.token?.decimals,
               {
