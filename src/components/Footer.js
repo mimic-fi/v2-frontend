@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../assets/footer-logo.svg'
+import logo from '../assets/logoW.png'
 import { BodyL, LinkS, Container } from '../styles/texts'
 
 const Footer = () => (
   <FooterSection>
     <FooterContainer>
       <div>
-        <img alt="logo" src={logo} />
+        <Logo alt="logo" src={logo} />
         <BodyL>We make DeFi interaction simpler, safer & smarter!</BodyL>
       </div>
       <Box>
@@ -42,6 +42,11 @@ const FooterSection = styled.section`
   background: ${props => props.theme.main};
   width: 100%;
   margin-top: 80px;
+`
+
+
+const Logo = styled.img`
+ height: 130px;
 `
 
 const Box = styled.div`

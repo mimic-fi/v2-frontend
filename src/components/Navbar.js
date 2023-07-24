@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import logo from '../assets/logo-navbar.svg'
+import logoWhite from '../assets/logoW.png'
 import NetworkInfo from './ChainSelector'
 import { Container } from '../styles/texts'
 
@@ -10,13 +10,17 @@ const Navbar = () => {
     <NavbarSection>
       <NavbarContainer>
         <Link to="/">
-          <img alt="logo" src={logo} />
+          <Logo alt="logo" src={logoWhite} />
         </Link>
         <NetworkInfo />
       </NavbarContainer>
     </NavbarSection>
   )
 }
+
+const Logo = styled.img`
+ height: 50px;
+`
 
 const NavbarSection = styled.section`
   z-index: 100;
