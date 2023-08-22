@@ -16,7 +16,7 @@ const ConfigParam = ({ abiFunction, abi, contractAddress }) => {
 
   if (abiFunction.name === 'thresholdToken' && value) {
     const token = tokens.filter(element => {
-      return element.address.toUpperCase() === value.toUpperCase()
+      return element?.address?.toUpperCase() === value?.toUpperCase()
     })
     if (token.length > 0) {
       value = token[0].name
@@ -28,14 +28,20 @@ const ConfigParam = ({ abiFunction, abi, contractAddress }) => {
   }
 
   if (value === 'true' || value === true) {
-    value = <span role="img" aria-label="Check">✅</span>
+    value = (
+      <span role="img" aria-label="Check">
+        ✅
+      </span>
+    )
   }
 
   if (value === 'false' || value === false) {
-    value = <span role="img" aria-label="Check">❌</span>
+    value = (
+      <span role="img" aria-label="Check">
+        ❌
+      </span>
+    )
   }
-
-
 
   return (
     <TableRow>
