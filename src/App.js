@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { DAppProvider } from '@usedapp/core'
 import Home from './pages/Home'
+import AppLanding from './pages/AppLanding'
 import PageNotFound from './pages/PageNotFound'
 import SmartVault from './pages/SmartVault'
 import Activity from './pages/Activity'
@@ -63,7 +64,7 @@ function App() {
               element={<SmartVault chain={chainId} />}
             />
             />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<AppLanding />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </QueryClientProvider>
