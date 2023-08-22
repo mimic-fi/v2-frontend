@@ -105,12 +105,16 @@ const SpotlightSection = styled.a`
   display: flex;
   algin-items: center;
   justify-content: space-between;
-  @media only screen and (max-width: 900px) {
+  box-sizing: border-box;
+  @media only screen and (max-width: 1000px) {
     flex-direction: column;
     max-width: 80vw;
     height: auto;
-    padding: 10px;
+    padding: 15px;
     background-size: cover;
+  }
+  @media only screen and (max-width: 1000px) {
+    padding: 25px;
   }
   text-align: left;
   div{
@@ -197,7 +201,7 @@ const TitleContainer = styled.div`
 `
 
 const HomeSection = styled.section`
-  background: url(${props => props.background}) no-repeat top center;
+  background: url(${props => props.background}) no-repeat top left;
   height: auto;
   padding: 100px 0 0 0;
   color: white;
