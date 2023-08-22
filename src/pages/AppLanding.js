@@ -8,7 +8,7 @@ import TrustedBy from '../sections/TrustedBy'
 import background from '../assets/appLandingBackground.png'
 import spotlightbackground from '../assets/spotlight.png'
 import logo from '../assets/logo.svg'
-import medium from '../assets/medium-large.svg'
+import mediumLarge from '../assets/app-landing/medium-large.svg'
 import { Container } from '../styles/texts'
 
 const Home = () => {
@@ -69,6 +69,7 @@ const Navbar = props => {
 }
 
 const Spotlight = props => {
+
   return (
     <SpotlightSection
       background={spotlightbackground}
@@ -85,7 +86,7 @@ const Spotlight = props => {
       <div>
         <button>Read story</button>
         <p>
-          Will open on <img src={medium} alt="medium"/>
+          Will open on <img src={mediumLarge} alt="medium" />
         </p>
       </div>
     </SpotlightSection>
@@ -95,24 +96,37 @@ const Spotlight = props => {
 const SpotlightSection = styled.a`
   background: url(${props => props.background}) no-repeat top center;
   height: auto;
-  padding: 50px 0 0 0;
   color: white;
   width: 100%;
+  padding: 25px 50px 25px 50px;
   border-radius: 24px;
   min-height: 130px;
   margin-bottom: 200px;
   display: flex;
   algin-items: center;
   justify-content: space-between;
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    max-width: 80vw;
+    height: auto;
+    padding: 10px;
+    background-size: cover;
+  }
   text-align: left;
-  padding: 50px 50px 0 50px;
+  div{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   color: white;
   h3 {
     font-family: 'VisbyBold';
     font-size: 40px;
     font-style: normal;
-    margin: 13px 0 20px 0;
-    line-height: 24px;
+    margin: 0;
+    line-height: 44px;
   }
   button {
     padding: 18px 50px;
