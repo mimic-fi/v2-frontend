@@ -31,7 +31,7 @@ export default function useSmartVaultParam() {
     smartVaultId = splited[1]
   }
 
-  return smartVaultId
+  return smartVaultId.toLowerCase()
 }
 
 function isValidChain(shortName) {

@@ -7,7 +7,8 @@ const theme = {
   backgroundLight: '#393b3f',
   tableBorder: '#2B2D34',
   tableHeaderColor: '#fcfcfc',
-  neutralsGray: '#A5A1B7'
+  neutralsGray: '#A5A1B7',
+  success: '#3EB349'
 }
 
 export default theme

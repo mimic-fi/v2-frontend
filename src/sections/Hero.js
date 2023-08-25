@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
-import { formatTokenAmount } from '../utils/math-utils'
-import { Hxl, Hxs, BodyL, BodyS } from '../styles/texts'
+import { Hxl, Hxs, BodyL } from '../styles/texts'
 import { Skeleton } from '../styles/general'
 import ActionDetail from './ActionDetail'
 import smartVault from '../assets/smart-vault.svg'
-import { USDC_DECIMALS } from '../constants/knownTokenDecimals'
 import useActionMetadata from '../hooks/useActionMetadata'
 import useSmartVaultMetadata from '../hooks/useSmartVaultMetadata'
 
@@ -74,7 +72,7 @@ const Hero = ({ totalValueManaged, lastAction, isLoading, address }) => {
               : 'Smart vault'}
           </Hxs>
         </SVName>
-        <Item>
+        {/* <Item>
           {totalValueManaged && (
             <div>
               <Hxs>
@@ -86,7 +84,7 @@ const Hero = ({ totalValueManaged, lastAction, isLoading, address }) => {
               <BodyS>Total managed</BodyS>
             </div>
           )}
-        </Item>
+        </Item> */}
       </Box>
     </HeroSection>
   )
@@ -135,7 +133,7 @@ const Item = styled.div`
 
 const SVName = styled(Item)`
   width: 70%;
-  border-right: solid #fffffe45;
+  /* border-right: solid #fffffe45; */
   margin-right: 39px;
   @media only screen and (max-width: 1040px) {
     width: 90%;

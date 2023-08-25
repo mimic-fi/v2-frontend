@@ -49,6 +49,9 @@ const Content = ({ address, chain }) => {
       if (Object.keys(results).length > 0) {
         setLoading(false)
       }
+      if(results) {
+        setLoading(false)
+      }
     },
     [results]
   )
@@ -59,6 +62,16 @@ const Content = ({ address, chain }) => {
         <br />
         <br />
         <Skeleton height="300px" width="100%" marginBottom="30px" />
+      </>
+    )
+  }
+
+  if (results.length === 0 ) {
+    return (
+      <>
+        <br />
+        <br />
+        <BodyM>No assets being managed yet</BodyM>
       </>
     )
   }

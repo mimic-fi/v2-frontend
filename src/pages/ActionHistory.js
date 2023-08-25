@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { useParams } from 'react-router-dom'
 import { Container } from '../styles/texts'
-import Subnavbar from '../components/Subnavbar'
-import Page from '../components/Page'
 import Table from '../components/Table/Table'
 import TableRow from '../components/Table/TableRow'
 import TableHeader from '../components/Table/TableHeader'
@@ -14,7 +11,6 @@ import useSmartVaultParam from '../hooks/useSmartVaultParam'
 import usePrimitivesFromSmartVault from '../hooks/usePrimitivesFromSmartVault'
 
 const ActionHistory = () => {
-  const params = useParams()
   const id = useSmartVaultParam()
   const smartVault = usePrimitivesFromSmartVault(id, 10000)
   const [width, setWidth] = useState(window.innerWidth)
@@ -25,8 +21,7 @@ const ActionHistory = () => {
   const large = 900
 
   return (
-    <Page>
-      <Subnavbar active="history" address={params.id ? params.id : id} />
+    <>
       <LatestActionsSection>
         <Container>
           <Hxl>
@@ -71,7 +66,7 @@ const ActionHistory = () => {
           )}
         </Container>
       </LatestActionsSection>
-    </Page>
+    </>
   )
 }
 

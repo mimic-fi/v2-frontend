@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { Hs, BodyL } from '../styles/texts'
 import Table from '../components/Table/Table'
@@ -7,17 +7,23 @@ import TableRow from '../components/Table/TableRow'
 import TableCell from '../components/Table/TableCell'
 import Address from '../components/Address'
 import Grantees from '../components/Grantees'
+import ContractParams from './ContractParams'
 import useActionMetadata from '../hooks/useActionMetadata'
 import useActionPermissions from '../hooks/useActionPermissions'
 import { normalizePermissions } from '../utils/smartVault-utils'
 
 const ActionConfig = () => {
-  const actionId = useParams().action
+  const navigate = useNavigate()
+  const params = useParams()
+  const actionId = params.action
   const metadata = useActionMetadata(actionId)
   const { data, isLoading } = useActionPermissions(actionId)
 
   const uniqueGrantees = normalizePermissions(data)
 
+  if (metadata.data === false && !data && uniqueGrantees.length === 0) {
+    navigate('/smart-vaults/' + params.id + '/config')
+  }
   return (
     <>
       <Hs>{metadata?.data?.title} action</Hs>
@@ -48,25 +54,35 @@ const ActionConfig = () => {
       <br />
       <br />
       <br />
+      <ContractParams
+        id={actionId}
+        name={metadata?.data?.title ? metadata.data.title : 'Action'}
+      />
+      <br />
+      <br />
+      <br />
+      <br />
       <Hs>{metadata?.data?.title} permissions</Hs>
       <br />
-      {
-        isLoading ? 
-        'Loading permissions...' : // TODO: fix this loader 
-      <Table>
-        {uniqueGrantees && uniqueGrantees.map((grantee, index) => {
-          return (
-            <TableRow key={index}>
-              <TableCell>
-                <Address address={grantee.id} />
-              </TableCell>
-              <TableCell><Grantees grantees={grantee}/></TableCell>
-            </TableRow>
-          )
-        })}
-      </Table>
-      }
-
+      {isLoading ? (
+        'Loading permissions...' // TODO: fix this loader
+      ) : (
+        <Table>
+          {uniqueGrantees &&
+            uniqueGrantees.map((grantee, index) => {
+              return (
+                <TableRow key={index}>
+                  <TableCell>
+                    <Address address={grantee.id} />
+                  </TableCell>
+                  <TableCell>
+                    <Grantees grantees={grantee} />
+                  </TableCell>
+                </TableRow>
+              )
+            })}
+        </Table>
+      )}
     </>
   )
 }

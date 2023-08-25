@@ -24,7 +24,6 @@ const AddressOnChainDropdown = ({ address }) => {
   const medium = 700
   const { updateChainId } = useAppDispatch()
   const availableChains = useSmartVaultChainCheck(address)
-
   const colorChars = 4
 
   const ChainColor = ({ addressSelected, chainIdToShow, hideShortName }) => {
@@ -97,6 +96,7 @@ const AddressOnChainDropdown = ({ address }) => {
       classNamePrefix="react-select"
     /> // eslint-disable-next-line
   ), [handleChange, availableChains])
+
 
   return availableChains && availableChains.length ? (
     memoizedSelectElement
