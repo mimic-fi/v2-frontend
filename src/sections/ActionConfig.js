@@ -62,7 +62,7 @@ const ActionConfig = () => {
       <br />
       <br />
       <br />
-      <Hs>{metadata?.data?.title} permissions</Hs>
+      {uniqueGrantees && uniqueGrantees.length > 0 && <Hs>{metadata?.data?.title} permissions</Hs>}
       <br />
       {isLoading ? (
         'Loading permissions...' // TODO: fix this loader
