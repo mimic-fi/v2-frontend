@@ -12,7 +12,7 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import { isDevelopment } from './constants/enviroment'
 import theme from './styles/theme.js'
 import Stats from './pages/Stats'
-// import { useChainId } from './hooks/useChainId'
+import { useChainId } from './hooks/useChainId'
 import { CHAIN_INFO } from './constants/chainInfo'
 import EnvHistory from './pages/EnvHistory'
 
