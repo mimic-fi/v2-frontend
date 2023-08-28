@@ -72,8 +72,8 @@ const Submit = styled.button`
 `
 
 const Chain = styled.div`
-  background: #2b2d34;
-  border-radius: 0 40px 40px 0;
+  background: #584caf;
+  border-radius: 0 8px 8px 0;
 `
 const Search = styled.form`
   position: relative;
@@ -93,7 +93,7 @@ const Search = styled.form`
     height: 50px;
     border: 0;
     color: #2f2f2f;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 32px;
   }
   input {
@@ -102,9 +102,9 @@ const Search = styled.form`
     @media only screen and (max-width: 700px) {
       width: calc(100% - 67px);
     }
-    background: #2b2d34;
+    background: #584caf;
     padding: 0 1.6rem;
-    border-radius: 40px 0 0 40px;
+    border-radius: 8px 0 0 8px;
     appearance: none;
     transition: all 0.5s cubic-bezier(0, 0, 0.43, 1.49);
     transition-property: width, border-radius;
@@ -123,11 +123,11 @@ const Search = styled.form`
     right: 0;
     width: 90px;
     font-weight: bold;
-    background: #2b2d34;
-    border-radius: 0 40px 40px 0;
+    background: #584caf;
+    border-radius: 0 8px 8px 0;
   }
   input:not(:placeholder-shown) {
-    border-radius: 40px 0 0 40px;
+    border-radius: 8px 0 0 8px;
     width: calc(100% - 87px);
     @media only screen and (max-width: 700px) {
       width: calc(100% - 67px);

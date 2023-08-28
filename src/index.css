@@ -32,6 +32,30 @@ a, a span, button {
  font-display: swap;
 }
 
+@font-face {
+ font-family: 'DMSans';
+ src: url('./fonts/DMSans-Regular.ttf') format('opentype');
+ font-display: swap;
+}
+
+@font-face {
+ font-family: 'Visby';
+ src: url('./fonts/Visby/VisbyRegular.otf') format('opentype');
+ font-display: swap;
+}
+
+@font-face {
+ font-family: 'DMSansBold';
+ src: url('./fonts/DMSans-Bold.ttf') format('opentype');
+ font-display: swap;
+}
+
+@font-face {
+ font-family: 'VisbyBold';
+ src: url('./fonts/Visby/VisbyBold.otf') format('opentype');
+ font-display: swap;
+}
+
 .success {
   color: #00D095;
 }
