@@ -4,24 +4,28 @@ import { Link } from 'react-router-dom'
 import { Container } from '../styles/texts'
 import defaultImg from '../assets/defaultCard.svg'
 
+
 const ENVIROMENTS = [
   {
     id: '0xd5b927956057075377263aab7f8afc12f85100db',
     name: 'Paraswap Fee Collector',
     logo: 'https://v2-mimic.s3.amazonaws.com/paraswap.png',
-    networks: '7 networks'
+    networks: '7 networks',
+    tasks: '+1685 tasks ran to date'
   },
   {
     id: '0x94dd9c6152a2a0bbcb52d3297b723a6f01d5f9f7',
     name: 'Balancer Fee collector',
     logo: 'https://v2-mimic.s3.amazonaws.com/balancer.png',
-    networks: '5 networks'
+    networks: '2 networks',
+    tasks: '+2685 tasks ran to date'
   },
   {
     id: '0xdab8c0126102db3b5d678475e7f5ff6fbd390a54',
     name: 'Decentraland Mana Swapper',
     logo: 'https://v2-mimic.s3.amazonaws.com/decentraland.png',
-    networks: '2 networks'
+    networks: '1 network',
+    tasks: '+1070 tasks ran to date'
   },
 
 ]
@@ -46,7 +50,7 @@ const AppLandingCard = ({ enviroment }) => {
         </div>
         <Title>{enviroment.name}</Title>
         <p>{enviroment.networks}</p>
-        <p>375k tasks ran to date</p>
+        <p>{enviroment.tasks}</p>
         <p className="bold">View</p>
       </Card>
     </Link>
