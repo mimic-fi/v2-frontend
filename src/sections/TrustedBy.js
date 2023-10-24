@@ -48,7 +48,7 @@ const Box = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 1124px) {
       justify-content: center;
     }
   }
