@@ -31,9 +31,7 @@ const TrustedBy = () => (
 const TrustedBySection = styled.section`
   background: transparent;
   height: auto;
-  @media only screen and (max-width: 700px) {
-    padding: 0;
-  }
+
 `
 
 const Box = styled.div`
@@ -41,7 +39,7 @@ const Box = styled.div`
   margin: auto;
   padding: 70px 0 70px 0;
   @media only screen and (max-width: 700px) {
-    padding: 20px 0 0 0;
+    padding: 120px 0 0 0;
   }
   text-align: center;
   p {
@@ -49,6 +47,9 @@ const Box = styled.div`
   }
   img {
     height: 100px;
+    @media only screen and (max-width: 700px) {
+      height: 70px;
+    }
   }
   div {
     display: flex;
