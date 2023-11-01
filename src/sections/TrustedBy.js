@@ -5,6 +5,8 @@ import balancer from '../assets/trusted/Balancer.svg'
 import dxdao from '../assets/trusted/DXdao.svg'
 import paraswap from '../assets/trusted/Paraswap.svg'
 import tw from '../assets/trusted/Trustwallet.svg'
+import thegraph from '../assets/trusted/thegraph.svg'
+import inch from '../assets/trusted/1inch.svg'
 import descentraland from '../assets/trusted/Descentraland.svg'
 
 const TrustedBy = () => (
@@ -13,11 +15,13 @@ const TrustedBy = () => (
       <Box>
         <BodyL>Trusted by</BodyL>
         <div>
-          <img alt="Balancer" src={tw} />
-          <img alt="Balancer" src={balancer} />
-          <img alt="Paraswap" src={paraswap} />
-          <img alt="DXDao" src={dxdao} />
-          <img alt="Descentraland" src={descentraland} />
+        <img alt="Trustwallet" src={tw} />
+        <img alt="1inch" src={inch} />
+        <img alt="Paraswap" src={paraswap} />
+        <img alt="Balancer" src={balancer} />
+        <img alt="DXDao" src={dxdao} />
+        <img alt="Descentraland" src={descentraland} />
+        <img alt="The graph" src={thegraph} />
         </div>
       </Box>
     </Container>
@@ -43,11 +47,15 @@ const Box = styled.div`
   p {
     color: #a5a1b7;
   }
+  img {
+    height: 100px;
+  }
   div {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+    column-gap: 15px;
     @media only screen and (max-width: 1124px) {
       justify-content: center;
     }
